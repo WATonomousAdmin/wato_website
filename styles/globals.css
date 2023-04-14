@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+div#job-posting > h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+div#job-posting > h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(87, 87, 87);
+}
+
+div#job-posting > p > strong {
+  font-size: 2rem;
+}
+
+div#job-posting > p  {
+  font-size: 1.2em;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+  
+}
+
+
+.container.blogs {
+  max-width: 768px;
+  margin: auto;
+
+  padding: 0 10px;
+}
+
+.blog-btn {
+  display: inline-block;
+  background: steelblue;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.blog-btn:focus {
+  outline: none;
+}
+
+.blog-btn:hover {
+  transform: scale(0.98);
+}
+
+.blog-btn-back {
+  background: #f4f4f4;
+  color: #000;
+  margin-bottom: 20px;
+  margin-top:40px
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.blog-card {
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.blog-card-page {
+  padding: 15px 30px;
+}
+
+.post-title {
+  margin: 10px 0;
+}
+
+.post-date {
+  margin-top:20px;
+  background: #f4f4f4;
+  margin-bottom: 20px;
+  padding: 3px 10px;
+}
+
+.post-body ul,
+ol {
+  font-size: 110%;
+  line-height: 2.3;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.post-body pre {
+  background: #f4f4f4;
+  padding: 20px;
+  margin: 20px 0;
+  line-height: 2.3;
+}
+
+@media (max-width: 500px) {
+  .posts {
+    grid-template-columns: 1fr;
+  }
+}
