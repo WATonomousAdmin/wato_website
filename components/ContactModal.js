@@ -23,7 +23,7 @@ const ContactModal = () => {
                         <div className="font-bold">
                             Contact Us
                         </div>
-                        <ModalButton text={"Instagram"}/>
+                        <ModalButton text={"Jack's Dungeon"}/>
                         <ModalButton text={"Discord"}/>
                         <ModalButton text={"Email"}/>
                     </div>
