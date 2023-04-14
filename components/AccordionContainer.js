@@ -1,0 +1,57 @@
+import {useState} from "react";
+
+const AccordionCategory = ({active, idx, onToggle, title, elements}) => {
+    return (
+        <div>
+            <div onClick={() => onToggle(idx)} className="text-xl text-white w-auto bg-slate-500 rounded-sm p-3 font-medium flex justify-between cursor-pointer my-5">
+                <div>
+                    {title}
+                </div>
+                <div>
+                {
+                    active ? "▲" : "▼"
+                }
+                </div>
+            </div>
+            <div className={`flex transition-all duration-500 ${!active ? "opacity-0 max-h-0 overflow-y-hidden" : "opacity-100 max-h-96"}`}>
+                {
+                    elements.map(e => {return e})
+                }
+            </div>
+        </div>
+    );
+}
+
+/*
+data: [
+    {
+        title: "Accordion 1";
+        elements: [<Card>]
+    }
+]
+*/
+const AccordionContainer = ({data}) => {
+    const [selectedIndex, setSelectedIndex] = useState(-1);
+    const onToggle = (idx) => {
+        if (selectedIndex === idx)
+            setSelectedIndex(-1);
+        else
+            setSelectedIndex(idx);
+    }
+    return (
+        <div>
+            {
+                data.map((d, idx) => {
+                    return <AccordionCategory
+                        active={selectedIndex === idx}
+                        idx={idx}
+                        onToggle={onToggle}
+                        title={d.title}
+                        elements={d.elements} />
+                })
+            }
+        </div>
+    );
+}
+
+export default AccordionContainer;
