@@ -2,8 +2,7 @@
 - [WATO amazing website by amazing people](#wato-amazing-website-by-amazing-people)
 - [How To:](#how-to)
   - [Create New Job Postings](#create-new-job-postings)
-  - [Markdown file instruction](#markdown-file-instruction)
-    - [follow this format:](#follow-this-format)
+  - [Create New Blog Posts](#create-new-blog-posts)
 
 # How To:
 
@@ -34,8 +33,8 @@ team: Track Validation
 - Refer to a markdown cheat sheet such as [this](https://www.markdownguide.org/cheat-sheet/) for more info about what formatting styles are possible. Note some of the more advanced syntax might not work.
 
 
-## Markdown file instruction
-### follow this format:
+## Create New Blog Posts
+
 ```
 ---
 title: 'blog 2'  
