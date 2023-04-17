@@ -1,13 +1,13 @@
 ---
-title: "On-Call Engineer"
-team: "Server Cluster"
-subteam: "Site Reliability"
+title: "Pipeline Engineer"
+team: "Autonomous Software"
+subteam: "Computer Vision"
 location: "Waterloo, ON"
-type: "Full Time"
+type: "Part Time"
 ---
 
-# On-Call Engineer
-## Server Cluster - Site Reliability
+# Pipeline Engineer
+## Autonomous Software - Computer Vision
 
 **What is WATOnomous?**
 

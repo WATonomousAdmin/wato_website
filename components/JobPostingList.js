@@ -10,8 +10,9 @@ const JobPostingList = ({data}) => {
                 return (
                 <Card
                     sz={"sq"}
-                    title={posting.team} 
-                    body={posting.title}
+                    title={posting.title}
+                    subtitle={`${posting.team} - ${posting.subteam}`} 
+                    body={[posting.location, posting.type]}
                     cta={"Apply"}
                     buttonLink={`/JobPostings/${posting.id}`}/>
                 )

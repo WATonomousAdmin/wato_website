@@ -72,8 +72,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
         <Headers />
-        <ContactModal></ContactModal>
         <main className={styrene.className}>
+          <ContactModal></ContactModal>
           <Component {...pageProps} />
         </main>
     </>

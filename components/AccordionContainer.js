@@ -13,7 +13,7 @@ const AccordionCategory = ({active, idx, onToggle, title, elements}) => {
                 }
                 </div>
             </div>
-            <div className={`flex transition-all duration-500 ${!active ? "opacity-0 max-h-0 overflow-y-hidden" : "opacity-100 max-h-96"}`}>
+            <div className={`flex flex-wrap transition-all duration-500 ${!active ? "opacity-0 max-h-0 overflow-y-hidden" : "max-h-screen opacity-100"}`}>
                 {
                     elements.map(e => {return e})
                 }

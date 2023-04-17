@@ -1,13 +1,13 @@
 ---
-title: "On-Call Engineer"
-team: "Server Cluster"
-subteam: "Site Reliability"
+title: "Bus Engineer"
+team: "Vehicle Platform"
+subteam: "Power Systems"
 location: "Waterloo, ON"
-type: "Full Time"
+type: "Part Time"
 ---
 
-# On-Call Engineer
-## Server Cluster - Site Reliability
+# Bus Engineer
+## Vehicle Platform - Power Systems
 
 **What is WATOnomous?**
 

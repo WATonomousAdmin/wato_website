@@ -1,13 +1,13 @@
 ---
-title: "On-Call Engineer"
-team: "Server Cluster"
-subteam: "Site Reliability"
+title: "Graphic Designer"
+team: "BizOps"
+subteam: "Design"
 location: "Waterloo, ON"
-type: "Full Time"
+type: "Part Time"
 ---
 
-# On-Call Engineer
-## Server Cluster - Site Reliability
+# Graphic Designer
+## BizOps - Design
 
 **What is WATOnomous?**
 
@@ -19,7 +19,9 @@ Looking ahead, we are excited to pursue more opportunities, including several re
 
 **About the Role**
 
-You will do some cool stuff. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae commodo sem. Ut egestas justo ac nulla sodales, id faucibus enim malesuada. Morbi elementum ornare ligula, eu venenatis odio mollis sit amet. Aliquam euismod tristique dolor ut hendrerit. Sed dui est, congue sit amet lacinia ut, pharetra et magna. Aliquam erat volutpat. Fusce feugiat, augue a commodo blandit, sapien augue rutrum erat, ut semper diam arcu vitae erat. Sed at tempor sem, sit amet sollicitudin augue. Nullam orci mi, tristique sit amet volutpat eget, aliquam quis odio.
+Organizing logistics for test track days, including booking testing locations, transportation, etc…​
+
+Lead: TBD
 
 **Key Requirements**
 

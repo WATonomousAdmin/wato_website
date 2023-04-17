@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Card = ({sz, title, body, cta, buttonLink}) => {
+const Card = ({sz, title, subtitle, body, cta, buttonLink}) => {
     let size = "w-48";
     switch (sz) {
         case "sq":
@@ -8,21 +8,38 @@ const Card = ({sz, title, body, cta, buttonLink}) => {
             break;
     }
     return (
-        <div className={`justify-between bg-slate-200 ${size} m-5 p-5 flex flex-col rounded-sm overflow-y-hidden`}>
-            <div className="font-medium text-3xl">
+        <div className={`w-[40vw] text-lg flex flex-col bg-zinc-100 p-5 my-10 rounded-md mr-10`}>
+            <div className="font-normal">
+                {subtitle.toUpperCase()}
+            </div>
+            <div className="font-bold text-4xl py-8">
                 {title}
             </div>
-            <div className="text-2xl my-3">
-                {body}
+            <div className="border-t-2 border-solid border-zinc-900 font-normal text-lg pt-2">
+                {
+                body.map(entry => {
+                    return <div>{entry.toUpperCase()}</div>
+                })
+                }
             </div>
+            <div className="flex items-end justify-end">
+                <Link href={buttonLink}>
+                    <div className="font-medium text-2xl text-zinc-100 bg-gradient-to-r from-cyan-900 to-cyan-400 rounded md py-2 px-7">
+                        {cta}
+                    </div>
+                </Link>
+            </div>
+        </div>
+    );
+}
+
+/*
             <Link href={buttonLink}>
                 <div className="font-medium self-end place-self-end text-white bg-slate-500 py-2 px-4 rounded-md cursor-pointer">
                     {cta}
                 </div>
             </Link>
 
-        </div>
-    );
-}
+*/
 
 export default Card;
