@@ -1,37 +1,34 @@
 import Link from "next/link";
 
-const Card = ({sz, title, subtitle, body, cta, buttonLink}) => {
-    let size = "w-48";
-    switch (sz) {
-        case "sq":
-            size = "w-64";
-            break;
-    }
-    return (
-        <div className={`w-[40vw] text-lg flex flex-col bg-zinc-100 p-5 my-10 rounded-md mr-10`}>
-            <div className="font-normal">
-                {subtitle.toUpperCase()}
-            </div>
-            <div className="font-bold text-4xl py-8">
-                {title}
-            </div>
-            <div className="border-t-2 border-solid border-zinc-900 font-normal text-lg pt-2">
-                {
-                body.map(entry => {
-                    return <div>{entry.toUpperCase()}</div>
-                })
-                }
-            </div>
-            <div className="flex items-end justify-end">
-                <Link href={buttonLink}>
-                    <div className="font-medium text-2xl text-zinc-100 bg-gradient-to-r from-cyan-900 to-cyan-400 rounded md py-2 px-7">
-                        {cta}
-                    </div>
-                </Link>
-            </div>
-        </div>
-    );
-}
+const Card = ({ sz, title, subtitle, body, cta, buttonLink }) => {
+  let size = "w-48";
+  switch (sz) {
+    case "sq":
+      size = "w-64";
+      break;
+  }
+  return (
+    <div
+      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-zinc-100 p-5 my-10 rounded-md mr-10`}
+    >
+      <div className="font-normal">{subtitle.toUpperCase()}</div>
+      <div className="font-bold text-4xl py-8">{title}</div>
+      <div className="border-t-2 border-solid border-zinc-900 font-normal text-lg pt-2">
+        {body.map((entry) => {
+          return <div>{entry.toUpperCase()}</div>;
+        })}
+      </div>
+      <div className="flex items-end justify-end">
+        <Link href={buttonLink} className="align-top">
+          {/* py-2 px-7 */}
+          <div className="align-top font-medium text-2xl text-zinc-100 bg-gradient-to-r from-[#1F5D96] to-[#66DDC8] rounded-md flex items-center pb-2 pt-1 px-3">
+            {cta}
+          </div>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 /*
             <Link href={buttonLink}>

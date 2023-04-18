@@ -13,10 +13,10 @@ const ModalButton = ({ text, src }) => {
 const IconButton = ({ content, onClick }) => {
   return (
     <div
-      className="text-black bg-[#82A5C4] p-2 rounded-md ml-1 w-10 h-10 flex justify-center align-middle cursor-pointer"
+      className="text-black bg-[#82A5C4] p-2 rounded-md ml-2 w-12 h-12 flex justify-center items-center cursor-pointer"
       onClick={onClick}
     >
-      {content}
+      <i className={`fa-brands ${content} text-3xl`} />
     </div>
   );
 };
@@ -41,27 +41,25 @@ const ContactModal = () => {
           }}
         >
           <div
-            className="bg-zinc-700 text-zinc-100 rounded-md w-[60vw] h-[700px] grid grid-cols-2 overflow-hidden"
+            className="bg-zinc-700 text-zinc-100 rounded-md w-[90vw] md:w-[60vw] h-4/5 grid grid-cols-1 xl:grid-cols-2 overflow-hidden"
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
-            <div className="flex flex-col px-16 py-10 bg-white text-zinc-800">
+            <div className="flex flex-col px-14 md:px-16 py-8 md:py-10 bg-white text-zinc-800">
               <div className="font-black text-4xl">
                 Let's design
-                <br />
                 the future together
               </div>
               <div className="font-medium text-sm my-2">
                 Shoot us a message! We'd love to hear from you
-                <br />
                 and collaborate on cool projects!
               </div>
-              <div className="my-2 text-xs bg-[#85A7C6] text-white p-3 rounded-md w-fit text-center font-base">
-                <div>(Email Logo)</div>
+              <div className="my-2 text-xs bg-[#85A7C6] text-white py-2 px-4 rounded-md w-fit text-center font-medium">
+                <i className="fa-solid fa-envelope text-lg"></i>
                 <div>hello@watonomous.com</div>
               </div>
-              <div className="grid grid-cols-2 grid-rows-[7] gap-x-5 gap-y-1 text-[#ACB1B7] text-xs w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2 grid-rows-[7] gap-x-5 gap-y-1 text-[#ACB1B7] text-xs w-full">
                 <div>
                   <label htmlFor="firstName" className="font-medium">
                     First Name
@@ -86,7 +84,7 @@ const ContactModal = () => {
                     name="lastName"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 lg:col-span-2 xl:col-span-1 2xl:col-span-2">
                   <label htmlFor="email" className="font-medium">
                     Email
                   </label>
@@ -98,7 +96,7 @@ const ContactModal = () => {
                     name="email"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 lg:col-span-2 xl:col-span-1 2xl:col-span-2">
                   <label htmlFor="purpose" className="font-medium">
                     Purpose
                   </label>
@@ -114,7 +112,7 @@ const ContactModal = () => {
                     <option value="Sponsorship">Sponsorship</option>
                   </select>
                 </div>
-                <div className="col-span-2 row-span-5">
+                <div className="col-span-1 lg:col-span-2 xl:col-span-1 2xl:col-span-2 row-span-5">
                   <label htmlFor="message" className="font-medium">
                     Message
                   </label>
@@ -127,18 +125,20 @@ const ContactModal = () => {
                     style={{ resize: "none" }}
                   />
                 </div>
-                <div>
-                  <label className="font-bold text-[#2F2E2E] text-base">
+                <div className="flex items-center my-1">
+                  <label className="font-bold text-[#2F2E2E] text-base cursor-pointer">
                     <input
                       className="hidden"
                       id="upload"
                       name="upload"
                       type="file"
                     />
-                    <div>[^] UPLOAD FILE</div>
+                    <div>
+                      <i className="fa-solid fa-upload text-lg"></i> UPLOAD FILE
+                    </div>
                   </label>
                 </div>
-                <div>
+                <div className="my-1">
                   <input
                     className="bg-[#85A7C6] rounded-md text-white py-2 cursor-pointer text-base w-full"
                     type="submit"
@@ -147,7 +147,7 @@ const ContactModal = () => {
                 </div>
               </div>
             </div>
-            <div className="overflow-x-hidden bg-white bg-ModalRight relative">
+            <div className="hidden xl:block overflow-x-hidden bg-white bg-ModalRight relative ">
               <div className="bg-zinc-900 h-64 w-4/5 rounded-r-md absolute top-8">
                 <Image src={e7} alt="e7" />
               </div>
@@ -160,7 +160,7 @@ const ContactModal = () => {
                   200 University Avenue Waterloo, ON N2L 3G1 Canda
                 </div>
               </div>
-              <div className="absolute bottom-10 right-0 flex flex-col items-end mr-10">
+              <div className="absolute bottom-0 right-0 flex flex-col items-end mr-10 mb-10">
                 <div className="font-medium text-3xl tracking-wider">
                   WATONOMOUS
                 </div>
@@ -170,10 +170,10 @@ const ContactModal = () => {
                   drive themselves
                 </div>
                 <div className="flex mt-2">
-                  <IconButton content={"ig"} />
-                  <IconButton content={"tt"} />
-                  <IconButton content={"li"} />
-                  <IconButton content={"yt"} />
+                  <IconButton content={"fa-instagram"} />
+                  <IconButton content={"fa-twitter"} />
+                  <IconButton content={"fa-linkedin"} />
+                  <IconButton content={"fa-youtube"} />
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const fields = [
   "firstName",
@@ -19,7 +19,7 @@ const FormInput = ({
   title,
   type,
   required,
-  placeholder,
+  span,
   formData,
   onFormChange,
   min,
@@ -28,12 +28,13 @@ const FormInput = ({
 }) => {
   let element = (
     <input
-      className={`bg-blue-100 mb-5 ${type != "checkbox" && "w-64"} p-1`}
+      className={`bg-[#F6F8FA] w-full text-xl ${
+        type != "checkbox" && "w-64"
+      } p-1`}
       id={id}
       name={id}
       value={formData[id] || ""}
       onChange={onFormChange}
-      placeholder={placeholder}
       type={type}
       required={required}
     />
@@ -58,7 +59,7 @@ const FormInput = ({
   }
 
   return (
-    <div>
+    <div className={`col-span-1 ${span && "lg:col-span-2"} my-2 lg:my-0`}>
       <label htmlFor={id} className="font-medium">
         {title}
       </label>{" "}
@@ -71,7 +72,7 @@ const FormInput = ({
 
 const UrlContainer = ({ content, onRemove }) => {
   return (
-    <div className="bg-blue-100 border-2 border-solid border-blue-300 h-[1.6em] items-center px-1 mr-1 rounded-md flex">
+    <div className="bg-blue-100 border-2 border-solid border-blue-300 items-center px-1 mb-1 mr-1 rounded-md flex w-max float-left">
       <div className="">{content}</div>
       <div
         className="text-zinc-500 ml-1 cursor-pointer"
@@ -120,11 +121,22 @@ const JobForm = ({ id }) => {
 
   const onSpacePressed = (e) => {
     if (e.key === " ") {
+      const entry = e.target.value;
+      console.log("v ", e.target.value);
+      console.log(formData.urls);
       setFormData((data) => ({
         ...data,
-        urls: [...data.urls, e.target.value.trim()].filter((x) => x.length > 0),
+        urls: [...data.urls, entry.trim()].filter((x) => x.length > 0),
       }));
+      console.log(formData.urls);
       e.target.value = "";
+      console.log("wow ", formData);
+    }
+    if (e.key === "Backspace" && e.target.value.length === 0) {
+      setFormData((data) => ({
+        ...data,
+        urls: data.urls.slice(0, -1),
+      }));
     }
   };
 
@@ -135,14 +147,6 @@ const JobForm = ({ id }) => {
     }));
   };
 
-  useEffect(() => {
-    document
-      .querySelector("#urls")
-      .removeEventListener("keyup", onSpacePressed);
-
-    document.querySelector("#urls").addEventListener("keyup", onSpacePressed);
-  }, []);
-
   return (
     <div className="py-3 text-xl">
       <form
@@ -151,117 +155,152 @@ const JobForm = ({ id }) => {
           onFormSubmit(e);
         }}
       >
-        <FormInput
-          id={fields[0]}
-          title={"First Name"}
-          type={"input"}
-          required={true}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[1]}
-          title={"Last Name"}
-          type={"input"}
-          required={true}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[2]}
-          title={"Email Address"}
-          type={"input"}
-          required={true}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[3]}
-          title={"Program and Grad Year"}
-          type={"input"}
-          required={true}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[4]}
-          title={"How Did You Hear About This Position?"}
-          required={true}
-          type={"input"}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
+        <div className="lg:grid lg:grid-cols-2 md:gap-2">
+          <FormInput
+            id={fields[0]}
+            title={"First Name"}
+            type={"input"}
+            required={true}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+          <FormInput
+            id={fields[1]}
+            title={"Last Name"}
+            type={"input"}
+            required={true}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+          <FormInput
+            id={fields[2]}
+            title={"Email Address"}
+            type={"input"}
+            required={true}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+          <FormInput
+            id={fields[3]}
+            title={"Program and Grad Year"}
+            type={"input"}
+            required={true}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+          <FormInput
+            id={fields[4]}
+            title={"How Did You Hear About This Position?"}
+            required={true}
+            type={"input"}
+            formData={formData}
+            span={true}
+            onFormChange={onFormChange}
+          />
 
-        <FormInput
-          id={fields[5]}
-          title={"Social URLs (Linkedin, Github, etc.)"}
-          type={"input"}
-          placeholder={"Press space after a URL"}
-          formData={formData}
-          onFormChange={null}
-        />
-        <div className="-mt-3 min-h-[2em] flex">
-          {formData.urls.map((url) => {
-            return (
-              <UrlContainer content={url} onRemove={removeURL}></UrlContainer>
-            );
-          })}
+          <div className="flex flex-col col-span-2">
+            <label htmlFor={fields[5]} className="font-medium">
+              Social URLs (Linkedin, Github, etc.)
+            </label>
+            <div className={`flex bg-[#F6F8FA] text-xl p-1 w-full`}>
+              <div className={`min-h-[2em] flex flex-wrap w-full`}>
+                {formData.urls.map((url) => {
+                  return (
+                    <UrlContainer
+                      content={url}
+                      onRemove={removeURL}
+                    ></UrlContainer>
+                  );
+                })}
+                <input
+                  id={fields[5]}
+                  type={"input"}
+                  placeholder={"Press space after a URL"}
+                  onKeyDown={onSpacePressed}
+                  className={
+                    "bg-transparent focus:outline-none overflow-auto flex-1"
+                  }
+                />
+              </div>
+            </div>
+          </div>
+
+          <FormInput
+            id={fields[6]}
+            title={"Personal Website/Portfolio"}
+            type={"input"}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+          <FormInput
+            id={fields[7]}
+            title={"Last School Term Completed"}
+            required={true}
+            type={"input"}
+            formData={formData}
+            onFormChange={onFormChange}
+          />
+
+          <div>
+            <div>
+              <label htmlFor={fields[8]} className="font-medium">
+                Term Type in Summer 2023
+              </label>
+              <span className="text-red-400"> *</span>
+            </div>
+            <select
+              className="bg-[#F6F8FA] text-xl p-1"
+              onChange={onFormChange}
+              name={fields[8]}
+              value={formData.termType || "School"}
+              required
+            >
+              <option value="School">School</option>
+              <option value="Coop">Coop</option>
+            </select>
+          </div>
+
+          <div>
+            <div>
+              <label htmlFor={fields[9]} className="font-medium">
+                Will you be in Waterloo Summer in 2023?
+              </label>
+              <span className="text-red-400"> *</span>
+            </div>
+            <select
+              className="bg-[#F6F8FA] text-xl p-1"
+              onChange={onFormChange}
+              name={fields[9]}
+              value={formData.inPerson || "Yes"}
+              required
+            >
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div className="col-span-2 flex flex-col items-center">
+            <div>
+              <label htmlFor={fields[10]} className="font-medium">
+                Devotion
+              </label>
+              <span className="text-red-400"> *</span>
+            </div>
+            <input
+              className={`bg-[#F6F8FA] my-2 h-5 w-full text-xl p-1 slider-thumb appearance-none rounded-full`}
+              id={fields[10]}
+              name={fields[10]}
+              value={formData[fields[10]] || ""}
+              onChange={onFormChange}
+              type={"range"}
+              required={true}
+              min={1}
+              max={10}
+              step={1}
+            />
+          </div>
         </div>
-
-        <FormInput
-          id={fields[6]}
-          title={"Personal Website/Portfolio"}
-          type={"input"}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[7]}
-          title={"Last School Term Completed"}
-          required={true}
-          type={"input"}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-
-        <div>
-          <label htmlFor={fields[8]} className="font-medium">
-            Term Type in Summer 2023
-          </label>
-          <span className="text-red-400"> *</span>
-        </div>
-        <select
-          className="bg-blue-100 mb-5"
-          onChange={onFormChange}
-          name={fields[8]}
-          value={formData.termType || "School"}
-          required
-        >
-          <option value="School">School</option>
-          <option value="Coop">Coop</option>
-        </select>
-
-        <FormInput
-          id={fields[9]}
-          title={"Will you be in Waterloo in Summer 2023?"}
-          type={"checkbox"}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-        <FormInput
-          id={fields[10]}
-          title={"Devotion"}
-          type={"range"}
-          required={true}
-          min={1}
-          step={1}
-          max={10}
-          formData={formData}
-          onFormChange={onFormChange}
-        />
-
         <input
-          className="bg-blue-100 font-medium py-1 px-2 rounded-sm cursor-pointer"
+          className="bg-blue-100 font-medium my-2 py-1 px-2 rounded-sm cursor-pointer"
           type={"submit"}
           value={"Submit"}
         />

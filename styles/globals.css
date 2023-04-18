@@ -128,3 +128,12 @@ ol {
     grid-template-columns: 1fr;
   }
 }
+
+
+.slider-thumb::-webkit-slider-thumb {
+  @apply appearance-none w-8 h-8 rounded-full bg-[#82A5C4] cursor-pointer;
+}
+
+.slider-thumb::-webkit-slider-thumb:hover {
+  @apply bg-[#9bbbd8];
+}

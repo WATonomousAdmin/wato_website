@@ -17,22 +17,22 @@ const JobPostings = ({allPostingsData}) => {
     return (
     <div className="overflow-x-hidden font-bold">
         <div className="flex justify-left items-end w-screen h-screen bg-JobPostingHero">
-            <div className="font-bold text-6xl text-white m-32">
+            <div className="font-bold text-4xl md:text-6xl text-white my-32 mx-8 md:mx-16 lg:mx-32">
                 Summer 2023 Applications
                 <br></br>
                 Are Now Open!
             </div>
         </div>
         <div className="bg-gradient-to-b from-zinc-900 to-zinc-700">
-            <div className="p-32 flex items-center">
-                <div className="h-96 w-[200em] relative">
+            <div className="p-6 md:p-16 lg:p-32 flex items-center">
+                <div className="hidden xl:block h-96 w-2/5 relative">
                     <Image src={working} alt={"People Working"} layout="fill" objectFit="contain"></Image>  
                 </div>
-                <div className="flex flex-col text-white px-10">
-                    <div className="font-bold text-6xl mb-10">
+                <div className="flex flex-col w-full xl:w-3/5 text-white px-10">
+                    <div className="font-bold text-4xl lg:text-6xl mb-10">
                         Why Choose WATonomous?
                     </div>
-                    <div className="font-medium text-2xl">
+                    <div className="font-medium text-md md:text-xl lg:text-2xl">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in malesuada ex,
                         at dignissim libero. Vestibulum imperdiet fermentum risus sit amet sodales. Nulla
                         facilisi. Cras vitae scelerisque lacus. Quisque quis mauris placerat, posuere
@@ -43,7 +43,7 @@ const JobPostings = ({allPostingsData}) => {
                     </div>
                 </div>
             </div>
-            <div className="mx-32 flex flex-col" style={{"overflow-anchor": "none"}}>
+            <div className="m-8 sm:m-16 md:mx-32 flex flex-col" style={{"overflow-anchor": "none"}}>
                 {/* <JobPostingList allPostingsData={allPostingsData}/> */}
                 <div className="text-white text-5xl text-center mb-16">
                     Open Roles

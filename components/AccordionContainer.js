@@ -3,7 +3,7 @@ import {useState} from "react";
 const AccordionCategory = ({active, idx, onToggle, title, elements}) => {
     return (
         <div>
-            <div onClick={() => onToggle(idx)} className="text-3xl text-zinc-900 w-auto bg-sky-100 rounded-md p-5 font-medium flex justify-between cursor-pointer my-2">
+            <div onClick={() => onToggle(idx)} className="text-2xl sm:text-3xl text-zinc-900 w-auto bg-sky-100 rounded-md p-5 font-medium flex justify-between cursor-pointer my-2">
                 <div>
                     {title}
                 </div>

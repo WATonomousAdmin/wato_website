@@ -2,6 +2,7 @@ import ContactModal from '../components/ContactModal'
 import "../styles/globals.css";
 import Headers from "../components/Header";
 import localFont from "next/font/local";
+import Head from 'next/head';
 
 const styrene = localFont({
   src: [
@@ -71,6 +72,10 @@ const styrene = localFont({
 function MyApp({ Component, pageProps }) {
   return (
     <>
+        <Head>
+          <title>WATonomous</title>
+          <script src="https://kit.fontawesome.com/f419351c8b.js" crossorigin="anonymous"></script>
+        </Head>
         <Headers />
         <main className={styrene.className}>
           <ContactModal></ContactModal>
