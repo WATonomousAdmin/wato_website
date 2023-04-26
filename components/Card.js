@@ -21,7 +21,7 @@ const Card = ({ sz, title, subtitle, body, cta, buttonLink }) => {
       <div className="flex items-end justify-end">
         <Link href={buttonLink} className="align-top">
           {/* py-2 px-7 */}
-          <div className="align-top font-medium text-2xl text-zinc-100 bg-gradient-to-r from-[#1F5D96] to-[#66DDC8] rounded-md flex items-center pb-2 pt-1 px-3">
+          <div className="align-top font-medium text-2xl text-zinc-100 bg-[#1F5D96] rounded-md flex items-center pb-2 pt-1 px-3">
             {cta}
           </div>
         </Link>

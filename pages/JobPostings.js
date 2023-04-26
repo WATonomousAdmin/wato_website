@@ -15,7 +15,7 @@ export const getStaticProps = async () => {
 const JobPostings = ({allPostingsData}) => {
     console.log(allPostingsData);
     return (
-    <div className="overflow-x-hidden font-bold">
+    <div className="overflow-x-hidden font-bold bg-JobPostingBg bg-black bg-cover">
         <div className="flex justify-left items-end w-screen h-screen bg-JobPostingHero">
             <div className="font-bold text-4xl md:text-6xl text-white my-32 mx-8 md:mx-16 lg:mx-32">
                 Summer 2023 Applications
@@ -23,7 +23,7 @@ const JobPostings = ({allPostingsData}) => {
                 Are Now Open!
             </div>
         </div>
-        <div className="bg-gradient-to-b from-zinc-900 to-zinc-700">
+        <div>
             <div className="p-6 md:p-16 lg:p-32 flex items-center">
                 <div className="hidden xl:block h-96 w-2/5 relative">
                     <Image src={working} alt={"People Working"} layout="fill" objectFit="contain"></Image>  
@@ -43,7 +43,7 @@ const JobPostings = ({allPostingsData}) => {
                     </div>
                 </div>
             </div>
-            <div className="m-8 sm:m-16 md:mx-32 flex flex-col" style={{"overflow-anchor": "none"}}>
+            <div className="m-8 sm:m-16 md:mx-32 flex flex-col ">
                 {/* <JobPostingList allPostingsData={allPostingsData}/> */}
                 <div className="text-white text-5xl text-center mb-16">
                     Open Roles

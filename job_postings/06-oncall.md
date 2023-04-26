@@ -11,6 +11,15 @@ type: "Full Time"
 
 **What is WATOnomous?**
 
+normal text
+**bold text**
+*italic text*
+- point 1
+- point 2
+
+1. number 1
+2. number 2
+
 WATonomous is a student design team at the University of Waterloo at the forefront of design, creation, and neural training for autonomous self-driving vehicles. We are proud to have finished 2nd place in the SAE AutoDrive Challenge, an international competition to build a Level 4 autonomous vehicle in four years.
 
 Following the competition, we continued our path towards perfect autonomy, completing research papers on various autonomous vehicle technologies including action classification, control, and environment modeling. We have a track record of submitting to prestigious research conferences like ICRA, ICVES, and ITS.

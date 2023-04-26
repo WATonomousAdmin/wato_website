@@ -104,19 +104,22 @@ const JobForm = ({ id }) => {
     }));
   };
 
-  const onFormSubmit = (e) => {
+  const onFormSubmit = async (e) => {
     e.preventDefault();
     const data = { ...formData };
     setFormData({ ...defaultForm });
-    console.log("DATA: ", data);
+
     const payload = [data["id"]];
     for (let field of fields) {
       payload.push((data[field] ?? "").toString());
     }
-    fetch("/api/jobpostings/apply", {
+
+    const res = await fetch("/api/jobpostings/apply", {
       method: "POST",
       body: JSON.stringify({ row: [payload] }),
     });
+
+    console.log(res);
   };
 
   const onSpacePressed = (e) => {
@@ -148,14 +151,14 @@ const JobForm = ({ id }) => {
   };
 
   return (
-    <div className="py-3 text-xl">
+    <div className="py-5 text-xl" id="apply">
       <form
         id="job-form"
         onSubmit={(e) => {
           onFormSubmit(e);
         }}
       >
-        <div className="lg:grid lg:grid-cols-2 md:gap-2">
+        <div className="lg:grid lg:grid-cols-2 md:gap-x-4 md:gap-y-6">
           <FormInput
             id={fields[0]}
             title={"First Name"}
@@ -249,7 +252,7 @@ const JobForm = ({ id }) => {
               <span className="text-red-400"> *</span>
             </div>
             <select
-              className="bg-[#F6F8FA] text-xl p-1"
+              className="bg-[#F6F8FA] text-xl p-1 w-full"
               onChange={onFormChange}
               name={fields[8]}
               value={formData.termType || "School"}
@@ -268,7 +271,7 @@ const JobForm = ({ id }) => {
               <span className="text-red-400"> *</span>
             </div>
             <select
-              className="bg-[#F6F8FA] text-xl p-1"
+              className="bg-[#F6F8FA] text-xl p-1 w-full"
               onChange={onFormChange}
               name={fields[9]}
               value={formData.inPerson || "Yes"}
@@ -300,7 +303,7 @@ const JobForm = ({ id }) => {
           </div>
         </div>
         <input
-          className="bg-blue-100 font-medium my-2 py-1 px-2 rounded-sm cursor-pointer"
+          className="align-top font-medium text-2xl mt-5 text-zinc-100 bg-[#1F5D96] rounded-md flex items-center pb-2 pt-1 px-3 cursor-pointer"
           type={"submit"}
           value={"Submit"}
         />

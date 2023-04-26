@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul, ol {
+    list-style: revert;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,10 +29,6 @@ div#job-posting > h2 {
   font-size: 2em;
   font-weight: bold;
   color: rgb(87, 87, 87);
-}
-
-div#job-posting > p > strong {
-  font-size: 2rem;
 }
 
 div#job-posting > p  {
