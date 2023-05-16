@@ -9,7 +9,7 @@ const Post = ({post}) => {
 
             <h3>{post.frontmatter.title}</h3>
             <p>{post.frontmatter.description}</p>
-            <Link href={`/blogs/${post.blog}`}>
+            <Link legacyBehavior href={`/blogs/${post.blog}`}>
             <a className='blog-btn'>Read More</a>
             </Link>
         </div>
