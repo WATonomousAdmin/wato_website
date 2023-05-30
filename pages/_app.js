@@ -1,4 +1,4 @@
-import ContactModal from '../components/ContactModal'
+import ContactModal from '../components/ContactModal/ContactModal'
 import "../styles/globals.css";
 import Headers from "../components/Header";
 import localFont from "next/font/local";
@@ -74,7 +74,7 @@ function MyApp({ Component, pageProps }) {
     <>
         <Head>
           <title>WATonomous</title>
-          <script src="https://kit.fontawesome.com/f419351c8b.js" crossorigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/f419351c8b.js" crossOrigin="anonymous"></script>
         </Head>
         <Headers />
         <main className={styrene.className}>

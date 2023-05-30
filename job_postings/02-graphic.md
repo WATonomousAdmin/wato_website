@@ -6,9 +6,6 @@ location: "Waterloo, ON"
 type: "Part Time"
 ---
 
-# Graphic Designer
-## BizOps - Design
-
 **What is WATOnomous?**
 
 WATonomous is a student design team at the University of Waterloo at the forefront of design, creation, and neural training for autonomous self-driving vehicles. We are proud to have finished 2nd place in the SAE AutoDrive Challenge, an international competition to build a Level 4 autonomous vehicle in four years.

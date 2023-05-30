@@ -16,8 +16,11 @@
 **e.g.**
 ```
 ---
-title: Pipeline Developer
-team: Track Validation
+title: "Graphic Designer"
+team: "BizOps"
+subteam: "Design"
+location: "Waterloo, ON"
+type: "Part Time"
 ---
 ```
 *These details will be visible on the job posting list.*

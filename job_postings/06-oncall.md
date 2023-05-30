@@ -6,9 +6,6 @@ location: "Waterloo, ON"
 type: "Full Time"
 ---
 
-# On-Call Engineer
-## Server Cluster - Site Reliability
-
 **What is WATOnomous?**
 
 normal text

@@ -1,62 +1,103 @@
 import { getPostings } from "../lib/jobPostingsDAL.js";
+
 import JobPostingList from "../components/JobPostingList.js";
-import Image from "next/image";
-import working from '../public/imgs/working.jpg';
+import ContentPane from "../components/ContentPane.js";
+
+import img01 from "../public/imgs/jobpostings-01.jpg";
+import img02 from "../public/imgs/jobpostings-02.jpg";
+import img03 from "../public/imgs/jobpostings-03.jpg";
+import Hero from "../components/Hero.js";
+import Banner from "../components/Banner.js";
+import CenteredContentPane from "../components/CenteredContentPane.js";
+import Carousel from "../components/Carousel/Carousel.js";
 
 export const getStaticProps = async () => {
-    const allPostingsData = getPostings();
-    return {
-        props: {
-            allPostingsData
-        }
-    };
-}
+  const allPostingsData = getPostings();
+  return {
+    props: {
+      allPostingsData,
+    },
+  };
+};
 
-const JobPostings = ({allPostingsData}) => {
-    console.log(allPostingsData);
-    return (
-    <div className="overflow-x-hidden font-bold bg-JobPostingBg bg-black bg-cover">
-        <div className="flex justify-left items-end w-screen h-screen bg-JobPostingHero">
-            <div className="font-bold text-4xl md:text-6xl text-white my-32 mx-8 md:mx-16 lg:mx-32">
-                Summer 2023 Applications
-                <br></br>
-                Are Now Open!
-            </div>
-        </div>
-        <div>
-            <div className="p-6 md:p-16 lg:p-32 flex items-center">
-                <div className="hidden xl:block h-96 w-2/5 relative">
-                    <Image src={working} alt={"People Working"} layout="fill" objectFit="contain"></Image>  
-                </div>
-                <div className="flex flex-col w-full xl:w-3/5 text-white px-10">
-                    <div className="font-bold text-4xl lg:text-6xl mb-10">
-                        Why Choose WATonomous?
-                    </div>
-                    <div className="font-medium text-md md:text-xl lg:text-2xl">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in malesuada ex,
-                        at dignissim libero. Vestibulum imperdiet fermentum risus sit amet sodales. Nulla
-                        facilisi. Cras vitae scelerisque lacus. Quisque quis mauris placerat, posuere
-                        lacus eget, facilisis ligula. Sed id efficitur odio. Nullam lobortis massa
-                        vitae justo sagittis faucibus. Vestibulum ligula nisi, fermentum id nunc nec,
-                        maximus vehicula velit. Nam nec ullamcorper odio. Ut aliquet ipsum a mauris
-                        finibus cursus. Nulla iaculis velit enim, sit amet accumsan elit fermentum ac.
-                    </div>
-                </div>
-            </div>
-            <div className="m-8 sm:m-16 md:mx-32 flex flex-col ">
-                {/* <JobPostingList allPostingsData={allPostingsData}/> */}
-                <div className="text-white text-5xl text-center mb-16">
-                    Open Roles
-                </div>
-                <JobPostingList
-                    data={allPostingsData}/>
-            </div>
-            <div className="h-96">
+const TITLE_PLACEHOLDER = "Title here.";
+const SUBTITLE_PLACEHOLDER = "Punchline Here.";
+const SMALL_CONTENT_PLACEHOLDER = "insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here.";
+const CONTENT_PLACEHOLDER =
+  "insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. ";
+const PAGE_TITLE = "Summer 2023 Applications \n Are Now Open!";
+const PANE1_TITLE = "Why Choose WATonomous?";
+const BANNER_TITLE = "Join our Mission";
+const BANNER_SUBTITLE = "Driven With a Purpose, to Drive Change.";
+const CAROUSEL_TITLE = "Why You Should Join WATonomous";
 
-            </div>
+const CarouselData = [
+  {
+    title: TITLE_PLACEHOLDER,
+    blurb: SMALL_CONTENT_PLACEHOLDER,
+    body: CONTENT_PLACEHOLDER,
+    cta: "Read more",
+    image: img01    
+  },
+  {
+    title: TITLE_PLACEHOLDER,
+    blurb: SMALL_CONTENT_PLACEHOLDER,
+    body: CONTENT_PLACEHOLDER,
+    cta: "Read more",
+    image: img02    
+  },
+  {
+    title: TITLE_PLACEHOLDER,
+    blurb: SMALL_CONTENT_PLACEHOLDER,
+    body: CONTENT_PLACEHOLDER,
+    cta: "Read more",
+    image: img03    
+  }
+]
+
+const JobPostings = ({ allPostingsData }) => {
+  return (
+    <div className={`overflow-x-hidden bg-cover font-bold`}>
+      {/* bg-JobPostingBg */}
+      <Hero
+        image={"bg-JobPostingHero"}
+        title={PAGE_TITLE}
+      />
+        <CenteredContentPane
+          content={CONTENT_PLACEHOLDER}
+          title={PANE1_TITLE}
+          subtitle={SUBTITLE_PLACEHOLDER}
+          img={img01}
+          leftOriented={false}  
+        />
+        <Banner
+          title={BANNER_TITLE}
+          subtitle={BANNER_SUBTITLE}
+        />
+        <ContentPane
+          content={CONTENT_PLACEHOLDER}
+          title={TITLE_PLACEHOLDER}
+          subtitle={SUBTITLE_PLACEHOLDER}
+          img={img02}
+          leftOriented={true}
+        />
+        <ContentPane
+          content={CONTENT_PLACEHOLDER}
+          title={TITLE_PLACEHOLDER}
+          subtitle={SUBTITLE_PLACEHOLDER}
+          img={img02}
+          leftOriented={false}
+        />
+        <div className="text-5xl mb-10 lg:pl-32 max-lg:text-center">
+            {CAROUSEL_TITLE}
         </div>
+        <Carousel
+          data={CarouselData}
+        />
+        <JobPostingList data={allPostingsData} />
+        <div className="h-96"></div>
     </div>
-    );
-}
+  );
+};
 
-export default JobPostings
+export default JobPostings;

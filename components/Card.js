@@ -1,15 +1,9 @@
-import Link from "next/link";
+import Button from "./Button.js";
 
-const Card = ({ sz, title, subtitle, body, cta, buttonLink }) => {
-  let size = "w-48";
-  switch (sz) {
-    case "sq":
-      size = "w-64";
-      break;
-  }
+const Card = ({ title, subtitle, body, cta, buttonLink }) => {
   return (
     <div
-      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-zinc-100 p-5 my-10 rounded-md mr-10`}
+      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-[#D3E3F3] p-5 my-10 rounded-md mr-10`}
     >
       <div className="font-normal">{subtitle.toUpperCase()}</div>
       <div className="font-bold text-4xl py-8">{title}</div>
@@ -19,12 +13,11 @@ const Card = ({ sz, title, subtitle, body, cta, buttonLink }) => {
         })}
       </div>
       <div className="flex items-end justify-end">
-        <Link href={buttonLink} className="align-top">
+        {/* <Link href={buttonLink} className="align-top">
+          <Button text={cta}/>
+        </Link> */}
           {/* py-2 px-7 */}
-          <div className="align-top font-medium text-2xl text-zinc-100 bg-[#1F5D96] rounded-md flex items-center pb-2 pt-1 px-3">
-            {cta}
-          </div>
-        </Link>
+          <Button text={cta} link={buttonLink}/>
       </div>
     </div>
   );

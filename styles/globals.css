@@ -20,30 +20,13 @@ p {
   line-height: 1.8;
 }
 
-div#job-posting > h1 {
-  font-size: 3em;
-  font-weight: bold;
-}
-
-div#job-posting > h2 {
-  font-size: 2em;
-  font-weight: bold;
-  color: rgb(87, 87, 87);
-}
-
-div#job-posting > p  {
-  font-size: 1.2em;
-}
-
 a {
   text-decoration: none;
   color: #333;
 }
 
 img {
-  width: 100%;
-  border-radius: 10px;
-  
+  width: 100%;  
 }
 
 
