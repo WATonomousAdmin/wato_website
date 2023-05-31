@@ -13,7 +13,7 @@ const JobFormStatus = ({status}) => {
         case 1:
             return (
                 <div className="text-[#C39938] ml-3">
-                    Submitting...
+                    Submitting... <i class="fa-solid fa-gear fa-spin"></i>
                 </div>
             );
         case 2:

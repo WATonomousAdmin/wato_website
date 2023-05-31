@@ -75,6 +75,7 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>WATonomous</title>
           <script src="https://kit.fontawesome.com/f419351c8b.js" crossOrigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js"></script>
         </Head>
         <Headers />
         <main className={styrene.className}>

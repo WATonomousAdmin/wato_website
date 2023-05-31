@@ -81,7 +81,6 @@ const JobForm = ({ id }) => {
     if (formStatus == 1) return;
     changeStatus(1);
     const data = { ...formData };
-    setFormData({ ...defaultForm });
 
     const payload = [data["id"]];
     for (let field of fields) {
@@ -97,7 +96,14 @@ const JobForm = ({ id }) => {
       changeStatus(-1);
     } else if (res.status == 200) {
       changeStatus(2);
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
     }
+    
+    setFormData({ ...defaultForm });
 
     console.log(res);
   };
