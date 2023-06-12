@@ -1,26 +1,24 @@
 import * as fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import Link from 'next/link'
-import Head from 'next/head'
-import Header from '../components/Header'
+// import Link from 'next/link'
+// import Head from 'next/head'
+// import Header from '../components/Header'
 import Post from '../components/Post'
 import {sortByDate} from '../utils'
 
 export default function MyComponent({posts}) {
   return (
-    <body>
-      <div>
-        <main className='container blogs'>
+      <div className='mt-20'>
+        <div className='container blogs'>
           <div className='posts'>
             {posts.map((post,index) => (
               <Post key={index} post ={post} />
             ))}
           </div>
-        </main>
         </div>
-    </body>
-
+        </div>
+     
   )
 }
 

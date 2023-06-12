@@ -37,7 +37,6 @@ type: "Part Time"
 
 
 ## Create New Blog Posts
-
 ```
 ---
 title: 'blog 2'  
