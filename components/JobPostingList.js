@@ -9,9 +9,9 @@ const JobPostingList = ({data}) => {
             elements: data[team].map(posting => {
                 return (
                 <Card
-                    sz={"sq"}
-                    title={posting.team} 
-                    body={posting.title}
+                    title={posting.title}
+                    subtitle={`${posting.team} - ${posting.subteam}`} 
+                    body={[posting.location, posting.type]}
                     cta={"Apply"}
                     buttonLink={`/JobPostings/${posting.id}`}/>
                 )
@@ -19,7 +19,12 @@ const JobPostingList = ({data}) => {
         });
     }
     return (
-        <AccordionContainer data={accordionData}/>
+        <div className="p-8 flex flex-col sm:p-16 md:px-32 bg-[#BCCEE0]">
+            <div className="pb-16 text-center text-5xl text-black">
+                Open Roles
+            </div>
+            <AccordionContainer data={accordionData}/>
+        </div>
     )
 }
 

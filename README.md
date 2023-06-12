@@ -2,7 +2,7 @@
 - [WATO amazing website by amazing people](#wato-amazing-website-by-amazing-people)
 - [How To:](#how-to)
   - [Create New Job Postings](#create-new-job-postings)
-  - [Add New Blog Posts](#add-new-blog-posts)
+  - [Create New Blog Posts](#create-new-blog-posts)
 
 # How To:
 
@@ -16,8 +16,11 @@
 **e.g.**
 ```
 ---
-title: Pipeline Developer
-team: Track Validation
+title: "Graphic Designer"
+team: "BizOps"
+subteam: "Design"
+location: "Waterloo, ON"
+type: "Part Time"
 ---
 ```
 *These details will be visible on the job posting list.*
@@ -33,7 +36,7 @@ team: Track Validation
 - Refer to a markdown cheat sheet such as [this](https://www.markdownguide.org/cheat-sheet/) for more info about what formatting styles are possible. Note some of the more advanced syntax might not work.
 
 
-## Add New Blog Posts
+## Create New Blog Posts
 ```
 ---
 title: 'blog 2'  

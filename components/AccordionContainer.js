@@ -2,8 +2,8 @@ import {useState} from "react";
 
 const AccordionCategory = ({active, idx, onToggle, title, elements}) => {
     return (
-        <div>
-            <div onClick={() => onToggle(idx)} className="text-3xl text-zinc-900 w-auto bg-sky-100 rounded-md p-5 font-medium flex justify-between cursor-pointer my-2">
+        <div key={`${idx}-${title}`}>
+            <div onClick={() => onToggle(idx)} className="text-2xl sm:text-3xl text-white w-auto bg-[#1F5D96] rounded-md p-5 font-medium flex justify-between cursor-pointer my-2">
                 <div>
                     {title}
                 </div>
@@ -13,7 +13,7 @@ const AccordionCategory = ({active, idx, onToggle, title, elements}) => {
                 }
                 </div>
             </div>
-            <div className={`flex transition-all duration-500 ${!active ? "opacity-0 max-h-0 overflow-y-hidden" : "opacity-100 max-h-96"}`}>
+            <div className={`flex flex-wrap transition-all duration-500 ${!active ? "opacity-0 max-h-0 overflow-y-hidden" : "max-h-screen opacity-100"}`}>
                 {
                     elements.map(e => {return e})
                 }
@@ -39,7 +39,7 @@ const AccordionContainer = ({data}) => {
             setSelectedIndex(idx);
     }
     return (
-        <div>
+        <div style={{"overflowAnchor": "none"}}>
             {
                 data.map((d, idx) => {
                     return <AccordionCategory

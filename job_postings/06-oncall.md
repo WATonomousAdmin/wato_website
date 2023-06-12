@@ -1,12 +1,21 @@
 ---
-title: "Oncall Duty"
+title: "On-Call Engineer"
 team: "Server Cluster"
+subteam: "Site Reliability"
+location: "Waterloo, ON"
+type: "Full Time"
 ---
 
-# Oncall Duty
-## Server Cluster
-
 **What is WATOnomous?**
+
+normal text
+**bold text**
+*italic text*
+- point 1
+- point 2
+
+1. number 1
+2. number 2
 
 WATonomous is a student design team at the University of Waterloo at the forefront of design, creation, and neural training for autonomous self-driving vehicles. We are proud to have finished 2nd place in the SAE AutoDrive Challenge, an international competition to build a Level 4 autonomous vehicle in four years.
 

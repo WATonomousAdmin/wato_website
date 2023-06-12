@@ -23,6 +23,7 @@ const apply = async (req, res) => {
 
     try {
         const response = (await sheets.spreadsheets.values.append(request)).data;
+        await new Promise(resolve => setTimeout(resolve, 2000));
         res.status(200).json(response);
     } catch (e) {
         res.status(500).json({"e": e.toString()})

@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul, ol {
+    list-style: revert;
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,35 +21,14 @@ p {
   line-height: 1.8;
 }
 
-div#job-posting > h1 {
-  font-size: 3em;
-  font-weight: bold;
-}
-
-div#job-posting > h2 {
-  font-size: 2em;
-  font-weight: bold;
-  color: rgb(87, 87, 87);
-}
-
-div#job-posting > p > strong {
-  font-size: 2rem;
-}
-
-div#job-posting > p  {
-  font-size: 1.2em;
-}
-
 a {
   text-decoration: none;
   color: #333;
 }
 
-/* img {
-  width: 100%;
-  border-radius: 10px;
-  
-} */
+img {
+  width: 100%;  
+}
 
 
 .container.blogs {
@@ -130,6 +115,14 @@ ol {
   }
 }
 
+.slider-thumb::-webkit-slider-thumb {
+  @apply appearance-none w-8 h-8 rounded-full bg-[#82A5C4] cursor-pointer;
+}
+
+.slider-thumb::-webkit-slider-thumb:hover {
+  @apply bg-[#9bbbd8];
+}
+
 /**********Nav Bar**********/
 .nav-btn{
 
@@ -157,5 +150,3 @@ ol {
 ul li a{
   @apply nav-btn relative md:before:rounded-3xl md:before:absolute md:before:inset-x-0 md:before:bottom-0 md:before:h-2 md:before:origin-right md:before:scale-x-0 md:before:bg-cyan-100 md:before:transition md:before:duration-500 md:hover:before:origin-left md:hover:before:scale-x-100;
 }
-
-
