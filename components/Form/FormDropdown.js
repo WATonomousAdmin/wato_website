@@ -1,6 +1,6 @@
-const JobFormDropdown = ({ id, title, options, formData, onFormChange }) => {
+const FormDropdown = ({ id, title, span, options, formData, onFormChange }) => {
   return (
-    <div>
+    <div className={`col-span-1 ${span && "lg:col-span-2"}`}>
       <div>
         <label htmlFor={id} className="font-medium">
           {title}
@@ -8,7 +8,7 @@ const JobFormDropdown = ({ id, title, options, formData, onFormChange }) => {
         <span className="text-red-400"> *</span>
       </div>
       <select
-        className="w-full bg-[#F6F8FA] p-1 text-3xl mt-3"
+        className="w-full bg-[#F6F8FA] p-1 text-xl mt-3"
         onChange={onFormChange}
         name={id}
         value={formData[id] || options[0]}
@@ -22,4 +22,4 @@ const JobFormDropdown = ({ id, title, options, formData, onFormChange }) => {
   );
 };
 
-export default JobFormDropdown;
+export default FormDropdown;

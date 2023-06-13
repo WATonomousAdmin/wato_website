@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CarouselItem from "./CarouselItem";
 
-const Carousel = ({ data }) => {
+const Carousel = ({ title, subtitle, data }) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const onToggle = (idx) => {
@@ -26,7 +26,17 @@ const Carousel = ({ data }) => {
   });
 
   return (
-    <div className="mx-32 flex flex-row flex-wrap justify-center">{items}</div>
+    <div className="px-12 lg:px-60 py-12 bg-[#EBEDEF] flex flex-col items-center">
+      <div className="text-5xl text-center font-bold mb-5">
+        {title}
+      </div>
+      <div className="text-xl text-center font-light lg:w-1/2 mb-5">
+        {subtitle}
+      </div>
+      <div className="flex flex-row flex-wrap justify-center">
+        {items}
+      </div>
+    </div>
   );
 };
 

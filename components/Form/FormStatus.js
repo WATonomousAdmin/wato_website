@@ -2,7 +2,7 @@
 // 0 Idle
 // 1 Submitting
 // 2 Success
-const JobFormStatus = ({status}) => {
+const FormStatus = ({status}) => {
     switch (status) {
         case -1:
             return(
@@ -33,4 +33,4 @@ const JobFormStatus = ({status}) => {
     }
 }
 
-export default JobFormStatus;
+export default FormStatus;

@@ -31,7 +31,7 @@ const CarouselItem = ({ title, cta, blurb, body, image, selected, idx, onToggle 
       <div className={`relative h-[50vh] transition-all ${active ? "-translate-x-1/2 delay-200 w-[200%]" : "w-[100%]"} duration-1000`}>
         <Image src={image} fill className="rounded-sm object-cover" />
       </div>
-      <div id={idx} className={` duration-1000 ${active ? "translate-x-full -translate-y-full z-50 delay-200 h-[71.4%] w-[95%] mx-[2.5%]" : "translate-y-[-50%] w-[90%] mx-[5%] h-[40%]"} ${!active && selected !== -1 ? "text-transparent" : "text-black"} relative flex flex-col rounded-sm border-[0.5px] border-[#A6A6A6] bg-white px-4 py-6 transition-all justify-start`}>
+      <div id={idx} className={` duration-1000 ${active ? "translate-x-full -translate-y-full z-50 delay-200 h-[71.5%] w-[95%] mx-[2.5%]" : "translate-y-[-50%] w-[90%] mx-[5%] h-[40%]"} ${!active && selected !== -1 ? "text-transparent" : "text-black"} relative flex flex-col rounded-sm border-[0.5px] bg-white px-4 py-6 transition-all justify-start`}>
         <div className="flex flex-row justify-between"> 
           <div className="text-4xl font-medium">{title}</div>
           {

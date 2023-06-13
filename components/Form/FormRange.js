@@ -2,16 +2,16 @@ import { useState } from "react";
 
 const Description = ({idx, data, selected}) => {
   return (
-    <div className={`flex justify-center align-middle ${selected ? "opacity-100" : "opacity-0"} transition-opacity duration-200`}>
+    <div className={`flex p-5 justify-center align-middle ${selected ? "opacity-100" : "opacity-0"} transition-opacity duration-200`}>
       {data[parseInt(idx) - 1]}
     </div>
   );
 }
 
-const JobFormRange = ({ id, title, min, max, step, descriptions, required, formData, onFormChange }) => {
+const FormRange = ({ id, title, min, max, step, descriptions, required, formData, onFormChange }) => {
   const [selected,setSelected] = useState(false);
   return (
-    <div className="col-span-2 flex flex-col items-center">
+    <div className="col-span-2 flex flex-col">
       <div>
         <label htmlFor={id} className="font-medium">
           {title}
@@ -49,4 +49,4 @@ const JobFormRange = ({ id, title, min, max, step, descriptions, required, formD
   );
 };
 
-export default JobFormRange;
+export default FormRange;

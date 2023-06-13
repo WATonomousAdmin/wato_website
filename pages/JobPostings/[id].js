@@ -1,10 +1,10 @@
 import Button from "../../components/Button.js";
-import JobForm from "../../components/JobForm/JobForm.js";
+import JobForm from "../../components/JobForm.js";
 import { getPostIds, getPostData } from "../../lib/jobPostingsDAL.js";
 
 const JobPosting = ({ postData }) => {
   return (
-    <div className="py-32 px-10 lg:px-44 scroll-smooth">
+    <div className="py-32 px-10 lg:px-60 scroll-smooth">
       <article className="max-w-none prose lg:prose-xl prose-h1:font-bold prose-h1:mb-0 prose-h2:font-medium prose-h2:mt-6 prose-a:no-underline prose-p:w-fit">
         <h1>
           {postData.title}

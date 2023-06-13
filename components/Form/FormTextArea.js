@@ -1,4 +1,4 @@
-const JobFormTextArea = ({
+const FormTextArea = ({
   id,
   title,
   maxWords,
@@ -17,13 +17,13 @@ const JobFormTextArea = ({
   };
   return (
     <div className={`col-span-1 my-2 lg:col-span-2 lg:my-0`}>
-      <label htmlFor={id} className="text-xl font-medium">
+      <label htmlFor={id} className="font-medium">
         {title}
       </label>{" "}
       {required && <span className="text-red-400">*</span>}
       {/* w-64*/}
       <textarea
-        className={`w-full bg-[#F6F8FA] p-1 text-3xl mt-3`}
+        className={`w-full bg-[#F6F8FA] p-1 text-xl mt-3`}
         id={id}
         name={id}
         value={formData[id] || ""}
@@ -39,4 +39,4 @@ const JobFormTextArea = ({
   );
 };
 
-export default JobFormTextArea;
+export default FormTextArea;

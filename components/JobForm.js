@@ -1,11 +1,11 @@
 import { useState } from "react";
-import JobFormText from "./JobFormText";
-import JobFormURL from "./JobFormURL";
-import JobFormDropdown from "./JobFormDropdown";
-import JobFormRange from "./JobFormRange";
-import JobFormSubmit from "./JobFormSubmit";
-import JobFormTextArea from "./JobFormTextArea";
-import JobFormStatus from "./JobFormStatus";
+import FormText from "./Form/FormText";
+import FormURL from "./Form/FormURL";
+import FormDropdown from "./Form/FormDropdown";
+import FormRange from "./Form/FormRange";
+import FormSubmit from "./Form/FormSubmit";
+import FormTextArea from "./Form/FormTextArea";
+import FormStatus from "./Form/FormStatus";
 
 const fields = [
   "firstName",
@@ -63,9 +63,6 @@ const JobForm = ({ id }) => {
 
   const changeStatus = (status) => {
     setFormStatus(status);
-    // setTimeout(() => {
-    //   setFormStatus(0);
-    // }, 2000);
   }
 
   const onFormChange = (e) => {
@@ -116,8 +113,8 @@ const JobForm = ({ id }) => {
           onFormSubmit(e);
         }}
       >
-        <div className="lg:grid lg:grid-cols-2 md:gap-x-12 md:gap-y-8">
-          <JobFormText
+        <div className="lg:grid lg:grid-cols-2 md:gap-x-16 md:gap-y-8">
+          <FormText
             id={fields[0]}
             title={titles[0]}
             required={true}
@@ -126,7 +123,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormText
+          <FormText
             id={fields[1]}
             title={titles[1]}
             required={true}
@@ -135,7 +132,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormText
+          <FormText
             id={fields[2]}
             title={titles[2]}
             required={true}
@@ -144,7 +141,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormText
+          <FormText
             id={fields[3]}
             title={titles[3]}
             required={true}
@@ -153,7 +150,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormText
+          <FormText
             id={fields[4]}
             title={titles[4]}
             required={true}
@@ -162,14 +159,14 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormURL
+          <FormURL
             id={fields[5]}
             title={titles[5]}
             formData={formData}
             setFormData={setFormData}
           />
 
-          <JobFormTextArea
+          <FormTextArea
             id={fields[6]}
             title={titles[6]}
             formData={formData}
@@ -179,7 +176,7 @@ const JobForm = ({ id }) => {
             maxWords={300}
           />
 
-          <JobFormText
+          <FormText
             id={fields[7]}
             title={titles[7]}
             required={false}
@@ -188,7 +185,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormText
+          <FormText
             id={fields[8]}
             title={titles[9]}
             required={true}
@@ -197,7 +194,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormDropdown
+          <FormDropdown
             id={fields[9]}
             title={titles[9]}
             options={["School", "Coop"]}
@@ -205,7 +202,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormDropdown
+          <FormDropdown
             id={fields[10]}
             title={titles[10]}
             options={["Yes", "No"]}
@@ -213,7 +210,7 @@ const JobForm = ({ id }) => {
             onFormChange={onFormChange}
           />
 
-          <JobFormRange
+          <FormRange
             id={fields[11]}
             title={titles[11]}
             min={1}
@@ -226,9 +223,9 @@ const JobForm = ({ id }) => {
           />
 
         </div>
-        <div className="flex flex-row items-center">
-          <JobFormSubmit/>
-          <JobFormStatus status={formStatus}/>
+        <div className="flex flex-row items-center justify-center">
+          <FormSubmit/>
+          <FormStatus status={formStatus}/>
         </div>
       </form>
     </div>

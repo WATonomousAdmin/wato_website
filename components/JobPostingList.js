@@ -19,8 +19,8 @@ const JobPostingList = ({data}) => {
         });
     }
     return (
-        <div className="p-8 flex flex-col sm:p-16 md:px-32 bg-[#BCCEE0]">
-            <div className="pb-16 text-center text-5xl text-black">
+        <div id={"open-roles"} className="p-8 flex flex-col sm:p-16 lg:px-60 bg-[#BCCEE0]">
+            <div className="pb-16 text-center text-5xl font-bold">
                 Open Roles
             </div>
             <AccordionContainer data={accordionData}/>
