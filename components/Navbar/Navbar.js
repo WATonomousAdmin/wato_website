@@ -7,7 +7,7 @@ import NavbarItem from "./NavbarItem";
 import NavbarMobileIcon from "./NavbarMobileIcon";
 
 const Navbar = ({toggleModal}) => {
-  const [mobileOpen, setMobileOpen] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleMobile = () => setMobileOpen(!mobileOpen);
   const closeMobile = () => setMobileOpen(false);
