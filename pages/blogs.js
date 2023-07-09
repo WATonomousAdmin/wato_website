@@ -1,50 +1,31 @@
-import * as fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
-// import Link from 'next/link'
-// import Head from 'next/head'
-// import Header from '../components/Header'
-import Post from '../components/Post'
-import {sortByDate} from '../utils'
+import { getBlogs } from '../lib/blogsDAL'
+import HeroBlog from '../components/HeroBlog'
+import BlogPostings from '../components/BlogPostings/BlogPostings';
+import { useState } from 'react';
+import Filter from '../components/Filter';
 
-export default function MyComponent({posts}) {
+export default function MyComponent({allBlogsData}) {
+  const [filters, setFilters] = useState("");
+
+  const blogFilter = (post) => {
+    return (`${post.title} ${post.authors.join(" ")} ${post.date.toString()} ${post.description} ${post.tags.join(" ")}`).toLowerCase().includes(filters.toLowerCase());
+  }
+
   return (
-      <div className='mt-20'>
-        <div className='container blogs'>
-          <div className='posts'>
-            {posts.map((post,index) => (
-              <Post key={index} post ={post} />
-            ))}
-          </div>
-        </div>
-        </div>
-     
+    <div className="bg-[#EBEDEF] overflow-x-hidden">
+      <HeroBlog blog={allBlogsData.all[0]} content/>
+      <BlogPostings title={"Featured"} postings={allBlogsData.featured}/>
+      <Filter categories={[]} placeholder={"Search for a title, description, tag or author"} filters={filters} setFilters={setFilters}/>
+      <BlogPostings title={"All Articles"} postings={allBlogsData.all.filter(blogFilter)}/>
+    </div>
   )
 }
 
 export async function getStaticProps(){
-  //Get files from file system
-  const files = fs.readdirSync(path.join('assets/blogs'))
-  
-  const posts= files.map(filename=>{
-
-    const blog =filename.replace('.md','')
-
-    const markdownWithMeta = fs.readFileSync(path.join('assets/blogs',filename),'utf-8')
-
-    const {data:frontmatter} = matter(markdownWithMeta)
-    
-    return{
-      blog,
-      frontmatter
-    }
-  })
-
-
-
+  const allBlogsData = getBlogs();
   return {
-    props:{
-      posts: posts.sort(sortByDate)
+    props: {
+      allBlogsData,
     },
-  }
+  };
 }
