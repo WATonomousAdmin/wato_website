@@ -12,7 +12,7 @@ const Carousel = ({ title, subtitle, data }) => {
   const items = data.map((d, idx) => {
     return (
       <CarouselItem
-        selected={selectedIndex}
+        selectedIdx={selectedIndex}
         idx={idx}
         onToggle={onToggle}
         key={idx}
