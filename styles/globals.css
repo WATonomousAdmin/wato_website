@@ -31,10 +31,14 @@ img {
   width: 100%;  
 }
 
-.slider-thumb::-webkit-slider-thumb {
-  @apply appearance-none w-8 h-8 rounded-full bg-[#82A5C4] cursor-pointer;
-}
+.spotlight-container {
+  --mask: linear-gradient(to right, 
+      rgba(0,0,0, 0) 10%,
+      rgba(0,0,0, 1) 30%, 
+      rgba(0,0,0, 1) 70%,
+      rgba(0,0,0, 0) 90%
+  );
 
-.slider-thumb::-webkit-slider-thumb:hover {
-  @apply bg-[#9bbbd8];
+  -webkit-mask: var(--mask); 
+  mask: var(--mask);
 }

@@ -5,7 +5,7 @@ image: '/imgs/blog-01.png'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla porttitor massa id neque aliquam vestibulum. Facilisis mauris sit amet massa vitae tortor.'
 tags: ['😍', 'loooooooooong tag']
 authors: ['J K Rowling']
-featured: false
+spotlight: false
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sit amet consectetur adipiscing elit ut aliquam. Sodales neque sodales ut etiam sit amet nisl. Quis vel eros donec ac odio tempor orci. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Ac odio tempor orci dapibus. In est ante in nibh mauris cursus. Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Hendrerit dolor magna eget est. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit. Egestas quis ipsum suspendisse ultrices gravida dictum.
 

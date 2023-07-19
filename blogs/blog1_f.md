@@ -5,7 +5,7 @@ image: '/imgs/blog-01.png'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla porttitor massa id neque aliquam vestibulum. Facilisis mauris sit amet massa vitae tortor.'
 tags: ['tag1', 'tag2', 'tag3']
 authors: ['Miguel de Cervantes']
-featured: true
+spotlight: true
 ---
 
 # CHAPTER I. WHICH TREATS OF THE CHARACTER AND PURSUITS OF THE FAMOUS GENTLEMAN DON QUIXOTE OF LA MANCHA

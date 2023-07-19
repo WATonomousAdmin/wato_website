@@ -39,7 +39,7 @@ const CarouselItem = ({selectedIdx, idx, onToggle, title, blurb, body, cta, imag
       }
     
       useEffect(() => {
-        const elements = [document.querySelector(`.content-${idx}`), document.querySelector(`.cta-${idx}`)];
+        const elements = [document.querySelector(`.content-${idx}`)];
         fadeElement(0, elements);
         setTimeout(() => {
           fadeElement(1, elements);
