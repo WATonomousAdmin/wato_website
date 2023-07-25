@@ -2,7 +2,7 @@ import Badge from "./Badge";
 
 const BadgeList = ({badges}) => {
     return (
-        <div className="flex">
+        <div className="flex overflow-hidden">
             {
                 badges.map((x) => {
                     return(

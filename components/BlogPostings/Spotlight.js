@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-const CAROUSEL_ROTATION_INTERVAL = 5000;
+const CAROUSEL_ROTATION_INTERVAL = 50000;
 
 const MarqueeItem = ({ idx, isCurrent, content, onClick }) => {
   return (
     <div
-      className={`m-2 flex w-64 items-center justify-center text-center font-bold ${
-        isCurrent && "text-3xl text-wato-blue"
+      className={`m-2 flex h-[10rem] w-[30%] lg:w-64 items-center justify-center text-center font-bold ${
+        isCurrent && "text-xl lg:text-3xl text-wato-blue"
       }`}
       onClick={() => onClick(idx)}
     >
@@ -44,8 +44,8 @@ const Marquee = ({ currentIdx, setCurrentIdx, titles, fastTitles }) => {
     );
   });
   return (
-    <div className="flex justify-center mb-12">
-      <div className="spotlight-container min-h-[5em] w-min overflow-hidden">
+    <div className="flex justify-center mb-12 border-b-2 border-wato-blue">
+      <div className="spotlight-container min-h-[5em] overflow-hidden">
         {/* apply transforms here */}
         <div className="spotlight-mask absolute z-20 flex bg-wato-blue-gloomy opacity-0">
           {FastMarqueeItems}
@@ -139,14 +139,14 @@ const Spotlight = ({ postings }) => {
   };
 
   return (
-    <div className={`flex h-[80vh] flex-col bg-wato-blue-gloomy px-60 py-10`}>
+    <div className={`flex xl:h-[80vh] flex-col bg-wato-blue-gloomy px-5 sm:px-16 lg:px-44 xl:px-60 pb-10`}>
       <Marquee
         currentIdx={currentIdx}
         fastTitles={fastPostings.map((x) => x.title)}
         setCurrentIdx={setCurrentIdx}
         titles={marqueePostings.map((x) => x.title)}
       />
-      <div className="spotlight grid grid-cols-2 gap-x-24 gap-y-12 transition-opacity auto-rows-min">
+      <div className="spotlight grid lg:grid-cols-2 gap-x-24 gap-y-12 transition-opacity auto-rows-min">
         <div className="col-start-1 col-end-2 text-6xl font-medium">
           {post.title}
         </div>
@@ -154,7 +154,7 @@ const Spotlight = ({ postings }) => {
         <div className="col-start-1 col-end-2">
           <span className="text-xl font-bold">Related</span>
           <div className="mt-2 flex">
-            <div className="mr-4 h-32 w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
+            <div className="mr-4 h-32 lg:w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
               <div className="font-bold">
                 Harry Potter and the Goblet of Fire
               </div>
@@ -162,7 +162,7 @@ const Spotlight = ({ postings }) => {
                 Read more →
               </div>
             </div>
-            <div className="mr-4 h-32 w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
+            <div className="mr-4 lg:h-32 lg:w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
               <div className="font-bold">
                 The Sun Also Rises
               </div>
@@ -172,7 +172,7 @@ const Spotlight = ({ postings }) => {
             </div>
           </div>
         </div>
-        <div className="relative col-start-2 col-end-3 row-start-1 row-end-4">
+        <div className="relative col-start-2 col-end-3 row-start-1 row-end-4 max-lg:hidden">
           <Image fill src={post.image} className="object-cover" />
         </div>
       </div>

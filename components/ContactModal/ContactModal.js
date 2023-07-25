@@ -14,14 +14,19 @@ const ContactModal = ({modalActive, closeModal}) => {
           onClick={closeModal}
         >
           <div
-            className="grid h-[90vh] w-[90vw]grid-cols-1 overflow-y-scroll lg:overflow-hidden rounded-md bg-white text-zinc-100 shadow-md md:w-[60vw] xl:grid-cols-2"
+            className="grid h-screen md:h-[90vh] w-[90vw]grid-cols-1 overflow-y-scroll lg:overflow-hidden rounded-md bg-white text-zinc-100 shadow-md md:w-[60vw] xl:grid-cols-2"
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
+            <div className={"absolute text-wato-grey text-lg font-bold md:hidden top-5 right-5"} onClick={closeModal}>
+              X
+            </div>
             <div className="flex flex-col self-center bg-white px-14 text-zinc-800 md:px-16 mt-5">
-              <div className="text-4xl font-black">
-                Let's design the future together
+              <div className="text-4xl font-black flex">
+                <div>
+                  Let's design the future together
+                </div>
               </div>
               <div className="my-2 text-sm font-medium">
                 Shoot us a message! We'd love to hear from you and collaborate

@@ -8,21 +8,21 @@ const CarouselItem = ({selectedIdx, idx, onToggle, title, blurb, body, cta, imag
     const [content, setContent] = useState(blurb);
 
     const containerWidth = () => {
-        if (!selected && !somethingIsSelected) return "w-[26rem] opacity-100 delay-500"
+        if (!selected && !somethingIsSelected) return "w-[90vw] lg:w-[26rem] opacity-100 xl:delay-500 m-5"
         else if (!selected && somethingIsSelected) return "w-0 z-0 opacity-0";
-        else return "w-[40vw] z-10";
+        else return "w-[90vw] xl:w-[40vw] z-10 m-5";
     }
     
     const containerTransform = () => {
         if (!selected && !somethingIsSelected) return ""; 
         else if (!selected && somethingIsSelected) return "";
-        else return "-translate-x-48 delay-500";
+        else return "xl:-translate-x-48 xl:delay-500 my-5";
     }
 
     const contentTransform = () => {
-        if (!selected && !somethingIsSelected) return "w-96 p-5 h-52 -translate-y-24 translate-x-4";
+        if (!selected && !somethingIsSelected) return "w-[85vw] lg:w-96 p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:translate-x-4";
         else if (!selected && somethingIsSelected) return "w-0 h-0 translate-y-0 translate-x-0";
-        else return "w-96 p-5 h-[30rem] -translate-y-[30rem]  translate-x-[28rem] lg:translate-x-[48rem] delay-500";
+        else return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] xl:delay-500";
     }
 
     const fadeElement = (direction, elements) => {
@@ -48,17 +48,17 @@ const CarouselItem = ({selectedIdx, idx, onToggle, title, blurb, body, cta, imag
       }, [selected]);
 
     return (
-        <div className={`bg-transparent ${containerWidth()} ${containerTransform()} m-5 transition-all duration-700 h-[35rem]`}>
+        <div className={`bg-transparent ${containerWidth()} ${containerTransform()} transition-all duration-700 h-[35rem]`}>
             <div className={`relative h-[30rem]`}>
                 <Image src={image} fill className="object-cover rounded-sm transition-all"/>
             </div>
             <div className={`absolute rounded-sm bg-white ${contentTransform()} overflow-hidden transition-all duration-700`}>
                 <div className="flex justify-between">
-                    <div className="text-4xl font-medium mb-5">
+                    <div className="text-xl lg:text-4xl font-medium lg:mb-5">
                         {title}
                     </div>
                         {selected && 
-                        <div onClick={() => onToggle(-1)} className="cursor-pointer text-slate-400">
+                        <div onClick={() => onToggle(-1)} className="cursor-pointer text-wato-grey">
                             X
                         </div>}
                     </div>

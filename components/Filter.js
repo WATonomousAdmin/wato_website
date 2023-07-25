@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const Filter = ({placeholder, filters, setFilters}) => {
     return (
-        <div className="sm:px-16 lg:px-60 py-12 w-screen flex items-center bg-wato-blue-gloomy bg-opacity-40">
+        <div className="px-5 sm:px-16 lg:px-60 py-12 w-screen flex items-center bg-wato-blue-gloomy bg-opacity-40">
             <input
                 className="w-full pl-14 py-5 mr-5 bg-search bg-no-repeat bg-left bg-origin-padding border-white border-l-[20px] outline-none"
                 type="text"
