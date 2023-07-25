@@ -3,7 +3,7 @@ import Button from "./Button.js";
 const Card = ({ title, subtitle, body, cta, buttonLink }) => {
   return (
     <div
-      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-[#D3E3F3] p-5 my-10 rounded-md mr-10`}
+      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-wato-blue-water p-5 my-10 rounded-md mr-10`}
     >
       <div className="font-normal">{subtitle.toUpperCase()}</div>
       <div className="font-bold text-4xl py-8">{title}</div>

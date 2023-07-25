@@ -44,7 +44,7 @@ const FormURL = ({ id, title, formData, setFormData }) => {
       <label htmlFor={id} className="text-xl font-medium">
         {title}
       </label>
-      <div className={`flex w-full bg-[#F6F8FA] p-1 text-xl`}>
+      <div className={`flex w-full bg-wato-white-bone p-1 text-xl`}>
         <div className={`flex min-h-[2em] w-full flex-wrap`}>
           {formData.urls.map((url) => {
             return (

@@ -8,7 +8,7 @@ const HeroBlog = ({blog, content}) => {
             <div className="h-screen w-screen bg-gradient-to-t from-[#000000B0] flex items-end">
                 <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">
                     <div className="whitespace-pre-line text-7xl font-black mb-8">
-                        {blog.title} <span className="text-[#1F5D96]"> //</span>
+                        {blog.title} <span className="text-wato-blue"> //</span>
                     </div>
                     {
                         content &&

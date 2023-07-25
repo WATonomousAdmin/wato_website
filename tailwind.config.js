@@ -11,7 +11,26 @@ module.exports = {
         'JobPostingHero': "url('/imgs/team.jpg')",
         'ModalRight': "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
         'JobPostingBg': "linear-gradient(180deg, rgba(0, 2, 23, 0.65) 41.68%, rgba(255, 255, 255, 0.65) 184.93%)",
-        'search': "url('/imgs/search.svg')"
+        'search': "url('/imgs/search.svg')",
+        'badge': "linear-gradient(135deg, #1F5D96 20%, #46A3B1 80%)"
+      },
+      colors: {
+        'wato-blue': {
+          DEFAULT: "#1F5D96",
+          gloomy: "#BCCEE0",
+          water: "#D3E3F3"
+        },
+        'wato-teal': {
+          DEFAULT: "#66DDC8"
+        },
+        'wato-white': {
+          bone: "#F6F8FA"
+        },
+        'wato-grey': {
+          DEFAULT: "#A6A6A6",
+          clear: "#E6E2DFB5",
+          porcelain: "#EBEDEF"
+        }
       }
     },
   },

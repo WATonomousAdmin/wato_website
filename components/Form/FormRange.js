@@ -19,7 +19,7 @@ const FormRange = ({ id, title, min, max, step, descriptions, required, formData
         <span className="text-red-400"> *</span>
       </div>
       <input
-        className={`slider-thumb my-2 h-5 w-full appearance-none rounded-full bg-[#F6F8FA] p-1 text-xl mt-3`}
+        className={`slider-thumb my-2 h-5 w-full appearance-none rounded-full bg-wato-white-bone p-1 text-xl mt-3`}
         id={id}
         name={id}
         value={formData[id] || ""}

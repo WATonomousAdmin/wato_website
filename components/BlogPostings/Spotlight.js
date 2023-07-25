@@ -7,7 +7,7 @@ const MarqueeItem = ({ idx, isCurrent, content, onClick }) => {
   return (
     <div
       className={`m-2 flex w-64 items-center justify-center text-center font-bold ${
-        isCurrent && false && "text-2xl text-[#1F5D96]"
+        isCurrent && "text-3xl text-wato-blue"
       }`}
       onClick={() => onClick(idx)}
     >
@@ -44,10 +44,10 @@ const Marquee = ({ currentIdx, setCurrentIdx, titles, fastTitles }) => {
     );
   });
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center mb-12">
       <div className="spotlight-container min-h-[5em] w-min overflow-hidden">
         {/* apply transforms here */}
-        <div className="spotlight-mask absolute z-20 flex bg-[#BCCEE0] opacity-0">
+        <div className="spotlight-mask absolute z-20 flex bg-wato-blue-gloomy opacity-0">
           {FastMarqueeItems}
         </div>
         <div className="spotlight-list flex transition-all">{MarqueeItems}</div>
@@ -139,31 +139,45 @@ const Spotlight = ({ postings }) => {
   };
 
   return (
-    <div className={`flex h-[80vh] flex-col bg-[#BCCEE0] px-60 py-20`}>
+    <div className={`flex h-[80vh] flex-col bg-wato-blue-gloomy px-60 py-10`}>
       <Marquee
         currentIdx={currentIdx}
         fastTitles={fastPostings.map((x) => x.title)}
         setCurrentIdx={setCurrentIdx}
         titles={marqueePostings.map((x) => x.title)}
       />
-      <div className="spotlight grid grid-cols-2 grid-rows-3 gap-x-24 transition-opacity">
+      <div className="spotlight grid grid-cols-2 gap-x-24 gap-y-12 transition-opacity auto-rows-min">
         <div className="col-start-1 col-end-2 text-6xl font-medium">
           {post.title}
         </div>
-        <div className="col-start-1 col-end-2">{post.description}</div>
+        <div className="col-start-1 col-end-2 font-light text-xl">{post.description}</div>
         <div className="col-start-1 col-end-2">
           <span className="text-xl font-bold">Related</span>
-          <div className="mt-1 flex">
-            <div className="mr-4 h-32 w-64 bg-[#D3E3F3]">something</div>
-            <div className="h-32 w-64 bg-[#D3E3F3]">something</div>
+          <div className="mt-2 flex">
+            <div className="mr-4 h-32 w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
+              <div className="font-bold">
+                Harry Potter and the Goblet of Fire
+              </div>
+              <div className="font-light text-wato-blue">
+                Read more →
+              </div>
+            </div>
+            <div className="mr-4 h-32 w-64 p-4 bg-wato-blue-water rounded-sm flex flex-col justify-between">
+              <div className="font-bold">
+                The Sun Also Rises
+              </div>
+              <div className="font-light text-wato-blue">
+                Read more →
+              </div>
+            </div>
           </div>
         </div>
         <div className="relative col-start-2 col-end-3 row-start-1 row-end-4">
           <Image fill src={post.image} className="object-cover" />
         </div>
       </div>
-      <div onClick={getPrev}>prev</div>
-      <div onClick={getNext}>next</div>
+      {/* <div onClick={getPrev}>prev</div>
+      <div onClick={getNext}>next</div> */}
     </div>
   );
 };

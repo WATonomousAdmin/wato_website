@@ -5,7 +5,7 @@ const ContentPane = ({leftOriented, img, title, subtitle, children}) => {
         <div className={`flex flex-col ${leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"} my-16 max-lg:items-center`}>
             <div className={`${!leftOriented ? "lg:pr-60 lg:pl-32" : "lg:pl-60 lg:pr-32"} text-black lg:w-[51%] flex flex-col justify-center max-lg:items-center`}>
                 <div className="text-4xl sm:text-5xl max-lg:text-center font-black">
-                    {title} <span className="text-[#66DDC8]">//</span>
+                    {title} <span className="text-wato-teal">//</span>
                 </div>
                 <div className="text-2xl lg:mb-6 max-lg:text-center">
                     {subtitle}

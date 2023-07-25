@@ -19,7 +19,7 @@ const JobPostingList = ({data}) => {
         });
     }
     return (
-        <div id={"open-roles"} className="p-8 flex flex-col sm:p-16 lg:px-60 bg-[#BCCEE0]">
+        <div id={"open-roles"} className="p-8 flex flex-col sm:p-16 lg:px-60 bg-wato-blue-gloomy">
             <div className="pb-16 text-center text-5xl font-bold">
                 Open Roles
             </div>

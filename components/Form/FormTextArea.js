@@ -23,7 +23,7 @@ const FormTextArea = ({
       {required && <span className="text-red-400">*</span>}
       {/* w-64*/}
       <textarea
-        className={`w-full bg-[#F6F8FA] p-1 text-xl mt-3`}
+        className={`w-full bg-wato-white-bone p-1 text-xl mt-3`}
         id={id}
         name={id}
         value={formData[id] || ""}

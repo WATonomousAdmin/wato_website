@@ -27,7 +27,7 @@ const ContactModal = ({modalActive, closeModal}) => {
                 Shoot us a message! We'd love to hear from you and collaborate
                 on cool projects!
               </div>
-              <div className="my-2 w-fit rounded-md bg-[#85A7C6] text-center text-xs font-medium">
+              <div className="my-2 w-fit rounded-md bg-wato-blue text-center text-xs font-medium">
                 <a
                   href="mailto:hello@watonomous.com"
                   className="text-white visited:text-white"

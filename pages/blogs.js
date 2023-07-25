@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Filter from '../components/Filter';
 import Spotlight from '../components/BlogPostings/Spotlight';
 
-export default function MyComponent({allBlogsData}) {
+const Blogs = ({allBlogsData}) => {
   const [filters, setFilters] = useState("");
 
   const blogFilter = (post) => {
@@ -13,7 +13,7 @@ export default function MyComponent({allBlogsData}) {
   }
 
   return (
-    <div className="bg-[#EBEDEF] overflow-x-hidden">
+    <div className="bg-wato-grey-porcelain overflow-x-hidden">
       <HeroBlog blog={allBlogsData.all[0]} content/>
       <BlogPostings title={"Featured"} postings={allBlogsData.featured}/>
       <Spotlight postings={allBlogsData.spotlight}/>
@@ -31,3 +31,5 @@ export async function getStaticProps(){
     },
   };
 }
+
+export default Blogs;

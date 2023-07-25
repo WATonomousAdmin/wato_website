@@ -66,7 +66,7 @@ const CarouselItem = ({selectedIdx, idx, onToggle, title, blurb, body, cta, imag
                     {content}
                 </div>
                 {!selected &&
-                <div onClick={() => onToggle(idx)} className="text-[#1F5D96] cursor-pointer">
+                <div onClick={() => onToggle(idx)} className="text-wato-blue cursor-pointer">
                     {cta}
                 </div>}
             </div>

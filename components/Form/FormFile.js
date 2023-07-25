@@ -13,7 +13,7 @@ const FormFile = ({id, title, required, formData, onFormChange}) => {
     }
 
     return (
-        <label className="cursor-pointer text-base font-bold text-[#2F2E2E] w-full p-1">
+        <label className="cursor-pointer text-base font-bold text-black w-full p-1">
         <input
           className="hidden"
           id={id}
