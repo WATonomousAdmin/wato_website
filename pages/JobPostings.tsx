@@ -1,14 +1,14 @@
-import { getPostings } from "../lib/jobPostingsDAL.js";
+import { getPostings } from "../lib/jobPostingsDAL";
 
-import JobPostingList from "../components/JobPostingList.js";
-import ContentPane from "../components/ContentPane.js";
+import JobPostingList from "../components/JobPostingList";
+import ContentPane from "../components/ContentPane";
 
 import img01 from "../public/imgs/jobpostings-01.jpg";
 import img02 from "../public/imgs/jobpostings-02.jpg";
 import img03 from "../public/imgs/jobpostings-03.jpg";
-import Hero from "../components/Hero.js";
-import ExtendedContentPane from "../components/ExtendedContentPane.js";
-import Carousel from "../components/Carousel/Carousel.js";
+import Hero from "../components/Hero";
+import ExtendedContentPane from "../components/ExtendedContentPane";
+import Carousel from "../components/Carousel/Carousel";
 
 export const getStaticProps = async () => {
     const allPostingsData = getPostings();

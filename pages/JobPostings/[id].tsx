@@ -1,6 +1,6 @@
-import Button from "../../components/Button.js";
-import JobForm from "../../components/JobForm.js";
-import { getPostIds, getPostData } from "../../lib/jobPostingsDAL.js";
+import Button from "../../components/Button.tsx";
+import JobForm from "../../components/JobForm.tsx";
+import { getPostIds, getPostData } from "../../lib/jobPostingsDAL.tsx";
 
 const JobPosting = ({ postData }) => {
     return (

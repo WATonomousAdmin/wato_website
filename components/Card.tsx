@@ -1,4 +1,4 @@
-import Button from "./Button.js";
+import Button from "./Button.tsx";
 
 const Card = ({ title, subtitle, body, cta, buttonLink }) => {
     return (
