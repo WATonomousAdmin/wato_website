@@ -1,9 +1,11 @@
+import Link from "next/link";
 import BadgeList from "../Badge/BadgeList";
 import Image from "next/image";
 
 const Post = ({ data }) => {
     return (
-        <div className="relative mb-9 flex w-[90%] flex-col rounded-sm bg-white p-5 md:w-[70%] lg:w-[48%] xl:w-[33%]">
+        <div className="relative mb-2 flex w-[90%] flex-col rounded-sm bg-white md:w-[70%] lg:w-[48%] xl:w-[33%] hover:scale-[1.01] transition-transform">
+        <Link href={`/blogs/${data.id}`} className="p-5">
             <div className="relative mb-5 h-64 w-full">
                 <Image
                     src={data.image}
@@ -22,6 +24,7 @@ const Post = ({ data }) => {
             <div className="absolute bottom-5">
                 <BadgeList badges={data.tags} />
             </div>
+        </Link>
         </div>
     );
 };
