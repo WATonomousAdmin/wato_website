@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Button = ({ text, link, anchor, onClick }) => {
   const buttonElement = (
-    <span className="flex w-fit cursor-pointer rounded-md bg-wato-blue px-3 py-1 text-2xl font-medium text-zinc-100">
+    <span className="flex w-fit cursor-pointer rounded-md bg-wato-blue px-5 py-2 text-xl font-medium text-zinc-100">
       {text}
     </span>
   );
