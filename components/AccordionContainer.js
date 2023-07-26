@@ -44,6 +44,7 @@ const AccordionContainer = ({ data }) => {
             {data.map((d, idx) => {
                 return (
                     <AccordionCategory
+                        key={idx}
                         active={selectedIndex === idx}
                         idx={idx}
                         onToggle={onToggle}

@@ -16,7 +16,7 @@ const MarqueeItem = ({ idx, isCurrent, content, onClick }) => {
     );
 };
 
-const Marquee = ({ currentIdx, setCurrentIdx, titles, fastTitles }) => {
+const Marquee = ({ titles, fastTitles }) => {
     const onMarqueeItemClick = (idx) => {
         console.log(idx);
     };
@@ -72,12 +72,12 @@ const Spotlight = ({ postings }) => {
             () => setCurrentIdx((currentIdx) => currentIdx + 1)
         );
 
-    const getPrev = () =>
-        transitionSpotlight(
-            -1,
-            () => setFastIdx((currentIdx) => currentIdx - 1),
-            () => setCurrentIdx((currentIdx) => currentIdx - 1)
-        );
+    // const getPrev = () =>
+    //     transitionSpotlight(
+    //         -1,
+    //         () => setFastIdx((currentIdx) => currentIdx - 1),
+    //         () => setCurrentIdx((currentIdx) => currentIdx - 1)
+    //     );
 
     useEffect(() => {
         timer.current = setInterval(getNext, CAROUSEL_ROTATION_INTERVAL);
@@ -155,9 +155,7 @@ const Spotlight = ({ postings }) => {
             className={`flex flex-col bg-wato-blue-gloomy px-5 pb-10 sm:px-16 lg:px-44 xl:h-[80vh] xl:px-60`}
         >
             <Marquee
-                currentIdx={currentIdx}
                 fastTitles={fastPostings.map((x) => x.title)}
-                setCurrentIdx={setCurrentIdx}
                 titles={marqueePostings.map((x) => x.title)}
             />
             <div className="spotlight grid auto-rows-min gap-x-24 gap-y-12 transition-opacity lg:grid-cols-2">

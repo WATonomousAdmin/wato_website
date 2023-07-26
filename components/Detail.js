@@ -1,4 +1,4 @@
-const Detail = ({ title, children, last }) => {
+const Detail = ({ title, children }) => {
     return (
         <div
             className={`flex w-screen flex-row items-center bg-wato-white-bone px-5 py-6 sm:px-16 lg:px-60`}

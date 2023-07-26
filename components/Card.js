@@ -8,8 +8,8 @@ const Card = ({ title, subtitle, body, cta, buttonLink }) => {
             <div className="font-normal">{subtitle.toUpperCase()}</div>
             <div className="py-8 text-4xl font-bold">{title}</div>
             <div className="border-t-2 border-solid border-zinc-900 pt-2 text-lg font-normal">
-                {body.map((entry) => {
-                    return <div>{entry.toUpperCase()}</div>;
+                {body.map((entry, idx) => {
+                    return <div key={idx}>{entry.toUpperCase()}</div>;
                 })}
             </div>
             <div className="flex items-end justify-end">

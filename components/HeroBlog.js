@@ -10,7 +10,7 @@ const HeroBlog = ({ blog, content }) => {
                 <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">
                     <div className="mb-8 whitespace-pre-line text-5xl font-black lg:text-7xl">
                         {blog.title}&nbsp;
-                        <span className="text-wato-blue">//</span>
+                        <span className="text-wato-blue">{"//"}</span>
                     </div>
                     {content && (
                         <>

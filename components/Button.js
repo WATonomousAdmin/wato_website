@@ -10,7 +10,7 @@ const Button = ({ text, link, anchor, onClick }) => {
     if (link || anchor) {
         return (
             <p>
-                <Link href={`${link ?? anchor}`}>{buttonElement}</Link>
+                <Link href={`${link && anchor}`}>{buttonElement}</Link>
             </p>
         );
     }

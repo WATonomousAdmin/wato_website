@@ -9,6 +9,7 @@ const JobPostingList = ({ data }) => {
             elements: data[team].map((posting) => {
                 return (
                     <Card
+                        key={posting.title}
                         title={posting.title}
                         subtitle={`${posting.team} - ${posting.subteam}`}
                         body={[posting.location, posting.type]}

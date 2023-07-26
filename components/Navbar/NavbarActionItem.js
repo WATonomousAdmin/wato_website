@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const NavbarActionItem = ({ action, toggle, children }) => {
     return (
         <li
@@ -9,7 +7,7 @@ const NavbarActionItem = ({ action, toggle, children }) => {
                 toggle();
             }}
         >
-            <span className="text-wato-teal lg:hidden">// </span>
+            <span className="text-wato-teal lg:hidden">{"// "}</span>
             {children}
         </li>
     );

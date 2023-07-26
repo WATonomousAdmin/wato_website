@@ -1,5 +1,5 @@
 import busboy from "busboy";
-import NodeMailer, { createTestAccount } from "nodemailer";
+import NodeMailer from "nodemailer";
 
 const submit = async (req, res) => {
     const mailData = {
@@ -34,7 +34,7 @@ const submit = async (req, res) => {
             console.log(`File [${name}] done`);
         });
     });
-    bb.on("field", (name, val, info) => {
+    bb.on("field", (name, val) => {
         console.log(`Field [${name}]: value: %j`, val);
         mailData[name] = val;
     });

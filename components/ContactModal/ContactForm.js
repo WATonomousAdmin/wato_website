@@ -5,15 +5,11 @@ import FormTextArea from "../Form/FormTextArea";
 import FormSubmit from "../Form/FormSubmit";
 import FormFile from "../Form/FormFile";
 
-const ContactForm = ({}) => {
+const ContactForm = () => {
     const defaultForm = {
         purpose: "General",
     };
     const [formData, setFormData] = useState(defaultForm);
-
-    const changeStatus = (status) => {
-        setFormStatus(status);
-    };
 
     const onFormChange = (e) => {
         setFormData((data) => ({
@@ -88,12 +84,7 @@ const ContactForm = ({}) => {
                     onFormChange={onFormChange}
                     setFormData={setFormData}
                 />
-                <FormFile
-                    id={"upload"}
-                    title={"UPLOAD FILE"}
-                    formData={formData}
-                    onFormChange={formData}
-                />
+                <FormFile id={"upload"} title={"UPLOAD FILE"} />
                 <FormSubmit />
             </div>
         </form>

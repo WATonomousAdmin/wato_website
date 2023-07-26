@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Icon from "../Icon";
 import NavbarActionItem from "./NavbarActionItem";
 import NavbarBadge from "./NavbarBadge";
 import NavbarIconItem from "./NavbarIconItem";

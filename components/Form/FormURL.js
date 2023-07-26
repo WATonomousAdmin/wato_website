@@ -46,9 +46,10 @@ const FormURL = ({ id, title, formData, setFormData }) => {
             </label>
             <div className={`flex w-full bg-wato-white-bone p-1 text-xl`}>
                 <div className={`flex min-h-[2em] w-full flex-wrap`}>
-                    {formData.urls.map((url) => {
+                    {formData.urls.map((url, idx) => {
                         return (
                             <UrlContainer
+                                key={idx}
                                 content={url}
                                 onRemove={removeURL}
                             ></UrlContainer>

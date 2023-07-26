@@ -13,7 +13,7 @@ const FormStatus = ({ status }) => {
         case 1:
             return (
                 <div className="ml-3 text-[#C39938]">
-                    Submitting... <i class="fa-solid fa-gear fa-spin"></i>
+                    Submitting... <i className="fa-solid fa-gear fa-spin"></i>
                 </div>
             );
         case 2:

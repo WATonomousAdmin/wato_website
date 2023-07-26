@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormFile = ({ id, title, required, formData, onFormChange }) => {
+const FormFile = ({ id, title, required }) => {
     const [fileName, setFileName] = useState("");
 
     const onFileUpload = (data) => {

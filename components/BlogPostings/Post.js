@@ -1,4 +1,3 @@
-import Link from "next/link";
 import BadgeList from "../Badge/BadgeList";
 import Image from "next/image";
 
@@ -13,7 +12,7 @@ const Post = ({ data }) => {
                 />
             </div>
             <div className="mb-5 text-4xl font-medium">
-                {data.title}&nbsp;<span className="text-wato-teal">//</span>
+                {data.title}&nbsp;<span className="text-wato-teal">{"//"}</span>
             </div>
             <div className="mb-5">
                 <span className="font-bold">{data.authors[0]}</span> •{" "}

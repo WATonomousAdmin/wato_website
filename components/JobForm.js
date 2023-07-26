@@ -83,7 +83,7 @@ const JobForm = ({ id }) => {
 
         const payload = [data["id"]];
         for (let field of fields) {
-            payload.push((data[field] ?? "").toString());
+            payload.push((data[field] && "").toString());
         }
 
         const res = await fetch("/api/jobpostings/apply", {
@@ -96,6 +96,7 @@ const JobForm = ({ id }) => {
         } else if (res.status == 200) {
             changeStatus(2);
             confetti({
+                // eslint-disable-line no-undef
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 },
