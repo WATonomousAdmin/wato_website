@@ -27,7 +27,7 @@ const Carousel = ({ title, subtitle, data }) => {
 
   return (
     <div className="py-5 lg:py-auto bg-wato-grey-porcelain flex flex-col items-center">
-      <div className="text-5xl text-center font-bold mb-5">
+      <div className="text-4xl lg:text-5xl text-center font-bold mb-5">
         {title}
       </div>
       <div className="text-xl text-center font-light lg:w-1/2 mb-5">

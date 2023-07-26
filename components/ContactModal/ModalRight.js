@@ -12,7 +12,7 @@ const ModalRight = () => {
   return (
     <div className="relative hidden overflow-x-hidden bg-white bg-ModalRight xl:block ">
       <div className="absolute top-8 h-64 w-4/5 rounded-r-md bg-zinc-900">
-        <Image src={e7} alt="e7" />
+        <Image src={e7} fill alt="e7" className="object-cover"/>
       </div>
       <div className="absolute right-0 top-[3.5em] flex h-52 w-48 flex-col rounded-l-md bg-white p-3 text-black">
         <div className="mb-2 font-bold">{ADDRESS_HEADER}</div>
