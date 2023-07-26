@@ -1,17 +1,13 @@
 import Badge from "./Badge";
 
-const BadgeList = ({badges}) => {
+const BadgeList = ({ badges }) => {
     return (
         <div className="flex overflow-hidden">
-            {
-                badges.map((x) => {
-                    return(
-                        <Badge key={x} content={x}/>
-                    );
-                })
-            }
+            {badges.map((x) => {
+                return <Badge key={x} content={x} />;
+            })}
         </div>
     );
-}
+};
 
-export default BadgeList
+export default BadgeList;

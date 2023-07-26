@@ -1,14 +1,14 @@
-const Detail = ({title, children, last}) => {
+const Detail = ({ title, children, last }) => {
     return (
-        <div className={`w-screen bg-wato-white-bone flex flex-row items-center px-5 sm:px-16 lg:px-60 py-6`}>
-            <div className="text-wato-grey font-bold uppercase w-48">
+        <div
+            className={`flex w-screen flex-row items-center bg-wato-white-bone px-5 py-6 sm:px-16 lg:px-60`}
+        >
+            <div className="w-48 font-bold uppercase text-wato-grey">
                 {title}
             </div>
-            <div className="text-black">
-                {children}
-            </div>
+            <div className="text-black">{children}</div>
         </div>
     );
-}
+};
 
 export default Detail;

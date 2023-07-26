@@ -1,19 +1,19 @@
 import Button from "./Button";
 
-const Filter = ({placeholder, filters, setFilters}) => {
+const Filter = ({ placeholder, filters, setFilters }) => {
     return (
-        <div className="px-5 sm:px-16 lg:px-60 py-12 w-screen flex items-center bg-wato-blue-gloomy bg-opacity-40">
+        <div className="flex w-screen items-center bg-wato-blue-gloomy bg-opacity-40 px-5 py-12 sm:px-16 lg:px-60">
             <input
-                className="w-full pl-14 py-5 mr-5 bg-search bg-no-repeat bg-left bg-origin-padding border-white border-l-[20px] outline-none"
+                className="mr-5 w-full border-l-[20px] border-white bg-search bg-left bg-no-repeat bg-origin-padding py-5 pl-14 outline-none"
                 type="text"
                 id="filter"
                 value={filters}
                 onChange={(e) => setFilters(e.target.value)}
                 placeholder={placeholder}
             />
-            <Button text="Clear" onClick={() => setFilters("")}/>
+            <Button text="Clear" onClick={() => setFilters("")} />
         </div>
     );
-}
+};
 
 export default Filter;

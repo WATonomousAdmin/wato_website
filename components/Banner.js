@@ -1,12 +1,10 @@
-const Banner = ({title, subtitle}) => {
+const Banner = ({ title, subtitle }) => {
     return (
-        <div className="flex h-80 flex-col items-center font-bold justify-center bg-wato-blue-gloomy">
-          <div>{title}</div>
-          <div className="mt-12 text-5xl">
-            {subtitle}
-          </div>
+        <div className="flex h-80 flex-col items-center justify-center bg-wato-blue-gloomy font-bold">
+            <div>{title}</div>
+            <div className="mt-12 text-5xl">{subtitle}</div>
         </div>
     );
-}
+};
 
 export default Banner;

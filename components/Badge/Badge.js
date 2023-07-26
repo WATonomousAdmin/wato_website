@@ -1,9 +1,9 @@
-const Badge = ({content}) => {
+const Badge = ({ content }) => {
     return (
-        <div className="bg-badge text-white font-base uppercase px-1 mr-2 rounded-lg text-ellipsis line-clamp-1">
+        <div className="font-base mr-2 line-clamp-1 text-ellipsis rounded-lg bg-badge px-1 uppercase text-white">
             {content}
         </div>
     );
-}
+};
 
 export default Badge;

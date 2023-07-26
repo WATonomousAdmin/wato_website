@@ -1,8 +1,8 @@
-const {google} = require("googleapis");
+const { google } = require("googleapis");
 
 const auth = new google.auth.GoogleAuth({
     keyFile: "wato-service-secret.json",
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"]
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
 const sheets = google.sheets("v4");
@@ -16,18 +16,19 @@ const apply = async (req, res) => {
         valueInputOption: "USER_ENTERED",
         insertDataOption: "OVERWRITE",
         resource: {
-            values: JSON.parse(req.body)["row"]
+            values: JSON.parse(req.body)["row"],
         },
-        auth: auth
-    }
+        auth: auth,
+    };
 
     try {
-        const response = (await sheets.spreadsheets.values.append(request)).data;
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        const response = (await sheets.spreadsheets.values.append(request))
+            .data;
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         res.status(200).json(response);
     } catch (e) {
-        res.status(500).json({"e": e.toString()})
+        res.status(500).json({ e: e.toString() });
     }
-}
+};
 
 export default apply;

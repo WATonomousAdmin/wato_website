@@ -1,26 +1,26 @@
 import Button from "./Button.js";
 
 const Card = ({ title, subtitle, body, cta, buttonLink }) => {
-  return (
-    <div
-      className={`min-w-full  lg:min-w-[30vw] lg:w-[30vw] text-lg flex flex-col bg-wato-blue-water p-5 my-10 rounded-md mr-10`}
-    >
-      <div className="font-normal">{subtitle.toUpperCase()}</div>
-      <div className="font-bold text-4xl py-8">{title}</div>
-      <div className="border-t-2 border-solid border-zinc-900 font-normal text-lg pt-2">
-        {body.map((entry) => {
-          return <div>{entry.toUpperCase()}</div>;
-        })}
-      </div>
-      <div className="flex items-end justify-end">
-        {/* <Link href={buttonLink} className="align-top">
+    return (
+        <div
+            className={`my-10  mr-10 flex min-w-full flex-col rounded-md bg-wato-blue-water p-5 text-lg lg:w-[30vw] lg:min-w-[30vw]`}
+        >
+            <div className="font-normal">{subtitle.toUpperCase()}</div>
+            <div className="py-8 text-4xl font-bold">{title}</div>
+            <div className="border-t-2 border-solid border-zinc-900 pt-2 text-lg font-normal">
+                {body.map((entry) => {
+                    return <div>{entry.toUpperCase()}</div>;
+                })}
+            </div>
+            <div className="flex items-end justify-end">
+                {/* <Link href={buttonLink} className="align-top">
           <Button text={cta}/>
         </Link> */}
-          {/* py-2 px-7 */}
-          <Button text={cta} link={buttonLink}/>
-      </div>
-    </div>
-  );
+                {/* py-2 px-7 */}
+                <Button text={cta} link={buttonLink} />
+            </div>
+        </div>
+    );
 };
 
 /*
