@@ -95,8 +95,7 @@ const JobForm = ({ id }) => {
             changeStatus(-1);
         } else if (res.status == 200) {
             changeStatus(2);
-            confetti({
-                // eslint-disable-line no-undef
+            confetti({ // eslint-disable-line no-undef
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 },
