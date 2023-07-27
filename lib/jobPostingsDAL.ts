@@ -4,17 +4,29 @@ import matter from "gray-matter";
 
 import { remark } from "remark";
 import html from "remark-html";
+import { JobPostingFrontmatterList } from "../types";
+
+interface JobPostingId {
+    params: {
+        id: string;
+    };
+}
+interface JobPosting {
+    id: string;
+    title: string;
+    subtitle: string;
+    contentHtml: string;
+}
 
 const PATH = path.join(process.cwd(), "job_postings");
 
 export const getPostings = () => {
     const files = fs.readdirSync(PATH);
-    const categories = {};
+    const categories: JobPostingFrontmatterList = {};
     files.map((filename) => {
         const id = filename.replace(/\.md$/, "");
         const filePath = path.join(PATH, filename);
         const content = fs.readFileSync(filePath, "utf8");
-
         const parsedContent = matter(content);
         parsedContent.orig = "";
 
@@ -22,12 +34,20 @@ export const getPostings = () => {
             categories[parsedContent.data.team] = [];
         }
 
-        categories[parsedContent.data.team].push({ id, ...parsedContent.data });
+        const { title, team, subteam, location, type } = parsedContent.data;
+        categories[parsedContent.data.team].push({
+            id,
+            title,
+            team,
+            subteam,
+            location,
+            type,
+        });
     });
     return categories;
 };
 
-export const getPostIds = () => {
+export const getPostIds = (): JobPostingId[] => {
     const fileNames = fs.readdirSync(PATH);
     return fileNames.map((filename) => {
         return {
@@ -38,7 +58,7 @@ export const getPostIds = () => {
     });
 };
 
-export const getPostData = async (id) => {
+export const getPostData = async (id: string): Promise<JobPosting> => {
     const filePath = path.join(PATH, `${id}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const parsedContent = matter(fileContents);

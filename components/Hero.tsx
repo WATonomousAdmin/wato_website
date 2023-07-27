@@ -1,6 +1,14 @@
 import Button from "./Button";
 
-const Hero = ({ title, subtitle, cta, link, image }) => {
+interface HeroProps {
+    title: string;
+    subtitle: string;
+    cta: string;
+    link: string;
+    image: string;
+}
+
+const Hero = ({ title, subtitle, cta, link, image } : HeroProps) => {
     return (
         <div
             className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}

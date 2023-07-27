@@ -1,6 +1,14 @@
-import Button from "./Button.tsx";
+import Button from "./Button";
 
-const Card = ({ title, subtitle, body, cta, buttonLink }) => {
+interface CardProps {
+    title: string;
+    subtitle: string;
+    body: string[];
+    cta: string;
+    buttonLink: string;
+}
+
+const Card = ({ title, subtitle, body, cta, buttonLink } : CardProps) => {
     return (
         <div
             className={`my-10  mr-10 flex min-w-full flex-col rounded-md bg-wato-blue-water p-5 text-lg lg:w-[30vw] lg:min-w-[30vw]`}

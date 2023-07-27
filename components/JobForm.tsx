@@ -82,7 +82,7 @@ const JobForm = ({ id }) => {
         const data = { ...formData };
 
         const payload = [data["id"]];
-        for (let field of fields) {
+        for (const field of fields) {
             payload.push((data[field] && "").toString());
         }
 

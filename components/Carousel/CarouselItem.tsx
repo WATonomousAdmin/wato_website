@@ -66,6 +66,7 @@ const CarouselItem = ({
         >
             <div className={`relative h-[30rem]`}>
                 <Image
+                    alt={"wow"}
                     src={image}
                     fill
                     className="rounded-sm object-cover transition-all"

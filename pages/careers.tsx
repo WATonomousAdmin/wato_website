@@ -1,5 +1,7 @@
 import { getPostings } from "../lib/jobPostingsDAL";
 
+import { JobPostingFrontmatterList } from "../types";
+
 import JobPostingList from "../components/JobPostingList";
 import ContentPane from "../components/ContentPane";
 
@@ -10,7 +12,17 @@ import Hero from "../components/Hero";
 import ExtendedContentPane from "../components/ExtendedContentPane";
 import Carousel from "../components/Carousel/Carousel";
 
-export const getStaticProps = async () => {
+interface JobPostingProps {
+    props: {
+        allPostingsData: JobPostingFrontmatterList;
+    };
+}
+
+interface JobPostingPageProps {
+    allPostingsData: JobPostingFrontmatterList;
+}
+
+export const getStaticProps = async (): Promise<JobPostingProps> => {
     const allPostingsData = getPostings();
     return {
         props: {
@@ -53,7 +65,7 @@ const CarouselData = [
     },
 ];
 
-const JobPostings = ({ allPostingsData }) => {
+const Careers = ({ allPostingsData }: JobPostingPageProps) => {
     return (
         <div className={`overflow-hidden scroll-smooth bg-cover`}>
             <Hero
@@ -97,4 +109,4 @@ const JobPostings = ({ allPostingsData }) => {
     );
 };
 
-export default JobPostings;
+export default Careers;

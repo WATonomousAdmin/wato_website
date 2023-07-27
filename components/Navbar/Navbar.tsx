@@ -23,7 +23,7 @@ const Navbar = ({ toggleModal }) => {
                             : "max-lg:h-0"
                     } pointer-events-auto overflow-hidden transition-all duration-500`}
                 >
-                    <NavbarItem href={"/"} toggle={closeMobile}>
+                    <NavbarItem href={"/about"} toggle={closeMobile}>
                         ABOUT
                     </NavbarItem>
                     <NavbarItem href={"/"} toggle={closeMobile}>
@@ -32,7 +32,7 @@ const Navbar = ({ toggleModal }) => {
                     <NavbarItem href={"/blogs"} toggle={closeMobile}>
                         BLOG
                     </NavbarItem>
-                    <NavbarItem href={"/JobPostings"} toggle={closeMobile}>
+                    <NavbarItem href={"/careers"} toggle={closeMobile}>
                         GET INVOLVED
                     </NavbarItem>
                     <NavbarItem href={"/"} toggle={closeMobile}>
