@@ -61,7 +61,7 @@ const Marquee = ({ titles, fastTitles }) => {
 const Spotlight = ({ postings }) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [fastIdx, setFastIdx] = useState(0);
-    const timer = useRef();
+    const timer = useRef<NodeJS.Timer>();
 
     const post = postings.at(currentIdx % postings.length);
 
@@ -125,29 +125,29 @@ const Spotlight = ({ postings }) => {
 
         fadeElement(0, elements);
 
-        list.classList.add(
+        list!.classList.add(
             direction === 1 ? "-translate-x-[271.6px]" : "translate-x-[271.6px]"
         );
 
         await delay(100);
 
-        listMask.classList.remove("opacity-0");
+        listMask!.classList.remove("opacity-0");
 
         await delay(300);
 
-        list.classList.remove(
+        list!.classList.remove(
             direction === 1 ? "-translate-x-[271.6px]" : "translate-x-[271.6px]"
         );
-        list.classList.remove("transition-all");
+        list!.classList.remove("transition-all");
         fn();
 
         await delay(100);
 
-        listMask.classList.add("opacity-0");
+        listMask!.classList.add("opacity-0");
 
         fadeElement(1, elements);
 
-        list.classList.add("transition-all");
+        list!.classList.add("transition-all");
     };
 
     return (
@@ -185,7 +185,7 @@ const Spotlight = ({ postings }) => {
                     </div>
                 </div>
                 <div className="relative col-start-2 col-end-3 row-start-1 row-end-4 max-lg:hidden">
-                    <Image fill src={post.image} className="object-cover" />
+                    <Image fill alt={"spotlight image"} src={post.image} className="object-cover" />
                 </div>
             </div>
             {/* <div onClick={getPrev}>prev</div>

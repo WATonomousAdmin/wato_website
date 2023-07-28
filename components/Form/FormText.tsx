@@ -1,4 +1,15 @@
-const FormText = ({ id, title, required, formData, span, onFormChange }) => {
+import { ChangeEventHandler } from "react";
+
+interface FormTextProps {
+    id: string;
+    title: string;
+    required?: boolean;
+    formData: Record<string, unknown>;
+    span?: boolean;
+    onFormChange: ChangeEventHandler;
+}
+
+const FormText = ({ id, title, required, formData, span, onFormChange } : FormTextProps) => {
     return (
         <div className={`col-span-1 ${span && "lg:col-span-2"} my-2 lg:my-0`}>
             <label htmlFor={id} className="font-medium">
@@ -10,7 +21,7 @@ const FormText = ({ id, title, required, formData, span, onFormChange }) => {
                 className={`mt-3 w-full bg-wato-white-bone p-1 text-xl`}
                 id={id}
                 name={id}
-                value={formData[id] || ""}
+                value={formData[id] as string || ""}
                 onChange={onFormChange}
                 type={"text"}
                 required={required}

@@ -33,6 +33,7 @@ const ExtendedContentPane = ({
                     className={`relative flex max-h-[700px] max-w-[500px] justify-center self-center max-lg:hidden lg:right-[11rem] lg:h-[50vh] lg:w-[30vw] xl:right-[15rem]`}
                 >
                     <Image
+                        alt={"image"}
                         src={img}
                         className="object-cover grayscale"
                         fill

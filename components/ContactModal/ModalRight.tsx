@@ -25,10 +25,10 @@ const ModalRight = () => {
                 </div>
                 <div className="my-1 text-right text-sm">{TAGLINE}</div>
                 <div className="mt-2 flex">
-                    <IconButton content={"fa-instagram"} blue={true} />
-                    <IconButton content={"fa-twitter"} blue={true} />
-                    <IconButton content={"fa-linkedin"} blue={true} />
-                    <IconButton content={"fa-youtube"} blue={true} />
+                    <IconButton content={"fa-instagram"} blue={true} onClick={() => {}} />
+                    <IconButton content={"fa-twitter"} blue={true} onClick={() => {}} />
+                    <IconButton content={"fa-linkedin"} blue={true} onClick={() => {}} />
+                    <IconButton content={"fa-youtube"} blue={true} onClick={() => {}} />
                 </div>
             </div>
         </div>

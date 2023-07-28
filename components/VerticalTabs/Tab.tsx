@@ -1,14 +1,18 @@
 import { useInView } from "react-intersection-observer";
 import TabBanner from "./TabBanner";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface TabProps {
     title: string;
     body: string;
-    children: any;
+    children: ReactNode;
     idx: number;
-    setVisible: Function;
-};
+    setVisible: setVisibleInterface;
+}
+
+interface setVisibleInterface {
+    (idx: number): void
+}
 
 const Tab = ({ title, body, children, idx, setVisible } : TabProps) => {
     const [ref, isVisible] = useInView({threshold: 0.8, rootMargin: "100px 100px 100px 100px"});

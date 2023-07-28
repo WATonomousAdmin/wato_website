@@ -22,7 +22,6 @@ const Blogs = ({ allBlogsData }) => {
             <BlogPostings title={"Featured"} postings={allBlogsData.featured} />
             <Spotlight postings={allBlogsData.spotlight} />
             <Filter
-                categories={[]}
                 placeholder={"Search for a title, description, tag or author"}
                 filters={filters}
                 setFilters={setFilters}

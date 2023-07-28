@@ -3,8 +3,8 @@ import BadgeList from "./Badge/BadgeList";
 const HeroBlog = ({ blog, content }) => {
     return (
         <div
-            style={{ "--bg-image": `url(${blog.image})` }}
-            className="h-screen w-screen bg-[image:var(--bg-image)]"
+            style={{ "backgroundImage": `url(${blog.image})` }}
+            className="h-screen w-screen"
         >
             <div className="flex h-screen w-screen items-end bg-gradient-to-t from-[#000000B0]">
                 <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">

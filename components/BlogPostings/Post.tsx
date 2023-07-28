@@ -8,6 +8,7 @@ const Post = ({ data }) => {
         <Link href={`/blogs/${data.id}`} className="p-5">
             <div className="relative mb-5 h-64 w-full">
                 <Image
+                    alt={"post image"}
                     src={data.image}
                     fill
                     className="rounded-sm object-cover"

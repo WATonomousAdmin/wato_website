@@ -24,7 +24,7 @@ const ContactForm = () => {
     // we won't submit state formData, need to use multipart to submit the file
     const onSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(document.querySelector("#contact-form"));
+        const formData = new FormData(document.querySelector("#contact-form") as HTMLFormElement);
         const response = await fetch("/api/connect/submit", {
             method: "POST",
             body: formData,

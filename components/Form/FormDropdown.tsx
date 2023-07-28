@@ -1,4 +1,15 @@
-const FormDropdown = ({ id, title, span, options, formData, onFormChange }) => {
+import { ChangeEventHandler } from "react";
+
+interface FormDropdownProps {
+    id: string;
+    title: string;
+    span?: boolean;
+    options: string[];
+    formData: Record<string, unknown>;
+    onFormChange: ChangeEventHandler;
+}
+
+const FormDropdown = ({ id, title, span, options, formData, onFormChange } : FormDropdownProps) => {
     return (
         <div className={`col-span-1 ${span && "lg:col-span-2"}`}>
             <div>
@@ -11,7 +22,7 @@ const FormDropdown = ({ id, title, span, options, formData, onFormChange }) => {
                 className="mt-3 w-full bg-wato-white-bone p-1 text-xl"
                 onChange={onFormChange}
                 name={id}
-                value={formData[id] || options[0]}
+                value={formData[id] as string || options[0]}
                 required
             >
                 {options.map((o) => {

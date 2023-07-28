@@ -5,6 +5,13 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
+interface BlogsInterface {
+    featured: Record<string, string>[];
+    spotlight: Record<string, string>[];
+    all: Record<string, string>[];
+    tags: string[];
+}
+
 const PATH = path.join(process.cwd(), "blogs");
 
 const sortByDate = (a, b) => {
@@ -13,12 +20,13 @@ const sortByDate = (a, b) => {
 
 export const getBlogs = () => {
     const files = fs.readdirSync(PATH);
-    const blogs = {
+    const blogs : BlogsInterface = {
         featured: [],
         spotlight: [],
         all: [],
-        tags: new Set(),
+        tags: [],
     };
+    const tags = new Set<string>();
     files.map((filename) => {
         const id = filename.replace(/\.md$/, "");
         const filePath = path.join(PATH, filename);
@@ -33,14 +41,14 @@ export const getBlogs = () => {
         blogs.all.push({ id, ...parsedContent.data });
 
         // just add em all, the set will ignore duplicates lolol
-        parsedContent.data.tags.map((tag) => blogs.tags.add(tag));
+        parsedContent.data.tags.map((tag) => tags.add(tag));
     });
 
     blogs.all.sort(sortByDate);
 
     blogs.featured = blogs.all.slice(0, 3);
 
-    blogs.tags = Array.from(blogs.tags);
+    blogs.tags = Array.from(tags);
 
     return blogs;
 };

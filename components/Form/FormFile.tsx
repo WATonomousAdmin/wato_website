@@ -1,6 +1,12 @@
 import { useState } from "react";
 
-const FormFile = ({ id, title, required }) => {
+interface FormFileProps {
+    id: string;
+    title: string;
+    required?: boolean;
+}
+
+const FormFile = ({ id, title, required } : FormFileProps) => {
     const [fileName, setFileName] = useState("");
 
     const onFileUpload = (data) => {

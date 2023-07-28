@@ -58,7 +58,7 @@ const JobForm = ({ id }) => {
         inPerson: false,
         devotion: 1,
     };
-    const [formData, setFormData] = useState(defaultForm);
+    const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
     const [formStatus, setFormStatus] = useState(0);
 
     const changeStatus = (status) => {
@@ -95,6 +95,7 @@ const JobForm = ({ id }) => {
             changeStatus(-1);
         } else if (res.status == 200) {
             changeStatus(2);
+            // @ts-ignore
             confetti({ // eslint-disable-line no-undef
                 particleCount: 100,
                 spread: 70,

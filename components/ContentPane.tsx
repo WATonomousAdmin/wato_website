@@ -27,7 +27,7 @@ const ContentPane = ({ leftOriented, img, title, subtitle, children }) => {
                     leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
                 }`}
             >
-                <Image src={img} className="rounded-md"></Image>
+                <Image alt={"image"} src={img} className="rounded-md"></Image>
             </div>
         </div>
     );

@@ -32,7 +32,6 @@ const FormTextArea = ({
                 value={formData[id] || ""}
                 onChange={onFormChange}
                 onKeyUp={checkWordLimit}
-                type={"text"}
                 required={required}
                 rows={5}
                 placeholder={`Max ${maxWords} words`}
