@@ -10,7 +10,7 @@ const Pager = ({ count, current }: PagerProps) => {
                 return (
                     <div
                         key={i}
-                        className={`my-2 h-10 w-1 rounded-sm transition-colors duration-300 ${
+                        className={`my-2 h-10 w-1 rounded-sm transition-all duration-500 ${
                             i == current
                                 ? "bg-wato-blue"
                                 : "bg-white bg-opacity-50"

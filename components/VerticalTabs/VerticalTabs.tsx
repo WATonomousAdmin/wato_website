@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 import Tab from "./Tab";
 import Pager from "./Pager";
@@ -19,6 +20,7 @@ const HERO_PLACEHOLDER = "WATonomous is an agile team of future developers, engi
 
 const VerticalTabs = () => {
     const [visible, setVisible] = useState(0);
+    const [ref, inView] = useInView({threshold: 0.95, rootMargin: "100px 100px 100px 100px"});
     return (
         <div className="h-screen w-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
             <div className="absolute origin-bottom-left bottom-0 left-0 w-[30rem] z-0">
@@ -29,11 +31,11 @@ const VerticalTabs = () => {
                     <Hero title="Driving Tomorrow, Today" subtitle={HERO_PLACEHOLDER} image="bg-main" cta="Dive In" link="#tabs"/>
                 </div>
             </section>
-            <div className="flex h-screen w-screen snap-always snap-start flex-row bg-network">
-                <div className="ml-5 sm:ml-16 lg:ml-44 xl:ml-60 flex w-20 items-center">
+            <div ref={ref} className="flex h-screen w-screen snap-always snap-start flex-row bg-network">
+                <div className={`ml-5 sm:ml-16 lg:ml-44 xl:ml-60 flex w-20 items-center transition-opacity duration-500 ${inView ? "opacity-100" : "opacity-0"}`}>
                     <Pager count={5} current={visible} />
                 </div>
-                <div id="tabs" className="w-full snap-y snap-mandatory overflow-y-scroll bg-transparent z-10">
+                <div id="tabs" className={`w-full snap-y snap-mandatory bg-transparent z-10 transition-opacity duration-500 ${inView ? "opacity-100 overflow-y-scroll" : "opacity-0 overflow-y-hidden"}`}>
                     <Tab
                         title="What is WATOnomous?"
                         body={TAB_PLACEHOLDER}
