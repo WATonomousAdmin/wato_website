@@ -33,7 +33,7 @@ to start a development server on `http://localhost:3000/`.
 
 `npm run lint` will run the linter.
 
-`npm run pretty` will run the formatter on **all source files (!)**
+`npm run pretty` will run the formatter on **all source files (!)** (personally I wouldn't run this, who cares about formatting anyways :clown:)
 
 ## For Everyone Else
 
