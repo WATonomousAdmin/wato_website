@@ -12,7 +12,7 @@ interface BlogsInterface {
     tags: string[];
 }
 
-const PATH = path.join(process.cwd(), "blogs");
+const PATH = path.join(process.cwd(), "/static/blogs");
 
 const sortByDate = (a, b) => {
     return Date.parse(b.date) - Date.parse(a.date);

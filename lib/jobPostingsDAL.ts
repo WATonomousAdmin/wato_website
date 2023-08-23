@@ -18,7 +18,7 @@ interface JobPosting {
     contentHtml: string;
 }
 
-const PATH = path.join(process.cwd(), "job_postings");
+const PATH = path.join(process.cwd(), "/static/job_postings");
 
 export const getPostings = () => {
     const files = fs.readdirSync(PATH);
