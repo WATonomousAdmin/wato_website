@@ -13,10 +13,10 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": false, // TODO: REMOVE THIS
+    "noImplicitAny": true, // TODO: REMOVE THIS
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,

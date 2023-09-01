@@ -1,10 +1,14 @@
 import Badge from "./Badge";
 
-const BadgeList = ({ badges }) => {
+interface BadgeListProps {
+    badges: string[];
+}
+
+const BadgeList = ({ badges }: BadgeListProps) => {
     return (
         <div className="flex overflow-hidden">
-            {badges.map((x) => {
-                return <Badge key={x} content={x} />;
+            {badges.map((text: string, idx: number) => {
+                return <Badge key={idx} content={text} />;
             })}
         </div>
     );

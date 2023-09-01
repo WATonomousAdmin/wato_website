@@ -4,11 +4,24 @@ import BlogPostings from "../components/BlogPostings/BlogPostings";
 import { useState } from "react";
 import Filter from "../components/Filter";
 import Spotlight from "../components/BlogPostings/Spotlight";
+import { BlogPostData } from "../types";
 
-const Blogs = ({ allBlogsData }) => {
+interface BlogDataList {
+    featured: BlogPostData[];
+    spotlight: BlogPostData[];
+    all: BlogPostData[];
+    tags: string[];
+}
+interface BlogPageProps {   
+    allBlogsData : BlogDataList;
+}
+
+const Blogs = ({ allBlogsData } : BlogPageProps) => {
     const [filters, setFilters] = useState("");
 
-    const blogFilter = (post) => {
+    // just put all the post information in one string and filter it
+    // not great but it works
+    const blogFilter = (post : BlogPostData) => {
         return `${post.title} ${post.authors.join(
             " "
         )} ${post.date.toString()} ${post.description} ${post.tags.join(" ")}`

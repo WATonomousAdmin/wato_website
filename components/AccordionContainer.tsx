@@ -1,6 +1,20 @@
 import { useState } from "react";
 
-const AccordionCategory = ({ active, idx, onToggle, title, elements }) => {
+interface AccordionCategoryProps {
+    active: boolean;
+    idx: number;
+    onToggle(idx: number): any;
+    title: string;
+    elements: HTMLElement[] | Element[] | any[];
+}
+
+const AccordionCategory = ({
+    active,
+    idx,
+    onToggle,
+    title,
+    elements,
+}: AccordionCategoryProps) => {
     return (
         <div key={`${idx}-${title}`}>
             <div
@@ -25,17 +39,17 @@ const AccordionCategory = ({ active, idx, onToggle, title, elements }) => {
     );
 };
 
-/*
-data: [
-    {
-        title: "Accordion 1";
-        elements: [<Card>]
-    }
-]
-*/
-const AccordionContainer = ({ data }) => {
+interface AccordionContainerData {
+    title: string;
+    elements: HTMLElement[] | Element[] | any[];
+}
+interface AccordionContainerProps {
+    data: AccordionContainerData[];
+}
+
+const AccordionContainer = ({ data }: AccordionContainerProps) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
-    const onToggle = (idx) => {
+    const onToggle = (idx: number) => {
         if (selectedIndex === idx) setSelectedIndex(-1);
         else setSelectedIndex(idx);
     };

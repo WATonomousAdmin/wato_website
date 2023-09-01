@@ -4,18 +4,12 @@ import matter from "gray-matter";
 
 import { remark } from "remark";
 import html from "remark-html";
-import { JobPostingFrontmatterList } from "../types";
+import { JobPostingData, JobPostingFrontmatterList } from "../types";
 
 interface JobPostingId {
     params: {
         id: string;
     };
-}
-interface JobPosting {
-    id: string;
-    title: string;
-    subtitle: string;
-    contentHtml: string;
 }
 
 const PATH = path.join(process.cwd(), "job_postings");
@@ -58,7 +52,7 @@ export const getPostIds = (): JobPostingId[] => {
     });
 };
 
-export const getPostData = async (id: string): Promise<JobPosting> => {
+export const getPostData = async (id: string): Promise<JobPostingData> => {
     const filePath = path.join(PATH, `${id}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const parsedContent = matter(fileContents);

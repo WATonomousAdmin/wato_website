@@ -1,6 +1,13 @@
+import { BlogPostData } from "../types";
 import BadgeList from "./Badge/BadgeList";
+import Button from "./Button";
 
-const HeroBlog = ({ blog, content }) => {
+interface HeroBlogProps {
+    blog: BlogPostData;
+    content: boolean;
+}
+
+const HeroBlog = ({ blog, content } : HeroBlogProps) => {
     return (
         <div
             style={{ "backgroundImage": `url(${blog.image})` }}
@@ -20,8 +27,11 @@ const HeroBlog = ({ blog, content }) => {
                             <div className="text-md mb-3 lg:w-3/4 lg:text-xl">
                                 {blog.description}
                             </div>
-                            <div>
+                            <div className="mb-3">
                                 <BadgeList badges={blog.tags} />
+                            </div>
+                            <div>
+                                <Button text={"Read More"} src={`/blogs/${blog.id}`} />
                             </div>
                         </>
                     )}

@@ -1,9 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { BlogPostData, MarqueeDirection } from "../../types";
+import { fadeElement } from "../../lib/utils";
 
 const CAROUSEL_ROTATION_INTERVAL = 50000;
 
-const MarqueeItem = ({ idx, isCurrent, content, onClick }) => {
+interface MarqueeItemProps {
+    idx: number;
+    isCurrent: boolean;
+    content: HTMLElement | any;
+    onClick(idx: number): any;
+}
+
+const MarqueeItem = ({
+    idx,
+    isCurrent,
+    content,
+    onClick,
+}: MarqueeItemProps) => {
     return (
         <div
             className={`m-2 flex h-[10rem] w-[30%] items-center justify-center text-center font-bold lg:w-64 ${
@@ -16,8 +30,13 @@ const MarqueeItem = ({ idx, isCurrent, content, onClick }) => {
     );
 };
 
-const Marquee = ({ titles, fastTitles }) => {
-    const onMarqueeItemClick = (idx) => {
+interface MarqueeProps {
+    titles: string[];
+    fastTitles: string[];
+}
+
+const Marquee = ({ titles, fastTitles }: MarqueeProps) => {
+    const onMarqueeItemClick = (idx: number) => {
         console.log(idx);
     };
 
@@ -58,7 +77,11 @@ const Marquee = ({ titles, fastTitles }) => {
     );
 };
 
-const Spotlight = ({ postings }) => {
+interface SpotlightProps {
+    postings: BlogPostData[];
+}
+
+const Spotlight = ({ postings }: SpotlightProps) => {
     const [currentIdx, setCurrentIdx] = useState(0);
     const [fastIdx, setFastIdx] = useState(0);
     const timer = useRef<NodeJS.Timer>();
@@ -96,24 +119,15 @@ const Spotlight = ({ postings }) => {
         postings.at((fastIdx + 1) % postings.length),
     ];
 
-    const fadeElement = (direction, elements) => {
-        for (const element of elements) {
-            if (!element || !element.classList) continue;
-            if (direction) {
-                element.classList.add("opacity-1");
-                element.classList.remove("opacity-0");
-                continue;
-            }
-            element.classList.add("opacity-0");
-            element.classList.remove("opacity-1");
-        }
-    };
-
-    const delay = (d) => {
+    const delay = (d: number) => {
         return new Promise((resolve) => setTimeout(resolve, d));
     };
 
-    const transitionSpotlight = async (direction, fastFn, fn) => {
+    const transitionSpotlight = async (
+        direction: MarqueeDirection,
+        fastFn : any,
+        fn : any
+    ) => {
         const elements = document.querySelectorAll(`.spotlight`);
         const list = document.querySelector(`.spotlight-list`);
         const listMask = document.querySelector(`.spotlight-mask`);
@@ -126,7 +140,9 @@ const Spotlight = ({ postings }) => {
         fadeElement(0, elements);
 
         list!.classList.add(
-            direction === 1 ? "-translate-x-[271.6px]" : "translate-x-[271.6px]"
+            direction === MarqueeDirection.Next
+                ? "-translate-x-[271.6px]"
+                : "translate-x-[271.6px]"
         );
 
         await delay(100);
@@ -136,9 +152,12 @@ const Spotlight = ({ postings }) => {
         await delay(300);
 
         list!.classList.remove(
-            direction === 1 ? "-translate-x-[271.6px]" : "translate-x-[271.6px]"
+            direction === MarqueeDirection.Next
+                ? "-translate-x-[271.6px]"
+                : "translate-x-[271.6px]"
         );
         list!.classList.remove("transition-all");
+
         fn();
 
         await delay(100);
@@ -155,15 +174,15 @@ const Spotlight = ({ postings }) => {
             className={`flex flex-col bg-wato-blue-gloomy px-5 pb-10 sm:px-16 lg:px-44 xl:h-[80vh] xl:px-60`}
         >
             <Marquee
-                fastTitles={fastPostings.map((x) => x.title)}
-                titles={marqueePostings.map((x) => x.title)}
+                fastTitles={fastPostings.map((x) => x!.title)}
+                titles={marqueePostings.map((x) => x!.title)}
             />
             <div className="spotlight grid auto-rows-min gap-x-24 gap-y-12 transition-opacity lg:grid-cols-2">
                 <div className="col-start-1 col-end-2 text-6xl font-medium">
-                    {post.title}
+                    {post!.title}
                 </div>
                 <div className="col-start-1 col-end-2 text-xl font-light">
-                    {post.description}
+                    {post!.description}
                 </div>
                 <div className="col-start-1 col-end-2">
                     <span className="text-xl font-bold">Related</span>
@@ -185,7 +204,12 @@ const Spotlight = ({ postings }) => {
                     </div>
                 </div>
                 <div className="relative col-start-2 col-end-3 row-start-1 row-end-4 max-lg:hidden">
-                    <Image fill alt={"spotlight image"} src={post.image} className="object-cover" />
+                    <Image
+                        fill
+                        alt={"spotlight image"}
+                        src={post!.image}
+                        className="object-cover"
+                    />
                 </div>
             </div>
             {/* <div onClick={getPrev}>prev</div>

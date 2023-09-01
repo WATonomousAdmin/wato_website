@@ -14,7 +14,7 @@ interface BlogsInterface {
 
 const PATH = path.join(process.cwd(), "blogs");
 
-const sortByDate = (a, b) => {
+const sortByDate = (a : Record<string,string>, b : Record<string,string>) => {
     return Date.parse(b.date) - Date.parse(a.date);
 };
 
@@ -41,7 +41,7 @@ export const getBlogs = () => {
         blogs.all.push({ id, ...parsedContent.data });
 
         // just add em all, the set will ignore duplicates lolol
-        parsedContent.data.tags.map((tag) => tags.add(tag));
+        parsedContent.data.tags.map((tag : string) => tags.add(tag));
     });
 
     blogs.all.sort(sortByDate);
@@ -64,7 +64,7 @@ export const getBlogIds = () => {
     });
 };
 
-export const getBlogData = async (id) => {
+export const getBlogData = async (id : string) => {
     const filePath = path.join(PATH, `${id}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const parsedContent = matter(fileContents);

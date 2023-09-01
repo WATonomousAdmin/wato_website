@@ -1,10 +1,16 @@
 import { useState } from "react";
 import CarouselItem from "./CarouselItem";
+import { CarouselData } from "../../types";
+interface CarouselProps {
+    title: string;
+    subtitle: string;
+    data: CarouselData[];
+}
 
-const Carousel = ({ title, subtitle, data }) => {
+const Carousel = ({ title, subtitle, data } : CarouselProps) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    const onToggle = (idx) => {
+    const onToggle = (idx : number) => {
         if (selectedIndex === idx) setSelectedIndex(-1);
         else setSelectedIndex(idx);
     };

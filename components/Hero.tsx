@@ -20,7 +20,7 @@ const Hero = ({ title, subtitle, cta, link, image } : HeroProps) => {
                 <div className="text-md mb-6 lg:w-1/2 lg:text-xl">
                     {subtitle}
                 </div>
-                <Button text={cta} anchor={link} />
+                <Button text={cta} src={link} />
             </div>
         </div>
     );

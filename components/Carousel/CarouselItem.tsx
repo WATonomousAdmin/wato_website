@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { CarouselData } from "../../types";
+import { fadeElement } from "../../lib/utils";
+
+interface CarouselItemProps extends CarouselData {
+    selectedIdx: number;
+    idx: number;
+    onToggle(idx: number): any;
+}
 
 const CarouselItem = ({
     selectedIdx,
@@ -10,7 +18,7 @@ const CarouselItem = ({
     body,
     cta,
     image,
-}) => {
+} : CarouselItemProps) => {
     const selected = selectedIdx == idx;
     const somethingIsSelected = selectedIdx !== -1;
 
@@ -36,19 +44,6 @@ const CarouselItem = ({
             return "w-0 h-0 translate-y-0 translate-x-0";
         else
             return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] xl:delay-500";
-    };
-
-    const fadeElement = (direction, elements) => {
-        for (const element of elements) {
-            if (!element || !element.classList) continue;
-            if (direction) {
-                element.classList.add("opacity-1");
-                element.classList.remove("opacity-0");
-                continue;
-            }
-            element.classList.add("opacity-0");
-            element.classList.remove("opacity-1");
-        }
     };
 
     useEffect(() => {

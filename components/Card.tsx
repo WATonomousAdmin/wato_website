@@ -25,7 +25,7 @@ const Card = ({ title, subtitle, body, cta, buttonLink } : CardProps) => {
           <Button text={cta}/>
         </Link> */}
                 {/* py-2 px-7 */}
-                <Button text={cta} link={buttonLink} />
+                <Button text={cta} src={buttonLink} />
             </div>
         </div>
     );
