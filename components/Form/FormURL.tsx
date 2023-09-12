@@ -1,4 +1,11 @@
-const UrlContainer = ({ content, onRemove }) => {
+import { KeyboardEvent } from "react";
+
+interface UrlContainerProps {
+    content: string;
+    onRemove(content: string): any;
+}
+
+const UrlContainer = ({ content, onRemove }: UrlContainerProps) => {
     return (
         <div className="float-left mb-1 mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-1">
             <div className="">{content}</div>
@@ -14,28 +21,37 @@ const UrlContainer = ({ content, onRemove }) => {
     );
 };
 
-const FormURL = ({ id, title, formData, setFormData }) => {
-    const onSpacePressed = (e) => {
+interface FormURLProps {
+    id: string;
+    title: string;
+    formData: Record<string, any>;
+    setFormData(data: Record<string, any>): any;
+}
+const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
+    const onSpacePressed = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key === " ") {
-            const entry = e.target.value;
-            setFormData((data) => ({
+            e.preventDefault();
+            setFormData((data: Record<string, any>) => ({
                 ...data,
-                urls: [...data.urls, entry.trim()].filter((x) => x.length > 0),
+                urls: [...data.urls, (e.target as HTMLInputElement).value.trim()].filter((x) => x.length > 0),
             }));
-            e.target.value = "";
+            (e.target as HTMLInputElement).value = "";
         }
-        if (e.key === "Backspace" && e.target.value.length === 0) {
-            setFormData((data) => ({
+        if (
+            e.key === "Backspace" &&
+            (e.target as HTMLInputElement).value.length === 0
+        ) {
+            setFormData((data: Record<string, any>) => ({
                 ...data,
                 urls: data.urls.slice(0, -1),
             }));
         }
     };
 
-    const removeURL = (url) => {
-        setFormData((data) => ({
+    const removeURL = (url: string) => {
+        setFormData((data: Record<string, any>) => ({
             ...data,
-            urls: data.urls.filter((x) => x != url),
+            urls: data.urls.filter((x: string) => x != url),
         }));
     };
 
@@ -46,7 +62,7 @@ const FormURL = ({ id, title, formData, setFormData }) => {
             </label>
             <div className={`flex w-full bg-wato-white-bone p-1 text-xl`}>
                 <div className={`flex min-h-[2em] w-full flex-wrap`}>
-                    {formData.urls.map((url, idx) => {
+                    {formData.urls.map((url: string, idx: number) => {
                         return (
                             <UrlContainer
                                 key={idx}

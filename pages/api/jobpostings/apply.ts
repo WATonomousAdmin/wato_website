@@ -1,4 +1,5 @@
 import  { google } from "googleapis";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const auth = new google.auth.GoogleAuth({
     keyFile: "wato-service-secret.json",
@@ -8,7 +9,7 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets("v4");
 
 // TODO: rate limiting
-const apply = async (req, res) => {
+const apply = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(JSON.parse(req.body)["row"]);
     const request = {
         spreadsheetId: "1rfhqVyXvgHpQJYwAN8qGSBlKjLFQCmWraT63AOVx3uA",
@@ -27,7 +28,7 @@ const apply = async (req, res) => {
         await new Promise((resolve) => setTimeout(resolve, 2000));
         res.status(200).json(response);
     } catch (e) {
-        res.status(500).json({ e: e.toString() });
+        res.status(500).json({ e: (e as object).toString() });
     }
 };
 

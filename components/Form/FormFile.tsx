@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface FormFileProps {
     id: string;
@@ -9,8 +9,8 @@ interface FormFileProps {
 const FormFile = ({ id, title, required } : FormFileProps) => {
     const [fileName, setFileName] = useState("");
 
-    const onFileUpload = (data) => {
-        if (!data.target.files[0]) return;
+    const onFileUpload = (data : ChangeEvent<HTMLInputElement>) => {
+        if (!data.target.files || !data.target.files[0]) return;
         let fn = data.target.files[0].name;
         if (fn.length > 20) {
             fn = `${fn.slice(0, 8)}...${fn.slice(-8)}`;

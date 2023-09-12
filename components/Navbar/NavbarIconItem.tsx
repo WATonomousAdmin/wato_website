@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Icon from "../Icon";
 
-const NavbarIconItem = ({ href, icon }) => {
+interface NavbarIconItemProps {
+    href: string;
+    icon: string;
+}
+
+const NavbarIconItem = ({ href, icon }: NavbarIconItemProps) => {
     return (
         <Link href={href}>
             <li className="mx-1 my-2 inline-block rounded-md px-5 py-2 text-2xl font-medium lg:bg-wato-grey-clear lg:px-3 lg:text-sm">

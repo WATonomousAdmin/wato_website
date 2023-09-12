@@ -1,3 +1,15 @@
+import { FormEventHandler, KeyboardEvent } from "react";
+
+interface FormTextAreaProps {
+    id: string;
+    title: string;
+    maxWords: number;
+    required: boolean;
+    formData: Record<string, string>;
+    setFormData(newData: Record<string, string>): any;
+    onFormChange: FormEventHandler;
+}
+
 const FormTextArea = ({
     id,
     title,
@@ -6,12 +18,12 @@ const FormTextArea = ({
     formData,
     setFormData,
     onFormChange,
-}) => {
-    const checkWordLimit = (e) => {
-        const currentLength = e.target.value.split(/[\s]+/);
+}: FormTextAreaProps) => {
+    const checkWordLimit = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+        const currentLength = (e.target as HTMLTextAreaElement).value.split(/[\s]+/);
         if (currentLength.length > maxWords) {
             const newData = { ...formData };
-            newData[id] = e.target.value
+            newData[id] = (e.target as HTMLTextAreaElement).value
                 .split(" ")
                 .splice(0, maxWords)
                 .join(" ");

@@ -1,4 +1,9 @@
-const Detail = ({ title, children }) => {
+interface DetailProps {
+    title: string;
+    children: React.ReactNode | any;
+}
+
+const Detail = ({ title, children } : DetailProps) => {
     return (
         <div
             className={`flex w-screen flex-row items-center bg-wato-white-bone px-5 py-6 sm:px-16 lg:px-60`}

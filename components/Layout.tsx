@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar/Navbar";
 import ContactModal from "./ContactModal/ContactModal";
 import localFont from "next/font/local";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const styrene = localFont({
     src: [
@@ -69,7 +69,11 @@ const styrene = localFont({
     ],
 });
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+    children: ReactNode;
+}
+
+const Layout = ({ children }: LayoutProps) => {
     const [contactModalActive, setContactModalActive] = useState(false);
 
     useEffect(() => {

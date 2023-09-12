@@ -5,6 +5,13 @@ export enum MarqueeDirection {
     Previous,
 }
 
+export enum FormStatusCode {
+    Error,
+    Idle,
+    Submitting,
+    Success
+}
+
 export interface JobPostingFrontmatter {
     id: string;
     title: string;

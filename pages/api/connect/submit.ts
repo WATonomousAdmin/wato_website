@@ -1,8 +1,9 @@
 import busboy from "busboy";
+import { NextApiRequest, NextApiResponse } from "next";
 import NodeMailer from "nodemailer";
 
-const submit = async (req, res) => {
-    const mailData = {
+const submit = async (req: NextApiRequest, res: NextApiResponse) => {
+    const mailData: Record<string, any> = {
         firstName: "",
         lastName: "",
         email: "",
@@ -16,6 +17,9 @@ const submit = async (req, res) => {
         },
     };
     const bb = busboy({ headers: req.headers });
+
+    // the following is copied over from somewhere, and is not production code.
+
     bb.on("file", (name, file, info) => {
         const { filename, encoding, mimeType } = info;
         console.log(

@@ -1,4 +1,12 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+interface ExtendedContentPaneProps {
+    leftOriented: boolean;
+    img: StaticImageData;
+    title: string;
+    subtitle: string;
+    children: React.ReactNode | any;
+}
 
 const ExtendedContentPane = ({
     leftOriented,
@@ -6,7 +14,7 @@ const ExtendedContentPane = ({
     title,
     subtitle,
     children,
-}) => {
+}: ExtendedContentPaneProps) => {
     return (
         <div
             className={`flex flex-col ${

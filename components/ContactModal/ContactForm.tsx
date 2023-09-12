@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import FormText from "../Form/FormText";
 import FormDropdown from "../Form/FormDropdown";
 import FormTextArea from "../Form/FormTextArea";
@@ -9,9 +9,9 @@ const ContactForm = () => {
     const defaultForm = {
         purpose: "General",
     };
-    const [formData, setFormData] = useState(defaultForm);
+    const [formData, setFormData] = useState<Record<string,any>>(defaultForm);
 
-    const onFormChange = (e) => {
+    const onFormChange = (e : ChangeEvent<HTMLInputElement>) => {
         setFormData((data) => ({
             ...data,
             [e.target.name]:
@@ -22,7 +22,7 @@ const ContactForm = () => {
     };
 
     // we won't submit state formData, need to use multipart to submit the file
-    const onSubmit = async (e) => {
+    const onSubmit = async (e : FormEvent) => {
         e.preventDefault();
         const formData = new FormData(document.querySelector("#contact-form") as HTMLFormElement);
         const response = await fetch("/api/connect/submit", {

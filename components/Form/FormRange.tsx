@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 
-const Description = ({ idx, data, selected }) => {
+interface DescriptionProps {
+    idx: string;
+    data: string[];
+    selected: boolean;
+}
+
+const Description = ({ idx, data, selected } : DescriptionProps) => {
     return (
         <div
             className={`flex justify-center p-5 align-middle ${
@@ -12,6 +18,18 @@ const Description = ({ idx, data, selected }) => {
     );
 };
 
+interface FormRangeProps {
+    id: string;
+    title: string;
+    min: number;
+    max: number;
+    step: number;
+    descriptions: string[];
+    required: boolean;
+    formData: Record<string, string>;
+    onFormChange: ChangeEventHandler<HTMLInputElement>;
+}
+
 const FormRange = ({
     id,
     title,
@@ -22,7 +40,7 @@ const FormRange = ({
     required,
     formData,
     onFormChange,
-}) => {
+} : FormRangeProps) => {
     const [selected, setSelected] = useState(false);
     return (
         <div className="col-span-2 flex flex-col">
@@ -50,9 +68,9 @@ const FormRange = ({
 
             {/* TODO: add pop up */}
             <div className="flex w-full flex-row justify-between">
-                <div>1</div>
-                <div>5</div>
-                <div>10</div>
+                <div>{min}</div>
+                <div>{(max-min)/2}</div>
+                <div>{max}</div>
             </div>
             <Description
                 idx={formData[id]}

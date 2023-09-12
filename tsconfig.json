@@ -13,7 +13,6 @@
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true, // TODO: REMOVE THIS
     "strictNullChecks": true,
     "skipLibCheck": true,
     "strict": true,

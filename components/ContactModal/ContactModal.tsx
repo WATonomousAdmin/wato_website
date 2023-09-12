@@ -1,7 +1,12 @@
 import ModalRight from "./ModalRight";
 import ContactForm from "./ContactForm";
 
-const ContactModal = ({ modalActive, closeModal }) => {
+interface ContactModalProps {
+    modalActive: boolean;
+    closeModal(): any;
+}
+
+const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
     return (
         <>
             {

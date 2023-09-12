@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import FormText from "./Form/FormText";
 import FormURL from "./Form/FormURL";
 import FormDropdown from "./Form/FormDropdown";
@@ -6,6 +6,7 @@ import FormRange from "./Form/FormRange";
 import FormSubmit from "./Form/FormSubmit";
 import FormTextArea from "./Form/FormTextArea";
 import FormStatus from "./Form/FormStatus";
+import { FormStatusCode } from "../types";
 
 const fields = [
     "firstName",
@@ -50,7 +51,11 @@ const sliderDescriptions = [
     "jjjjjjjjjjjjjjjjjj",
 ];
 
-const JobForm = ({ id }) => {
+interface JobFormProps {
+    id: string;
+}
+
+const JobForm = ({ id }: JobFormProps) => {
     const defaultForm = {
         id: id,
         urls: [],
@@ -59,13 +64,9 @@ const JobForm = ({ id }) => {
         devotion: 1,
     };
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
-    const [formStatus, setFormStatus] = useState(0);
+    const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
-    const changeStatus = (status) => {
-        setFormStatus(status);
-    };
-
-    const onFormChange = (e) => {
+    const onFormChange = (e : ChangeEvent<HTMLInputElement>) => {
         setFormData((data) => ({
             ...data,
             [e.target.name]:
@@ -75,10 +76,10 @@ const JobForm = ({ id }) => {
         }));
     };
 
-    const onFormSubmit = async (e) => {
+    const onFormSubmit = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (formStatus == 1) return;
-        changeStatus(1);
+        if (formStatus === FormStatusCode.Submitting) return;
+        setFormStatus(FormStatusCode.Submitting);
         const data = { ...formData };
 
         const payload = [data["id"]];
@@ -92,11 +93,12 @@ const JobForm = ({ id }) => {
         });
 
         if (res.status == 500) {
-            changeStatus(-1);
+            setFormStatus(FormStatusCode.Error);
         } else if (res.status == 200) {
-            changeStatus(2);
+            setFormStatus(FormStatusCode.Success);
             // @ts-ignore
-            confetti({ // eslint-disable-line no-undef
+            confetti({
+                // eslint-disable-line no-undef
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 },

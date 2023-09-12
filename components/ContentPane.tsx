@@ -1,6 +1,13 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+interface ContentPaneProps {
+    leftOriented: boolean;
+    img: StaticImageData;
+    title: string;
+    subtitle: string;
+    children: React.ReactNode | any;
+}
 
-const ContentPane = ({ leftOriented, img, title, subtitle, children }) => {
+const ContentPane = ({ leftOriented, img, title, subtitle, children } : ContentPaneProps) => {
     return (
         <div
             className={`flex flex-col ${

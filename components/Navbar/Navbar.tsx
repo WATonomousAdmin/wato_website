@@ -5,7 +5,11 @@ import NavbarIconItem from "./NavbarIconItem";
 import NavbarItem from "./NavbarItem";
 import NavbarMobileIcon from "./NavbarMobileIcon";
 
-const Navbar = ({ toggleModal }) => {
+interface NavBarProps {
+    toggleModal(): any;
+}
+
+const Navbar = ({ toggleModal }: NavBarProps) => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const toggleMobile = () => setMobileOpen(!mobileOpen);
@@ -50,7 +54,7 @@ const Navbar = ({ toggleModal }) => {
                         href={"https://kenjiang.ca"}
                         icon={"fa-linkedin"}
                     />
-                    <NavbarActionItem action={toggleModal} toggle={closeMobile}>
+                    <NavbarActionItem actions={[toggleModal, closeMobile]}>
                         CONNECT
                     </NavbarActionItem>
                 </ul>
