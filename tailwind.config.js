@@ -14,6 +14,8 @@ module.exports = {
                 JobPostingBg:
                     "linear-gradient(180deg, rgba(0, 2, 23, 0.65) 41.68%, rgba(255, 255, 255, 0.65) 184.93%)",
                 search: "url('/imgs/search.svg')",
+                main: "url('/imgs/bg.jpg')",
+                network: "url('/imgs/network.png')",
                 badge: "linear-gradient(135deg, #1F5D96 20%, #46A3B1 80%)",
             },
             colors: {
