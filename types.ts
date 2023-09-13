@@ -1,5 +1,10 @@
 import { StaticImageData } from "next/image";
 
+export enum Fade {
+    In,
+    Out
+}
+
 export enum MarqueeDirection {
     Next,
     Previous,
@@ -49,7 +54,7 @@ export interface StaticProps {
     };
 }
 
-export interface CarouselData {
+export interface BigCardData {
     title: string,
     blurb: string,
     body: string,

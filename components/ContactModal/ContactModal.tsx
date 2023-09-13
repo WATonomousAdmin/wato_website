@@ -26,7 +26,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                     >
                         <div
                             className={
-                                "absolute right-5 top-5 text-lg font-bold text-wato-grey md:hidden"
+                                "absolute right-5 top-5 text-lg font-bold text-wato-grey md:hidden cursor-pointer"
                             }
                             onClick={closeModal}
                         >

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { BlogPostData, MarqueeDirection } from "../../types";
+import { BlogPostData, Fade, MarqueeDirection } from "../../types";
 import { fadeElement } from "../../lib/utils";
 
-const CAROUSEL_ROTATION_INTERVAL = 50000;
+const SPOTLIGHT_ROTATION_INTERVAL = 50000;
 
 interface MarqueeItemProps {
     idx: number;
@@ -103,7 +103,7 @@ const Spotlight = ({ postings }: SpotlightProps) => {
     //     );
 
     useEffect(() => {
-        timer.current = setInterval(getNext, CAROUSEL_ROTATION_INTERVAL);
+        timer.current = setInterval(getNext, SPOTLIGHT_ROTATION_INTERVAL);
         return () => clearInterval(timer.current);
     }, []);
 
@@ -133,11 +133,11 @@ const Spotlight = ({ postings }: SpotlightProps) => {
         const listMask = document.querySelector(`.spotlight-mask`);
 
         clearInterval(timer.current);
-        timer.current = setInterval(getNext, CAROUSEL_ROTATION_INTERVAL);
+        timer.current = setInterval(getNext, SPOTLIGHT_ROTATION_INTERVAL);
 
         fastFn();
 
-        fadeElement(0, elements);
+        fadeElement(Fade.Out, elements);
 
         list!.classList.add(
             direction === MarqueeDirection.Next
@@ -164,7 +164,7 @@ const Spotlight = ({ postings }: SpotlightProps) => {
 
         listMask!.classList.add("opacity-0");
 
-        fadeElement(1, elements);
+        fadeElement(Fade.In, elements);
 
         list!.classList.add("transition-all");
     };

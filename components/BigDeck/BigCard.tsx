@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { CarouselData } from "../../types";
+import { BigCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
 
-interface CarouselItemProps extends CarouselData {
+interface BigCardProps extends BigCardData {
     selectedIdx: number;
     idx: number;
     onToggle(idx: number): any;
 }
 
-const CarouselItem = ({
+const BigCard = ({
     selectedIdx,
     idx,
     onToggle,
@@ -18,8 +18,10 @@ const CarouselItem = ({
     body,
     cta,
     image,
-} : CarouselItemProps) => {
+} : BigCardProps) => {
+    // is this item selected
     const selected = selectedIdx == idx;
+    // is AN item selected
     const somethingIsSelected = selectedIdx !== -1;
 
     const [content, setContent] = useState(blurb);
@@ -48,9 +50,9 @@ const CarouselItem = ({
 
     useEffect(() => {
         const elements = [document.querySelector(`.content-${idx}`)];
-        fadeElement(0, elements);
+        fadeElement(Fade.Out, elements);
         setTimeout(() => {
-            fadeElement(1, elements);
+            fadeElement(Fade.In, elements);
             setContent(selected ? body : blurb);
         }, 1000);
     }, [selected]);
@@ -99,4 +101,4 @@ const CarouselItem = ({
     );
 };
 
-export default CarouselItem;
+export default BigCard;

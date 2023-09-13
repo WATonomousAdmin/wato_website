@@ -1,33 +1,31 @@
 interface PagerProps {
+    identifier: string;
     count: number;
     current: number;
+    hidden?: boolean;
 }
 
-const Pager = ({ count, current }: PagerProps) => {
+const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
+
+    const scrollTo = (idx: number) => {
+        document.getElementById(`carousel-${identifier}-${idx}`)?.scrollIntoView();
+    }
+
     return (
-        <div className="flex flex-col items-center">
+        <div className={`flex items-center lg:flex-col duration-500 transition-opacity ${hidden && "opacity-0"}`}>
             {[...Array(count)].map((_, i) => {
                 return (
                     <div
                         key={i}
-                        className={`my-2 h-10 w-1 rounded-sm transition-all duration-500 ${
-                            i == current
-                                ? "bg-wato-blue"
+                        className={`m-4 w-3 h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                            i === current
+                                ? "bg-wato-blue scale-125"
                                 : "bg-white bg-opacity-50"
                         }`}
+                        onClick={() => {scrollTo(i)}}
                     ></div>
                 );
             })}
-            <div
-                className={`flex flex-col items-center ${
-                    current ? "opacity-0" : "opacity-100"
-                } transition-opacity duration-300`}
-            >
-                <div className=" text-white opacity-50">Scroll</div>
-                <div className="text-white opacity-50 motion-safe:animate-bounce">
-                    ⌄
-                </div>
-            </div>
         </div>
     );
 };

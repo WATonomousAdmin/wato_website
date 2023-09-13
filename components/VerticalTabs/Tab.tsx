@@ -3,6 +3,7 @@ import TabBanner from "./TabBanner";
 import { ReactNode, useEffect } from "react";
 
 interface TabProps {
+    identifier: string;
     title: string;
     body: string;
     children: ReactNode;
@@ -14,15 +15,17 @@ interface setVisibleInterface {
     (idx: number): void
 }
 
-const Tab = ({ title, body, children, idx, setVisible } : TabProps) => {
-    const [ref, isVisible] = useInView({threshold: 0.8, rootMargin: "100px 100px 100px 100px"});
+const Tab = ({ identifier, title, body, children, idx, setVisible } : TabProps) => {
+    const [ref, isVisible] = useInView({threshold: 0.8});
     useEffect (() => {
         setVisible(idx);
     }, [isVisible]);
     return (
-        <div className="flex h-screen snap-always snap-start flex-col max-lg:pr-10 lg:flex-row items-center bg-transparent" ref={ref}>
+        <div id={`carousel-${identifier}-${idx}`} className={`flex max-lg:h-[90vh] lg:min-h-[80vh] max-lg:flex-col min-w-[100vw] px-16 lg:px-44 xl:px-60 py-24 lg:py-6 snap-start`} ref={ref}>
             <TabBanner title={title} body={body} />
-            <div className="relative mr-5 sm:mr-16 lg:mr-44 xl:mr-60 h-[40%] lg:h-[60%] w-full lg:w-1/2">{children}</div>
+            <div className={`max-lg:mt-6 max-lg:h-1/2 lg:w-1/2 relative`}>
+                {children}
+            </div>
         </div>
     );
 };

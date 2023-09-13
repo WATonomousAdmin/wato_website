@@ -3,6 +3,7 @@ import Navbar from "./Navbar/Navbar";
 import ContactModal from "./ContactModal/ContactModal";
 import localFont from "next/font/local";
 import { ReactNode, useEffect, useState } from "react";
+import Footer from "./Footer";
 
 const styrene = localFont({
     src: [
@@ -108,7 +109,7 @@ const Layout = ({ children }: LayoutProps) => {
                 {children}
             </main>
             <footer>
-                <div className="h-96">{/* FOOTER TO GO HERE */}</div>
+                <Footer/>
             </footer>
         </>
     );

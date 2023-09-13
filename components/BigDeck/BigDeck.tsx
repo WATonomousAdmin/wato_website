@@ -1,13 +1,13 @@
 import { useState } from "react";
-import CarouselItem from "./CarouselItem";
-import { CarouselData } from "../../types";
-interface CarouselProps {
+import BigCard from "./BigCard";
+import { BigCardData } from "../../types";
+interface BigDeckProps {
     title: string;
     subtitle: string;
-    data: CarouselData[];
+    data: BigCardData[];
 }
 
-const Carousel = ({ title, subtitle, data } : CarouselProps) => {
+const BigDeck = ({ title, subtitle, data } : BigDeckProps) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
     const onToggle = (idx : number) => {
@@ -17,7 +17,7 @@ const Carousel = ({ title, subtitle, data } : CarouselProps) => {
 
     const items = data.map((d, idx) => {
         return (
-            <CarouselItem
+            <BigCard
                 selectedIdx={selectedIndex}
                 idx={idx}
                 onToggle={onToggle}
@@ -49,4 +49,4 @@ const Carousel = ({ title, subtitle, data } : CarouselProps) => {
     );
 };
 
-export default Carousel;
+export default BigDeck;

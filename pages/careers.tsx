@@ -10,7 +10,7 @@ import img02 from "../public/imgs/jobpostings-02.jpg";
 import img03 from "../public/imgs/jobpostings-03.jpg";
 import Hero from "../components/Hero";
 import ExtendedContentPane from "../components/ExtendedContentPane";
-import Carousel from "../components/Carousel/Carousel";
+import BigDeck from "../components/BigDeck/BigDeck";
 
 interface JobPostingProps {
     props: {
@@ -39,9 +39,9 @@ const CONTENT_PLACEHOLDER =
     "insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. insert text here. ";
 const PAGE_TITLE = "Join the Ride";
 const PANE1_TITLE = "Why Choose WATonomous?";
-const CAROUSEL_TITLE = "Member Perks";
+const DECK_TITLE = "Member Perks";
 
-const CarouselData = [
+const DeckData = [
     {
         title: TITLE_PLACEHOLDER,
         blurb: SMALL_CONTENT_PLACEHOLDER,
@@ -83,10 +83,10 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
             >
                 {CONTENT_PLACEHOLDER}
             </ExtendedContentPane>
-            <Carousel
-                title={CAROUSEL_TITLE}
+            <BigDeck
+                title={DECK_TITLE}
                 subtitle={SMALL_CONTENT_PLACEHOLDER}
-                data={CarouselData}
+                data={DeckData}
             />
             <ContentPane
                 title={TITLE_PLACEHOLDER}

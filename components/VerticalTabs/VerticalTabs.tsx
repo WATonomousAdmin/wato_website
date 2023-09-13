@@ -1,111 +1,56 @@
-import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
 import Tab from "./Tab";
 import Pager from "./Pager";
-import Hero from "../Hero";
 
-import img01 from "../../public/imgs/img1.jpg";
-import img02 from "../../public/imgs/e7.png";
-import img03 from "../../public/imgs/team.jpg";
-import img04 from "../../public/imgs/jobpostings-02.jpg";
-import img05 from "../../public/imgs/blog-01.png";
-import { useState } from "react";
-import car from "../../public/imgs/roadcar.png";
+import { ReactNode, useId, useState } from "react";
 
-const TAB_PLACEHOLDER =
-    "Founded in 2017, WATonomous started from a vision to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D";
+interface VerticalTabData {
+    title: string;
+    body: string;
+    children: ReactNode;
+}
 
-const HERO_PLACEHOLDER = "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in AV, Robotics, and AI";
+interface VerticalTabsProps {
+    data: VerticalTabData[];
+}
 
-const VerticalTabs = () => {
-    const [visible, setVisible] = useState(0);
-    const [ref, inView] = useInView({threshold: 0.95, rootMargin: "100px 100px 100px 100px"});
+const VerticalTabs = ({ data }: VerticalTabsProps) => {
+    const [visibleIndex, setVisibleIndex] = useState(0);
+    // generate a random key for identifying this carousel
+    const carouselKey = useId();
+
+    const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.2 });
     return (
-        <div className="h-screen w-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
-            <div className="absolute origin-bottom-left bottom-0 left-0 w-[30rem] z-0">
-                <Image alt={"car"} src={car} className="object-cover"/>
+        <div className="flex flex-col justify-center bg-network">
+            <div
+                id="tabs"
+                className={`no-scrollbar z-10 flex snap-x snap-mandatory flex-row bg-transparent transition-opacity duration-500 max-lg:overflow-x-scroll lg:w-full lg:flex-col`}
+                ref={tabGroupRef}
+            >
+                {data.map((tab: VerticalTabData, idx: number) => {
+                    return (
+                        <Tab
+                            identifier={carouselKey}
+                            idx={idx}
+                            key={idx}
+                            title={tab.title}
+                            body={tab.body}
+                            children={tab.children}
+                            setVisible={setVisibleIndex}
+                        />
+                    );
+                })}
             </div>
-            <section className="flex h-screen w-screen snap-always snap-start justify-center bg-main">
-                <div className="z-20">
-                    <Hero title="Driving Tomorrow, Today" subtitle={HERO_PLACEHOLDER} image="bg-main" cta="Dive In" link="#tabs"/>
-                </div>
-            </section>
-            <div ref={ref} className="flex h-screen w-screen snap-always snap-start flex-row bg-network">
-                <div className={`ml-5 sm:ml-16 lg:ml-44 xl:ml-60 flex w-20 items-center transition-opacity duration-500 ${inView ? "opacity-100" : "opacity-0"}`}>
-                    <Pager count={5} current={visible} />
-                </div>
-                <div id="tabs" className={`w-full snap-y snap-mandatory bg-transparent z-10 transition-opacity duration-500 ${inView ? "opacity-100 overflow-y-scroll" : "opacity-0 overflow-y-hidden"}`}>
-                    <Tab
-                        title="What is WATOnomous?"
-                        body={TAB_PLACEHOLDER}
-                        idx={0}
-                        setVisible={setVisible}
-                    >
-                        <Image
-                            alt="test"
-                            src={img01}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    </Tab>
-
-                    <Tab
-                        title="Our Story"
-                        body={TAB_PLACEHOLDER}
-                        idx={1}
-                        setVisible={setVisible}
-                    >
-                        <Image
-                            alt="test"
-                            src={img02}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    </Tab>
-
-                    <Tab
-                        title="Our Vision"
-                        body={TAB_PLACEHOLDER}
-                        idx={2}
-                        setVisible={setVisible}
-                    >
-                        <Image
-                            alt="test"
-                            src={img03}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    </Tab>
-
-                    <Tab
-                        title="Built by Many"
-                        body={TAB_PLACEHOLDER}
-                        idx={3}
-                        setVisible={setVisible}
-                    >
-                        <Image
-                            alt="test"
-                            src={img04}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    </Tab>
-
-                    <Tab
-                        title="Into the Fire"
-                        body={TAB_PLACEHOLDER}
-                        idx={4}
-                        setVisible={setVisible}
-                    >
-                        <Image
-                            alt="test"
-                            src={img05}
-                            fill
-                            className="rounded-sm object-cover"
-                        />
-                    </Tab>
-                </div>
+            <div
+                className={`z-20 flex h-[10vh] items-center justify-center transition-opacity duration-500 lg:fixed lg:-left-24 lg:top-1/2 xl:ml-60`}
+            >
+                <Pager
+                    identifier={carouselKey}
+                    count={data.length}
+                    current={visibleIndex}
+                    hidden={!tabGroupVisible}
+                />
             </div>
         </div>
     );
