@@ -36,9 +36,10 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                             key={idx}
                             title={tab.title}
                             body={tab.body}
-                            children={tab.children}
                             setVisible={setVisibleIndex}
-                        />
+                        >
+                            {tab.children}
+                        </Tab>
                     );
                 })}
             </div>
