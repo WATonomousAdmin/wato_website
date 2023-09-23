@@ -9,7 +9,7 @@
 
 ## Abstract
 
-WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via Vercel.
+WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via [Vercel](https://wato-website.vercel.app/).
 
 Inquiries regarding the website or joining WATonomous can be directed to [@kenzoengineer](https://github.com/kenzoengineer).
 
