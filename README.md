@@ -9,9 +9,9 @@
 
 ## Abstract
 
-WATOnomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via Vercel.
+WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via Vercel.
 
-Inquiries regarding the website or joining WATOnomous can be directed to [@kenzoengineer](https://github.com/kenzoengineer).
+Inquiries regarding the website or joining WATonomous can be directed to [@kenzoengineer](https://github.com/kenzoengineer).
 
 ## For Developers
 
@@ -75,7 +75,7 @@ type: "Full Time"
 ---
 ```
 
-After this header block, add all content you would like the applicant to see when they click on the posting. A description of WATOnomous, responsibilities, key qualifications, etc. Someone should make a standard template...
+After this header block, add all content you would like the applicant to see when they click on the posting. A description of WATonomous, responsibilities, key qualifications, etc. Someone should make a standard template...
 
 If you aren't fluent in markdown, don't be afraid! It is very easy. There are many great guides [online](https://www.markdownguide.org/basic-syntax/)
 
@@ -140,5 +140,5 @@ If you have an image on your computer, first place your image in `public/imgs`. 
 Then refer to the file name through its path including `public`. e.g.:
 
 ```md
-![The WATOnomous Team Group Picture](public/imgs/team.jpg)
+![The WATonomous Team Group Picture](public/imgs/team.jpg)
 ```
