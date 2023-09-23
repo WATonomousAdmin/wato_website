@@ -30,7 +30,7 @@ const Navbar = ({ toggleModal }: NavBarProps) => {
                     <NavbarItem href={"/about"} toggle={closeMobile}>
                         ABOUT
                     </NavbarItem>
-                    <NavbarItem href={"/"} toggle={closeMobile}>
+                    <NavbarItem href={"/impact"} toggle={closeMobile}>
                         IMPACT
                     </NavbarItem>
                     <NavbarItem href={"/blogs"} toggle={closeMobile}>
@@ -39,7 +39,7 @@ const Navbar = ({ toggleModal }: NavBarProps) => {
                     <NavbarItem href={"/careers"} toggle={closeMobile}>
                         GET INVOLVED
                     </NavbarItem>
-                    <NavbarItem href={"/"} toggle={closeMobile}>
+                    <NavbarItem href={"/sponsor"} toggle={closeMobile}>
                         SPONSOR
                     </NavbarItem>
                     <NavbarIconItem
