@@ -1,14 +1,21 @@
 import NavbarIconItem from "./Navbar/NavbarIconItem";
 
-const Footer = () => {
+interface FooterProps {
+    toggleModal(): any;
+}
+
+const Footer = ({ toggleModal }: FooterProps) => {
     return (
         <div className="flex h-96 items-center justify-start bg-zinc-950">
             <p className="rotate-90 transform text-white">
                 &copy; 2023 by WATonomous
             </p>
             <div className="h-200 ml-20 flex items-start bg-zinc-950">
-                <div className="mr-6 flex flex-col justify-center">
-                    <p className="mb-6 text-lg font-bold text-white">
+                <div className="mr-6 flex cursor-pointer flex-col justify-center">
+                    <p
+                        onClick={() => toggleModal()}
+                        className="mb-6 text-lg font-bold text-white"
+                    >
                         Contact Us
                     </p>
                     <p className="text-white">hello@watonomous.ca</p>
