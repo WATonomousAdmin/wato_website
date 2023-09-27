@@ -1,4 +1,3 @@
-import { KeyboardEvent } from "react";
 import { useState } from "react";
 
 interface UrlContainerProps {
