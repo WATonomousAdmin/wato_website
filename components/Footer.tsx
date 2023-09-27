@@ -6,7 +6,7 @@ const Footer = () => {
             <p className="rotate-90 transform text-white">
                 &copy; 2023 by WATonomous
             </p>
-            <div className="h-200 flex items-start bg-zinc-950">
+            <div className="h-200 ml-20 flex items-start bg-zinc-950">
                 <div className="mr-6 flex flex-col justify-center">
                     <p className="mb-6 text-lg font-bold text-white">
                         Contact Us
@@ -55,22 +55,21 @@ const Footer = () => {
                     </a>
                 </div>
                 <div className="ml-20 flex flex-col justify-center">
-                    <NavbarIconItem
-                        href={"https://kenjiang.ca"}
-                        icon={"fa-instagram"}
-                    ></NavbarIconItem>
-                </div>
-                <div className="flex flex-col justify-center">
-                    <NavbarIconItem
-                        href={"https://kenjiang.ca"}
-                        icon={"fa-twitter"}
-                    />
-                </div>
-                <div className="flex flex-col justify-center">
-                    <NavbarIconItem
-                        href={"https://kenjiang.ca"}
-                        icon={"fa-linkedin"}
-                    />
+                    <div className="flex items-start">
+                        <NavbarIconItem
+                            href={"https://kenjiang.ca"}
+                            icon={"fa-instagram"}
+                        />
+                        <NavbarIconItem
+                            href={"https://kenjiang.ca"}
+                            icon={"fa-twitter"}
+                        />
+                        <NavbarIconItem
+                            href={"https://kenjiang.ca"}
+                            icon={"fa-linkedin"}
+                        />
+                    </div>
+                    <img src="./imgs/wato.png" className="ml-1 h-auto w-32" />
                 </div>
             </div>
         </div>
