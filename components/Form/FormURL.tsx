@@ -28,8 +28,6 @@ interface FormURLProps {
     setFormData(data: Record<string, any>): any;
 }
 const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
-    const [error, setError] = useState(""); // Add this line to initialize the error state
-
     const onSpacePressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === " ") {
             e.preventDefault();
@@ -41,12 +39,18 @@ const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
                     ...data,
                     urls: [...data.urls, urlToAdd],
                 }));
-                setError(""); // Clear any previous error message
-            } else {
-                setError("Duplicate URL. Please enter a different URL.");
             }
 
             inputElement.value = "";
+        }
+        if (
+            e.key === "Backspace" &&
+            (e.target as HTMLInputElement).value.length === 0
+        ) {
+            setFormData((data: Record<string, any>) => ({
+                ...data,
+                urls: data.urls.slice(0, -1),
+            }));
         }
     };
 
@@ -84,7 +88,6 @@ const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
                     />
                 </div>
             </div>
-            {error && <div className="text-red-500">{error}</div>}
         </div>
     );
 };
