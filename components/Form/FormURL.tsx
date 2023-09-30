@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface UrlContainerProps {
     content: string;
     onRemove(content: string): any;
