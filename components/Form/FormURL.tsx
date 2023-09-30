@@ -1,5 +1,3 @@
-import { KeyboardEvent } from "react";
-
 interface UrlContainerProps {
     content: string;
     onRemove(content: string): any;
@@ -28,14 +26,20 @@ interface FormURLProps {
     setFormData(data: Record<string, any>): any;
 }
 const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
-    const onSpacePressed = (e: KeyboardEvent<HTMLInputElement>) => {
+    const onSpacePressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === " ") {
             e.preventDefault();
-            setFormData((data: Record<string, any>) => ({
-                ...data,
-                urls: [...data.urls, (e.target as HTMLInputElement).value.trim()].filter((x) => x.length > 0),
-            }));
-            (e.target as HTMLInputElement).value = "";
+            const inputElement = e.target as HTMLInputElement;
+            const urlToAdd = inputElement.value.trim();
+
+            if (urlToAdd.length > 0 && !formData.urls.includes(urlToAdd)) {
+                setFormData((data: Record<string, any>) => ({
+                    ...data,
+                    urls: [...data.urls, urlToAdd],
+                }));
+            }
+
+            inputElement.value = "";
         }
         if (
             e.key === "Backspace" &&
@@ -51,7 +55,7 @@ const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
     const removeURL = (url: string) => {
         setFormData((data: Record<string, any>) => ({
             ...data,
-            urls: data.urls.filter((x: string) => x != url),
+            urls: data.urls.filter((x: string) => x !== url),
         }));
     };
 
