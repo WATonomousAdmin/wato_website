@@ -20,7 +20,7 @@ const TabBanner = ({ title, body, identifier }: TabBannerProps) => {
             </div>
             <div className="text-base lg:text-lg">{body}</div>
             {title === "Our Story" && (
-                <div className="mt-4">
+                <div className="mb-4 mt-4">
                     <Button text={"See Next"} onClick={() => scrollTo(2)} />
                 </div>
             )}
