@@ -84,14 +84,14 @@ const OurStoryTab = ({
         >
             <TabBanner identifier={identifier} title={title} body={body} />
             <div className="flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white lg:w-1/2 lg:p-5">
-                <div className="flex flex-row">
+                <div className="flex w-full flex-row">
                     {TabData.map((item) => (
                         <div
                             key={item.year}
                             className={`mr-4 flex flex-col ${
                                 selectedYear === item.year
-                                    ? "border-t-4 border-wato-teal text-wato-teal"
-                                    : "border-t-4 border-gray-500 text-white"
+                                    ? "w-full border-t-4 border-wato-teal text-wato-teal"
+                                    : "w-full border-t-4 border-gray-500 text-white"
                             }`}
                         >
                             <button onClick={() => setSelectedYear(item.year)}>
