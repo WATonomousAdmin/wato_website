@@ -14,7 +14,53 @@ interface setVisibleInterface {
     (idx: number): void;
 }
 
-const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023];
+const TAB_PLACEHOLDER =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut";
+
+const TabData = [
+    {
+        title: "2017 Event",
+        year: 2017,
+        body: `2017 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2018 Event",
+        year: 2018,
+        body: `2018 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2019 Event",
+        year: 2019,
+        body: `2019 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2020 Event",
+        year: 2020,
+        body: `2020 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2021 Event",
+        year: 2021,
+        body: `2021 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2022 Event",
+        year: 2022,
+        body: `2022 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+    {
+        title: "2023 Event",
+        year: 2023,
+        body: `2023 ${TAB_PLACEHOLDER}`,
+        children: "/_next/static/media/img1.b7d1895c.jpg",
+    },
+];
 
 const OurStoryTab = ({
     identifier,
@@ -39,36 +85,36 @@ const OurStoryTab = ({
             <TabBanner identifier={identifier} title={title} body={body} />
             <div className="flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white lg:w-1/2 lg:p-5">
                 <div className="flex flex-row">
-                    {years.map((year) => (
+                    {TabData.map((item) => (
                         <div
-                            key={year}
+                            key={item.year}
                             className={`mr-4 flex flex-col ${
-                                selectedYear === year
+                                selectedYear === item.year
                                     ? "border-t-4 border-wato-teal text-wato-teal"
                                     : "border-t-4 border-gray-500 text-white"
                             }`}
                         >
-                            <button onClick={() => setSelectedYear(year)}>
-                                {year}
+                            <button onClick={() => setSelectedYear(item.year)}>
+                                {item.year}
                             </button>
                         </div>
                     ))}
                 </div>
                 <div className="mt-4 pb-5 text-2xl lg:text-4xl">
-                    Event&nbsp;<span className="text-wato-grey">{"//"}</span>
+                    {TabData.find((item) => item.year === selectedYear)?.title}
+                    &nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>
                 <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum
-                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut
+                    {TabData.find((item) => item.year === selectedYear)?.body}
                 </span>
                 <img
                     className="mt-8"
-                    src="/_next/static/media/img1.b7d1895c.jpg"
-                ></img>
+                    src={
+                        TabData.find((item) => item.year === selectedYear)
+                            ?.children
+                    }
+                    alt={`Event ${selectedYear}`}
+                />
             </div>
         </div>
     );
