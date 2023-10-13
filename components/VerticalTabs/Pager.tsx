@@ -9,7 +9,7 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
     const scrollTo = (idx: number) => {
         document
             .getElementById(`carousel-${identifier}-${idx}`)
-            ?.scrollIntoView();
+            ?.scrollIntoView({ block: "center" });
     };
 
     return (
