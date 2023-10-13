@@ -1,6 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import TabBanner from "./TabBanner";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 interface TabProps {
     identifier: string;
@@ -28,6 +28,8 @@ const OurStoryTab = ({
         setVisible(idx);
     }, [isVisible]);
 
+    const [selectedYear, setSelectedYear] = useState(2017);
+
     return (
         <div
             id={`carousel-${identifier}-${idx}`}
@@ -38,9 +40,17 @@ const OurStoryTab = ({
             <div className="flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white lg:w-1/2 lg:p-5">
                 <div className="flex flex-row">
                     {years.map((year) => (
-                        <div key={year} className="mr-4 flex flex-col">
-                            <hr className="flex-grow border-t-4 border-gray-500" />
-                            <p>{year}</p>
+                        <div
+                            key={year}
+                            className={`mr-4 flex flex-col ${
+                                selectedYear === year
+                                    ? "border-t-4 border-wato-teal text-wato-teal"
+                                    : "border-t-4 border-gray-500 text-white"
+                            }`}
+                        >
+                            <button onClick={() => setSelectedYear(year)}>
+                                {year}
+                            </button>
                         </div>
                     ))}
                 </div>
