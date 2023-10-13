@@ -1,7 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import TabBanner from "./TabBanner";
-import Button from "../Button";
-import { ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
 interface TabProps {
     identifier: string;
@@ -14,6 +13,8 @@ interface TabProps {
 interface setVisibleInterface {
     (idx: number): void;
 }
+
+const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023];
 
 const OurStoryTab = ({
     identifier,
@@ -34,8 +35,30 @@ const OurStoryTab = ({
             ref={ref}
         >
             <TabBanner identifier={identifier} title={title} body={body} />
-            <div className="flex w-full flex-col justify-center bg-transparent font-bold text-white lg:w-1/2 lg:p-5">
-                <p>Hello</p>
+            <div className="flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white lg:w-1/2 lg:p-5">
+                <div className="flex flex-row">
+                    {years.map((year) => (
+                        <div key={year} className="mr-4 flex flex-col">
+                            <hr className="flex-grow border-t-4 border-gray-500" />
+                            <p>{year}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="mt-4 pb-5 text-2xl lg:text-4xl">
+                    Event&nbsp;<span className="text-wato-grey">{"//"}</span>
+                </div>
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut
+                </span>
+                <img
+                    className="mt-8"
+                    src="/_next/static/media/img1.b7d1895c.jpg"
+                ></img>
             </div>
         </div>
     );
