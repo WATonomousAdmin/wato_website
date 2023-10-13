@@ -10,7 +10,7 @@ const TabBanner = ({ title, body, identifier }: TabBannerProps) => {
     const scrollTo = (idx: number) => {
         document
             .getElementById(`carousel-${identifier}-${idx}`)
-            ?.scrollIntoView();
+            ?.scrollIntoView({ block: "center" });
     };
 
     return (
