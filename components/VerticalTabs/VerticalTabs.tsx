@@ -39,9 +39,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                                     title={tab.title}
                                     body={tab.body}
                                     setVisible={setVisibleIndex}
-                                >
-                                    {tab.children}
-                                </OurStoryTab>
+                                ></OurStoryTab>
                             ) : (
                                 <Tab
                                     identifier={carouselKey}
