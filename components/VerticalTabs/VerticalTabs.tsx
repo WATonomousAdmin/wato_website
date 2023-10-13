@@ -2,6 +2,7 @@ import { useInView } from "react-intersection-observer";
 
 import Tab from "./Tab";
 import Pager from "./Pager";
+import OurStoryTab from "./OurStoryTab";
 
 import { ReactNode, useId, useState } from "react";
 
@@ -30,16 +31,30 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
             >
                 {data.map((tab: VerticalTabData, idx: number) => {
                     return (
-                        <Tab
-                            identifier={carouselKey}
-                            idx={idx}
-                            key={idx}
-                            title={tab.title}
-                            body={tab.body}
-                            setVisible={setVisibleIndex}
-                        >
-                            {tab.children}
-                        </Tab>
+                        <div key={idx}>
+                            {tab.title === "Our Story" ? (
+                                <OurStoryTab
+                                    identifier={carouselKey}
+                                    idx={idx}
+                                    title={tab.title}
+                                    body={tab.body}
+                                    setVisible={setVisibleIndex}
+                                >
+                                    {tab.children}
+                                </OurStoryTab>
+                            ) : (
+                                <Tab
+                                    identifier={carouselKey}
+                                    idx={idx}
+                                    key={idx}
+                                    title={tab.title}
+                                    body={tab.body}
+                                    setVisible={setVisibleIndex}
+                                >
+                                    {tab.children}
+                                </Tab>
+                            )}
+                        </div>
                     );
                 })}
             </div>
