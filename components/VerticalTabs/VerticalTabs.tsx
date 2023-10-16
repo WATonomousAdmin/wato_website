@@ -2,7 +2,6 @@ import { useInView } from "react-intersection-observer";
 
 import Tab from "./Tab";
 import Pager from "./Pager";
-import OurStoryTab from "./Timeline";
 
 import { ReactNode, useId, useState } from "react";
 

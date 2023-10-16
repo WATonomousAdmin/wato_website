@@ -1,6 +1,4 @@
-import { useInView } from "react-intersection-observer";
-import TabBanner from "./TabBanner";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const TAB_PLACEHOLDER =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut";
