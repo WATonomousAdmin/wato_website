@@ -3,11 +3,14 @@ import Button from "../Button";
 interface TabBannerProps {
     title: string;
     body: string;
-    identifier?: string;
+    identifier: string;
+    idx: number;
+    last: boolean;
 }
 
-const TabBanner = ({ title, body, identifier }: TabBannerProps) => {
+const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
     const scrollTo = (idx: number) => {
+        console.log("scrolling");
         document
             .getElementById(`carousel-${identifier}-${idx}`)
             ?.scrollIntoView({ block: "center" });
@@ -19,9 +22,12 @@ const TabBanner = ({ title, body, identifier }: TabBannerProps) => {
                 {title}&nbsp;<span className="text-wato-grey">{"//"}</span>
             </div>
             <div className="text-base lg:text-lg">{body}</div>
-            {title === "Our Story" && (
+            {!last && (
                 <div className="mb-4 mt-4">
-                    <Button text={"See Next"} onClick={() => scrollTo(2)} />
+                    <Button
+                        text={"See Next"}
+                        onClick={() => scrollTo(idx + 1)}
+                    />
                 </div>
             )}
         </div>

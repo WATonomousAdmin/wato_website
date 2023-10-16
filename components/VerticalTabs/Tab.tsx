@@ -8,6 +8,7 @@ interface TabProps {
     body: string;
     children: ReactNode;
     idx: number;
+    last: boolean;
     setVisible: setVisibleInterface;
 }
 
@@ -21,6 +22,7 @@ const Tab = ({
     body,
     children,
     idx,
+    last,
     setVisible,
 }: TabProps) => {
     const [ref, isVisible] = useInView({ threshold: 0.8 });
@@ -33,7 +35,13 @@ const Tab = ({
             className={`flex min-w-[100vw] snap-start px-16 py-24 max-lg:h-[90vh] max-lg:flex-col lg:min-h-[80vh] lg:px-44 lg:py-6 xl:px-60`}
             ref={ref}
         >
-            <TabBanner title={title} body={body} />
+            <TabBanner
+                title={title}
+                identifier={identifier}
+                idx={idx}
+                last={last}
+                body={body}
+            />
             <div className={`relative max-lg:mt-6 max-lg:h-1/2 lg:w-1/2`}>
                 {children}
             </div>

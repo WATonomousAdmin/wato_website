@@ -10,6 +10,7 @@ interface VerticalTabData {
     title: string;
     body: string;
     children: ReactNode;
+    last: boolean;
 }
 
 interface VerticalTabsProps {
@@ -38,6 +39,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                                 key={idx}
                                 title={tab.title}
                                 body={tab.body}
+                                last={tab.last}
                                 setVisible={setVisibleIndex}
                             >
                                 {tab.children}

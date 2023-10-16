@@ -21,26 +21,31 @@ const TabData = [
         title: "What is WATonomous?",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Our Story",
         body: TAB_PLACEHOLDER,
         children: TIMELINE,
+        last: false,
     },
     {
         title: "Our Vision",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Built By Many",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Into the Fire",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: true,
     },
 ];
 const About = () => {
