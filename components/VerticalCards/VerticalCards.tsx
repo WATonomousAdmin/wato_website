@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Card from './Card';
-import { VerticalCardData } from "../../types";
 import img01 from "../../public/imgs/img1.jpg";
 
 const SMALL_CONTENT_PLACEHOLDER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
@@ -41,8 +40,6 @@ const VerticalCards = () => {
     if (selectedIndex === idx) setSelectedIndex(-1);
     else setSelectedIndex(idx);
   }
-
-  console.log("vertical cards go here!!")
 
   const items = CardData.map((d, idx) => {
     return (

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { VerticalCardData } from "../../types";
-import Image from "next/image";
 
 interface CardProps extends VerticalCardData {
   selectedIdx: number;
@@ -15,7 +14,6 @@ const Card = ({
   title,
   blurb,
   body,
-  image,
 }: CardProps) => {
   const [isHovered, setHovered] = useState(false);
 
@@ -84,7 +82,7 @@ const Card = ({
           <p className="text-black font-bold mt-3 text-lg">
             {isHovered ? (
               <span>
-                {title} <span className="text-wato-teal">//</span>
+                {title} <span className="text-wato-teal">{"//"}</span>
               </span>
             ) : (
               title
