@@ -62,3 +62,10 @@ export interface BigCardData {
     image: StaticImageData,
 }
 
+
+export interface VerticalCardData {
+    title: string,
+    blurb: string,
+    body: string,
+    image: StaticImageData,
+}
