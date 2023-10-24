@@ -48,6 +48,7 @@ const Card = ({
 
   useEffect(() => {
     const elements = [document.querySelector(`.content-${idx}`)];
+    setContent("");
     fadeElement(Fade.Out, elements);
     setTimeout(() => {
       fadeElement(Fade.In, elements);
@@ -57,11 +58,11 @@ const Card = ({
 
   return (
     <div
-      className={`flex-auto ${containerBackground()} rounded-md xl:w-[40vw] ${containerHeight()} overflow-hidden duration-1000`}
+      className={`flex-auto ${containerBackground()} rounded-md xl:w-[40vw] ${containerHeight()} overflow-hidden duration-700`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => {
-        onToggle(idx);
+        if (!selected) onToggle(idx);
       }}
     >
       <div className="flex h-full">
@@ -71,6 +72,20 @@ const Card = ({
           {/* div for now, change to image later */}
         </div>
         <div className="w-3/4">
+        <div className="relative">
+            {selected && (
+              <button
+                onClick={() => {
+                  onToggle(-1);
+                  setHovered(false);
+                  setContent(selected ? body : blurb);
+                }}
+                className="absolute top-0 right-0 mt-2 mr-2 font-bold"
+              >
+                X
+              </button>
+            )}
+          </div>
           <div className="text-black font-bold mt-3 mb-1 text-xl">
             {isHovered ? (
               <div>
