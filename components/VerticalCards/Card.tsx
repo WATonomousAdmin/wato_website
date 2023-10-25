@@ -31,9 +31,9 @@ const Card = ({
   };
 
   const containerHeight = () => {
-    if (!selected && !somethingIsSelected) return "opacity-100";
+    if (!selected && !somethingIsSelected) return "h-[30vw] xl:h-[10vw] opacity-100 overflow-hidden";
     else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-    else return "h-[50vw] xl:h-[30vw] z-10 m-5";
+    else return "h-[80vw] xl:h-[40vw] z-10 m-5 overflow-hidden";
   };
 
   const containerBackground = () => {
@@ -58,7 +58,7 @@ const Card = ({
 
   return (
     <div
-      className={`flex-auto ${containerBackground()} rounded-md xl:w-[40vw] ${containerHeight()} overflow-hidden duration-700`}
+      className={`${containerBackground()} items-center rounded-md ${containerHeight()} duration-700 cursor-pointer`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => {
@@ -95,7 +95,7 @@ const Card = ({
               title
             )}
           </div>
-          <div className="rounded-md text-wato-white-bone">{content}</div>
+          <div className="rounded-md text-wato-white-bone mr-3">{content}</div>
         </div>
       </div>
     </div>

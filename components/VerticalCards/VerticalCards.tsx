@@ -56,7 +56,7 @@ const VerticalCards = () => {
   })
 
   return (
-  <div className="lg:py-auto flex flex-col h-full justify-center space-y-4">
+  <div className="lg:py-auto flex flex-col justify-center space-y-4">
     {items}
   </div>
   );
