@@ -9,6 +9,7 @@ interface VerticalTabData {
     title: string;
     body: string;
     children: ReactNode;
+    last: boolean;
 }
 
 interface VerticalTabsProps {
@@ -30,16 +31,19 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
             >
                 {data.map((tab: VerticalTabData, idx: number) => {
                     return (
-                        <Tab
-                            identifier={carouselKey}
-                            idx={idx}
-                            key={idx}
-                            title={tab.title}
-                            body={tab.body}
-                            setVisible={setVisibleIndex}
-                        >
-                            {tab.children}
-                        </Tab>
+                        <div key={idx}>
+                            <Tab
+                                identifier={carouselKey}
+                                idx={idx}
+                                key={idx}
+                                title={tab.title}
+                                body={tab.body}
+                                last={tab.last}
+                                setVisible={setVisibleIndex}
+                            >
+                                {tab.children}
+                            </Tab>
+                        </div>
                     );
                 })}
             </div>

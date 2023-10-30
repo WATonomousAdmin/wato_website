@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
 import img01 from "../public/imgs/img1.jpg";
 import Image from "next/image";
+import Timeline from "../components/VerticalTabs/Timeline";
 
 const HERO_PLACEHOLDER =
     "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in AV, Robotics, and AI";
@@ -13,31 +14,38 @@ const IMAGE_PLACEHOLDER = (
     <Image alt="test" src={img01} fill className="rounded-sm object-cover" />
 );
 
+const TIMELINE = <Timeline></Timeline>;
+
 const TabData = [
     {
         title: "What is WATonomous?",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Our Story",
         body: TAB_PLACEHOLDER,
-        children: IMAGE_PLACEHOLDER,
+        children: TIMELINE,
+        last: false,
     },
     {
         title: "Our Vision",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Built By Many",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: false,
     },
     {
         title: "Into the Fire",
         body: TAB_PLACEHOLDER,
         children: IMAGE_PLACEHOLDER,
+        last: true,
     },
 ];
 const About = () => {

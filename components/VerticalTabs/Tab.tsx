@@ -8,22 +8,41 @@ interface TabProps {
     body: string;
     children: ReactNode;
     idx: number;
+    last: boolean;
     setVisible: setVisibleInterface;
 }
 
 interface setVisibleInterface {
-    (idx: number): void
+    (idx: number): void;
 }
 
-const Tab = ({ identifier, title, body, children, idx, setVisible } : TabProps) => {
-    const [ref, isVisible] = useInView({threshold: 0.8});
-    useEffect (() => {
+const Tab = ({
+    identifier,
+    title,
+    body,
+    children,
+    idx,
+    last,
+    setVisible,
+}: TabProps) => {
+    const [ref, isVisible] = useInView({ threshold: 0.8 });
+    useEffect(() => {
         setVisible(idx);
     }, [isVisible]);
     return (
-        <div id={`carousel-${identifier}-${idx}`} className={`flex max-lg:h-[90vh] lg:min-h-[80vh] max-lg:flex-col min-w-[100vw] px-16 lg:px-44 xl:px-60 py-24 lg:py-6 snap-start`} ref={ref}>
-            <TabBanner title={title} body={body} />
-            <div className={`max-lg:mt-6 max-lg:h-1/2 lg:w-1/2 relative`}>
+        <div
+            id={`carousel-${identifier}-${idx}`}
+            className={`flex min-w-[100vw] snap-start px-16 py-24 max-lg:h-[90vh] max-lg:flex-col lg:min-h-[80vh] lg:px-44 lg:py-6 xl:px-60`}
+            ref={ref}
+        >
+            <TabBanner
+                title={title}
+                identifier={identifier}
+                idx={idx}
+                last={last}
+                body={body}
+            />
+            <div className={`relative max-lg:mt-6 max-lg:h-1/2 lg:w-1/2`}>
                 {children}
             </div>
         </div>
