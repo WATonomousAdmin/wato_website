@@ -31,13 +31,13 @@ const Card = ({
   };
 
   const containerHeight = () => {
-    if (!selected && !somethingIsSelected) return "h-[30vw] xl:h-[10vw] opacity-100 overflow-hidden";
+    if (!selected && !somethingIsSelected) return "h-[30vw] xl:h-[10vw] opacity-100";
     else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-    else return "h-[80vw] xl:h-[40vw] z-10 m-5 overflow-hidden";
+    else return "h-[80vw] xl:h-[40vw] z-10 m-5";
   };
 
   const containerBackground = () => {
-    if (isHovered) return "bg-wato-blue";
+    if (isHovered || selected) return "bg-wato-blue";
     else return "bg-wato-grey-clear";
   };
 
@@ -48,7 +48,6 @@ const Card = ({
 
   useEffect(() => {
     const elements = [document.querySelector(`.content-${idx}`)];
-    setContent("");
     fadeElement(Fade.Out, elements);
     setTimeout(() => {
       fadeElement(Fade.In, elements);
@@ -58,7 +57,7 @@ const Card = ({
 
   return (
     <div
-      className={`${containerBackground()} items-center rounded-md ${containerHeight()} duration-700 cursor-pointer`}
+      className={`${containerBackground()} items-center rounded-md ${containerHeight()} transition-all duration-700 overflow-hidden cursor-pointer`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => {
@@ -67,7 +66,8 @@ const Card = ({
     >
       <div className="flex h-full">
         <div
-          className={`${imageWidth()} mr-4 ml-4 mt-4 mb-4 bg-wato-white-bone rounded-md`}
+          className={`${imageWidth()} mr-4 ml-4 mt-4 mb-4 bg-wato-white-bone rounded-md transition-all duration-700
+          `}
         >
           {/* div for now, change to image later */}
         </div>
@@ -87,7 +87,7 @@ const Card = ({
             )}
           </div>
           <div className="text-black font-bold mt-3 mb-1 text-xl">
-            {isHovered ? (
+            {(isHovered || selected) ? (
               <div>
                 {title} <span className="text-wato-teal">{"//"}</span>
               </div>
@@ -95,8 +95,7 @@ const Card = ({
               title
             )}
           </div>
-          <div className="rounded-md text-wato-white-bone mr-3">{content}</div>
-        </div>
+          <div className={`content-${idx} rounded-md text-wato-white-bone mr-3 transition-opacity`}>{content}</div></div>
       </div>
     </div>
   );
