@@ -1,6 +1,5 @@
 // import { useInView } from "react-intersection-observer";
 import MemberCard, { MemberCardProps } from "../MemberCard";
-import e7 from "../../public/imgs/e7.png"
 
 interface MemberListProps {
     data: MemberCardProps[]
@@ -18,9 +17,9 @@ const MemberList = ({data}: MemberListProps) => {
             {/* <div className="flex space-x-4"> */}
             <div className="grid gap-1 grid-cols-4">
             {/* <MemberCard imageSrc={e7} firstName="WATO" lastName="Member" description="This is a WATO member" position="Overlord" /> */}
-            {data.map((member: MemberCardProps) => {
+            {data.map((member: MemberCardProps, id: number) => {
                 return(
-                <MemberCard imageSrc={member.imageSrc} firstName={member.firstName} lastName={member.lastName} description={member.description} position={member.position} />
+                <MemberCard key={id} imageSrc={member.imageSrc} firstName={member.firstName} lastName={member.lastName} description={member.description} position={member.position} />
                 );
             })}
             </div>
