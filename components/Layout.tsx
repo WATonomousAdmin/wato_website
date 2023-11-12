@@ -109,7 +109,7 @@ const Layout = ({ children }: LayoutProps) => {
                 {children}
             </main>
             <footer>
-                <Footer/>
+                <Footer toggleModal={toggleModal} />
             </footer>
         </>
     );
