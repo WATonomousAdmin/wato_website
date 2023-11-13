@@ -6,7 +6,7 @@ interface FooterCategoryProps {
     title: string,
     href: string,
     children?: ReactNode
-};
+}
 
 interface FooterItemProps {
     title: string,

@@ -6,10 +6,6 @@ interface NavbarMobileIconProps {
     dark?: boolean;
 }
 
-const DARK_PAGES = [
-    "/about"
-];
-
 const NavbarMobileIcon = ({ active, onclick, dark } : NavbarMobileIconProps) => {
     const color = dark ? "bg-white" : "bg-black"; 
     return (
