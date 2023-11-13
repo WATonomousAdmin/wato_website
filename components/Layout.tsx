@@ -4,6 +4,7 @@ import ContactModal from "./ContactModal/ContactModal";
 import localFont from "next/font/local";
 import { ReactNode, useEffect, useState } from "react";
 import Footer from "./Footer";
+import { useRouter } from "next/router";
 
 const styrene = localFont({
     src: [
@@ -70,12 +71,19 @@ const styrene = localFont({
     ],
 });
 
+const DARK_PAGES = [
+    "/about"
+];
+
 interface LayoutProps {
     children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
     const [contactModalActive, setContactModalActive] = useState(false);
+
+    const router = useRouter();
+    const dark = DARK_PAGES.includes(router.pathname); 
 
     useEffect(() => {
         contactModalActive
@@ -105,11 +113,11 @@ const Layout = ({ children }: LayoutProps) => {
                     modalActive={contactModalActive}
                     closeModal={() => setContactModalActive(false)}
                 />
-                <Navbar toggleModal={toggleModal} />
+                <Navbar toggleModal={toggleModal} dark={dark} />
                 {children}
             </main>
             <footer>
-                <Footer/>
+                <Footer dark={dark} />
             </footer>
         </>
     );
