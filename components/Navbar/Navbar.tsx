@@ -7,9 +7,10 @@ import NavbarMobileIcon from "./NavbarMobileIcon";
 
 interface NavBarProps {
     toggleModal(): any;
+    dark?: boolean;
 }
 
-const Navbar = ({ toggleModal }: NavBarProps) => {
+const Navbar = ({ toggleModal, dark }: NavBarProps) => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const toggleMobile = () => setMobileOpen(!mobileOpen);
@@ -19,7 +20,7 @@ const Navbar = ({ toggleModal }: NavBarProps) => {
         <div className="align-center pointer-events-none fixed z-40 flex w-full justify-between lg:mx-12 lg:mt-10 lg:w-[calc(100vw-6rem)] xl:mx-32 xl:w-[calc(100vw-16rem)]">
             <NavbarBadge href={"/"}>WATONOMOUS</NavbarBadge>
             <div className={`flex flex-row`}>
-                <NavbarMobileIcon active={mobileOpen} onclick={toggleMobile} />
+                <NavbarMobileIcon active={mobileOpen} onclick={toggleMobile} dark={dark} />
                 <ul
                     className={` list-none max-lg:absolute max-lg:left-0 max-lg:z-20 max-lg:flex max-lg:w-full max-lg:flex-col max-lg:pt-16 ${
                         mobileOpen

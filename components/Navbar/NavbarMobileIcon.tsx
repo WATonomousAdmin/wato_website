@@ -1,18 +1,13 @@
-import { useRouter } from "next/router";
 import { MouseEventHandler } from "react";
 
 interface NavbarMobileIconProps {
     active: boolean;
     onclick: MouseEventHandler;
+    dark?: boolean;
 }
 
-const DARK_PAGES = [
-    "/about"
-];
-
-const NavbarMobileIcon = ({ active, onclick } : NavbarMobileIconProps) => {
-    const router = useRouter();
-    const color = DARK_PAGES.includes(router.pathname) ? "bg-white" : "bg-black"; 
+const NavbarMobileIcon = ({ active, onclick, dark } : NavbarMobileIconProps) => {
+    const color = dark ? "bg-white" : "bg-black"; 
     return (
         <div
             className={`pointer-events-auto z-40 m-5 h-9 w-9 cursor-pointer lg:hidden rounded-md p-1`}
