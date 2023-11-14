@@ -117,7 +117,10 @@ const Layout = ({ children }: LayoutProps) => {
                 {children}
             </main>
             <footer>
-                <Footer dark={dark} />
+                {
+                    router.pathname != "/" &&
+                    <Footer dark={dark} />
+                }
             </footer>
         </>
     );
