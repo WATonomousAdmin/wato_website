@@ -9,6 +9,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 JobPostingHero: "url('/imgs/team.jpg')",
+                SponsorHero: "linear-gradient(180deg, #FFFFFF22 0%, #000000AA 100%), url('/imgs/orange.jpg')",
                 ModalRight:
                     "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
                 JobPostingBg:
