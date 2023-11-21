@@ -9,12 +9,14 @@ interface NavbarItemProps {
 
 const NavbarItem = ({ href, toggle, children }: NavbarItemProps) => {
     return (
-        <Link href={href} onClick={toggle}>
-            <li className="mx-1 my-2 inline-block rounded-md px-5 py-2 text-2xl font-medium lg:bg-wato-grey-clear lg:text-sm">
-                <span className="text-wato-teal lg:hidden">{"// "}</span>
-                {children}
-            </li>
-        </Link>
+        <li className="mx-1 my-2 inline-block rounded-md lg:bg-wato-grey-clear">
+            <Link href={href} onClick={toggle}>
+                <div className=" px-5 py-2 text-2xl font-medium  lg:text-sm">
+                    <span className="text-wato-teal lg:hidden">{"// "}</span>
+                    {children}
+                </div>
+            </Link>
+        </li>
     );
 };
 

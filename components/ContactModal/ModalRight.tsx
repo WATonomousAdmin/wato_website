@@ -11,7 +11,7 @@ const TAGLINE = "Showing the world who can \n drive themselves";
 
 const ModalRight = () => {
     return (
-        <div className="relative hidden overflow-x-hidden bg-white bg-ModalRight xl:block ">
+        <div className="relative hidden overflow-x-hidden bg-white bg-ModalRight xl:block">
             <div className="absolute top-8 h-64 w-4/5 rounded-r-md bg-zinc-900">
                 <Image src={e7} fill alt="e7" className="object-cover" />
             </div>

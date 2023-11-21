@@ -81,15 +81,16 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
     const [contactModalActive, setContactModalActive] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const router = useRouter();
     const dark = DARK_PAGES.includes(router.pathname); 
 
     useEffect(() => {
-        contactModalActive
-            ? document.body.classList.add("overflow-hidden")
-            : document.body.classList.remove("overflow-hidden");
-    }, [contactModalActive]);
+        contactModalActive || mobileOpen
+            ? document.querySelector('html')!.classList.add("overflow-hidden")
+            : document.querySelector('html')!.classList.remove("overflow-hidden");
+    }, [contactModalActive, mobileOpen]);
 
     const toggleModal = () => {
         setContactModalActive(!contactModalActive);
@@ -113,7 +114,7 @@ const Layout = ({ children }: LayoutProps) => {
                     modalActive={contactModalActive}
                     closeModal={() => setContactModalActive(false)}
                 />
-                <Navbar toggleModal={toggleModal} dark={dark} />
+                <Navbar toggleModal={toggleModal} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} dark={dark} />
                 {children}
             </main>
             <footer>

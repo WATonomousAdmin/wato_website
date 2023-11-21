@@ -10,16 +10,18 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
     return (
         <>
             {
+                // dark background
                 <div
                     className={`${
                         modalActive
                             ? "fixed opacity-100"
                             : "pointer-events-none fixed opacity-0"
-                    } z-50 flex h-screen w-screen max-w-[100%] items-center justify-center overflow-hidden overscroll-none backdrop-blur-sm transition-all duration-300`}
+                    } z-50 flex h-screen w-screen max-w-[100%] tall-center justify-center overflow-auto overscroll-none bg-black bg-opacity-50 transition-all duration-300`}
                     onClick={closeModal}
                 >
+                    {/* modal container */}
                     <div
-                        className="w-[90vw]grid-cols-1 grid h-screen overflow-y-scroll rounded-md bg-white text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] lg:overflow-hidden xl:grid-cols-2"
+                        className="w-screen grid-cols-1 grid rounded-md bg-white text-zinc-100 shadow-md min-h-[45rem] md:w-[70vw] lg:w-[60vw] lg:overflow-hidden xl:grid-cols-2"
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
@@ -33,14 +35,14 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                             X
                         </div>
                         <div className="mt-5 flex flex-col self-center bg-white px-14 text-zinc-800 md:px-16">
-                            <div className="flex text-4xl font-black">
+                            <div className="flex text-3xl font-black">
                                 <div>Let's design the future together</div>
                             </div>
-                            <div className="my-2 text-sm font-medium">
+                            <div className="mt-2 text-sm font-medium">
                                 Shoot us a message! We'd love to hear from you
                                 and collaborate on cool projects!
                             </div>
-                            <div className="my-2 w-fit rounded-md bg-wato-blue text-center text-xs font-medium">
+                            {/* <div className="my-2 w-fit rounded-md bg-wato-blue text-center text-xs font-medium">
                                 <a
                                     href="mailto:hello@watonomous.com"
                                     className="text-white visited:text-white"
@@ -50,7 +52,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                                         <div>hello@watonomous.com</div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> */}
                             <ContactForm />
                         </div>
                         <ModalRight />

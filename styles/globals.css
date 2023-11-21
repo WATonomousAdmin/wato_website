@@ -31,10 +31,14 @@
     scroll-behavior: smooth !important;
 }
 
-html,
+html {
+    background-color: black;
+}
+
 body {
     max-width: 100%;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
 }
 
 .spotlight-container {
@@ -64,5 +68,11 @@ body {
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@media screen and (min-height: 45rem) {
+    .tall-center {
+        align-items: center;
     }
 }
