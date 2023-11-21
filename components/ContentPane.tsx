@@ -5,19 +5,27 @@ interface ContentPaneProps {
     title: string;
     subtitle: string;
     children: React.ReactNode | any;
+    backgroundImage: string;
 }
 
-const ContentPane = ({ leftOriented, img, title, subtitle, children } : ContentPaneProps) => {
+const ContentPane = ({
+    leftOriented,
+    img,
+    title,
+    subtitle,
+    children,
+    backgroundImage,
+}: ContentPaneProps) => {
     return (
         <div
             className={`flex flex-col ${
                 leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
-            } my-16 max-lg:items-center`}
+            } ${backgroundImage} relative py-8 max-lg:items-center`}
         >
             <div
                 className={`${
                     !leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
-                } flex flex-col justify-center text-black max-lg:items-center sm:px-16 lg:w-[51%]`}
+                } flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center sm:text-5xl">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>

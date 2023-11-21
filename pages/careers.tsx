@@ -79,6 +79,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img01}
                 leftOriented={true}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
@@ -92,6 +93,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img02}
                 leftOriented={true}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
@@ -100,6 +102,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img02}
                 leftOriented={false}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
