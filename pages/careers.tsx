@@ -75,14 +75,14 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 cta={"Open Roles"}
                 link={"#open-roles"}
             />
-            <ExtendedContentPane
+            <ContentPane
                 title={PANE1_TITLE}
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img01}
                 leftOriented={true}
             >
                 {CONTENT_PLACEHOLDER}
-            </ExtendedContentPane>
+            </ContentPane>
             <BigDeck
                 title={DECK_TITLE}
                 subtitle={SMALL_CONTENT_PLACEHOLDER}
