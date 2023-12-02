@@ -18,14 +18,17 @@ const ContentPane = ({
 }: ContentPaneProps) => {
     return (
         <div
-            className={`flex flex-col ${
+            className={`relative flex flex-col ${
                 leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
-            } ${backgroundImage} relative py-8 max-lg:items-center`}
+            } ${backgroundImage} py-8 max-lg:items-center`}
         >
+            <div className="absolute inset-0 bg-cover bg-center" />
+            <div className="absolute inset-0 bg-black opacity-80"></div>
+
             <div
                 className={`${
                     !leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
-                } flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
+                } relative z-10 flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center sm:text-5xl">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
@@ -37,10 +40,11 @@ const ContentPane = ({
                     {children}
                 </div>
             </div>
+
             <div
                 className={`flex w-4/5 justify-center self-center lg:w-[55%] ${
                     leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
-                }`}
+                } relative z-10`}
             >
                 <Image alt={"image"} src={img} className="rounded-md"></Image>
             </div>

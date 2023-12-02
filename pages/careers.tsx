@@ -87,6 +87,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 title={DECK_TITLE}
                 subtitle={SMALL_CONTENT_PLACEHOLDER}
                 data={DeckData}
+                backgroundImage={"bg-main"}
             />
             <ContentPane
                 title={TITLE_PLACEHOLDER}

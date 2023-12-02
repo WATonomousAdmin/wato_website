@@ -5,12 +5,13 @@ interface BigDeckProps {
     title: string;
     subtitle: string;
     data: BigCardData[];
+    backgroundImage: string;
 }
 
-const BigDeck = ({ title, subtitle, data } : BigDeckProps) => {
+const BigDeck = ({ title, subtitle, data, backgroundImage }: BigDeckProps) => {
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    const onToggle = (idx : number) => {
+    const onToggle = (idx: number) => {
         if (selectedIndex === idx) setSelectedIndex(-1);
         else setSelectedIndex(idx);
     };
@@ -32,16 +33,31 @@ const BigDeck = ({ title, subtitle, data } : BigDeckProps) => {
     });
 
     return (
-        <div className="lg:py-auto flex flex-col items-center bg-wato-grey-porcelain py-5">
-            <div className="mb-5 text-center text-4xl font-bold lg:text-5xl">
+        <div
+            className={`relative flex flex-col items-center ${backgroundImage} py-8 max-lg:items-center`}
+        >
+            <div className="absolute inset-0 bg-cover bg-center" />
+            <div
+                className="absolute inset-0 "
+                style={{ backgroundColor: "rgb(30, 32, 33)", opacity: 0.8 }}
+            ></div>
+
+            <div
+                className="z-10 mb-5 text-center text-4xl font-bold text-white lg:text-5xl"
+                style={{ position: "relative" }}
+            >
                 {title}
             </div>
-            <div className="mb-5 text-center text-xl font-light lg:w-1/2">
+            <div
+                className="z-10 mb-5 text-center text-xl font-light text-white lg:w-1/2"
+                style={{ position: "relative" }}
+            >
                 {subtitle}
             </div>
+
             <div
                 className="flex flex-row flex-wrap justify-center"
-                style={{ overflowAnchor: "none" }}
+                style={{ overflowAnchor: "none", zIndex: 10 }}
             >
                 {items}
             </div>
