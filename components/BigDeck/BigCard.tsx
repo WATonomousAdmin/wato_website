@@ -18,7 +18,7 @@ const BigCard = ({
     body,
     cta,
     image,
-} : BigCardProps) => {
+}: BigCardProps) => {
     // is this item selected
     const selected = selectedIdx == idx;
     // is AN item selected
@@ -70,10 +70,10 @@ const BigCard = ({
                 />
             </div>
             <div
-                className={`absolute rounded-sm bg-white ${contentTransform()} overflow-hidden transition-all duration-700`}
+                className={`absolute rounded-sm bg-neutral-800 ${contentTransform()} overflow-hidden transition-all duration-700`}
             >
                 <div className="flex justify-between">
-                    <div className="text-xl font-medium lg:mb-5 lg:text-4xl">
+                    <div className="text-xl font-medium text-white lg:mb-5 lg:text-4xl">
                         {title}
                     </div>
                     {selected && (
@@ -85,7 +85,9 @@ const BigCard = ({
                         </div>
                     )}
                 </div>
-                <div className={`font-light content-${idx} transition-all`}>
+                <div
+                    className={`mb-4 font-light text-white content-${idx} transition-all`}
+                >
                     {content}
                 </div>
                 {!selected && (
