@@ -28,7 +28,7 @@ const BigCard = ({
 
     const containerWidth = () => {
         if (!selected && !somethingIsSelected)
-            return "w-[90vw] lg:w-[26rem] opacity-100 xl:delay-500 m-5";
+            return "w-[90vw] lg:w-[24rem] opacity-100 xl:delay-500 m-5";
         else if (!selected && somethingIsSelected) return "w-0 z-0 opacity-0";
         else return "w-[90vw] xl:w-[40vw] z-10 m-5";
     };
@@ -41,7 +41,7 @@ const BigCard = ({
 
     const contentTransform = () => {
         if (!selected && !somethingIsSelected)
-            return "w-[85vw] lg:w-96 p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:translate-x-4";
+            return "w-[85vw] lg:w-96 p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:translate-x-0";
         else if (!selected && somethingIsSelected)
             return "w-0 h-0 translate-y-0 translate-x-0";
         else
