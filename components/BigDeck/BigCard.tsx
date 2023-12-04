@@ -48,10 +48,6 @@ const BigCard = ({
             return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] xl:delay-500";
     };
 
-    const boxShadowStyle = {
-        boxShadow: "0px 0px 20px rgba(0, 128, 128)",
-    };
-
     useEffect(() => {
         const elements = [document.querySelector(`.content-${idx}`)];
         fadeElement(Fade.Out, elements);
