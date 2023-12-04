@@ -48,6 +48,10 @@ const BigCard = ({
             return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] xl:delay-500";
     };
 
+    const boxShadowStyle = {
+        boxShadow: "0px 0px 20px rgba(0, 128, 128)",
+    };
+
     useEffect(() => {
         const elements = [document.querySelector(`.content-${idx}`)];
         fadeElement(Fade.Out, elements);
@@ -59,9 +63,13 @@ const BigCard = ({
 
     return (
         <div
-            className={`bg-transparent ${containerWidth()} ${containerTransform()} h-[35rem] transition-all duration-700`}
+            className={`bg-transparent ${
+                selected
+                    ? ""
+                    : "hover:shadow-xl hover:shadow-teal-300 hover:duration-0"
+            } ${containerWidth()} ${containerTransform()} h-[35rem] transition-all duration-700`}
         >
-            <div className={`relative h-[30rem]`}>
+            <div className={`relative h-[30rem] `}>
                 <Image
                     alt={"wow"}
                     src={image}
@@ -70,7 +78,7 @@ const BigCard = ({
                 />
             </div>
             <div
-                className={`absolute rounded-sm bg-neutral-800 ${contentTransform()} overflow-hidden transition-all duration-700`}
+                className={`absolute rounded-sm bg-neutral-800 ${contentTransform()} overflow-hidden transition-all duration-700 `}
             >
                 <div className="flex justify-between">
                     <div className="text-xl font-medium text-white lg:mb-5 lg:text-4xl">
