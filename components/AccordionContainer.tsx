@@ -25,7 +25,7 @@ const AccordionCategory = ({
                 <div>{active ? "▲" : "▼"}</div>
             </div>
             <div
-                className={`flex flex-wrap transition-all duration-500 ${
+                className={`flex  transition-all duration-500 ${
                     !active
                         ? "max-h-0 overflow-y-hidden opacity-0"
                         : "max-h-[200vh] opacity-100"
