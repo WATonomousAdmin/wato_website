@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsChevronExpand } from "react-icons/bs";
 
 interface AccordionCategoryProps {
     active: boolean;
@@ -22,7 +23,7 @@ const AccordionCategory = ({
                 className="my-2 flex w-auto cursor-pointer justify-between rounded-md bg-wato-blue p-5 text-2xl font-medium text-white sm:text-3xl"
             >
                 <div>{title}</div>
-                <div>{active ? "▲" : "▼"}</div>
+                <BsChevronExpand />
             </div>
             <div
                 className={`flex  transition-all duration-500 ${
