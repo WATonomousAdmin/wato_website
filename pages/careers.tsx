@@ -107,7 +107,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
-            <JobPostingList data={allPostingsData} />
+            <JobPostingList data={allPostingsData} backgroundImage={"bg-main"} />
         </div>
     );
 };
