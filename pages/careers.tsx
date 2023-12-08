@@ -9,7 +9,6 @@ import img01 from "../public/imgs/jobpostings-01.jpg";
 import img02 from "../public/imgs/jobpostings-02.jpg";
 import img03 from "../public/imgs/jobpostings-03.jpg";
 import Hero from "../components/Hero";
-import ExtendedContentPane from "../components/ExtendedContentPane";
 import BigDeck from "../components/BigDeck/BigDeck";
 
 interface JobPostingProps {
@@ -69,30 +68,33 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
     return (
         <div className={`overflow-hidden scroll-smooth bg-cover`}>
             <Hero
-                image={"bg-JobPostingHero"}
+                image={"bg-main"}
                 title={PAGE_TITLE}
                 subtitle={SMALL_CONTENT_PLACEHOLDER}
                 cta={"Open Roles"}
                 link={"#open-roles"}
             />
-            <ExtendedContentPane
+            <ContentPane
                 title={PANE1_TITLE}
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img01}
                 leftOriented={true}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
-            </ExtendedContentPane>
+            </ContentPane>
             <BigDeck
                 title={DECK_TITLE}
                 subtitle={SMALL_CONTENT_PLACEHOLDER}
                 data={DeckData}
+                backgroundImage={"bg-main"}
             />
             <ContentPane
                 title={TITLE_PLACEHOLDER}
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img02}
                 leftOriented={true}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
@@ -101,10 +103,11 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 subtitle={SUBTITLE_PLACEHOLDER}
                 img={img02}
                 leftOriented={false}
+                backgroundImage={"bg-main"}
             >
                 {CONTENT_PLACEHOLDER}
             </ContentPane>
-            <JobPostingList data={allPostingsData} />
+            <JobPostingList data={allPostingsData} backgroundImage={"bg-main"} />
         </div>
     );
 };

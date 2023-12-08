@@ -11,11 +11,11 @@ interface CardProps {
 const Card = ({ title, subtitle, body, cta, buttonLink } : CardProps) => {
     return (
         <div
-            className={`my-10  mr-10 flex min-w-full flex-col rounded-md bg-wato-blue-water p-5 text-lg lg:w-[30vw] lg:min-w-[30vw]`}
+            className={`flex min-w-full flex-col rounded-md bg-wato-grey-clear p-5 text-lg text-black lg:w-[30vw] lg:min-w-[calc(50%-0.5555em)] overflow-y-hidden`}
         >
-            <div className="font-normal">{subtitle.toUpperCase()}</div>
+            <div className="font-normal text-white">{subtitle.toUpperCase()}</div>
             <div className="py-8 text-4xl font-bold">{title}</div>
-            <div className="border-t-2 border-solid border-zinc-900 pt-2 text-lg font-normal">
+            <div className="border-t-2 border-solid border-black pt-2 text-lg font-normal">
                 {body.map((entry, idx) => {
                     return <div key={idx}>{entry.toUpperCase()}</div>;
                 })}

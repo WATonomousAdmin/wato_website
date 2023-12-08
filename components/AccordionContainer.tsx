@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsChevronCompactUp, BsChevronCompactDown } from "react-icons/bs";
 
 interface AccordionCategoryProps {
     active: boolean;
@@ -16,19 +17,19 @@ const AccordionCategory = ({
     elements,
 }: AccordionCategoryProps) => {
     return (
-        <div key={`${idx}-${title}`}>
+        <div key={`${idx}-${title}`} style={{ overflowAnchor: "none" }}>
             <div
                 onClick={() => onToggle(idx)}
-                className="my-2 flex w-auto cursor-pointer justify-between rounded-md bg-wato-blue p-5 text-2xl font-medium text-white sm:text-3xl"
+                className={`my-2 flex w-auto cursor-pointer justify-between rounded-md bg-[#00000080] p-5 text-2xl font-medium text-white transition-all sm:text-3xl`}
             >
                 <div>{title}</div>
-                <div>{active ? "▲" : "▼"}</div>
+                {active ? <BsChevronCompactDown /> : <BsChevronCompactUp />}
             </div>
             <div
-                className={`flex flex-wrap transition-all duration-500 ${
+                className={`flex flex-wrap gap-5 transition-all duration-500 ${
                     !active
-                        ? "max-h-0 overflow-y-hidden opacity-0"
-                        : "max-h-[200vh] opacity-100"
+                        ? "my-0 max-h-0 overflow-y-hidden opacity-0"
+                        : "my-5 max-h-[100em] opacity-100"
                 }`}
             >
                 {elements.map((e) => {
@@ -54,7 +55,7 @@ const AccordionContainer = ({ data }: AccordionContainerProps) => {
         else setSelectedIndex(idx);
     };
     return (
-        <div style={{ overflowAnchor: "none" }}>
+        <div className={"z-10"} style={{ overflowAnchor: "none" }}>
             {data.map((d, idx) => {
                 return (
                     <AccordionCategory
