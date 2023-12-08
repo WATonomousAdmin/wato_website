@@ -31,7 +31,7 @@ const ContentPane = ({
                 } relative z-10 flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center sm:text-5xl">
-                    {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
+                    {title}&nbsp;<span className="text-wato-blue">{"//"}</span>
                 </div>
                 <div className="text-2xl max-lg:text-center lg:mb-6">
                     {subtitle}

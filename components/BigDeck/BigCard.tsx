@@ -61,7 +61,13 @@ const BigCard = ({
         <div
             className={`bg-transparent ${containerWidth()} ${containerTransform()}  h-[35rem] transition-all duration-700`}
         >
-            <div className={`${selected ? "shadow-NoOffset shadow-wato-teal" : "hover:shadow-NoOffset hover:shadow-wato-teal"} duration-200`}>
+            <div
+                className={`${
+                    selected
+                        ? "shadow-NoOffset shadow-wato-teal"
+                        : "hover:shadow-NoOffset hover:shadow-wato-teal"
+                } duration-200`}
+            >
                 <div className={`relative h-[30rem] `}>
                     <Image
                         alt={"wow"}
@@ -94,7 +100,7 @@ const BigCard = ({
                     {!selected && (
                         <div
                             onClick={() => onToggle(idx)}
-                            className="cursor-pointer text-wato-teal"
+                            className="cursor-pointer text-wato-blue"
                         >
                             {cta}
                         </div>

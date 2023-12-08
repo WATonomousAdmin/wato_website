@@ -9,7 +9,9 @@ interface ButtonProps {
 }
 
 const Button = ({ text, outline, src, onClick }: ButtonProps) => {
-    const colors = outline ? "bg-transparent border-2 border-wato-teal" : "bg-wato-blue text-white";
+    const colors = outline
+        ? "bg-transparent border-2 border-white"
+        : "bg-wato-blue text-white";
     const buttonComponent = (
         <div
             className={`flex w-fit cursor-pointer rounded-md ${colors} px-5 py-2 text-xl font-medium`}
