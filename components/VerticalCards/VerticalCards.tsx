@@ -1,5 +1,5 @@
-import { useState } from "react";
-import Card from './Card';
+import { useState, useEffect } from "react";
+import Card from "./Card";
 import img01 from "../../public/imgs/img1.jpg";
 
 const SMALL_CONTENT_PLACEHOLDER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"

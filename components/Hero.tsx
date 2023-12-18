@@ -1,4 +1,5 @@
 import { FaArrowAltCircleDown } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 interface HeroProps {
     title: string;
@@ -8,24 +9,30 @@ interface HeroProps {
     image: string;
 }
 
-const Hero = ({ title, subtitle, cta, link, image } : HeroProps) => {
+const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
+    const [fadeIn, setFadeIn] = useState(false);
+
+    useEffect(() => {
+        const delay = setTimeout(() => {
+            setFadeIn(true);
+        }, 500);
+
+        return () => clearTimeout(delay);
+    }, []);
+
     return (
-        <div
-            className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}
-        >
-            <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">
+        <div className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}>
+            <div className={`mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
                 <div className="mb-6 whitespace-pre-line text-5xl font-black lg:text-5xl">
                     {title}&nbsp;<span className="text-wato-blue">{"//"}</span>
                 </div>
                 <div className="text-sm mb-6 lg:w-1/2 lg:text-lg">
                     {subtitle}
                 </div>
-                <div className="flex justify-end">
-                    <a className="flex cursor-pointer text-wato-white font-medium text-xl" href={link}>
+                <div className={`flex justify-end cursor-pointer`}>
+                <a className={`flex cursor-pointer text-wato-white font-medium text-xl ${fadeIn ? 'opacity-100 transition-opacity duration-150 ease-in' : 'opacity-0'}`} href={link}>
                         <p>{cta}</p>
-                        <FaArrowAltCircleDown 
-                        className="ml-3 text-2xl"
-                        />
+                        <FaArrowAltCircleDown className="ml-3 text-2xl" />
                     </a>
                 </div>
             </div>

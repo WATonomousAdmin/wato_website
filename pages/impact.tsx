@@ -9,9 +9,3 @@ const Impact = () => {
 };
 
 export default Impact;
-
-{/* <div
-className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}
-> */}
-
-// flex h-screen w-screen items-center justify-center bg-main

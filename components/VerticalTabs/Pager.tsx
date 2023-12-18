@@ -17,14 +17,14 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
     };
 
     useEffect(() => {
-        if (window.innerWidth > 1200) {
+        if (window.innerWidth > 1450) {
           setDesktop(true);
         } else {
           setDesktop(false);
         }
     
         const updateMedia = () => {
-          if (window.innerWidth > 1200) {
+          if (window.innerWidth > 1450) {
             setDesktop(true);
           } else {
             setDesktop(false);
