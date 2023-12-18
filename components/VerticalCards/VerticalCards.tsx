@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Card from "./Card";
 import img01 from "../../public/imgs/img1.jpg";
 
