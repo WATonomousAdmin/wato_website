@@ -24,7 +24,7 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
                         key={i}
                         className={`m-4 h-3 w-3 cursor-pointer rounded-full transition-all duration-500 ${
                             i === current
-                                ? "scale-125 bg-wato-blue"
+                                ? "scale-125 transform h-8 bg-wato-blue"
                                 : "bg-white bg-opacity-50"
                         }`}
                         onClick={() => {

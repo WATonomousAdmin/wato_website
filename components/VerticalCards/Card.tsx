@@ -38,7 +38,7 @@ const Card = ({
 
   const containerBackground = () => {
     if (isHovered || selected) return "bg-wato-blue";
-    else return "bg-wato-grey-clear";
+    else return "bg-wato-black";
   };
 
   const imageWidth = () => {
@@ -57,7 +57,7 @@ const Card = ({
 
   return (
     <div
-      className={`${containerBackground()} items-center rounded-md ${containerHeight()} transition-all duration-700 overflow-hidden cursor-pointer`}
+      className={`${containerBackground()} items-center rounded-md ${containerHeight()} transition-all duration-700 overflow-hidden cursor-pointer -mr-16`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={() => {
@@ -86,7 +86,7 @@ const Card = ({
               </button>
             )}
           </div>
-          <div className="text-black font-bold mt-3 mb-1 text-xl">
+          <div className="text-white font-bold mt-3 mb-1 text-xl">
             {(isHovered || selected) ? (
               <div>
                 {title} <span className="text-wato-teal">{"//"}</span>
@@ -95,7 +95,7 @@ const Card = ({
               title
             )}
           </div>
-          <div className={`content-${idx} rounded-md text-wato-white-bone mr-3 transition-opacity`}>{content}</div></div>
+          <div className={`content-${idx} rounded-md text-wato-white-bone mr-3 mt-3 transition-opacity`}>{content}</div></div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import Button from "../Button";
+import { FaArrowAltCircleDown } from "react-icons/fa";
 
 interface TabBannerProps {
     title: string;
@@ -17,17 +18,19 @@ const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
     };
 
     return (
-        <div className="flex w-full flex-col justify-center bg-transparent font-bold text-white lg:w-1/2 lg:p-5">
-            <div className="pb-5 text-3xl lg:text-5xl">
+        <div className="flex w-full flex-col justify-center bg-transparent font-bold text-white lg:w-1/2 lg:p-5 mt-16 mr-10">
+            <div className="pb-5 text-2xl lg:text-5xl">
                 {title}&nbsp;<span className="text-wato-grey">{"//"}</span>
             </div>
-            <div className="text-base lg:text-lg">{body}</div>
+            <div className="text-base lg:text-lg font-medium">{body}</div>
             {!last && (
                 <div className="mb-4 mt-4">
-                    <Button
-                        text={"See Next"}
-                        onClick={() => scrollTo(idx + 1)}
-                    />
+                    <div onClick={() => scrollTo(idx + 1)} className="flex cursor-pointer text-wato-teal font-medium text-xl">
+                        <p>See Next</p>
+                        <FaArrowAltCircleDown 
+                        className="ml-3 text-2xl"
+                        />
+                    </div>
                 </div>
             )}
         </div>

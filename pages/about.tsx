@@ -5,6 +5,7 @@ import VerticalCards from "../components/VerticalCards/VerticalCards";
 import img01 from "../public/imgs/img1.jpg"; 
 import Timeline from "../components/VerticalTabs/Timeline";
 
+
 const HERO_PLACEHOLDER =
     "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in AV, Robotics, and AI";
 
