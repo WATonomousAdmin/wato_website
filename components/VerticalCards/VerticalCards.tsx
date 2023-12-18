@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from './Card';
+import Card from "./Card";
 import img01 from "../../public/imgs/img1.jpg";
 
 const SMALL_CONTENT_PLACEHOLDER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
@@ -23,12 +23,6 @@ const CardData = [
       blurb: SMALL_CONTENT_PLACEHOLDER,
       body: FULL_CONTENT_PLACEHOLDER,
       image: img01,
-  },
-  {
-      title: "Achievement 2",
-      blurb: SMALL_CONTENT_PLACEHOLDER,
-      body: FULL_CONTENT_PLACEHOLDER,
-      image: img01
   },
 ];
 
@@ -56,7 +50,7 @@ const VerticalCards = () => {
   })
 
   return (
-  <div className="lg:py-auto flex flex-col justify-center space-y-4">
+  <div className="lg:py-auto flex flex-col justify-center space-y-6">
     {items}
   </div>
   );
