@@ -1,4 +1,3 @@
-import Button from "./Button";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 
 interface HeroProps {
@@ -23,7 +22,7 @@ const Hero = ({ title, subtitle, cta, link, image } : HeroProps) => {
                 </div>
                 <div className="flex justify-end">
                     <a className="flex cursor-pointer text-wato-white font-medium text-xl" href={link}>
-                        <p>Dive In</p>
+                        <p>{cta}</p>
                         <FaArrowAltCircleDown 
                         className="ml-3 text-2xl"
                         />

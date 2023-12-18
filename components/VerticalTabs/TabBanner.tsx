@@ -1,4 +1,3 @@
-import Button from "../Button";
 import { FaArrowAltCircleDown } from "react-icons/fa";
 
 interface TabBannerProps {
