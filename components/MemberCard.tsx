@@ -6,17 +6,21 @@ const MemberCard = ({imageSrc, firstName, lastName, description, position}: Memb
     const [hovered, setHovered] = useState(false);
 
     return(
-        <div className="flex flex-col items-center justify-center rounded bg-wato-grey-porcelain lg:w-[8vw] lg:min-w-[8vw]"
+        <div className="flex flex-col items-center justify-center rounded bg-wato-grey-porcelain py-3"
             onMouseEnter={() => {setHovered(true)}}
             onMouseLeave={() => {setHovered(false)}}
         >
-            <Image alt="Image of member" src={imageSrc} className="rounded-full p-3" />
-            <h2 className="font-semibold">{firstName + ","}</h2>
-            <h2 className="pb-1 font-semibold">{lastName}</h2>
-            <h4 className="pb-1 font-normal">{position}</h4>
+            <div className="px-3 pb-3 relative w-[90%]">  
+                <Image alt="Image of member" src={imageSrc} className="rounded-full"/>  
+            </div> 
+            <h2 className="font-black -mb-2">{firstName}</h2>  
+            <h2 className="font-black">{lastName}</h2>  
+            <h4 className="text-wato-blue">{position}</h4>
+            <h6 className="font-extralight text-xs align-center p-1 pl-4">{description}</h6> 
             <div>
             { hovered ?
-                <h6 className="font-extralight text-xs align-center p-1 pl-4">{description}</h6>
+                <></>
+                // <h6 className="font-extralight text-xs align-center p-1 pl-4">{description}</h6>
                 :
                 <></>
             }
