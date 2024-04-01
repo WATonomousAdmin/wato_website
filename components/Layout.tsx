@@ -71,9 +71,7 @@ const styrene = localFont({
     ],
 });
 
-const DARK_PAGES = [
-    "/about"
-];
+const DARK_PAGES = ["/about", "/careers"];
 
 interface LayoutProps {
     children: ReactNode;
@@ -83,7 +81,7 @@ const Layout = ({ children }: LayoutProps) => {
     const [contactModalActive, setContactModalActive] = useState(false);
 
     const router = useRouter();
-    const dark = DARK_PAGES.includes(router.pathname); 
+    const dark = DARK_PAGES.includes(router.pathname);
 
     useEffect(() => {
         contactModalActive
@@ -116,12 +114,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Navbar toggleModal={toggleModal} dark={dark} />
                 {children}
             </main>
-            <footer>
-                {
-                    router.pathname != "/" &&
-                    <Footer dark={dark} />
-                }
-            </footer>
+            <footer>{router.pathname != "/" && <Footer dark={dark} />}</footer>
         </>
     );
 };
