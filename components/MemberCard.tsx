@@ -9,7 +9,7 @@ const MemberCard = ({
     position,
 }: MemberCardProps) => {
     return (
-        <div className="flex h-72 flex-col items-center justify-center rounded bg-[#1A1A1A] bg-opacity-80 py-3">
+        <div className="bg-wato-semigrey flex h-72 flex-col items-center justify-center rounded bg-opacity-80 py-3">
             <div className="relative w-3/4 px-3 pb-3">
                 <Image
                     alt="Image of member"
