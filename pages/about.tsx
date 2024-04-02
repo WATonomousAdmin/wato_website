@@ -1,8 +1,10 @@
 import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
-import Image from "next/image";
-import VerticalCards from "../components/VerticalCards/VerticalCards";
 import img01 from "../public/imgs/img1.jpg";
+import e7 from "../public/imgs/jobpostings-header.jpg";
+import Image from "next/image";
+import MemberList from "../components/VerticalTabs/MemberList";
+import VerticalCards from "../components/VerticalCards/VerticalCards";
 import Timeline from "../components/VerticalTabs/Timeline";
 
 const HERO_PLACEHOLDER =
@@ -15,6 +17,16 @@ const IMAGE_PLACEHOLDER = (
     <Image alt="test" src={img01} fill className="rounded-sm object-cover" />
 );
 
+// dummy data
+const MemberData = Array(20).fill({
+        imageSrc: e7,
+        firstName: "Member",
+        lastName: "One",
+        description: "This is a WATO Member",
+        position: "Position",
+});
+
+const MEMBER_LIST = <MemberList data={ MemberData } />;
 const VERTICAL_CARDS = <VerticalCards />;
 const TIMELINE = <Timeline />;
 
@@ -40,7 +52,7 @@ const TabData = [
     {
         title: "Built By Many",
         body: TAB_PLACEHOLDER,
-        children: IMAGE_PLACEHOLDER,
+        children: MEMBER_LIST,
         last: false,
     },
     {
