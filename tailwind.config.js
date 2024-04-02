@@ -9,7 +9,8 @@ module.exports = {
         extend: {
             backgroundImage: {
                 JobPostingHero: "url('/imgs/team.jpg')",
-                SponsorHero: "linear-gradient(180deg, #FFFFFF22 0%, #000000AA 100%), url('/imgs/orange.jpg')",
+                SponsorHero:
+                    "linear-gradient(180deg, #FFFFFF22 0%, #000000AA 100%), url('/imgs/orange.jpg')",
                 ModalRight:
                     "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
                 JobPostingBg:
@@ -20,7 +21,7 @@ module.exports = {
                 badge: "linear-gradient(135deg, #1F5D96 20%, #46A3B1 80%)",
             },
             boxShadow: {
-                NoOffset: "0 0px 25px -5px black"
+                NoOffset: "0 0px 25px -5px black",
             },
             colors: {
                 "wato-blue": {
@@ -41,6 +42,9 @@ module.exports = {
                 },
                 "wato-black": {
                     DEFAULT: "#2D2727",
+                },
+                "wato-semigrey": {
+                    DEFAULT: "#1A1A1A",
                 },
             },
         },
