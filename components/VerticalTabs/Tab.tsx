@@ -32,7 +32,7 @@ const Tab = ({
     return (
         <div
             id={`carousel-${identifier}-${idx}`}
-            className={`flex min-w-[100vw] snap-start px-16 py-24 max-lg:h-[90vh] max-lg:flex-col lg:min-h-[80vh] lg:px-44 lg:py-6 xl:px-60`}
+            className={`flex min-w-[100vw] snap-start px-4 py-24 max-lg:h-[90vh] max-lg:flex-col md:px-16 lg:min-h-[80vh] lg:px-44 lg:py-6 xl:px-60`}
             ref={ref}
         >
             <TabBanner
@@ -42,7 +42,9 @@ const Tab = ({
                 last={last}
                 body={body}
             />
-            <div className={`relative max-lg:mt-6 max-lg:h-1/2 lg:w-1/2`}>
+            <div
+                className={`relative flex items-center justify-center p-1 max-lg:mt-6 lg:w-1/2`}
+            >
                 {children}
             </div>
         </div>

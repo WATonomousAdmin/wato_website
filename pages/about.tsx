@@ -2,7 +2,7 @@ import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
 import Image from "next/image";
 import VerticalCards from "../components/VerticalCards/VerticalCards";
-import img01 from "../public/imgs/img1.jpg"; 
+import img01 from "../public/imgs/img1.jpg";
 import Timeline from "../components/VerticalTabs/Timeline";
 
 const HERO_PLACEHOLDER =
@@ -15,13 +15,8 @@ const IMAGE_PLACEHOLDER = (
     <Image alt="test" src={img01} fill className="rounded-sm object-cover" />
 );
 
-
-const VERTICAL_CARDS = (
-    <VerticalCards/>
-);
-const TIMELINE = (
-  <Timeline/>
-);
+const VERTICAL_CARDS = <VerticalCards />;
+const TIMELINE = <Timeline />;
 
 const TabData = [
     {
@@ -56,7 +51,6 @@ const TabData = [
     },
 ];
 
-
 const About = () => {
     return (
         <div>
@@ -67,7 +61,7 @@ const About = () => {
                 cta="Dive In"
                 link="#tabs"
             />
-            <VerticalTabs data={TabData}/>
+            <VerticalTabs data={TabData} />
         </div>
     );
 };
