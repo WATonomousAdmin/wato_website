@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 interface PagerProps {
     identifier: string;
     count: number;
@@ -8,41 +6,20 @@ interface PagerProps {
 }
 
 const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
-    const [isDesktop, setDesktop] = useState(false);
-
     const scrollTo = (idx: number) => {
         document
             .getElementById(`carousel-${identifier}-${idx}`)
-            ?.scrollIntoView({ block: "center" });
+            ?.scrollIntoView({ block: "start" });
     };
-
-    useEffect(() => {
-        if (window.innerWidth > 1450) {
-          setDesktop(true);
-        } else {
-          setDesktop(false);
-        }
-    
-        const updateMedia = () => {
-          if (window.innerWidth > 1450) {
-            setDesktop(true);
-          } else {
-            setDesktop(false);
-          }
-        };
-        window.addEventListener('resize', updateMedia);
-        return () => window.removeEventListener('resize', updateMedia);
-      }, []);
-    
 
     return (
         <div
-            className={`flex items-center transition-opacity duration-500 lg:flex-col ${
+            className={`z-30 flex items-center transition-opacity duration-500 lg:flex-col ${
                 hidden && "opacity-0"
             }`}
         >
             {[...Array(count)].map((_, i) => {
-                const dotSize = i === current ? (isDesktop ? "h-8" : "w-8") : (isDesktop ? "w-8" : "h-8")
+                const dotSize = i === current ? "max-xl:w-8 xl:h-8" : "w-8 h-8";
 
                 return (
                     <div
@@ -54,6 +31,7 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
                         }
                         `}
                         onClick={() => {
+                            console.log(i);
                             scrollTo(i);
                         }}
                     ></div>

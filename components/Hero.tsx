@@ -21,16 +21,25 @@ const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
     }, []);
 
     return (
-        <div className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}>
+        <div
+            className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}
+        >
             <div className={`mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
                 <div className="mb-6 whitespace-pre-line text-5xl font-black lg:text-5xl">
                     {title}&nbsp;<span className="text-wato-blue">{"//"}</span>
                 </div>
-                <div className="text-sm mb-6 lg:w-1/2 lg:text-lg">
+                <div className="mb-6 text-sm lg:w-1/2 lg:text-lg">
                     {subtitle}
                 </div>
-                <div className={`flex justify-end cursor-pointer`}>
-                <a className={`flex cursor-pointer text-wato-white font-medium text-xl ${fadeIn ? 'opacity-100 transition-opacity duration-150 ease-in' : 'opacity-0'}`} href={link}>
+                <div className={`flex w-full`}>
+                    <a
+                        className={`flex cursor-pointer items-center text-xl font-medium text-wato-teal ${
+                            fadeIn
+                                ? "opacity-100 transition-opacity duration-150 ease-in"
+                                : "opacity-0"
+                        }`}
+                        href={link}
+                    >
                         <p>{cta}</p>
                         <FaArrowAltCircleDown className="ml-3 text-2xl" />
                     </a>
