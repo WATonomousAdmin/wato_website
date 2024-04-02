@@ -24,6 +24,7 @@ const MemberCard = ({
                 {lastName}
             </h2>
             <h4 className="text-wato-grey">{position}</h4>
+            <p className="hidden">{description}</p>
         </div>
     );
 };
