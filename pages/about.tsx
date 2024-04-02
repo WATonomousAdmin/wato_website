@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
 import img01 from "../public/imgs/img1.jpg";
-import e7 from "../public/imgs/e7.png"
+import e7 from "../public/imgs/jobpostings-header.jpg";
 import Image from "next/image";
 import MemberList from "../components/VerticalTabs/MemberList";
 import Timeline from "../components/VerticalTabs/Timeline";
@@ -23,65 +23,63 @@ const MemberData = [
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
     {
         imageSrc: e7,
         firstName: "Member",
         lastName: "One",
         description: "This is a WATO Member",
-        position: "Position"
+        position: "Position",
     },
-]
+];
 
-const MEMBER_LIST = (
-    <MemberList data={MemberData}/>
-);
-        
+const MEMBER_LIST = <MemberList data={[...MemberData, ...MemberData]} />;
+
 const TIMELINE = <Timeline></Timeline>;
-        
+
 const TabData = [
     {
         title: "What is WATonomous?",
