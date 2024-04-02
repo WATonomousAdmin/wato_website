@@ -23,10 +23,12 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
 
     const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.2 });
     return (
-        <div className="flex flex-col justify-center bg-network">
+        <div className="relative bg-main">
+            <div className="absolute inset-0 bg-black opacity-80 z-0"></div>
+            
             <div
                 id="tabs"
-                className={`no-scrollbar z-10 flex snap-x snap-mandatory flex-row bg-transparent transition-opacity duration-500 max-lg:overflow-x-scroll lg:w-full lg:flex-col`}
+                className={`no-scrollbar z-10 flex snap-x snap-mandatory flex-row bg-transparent transition-opacity duration-500 max-lg:overflow-x-scroll lg:w-full lg:flex-col relative`}
                 ref={tabGroupRef}
             >
                 {data.map((tab: VerticalTabData, idx: number) => {

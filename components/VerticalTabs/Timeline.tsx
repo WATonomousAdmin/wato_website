@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const TAB_PLACEHOLDER =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut";
@@ -51,9 +52,27 @@ const TabData = [
 const Timeline = () => {
     const [selectedYear, setSelectedYear] = useState(2017);
 
+    const goToPreviousYear = () => {
+        const index = TabData.findIndex((item) => item.year === selectedYear);
+        if (index > 0) {
+            setSelectedYear(TabData[index - 1].year);
+        } else {
+            setSelectedYear(TabData[TabData.length - 1].year);
+        }
+    };
+
+    const goToNextYear = () => {
+        const index = TabData.findIndex((item) => item.year === selectedYear);
+        if (index < TabData.length - 1) {
+            setSelectedYear(TabData[index + 1].year);
+        } else {
+            setSelectedYear(TabData[0].year);
+        }
+    };
+
     return (
-        <div className="flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white">
-            <div className="m-2 flex w-full flex-row">
+        <div>
+            <div className="m-2 mb-6 flex pt-3 bg-opacity-50">
                 {TabData.map((item) => (
                     <div
                         key={item.year}
@@ -63,26 +82,39 @@ const Timeline = () => {
                                 : "w-full border-t-4 border-gray-500 text-white"
                         }`}
                     >
-                        <button onClick={() => setSelectedYear(item.year)}>
+                        <div className="flex justify-center">
                             {item.year}
-                        </button>
+                        </div>
                     </div>
                 ))}
+                
             </div>
-            <div className="m-2 pb-5 text-2xl lg:text-4xl">
-                {TabData.find((item) => item.year === selectedYear)?.title}
-                &nbsp;<span className="text-wato-teal">{"//"}</span>
+            <div className="flex items-center justify-between">
+                <IoIosArrowBack
+                className="text-8xl text-white cursor-pointer" 
+                onClick={goToPreviousYear}
+                />
+                <div className="flex-2 flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white">
+                    <div className="m-2 pb-5 text-2xl lg:text-4xl">
+                        {TabData.find((item) => item.year === selectedYear)?.title}
+                        &nbsp;<span className="text-wato-teal">{"//"}</span>
+                    </div>
+                    <span className="m-2 font-normal">
+                        {TabData.find((item) => item.year === selectedYear)?.body}
+                    </span>
+                    <img
+                        className="m-2"
+                        src={
+                            TabData.find((item) => item.year === selectedYear)?.children
+                        }
+                        alt={`Event ${selectedYear}`}
+                    />
+                </div>
+                <IoIosArrowForward
+                className="text-8xl text-white cursor-pointer"
+                onClick={goToNextYear}
+                />
             </div>
-            <span className="m-2">
-                {TabData.find((item) => item.year === selectedYear)?.body}
-            </span>
-            <img
-                className="m-2"
-                src={
-                    TabData.find((item) => item.year === selectedYear)?.children
-                }
-                alt={`Event ${selectedYear}`}
-            />
         </div>
     );
 };
