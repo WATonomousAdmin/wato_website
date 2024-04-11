@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BsChevronCompactUp, BsChevronCompactDown } from "react-icons/bs";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 interface AccordionCategoryProps {
     active: boolean;
@@ -23,7 +23,7 @@ const AccordionCategory = ({
                 className={`my-2 flex w-auto cursor-pointer justify-between rounded-md bg-[#00000080] p-5 text-2xl font-medium text-white transition-all sm:text-3xl`}
             >
                 <div>{title}</div>
-                {active ? <BsChevronCompactDown /> : <BsChevronCompactUp />}
+                {active ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </div>
             <div
                 className={`flex flex-wrap gap-5 transition-all duration-500 ${

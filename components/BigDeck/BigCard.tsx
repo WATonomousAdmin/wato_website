@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { BigCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
+import { IoClose } from "react-icons/io5";
 
 interface BigCardProps extends BigCardData {
     selectedIdx: number;
@@ -29,7 +30,8 @@ const BigCard = ({
     const containerWidth = () => {
         if (!selected && !somethingIsSelected)
             return "w-[90vw] lg:w-[24rem] opacity-100 m-5 delay-500";
-        else if (!selected && somethingIsSelected) return "w-0 z-0 opacity-0";
+        else if (!selected && somethingIsSelected)
+            return "w-[90vw] opacity-100 m-5 lg:w-0 lg:z-0 lg:opacity-0";
         else return "w-[90vw] xl:w-[40vw] z-10 m-5";
     };
 
@@ -43,9 +45,9 @@ const BigCard = ({
         if (!selected && !somethingIsSelected)
             return "w-[85vw] lg:w-96 p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:translate-x-0";
         else if (!selected && somethingIsSelected)
-            return "w-0 h-0 translate-y-0 translate-x-0";
+            return "w-[85vw] p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:w-0 lg:h-0 lg:translate-y-0 lg:translate-x-0";
         else
-            return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] delay-500";
+            return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] lg:delay-500";
     };
 
     useEffect(() => {
@@ -88,7 +90,7 @@ const BigCard = ({
                                 onClick={() => onToggle(-1)}
                                 className="cursor-pointer text-wato-grey"
                             >
-                                X
+                                <IoClose />
                             </div>
                         )}
                     </div>

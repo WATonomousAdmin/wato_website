@@ -22,7 +22,7 @@ const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
 
     return (
         <div
-            className={`justify-left flex h-screen w-screen items-end ${image} bg-cover`}
+            className={`justify-left flex h-screen items-end ${image} bg-cover`}
         >
             <div className={`mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
                 <div className="mb-6 whitespace-pre-line text-5xl font-black lg:text-5xl">
