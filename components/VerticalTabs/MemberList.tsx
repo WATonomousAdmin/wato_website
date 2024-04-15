@@ -7,15 +7,19 @@ interface MemberListProps {
 
 const MemberList = ({ data }: MemberListProps) => {
     return (
-        <div className="flex flex-col">
-            <div className="flex flex-row p-4">
-                <h1 className="pl-4 text-4xl text-wato-teal">80+ </h1>
-                <h1 className="px-4 pt-2 text-xl text-white"> Members</h1>
-                <h1 className="pl-6 text-4xl text-wato-teal">800+ </h1>
-                <h1 className="px-4 pt-2 text-xl text-white"> Alumni</h1>
+        <div className="-mt-5 flex flex-col">
+            <div className="flex flex-row pb-2">
+                <h1 className="pl-4 text-2xl text-wato-teal lg:text-4xl">
+                    80+{" "}
+                </h1>
+                <h1 className="px-4 pt-2 text-white lg:text-xl">Members</h1>
+                <h1 className="pl-6 text-2xl text-wato-teal lg:text-4xl">
+                    800+{" "}
+                </h1>
+                <h1 className="px-4 pt-2 text-white lg:text-xl">Alumni</h1>
             </div>
             {/* <div className="flex space-x-4"> */}
-            <div className="memberlist grid max-h-[60vh] grid-cols-3 gap-3 overflow-y-scroll px-2 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="memberlist grid max-h-[60vh] grid-cols-2 gap-3 overflow-y-scroll px-2 md:grid-cols-4 lg:grid-cols-3">
                 {/* <MemberCard imageSrc={e7} firstName="WATO" lastName="Member" description="This is a WATO member" position="Overlord" /> */}
                 {data.map((member: MemberCardProps, id: number) => {
                     return (

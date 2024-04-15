@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { fadeElement } from "../../lib/utils";
+import { Fade } from "../../types";
 
 const TAB_PLACEHOLDER =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut sdfsdfsdf dsfsdfs sdfsdf sdfsdfsdf Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut";
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit";
 
 const TabData = [
     {
@@ -49,8 +51,21 @@ const TabData = [
     },
 ];
 
+interface IContent {
+    title: string;
+    year: number;
+    body: string;
+    children: string;
+}
+
 const Timeline = () => {
     const [selectedYear, setSelectedYear] = useState(2017);
+    const [content, setContent] = useState<IContent>({
+        title: "",
+        year: 0,
+        body: "",
+        children: "",
+    });
 
     const goToPreviousYear = () => {
         const index = TabData.findIndex((item) => item.year === selectedYear);
@@ -70,49 +85,64 @@ const Timeline = () => {
         }
     };
 
+    const goToYear = (year: number) => {
+        setSelectedYear(year);
+    };
+
+    useEffect(() => {
+        const elements = [document.querySelector(`.content-${selectedYear}`)];
+        const newItem = TabData.find((item) => item.year === selectedYear);
+        fadeElement(Fade.Out, elements);
+        setTimeout(() => {
+            setContent(newItem as IContent);
+            fadeElement(Fade.In, elements);
+        }, 300);
+    }, [selectedYear]);
+
     return (
         <div>
-            <div className="m-2 mb-6 flex pt-3 bg-opacity-50">
+            <div className="mb-2 flex bg-opacity-50 lg:mb-6">
                 {TabData.map((item) => (
                     <div
                         key={item.year}
-                        className={`mr-4 flex flex-col ${
+                        className={`flex cursor-pointer flex-col justify-center hover:border-wato-white-bone hover:text-wato-white-bone ${
                             selectedYear === item.year
                                 ? "w-full border-t-4 border-wato-teal text-wato-teal"
                                 : "w-full border-t-4 border-gray-500 text-white"
                         }`}
+                        onClick={() => goToYear(item.year)}
                     >
-                        <div className="flex justify-center">
-                            {item.year}
-                        </div>
+                        <div className="flex justify-center">{item.year}</div>
                     </div>
                 ))}
-                
             </div>
             <div className="flex items-center justify-between">
                 <IoIosArrowBack
-                className="text-8xl text-white cursor-pointer" 
-                onClick={goToPreviousYear}
+                    className="cursor-pointer text-6xl text-white transition-colors hover:text-wato-teal lg:text-8xl"
+                    onClick={goToPreviousYear}
                 />
-                <div className="flex-2 flex w-full flex-col justify-center bg-transparent bg-wato-blue font-bold text-white">
-                    <div className="m-2 pb-5 text-2xl lg:text-4xl">
-                        {TabData.find((item) => item.year === selectedYear)?.title}
-                        &nbsp;<span className="text-wato-teal">{"//"}</span>
+                <div
+                    className={`flex w-full flex-col justify-center rounded-md bg-transparent bg-wato-blue px-5 py-2 font-bold text-white lg:px-10 lg:py-5`}
+                >
+                    <div
+                        className={`content-${selectedYear} transition-opacity`}
+                    >
+                        <h2 className="text-2xl lg:pb-5 lg:text-4xl">
+                            {content.title}
+                            &nbsp;<span className="text-wato-teal">{"//"}</span>
+                        </h2>
+                        <p className="mb-2 font-normal max-lg:text-sm">
+                            {content?.body}
+                        </p>
+                        <img
+                            src={content.children}
+                            alt={`Event ${selectedYear}`}
+                        />
                     </div>
-                    <span className="m-2 font-normal">
-                        {TabData.find((item) => item.year === selectedYear)?.body}
-                    </span>
-                    <img
-                        className="m-2"
-                        src={
-                            TabData.find((item) => item.year === selectedYear)?.children
-                        }
-                        alt={`Event ${selectedYear}`}
-                    />
                 </div>
                 <IoIosArrowForward
-                className="text-8xl text-white cursor-pointer"
-                onClick={goToNextYear}
+                    className="hover: cursor-pointer text-6xl text-white transition-colors hover:text-wato-teal lg:text-8xl"
+                    onClick={goToNextYear}
                 />
             </div>
         </div>

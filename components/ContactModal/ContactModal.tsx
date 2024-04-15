@@ -1,5 +1,6 @@
 import ModalRight from "./ModalRight";
 import ContactForm from "./ContactForm";
+import { IoClose } from "react-icons/io5";
 
 interface ContactModalProps {
     modalActive: boolean;
@@ -26,11 +27,11 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                     >
                         <div
                             className={
-                                "absolute right-5 top-5 text-lg font-bold text-wato-grey md:hidden cursor-pointer"
+                                "absolute right-5 top-5 cursor-pointer text-lg font-bold text-wato-grey md:hidden"
                             }
                             onClick={closeModal}
                         >
-                            X
+                            <IoClose />
                         </div>
                         <div className="mt-5 flex flex-col self-center bg-white px-14 text-zinc-800 md:px-16">
                             <div className="flex text-4xl font-black">

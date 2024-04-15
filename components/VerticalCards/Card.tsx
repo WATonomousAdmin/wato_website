@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { VerticalCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
+import { IoClose } from "react-icons/io5";
 
 interface CardProps extends VerticalCardData {
     selectedIdx: number;
@@ -32,19 +33,14 @@ const Card = ({
 
     const containerHeight = () => {
         if (!selected && !somethingIsSelected)
-            return "h-[15vh] lg:h-[15vh] opacity-100";
+            return "h-[15vh] lg:h-40 opacity-100 my-2 lg:my-5";
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-        else return "h-[50vh] lg:h-[60vh] z-10 m-1 lg:m-5";
+        else return "h-[30vh] lg:h-[30vh] z-10";
     };
 
     const containerBackground = () => {
         if (isHovered || selected) return "bg-wato-blue";
         else return "bg-wato-black";
-    };
-
-    const imageWidth = () => {
-        if (!selected && !somethingIsSelected) return "w-1/3";
-        else return "w-0 md:w-3/5";
     };
 
     useEffect(() => {
@@ -65,28 +61,29 @@ const Card = ({
                 if (!selected) onToggle(idx);
             }}
         >
-            <div className="flex h-full">
+            <div className="absolute w-full">
+                {selected && (
+                    <button
+                        onClick={() => {
+                            onToggle(-1);
+                            setHovered(false);
+                            setContent(selected ? body : blurb);
+                        }}
+                        className="absolute right-2 top-1 text-xl text-white"
+                    >
+                        <IoClose />
+                    </button>
+                )}
+            </div>
+            <div className="grid h-full grid-cols-3 p-4">
                 <div
-                    className={`${imageWidth()} mb-4 ml-4 mr-4 mt-4 rounded-md bg-wato-white-bone transition-all duration-700`}
+                    className={`col-span-1 mr-4 rounded-md bg-wato-white-bone transition-all duration-700`}
                 >
                     {/* div for now, change to image later */}
                 </div>
-                <div className="w-[100%]">
-                    <div className="relative">
-                        {selected && (
-                            <button
-                                onClick={() => {
-                                    onToggle(-1);
-                                    setHovered(false);
-                                    setContent(selected ? body : blurb);
-                                }}
-                                className="absolute right-0 top-0 mr-2 mt-2 font-bold"
-                            >
-                                X
-                            </button>
-                        )}
-                    </div>
-                    <div className="mb-1 mt-3 text-sm font-bold text-white lg:text-xl">
+
+                <div className={`col-span-2 flex flex-col overflow-y-hidden`}>
+                    <div className="mb-1 font-bold text-white lg:mt-3 lg:text-xl">
                         {isHovered || selected ? (
                             <div>
                                 {title}{" "}
@@ -97,7 +94,7 @@ const Card = ({
                         )}
                     </div>
                     <div
-                        className={`content-${idx} mr-3 mt-3 rounded-md text-wato-white-bone transition-opacity`}
+                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:mt-3 lg:text-base `}
                     >
                         {content}
                     </div>
