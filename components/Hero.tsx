@@ -1,12 +1,13 @@
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import WatoVideo from "./WatoVideo";
 
 interface HeroProps {
     title: string;
     subtitle: string;
     cta: string;
     link: string;
-    image: string;
+    image?: string;
 }
 
 const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
@@ -22,11 +23,19 @@ const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
 
     return (
         <div
-            className={`justify-left flex h-screen items-end ${image} bg-cover`}
+            className={`justify-left flex h-screen items-end ${
+                image ? image : "bg-black"
+            } bg-cover`}
         >
-            <div className={`mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
+            {!image && (
+                <div className="absolute">
+                    <WatoVideo transparent />
+                </div>
+            )}
+            <div className="absolute inset-0 bg-black opacity-80"></div>
+            <div className={`relative mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
                 <div className="mb-6 whitespace-pre-line text-5xl font-black lg:text-5xl">
-                    {title}&nbsp;<span className="text-wato-blue">{"//"}</span>
+                    {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>
                 <div className="mb-6 text-sm lg:w-1/2 lg:text-lg">
                     {subtitle}

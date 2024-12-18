@@ -5,7 +5,7 @@ interface ContentPaneProps {
     title: string;
     subtitle: string;
     children: React.ReactNode | any;
-    backgroundImage: string;
+    backgroundImage?: string;
 }
 
 const ContentPane = ({
@@ -20,7 +20,9 @@ const ContentPane = ({
         <div
             className={`relative flex flex-col ${
                 leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
-            } ${backgroundImage} py-8 max-lg:items-center`}
+            } ${
+                backgroundImage ?? "bg-wato-black-vanta"
+            } py-8 max-lg:items-center`}
         >
             <div className="absolute inset-0 bg-cover bg-center" />
             <div className="absolute inset-0 bg-black opacity-80"></div>
@@ -31,9 +33,9 @@ const ContentPane = ({
                 } relative z-10 flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center sm:text-5xl">
-                    {title}&nbsp;<span className="text-wato-blue">{"//"}</span>
+                    {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>
-                <div className="text-2xl max-lg:text-center lg:mb-6">
+                <div className="text-xl italic text-wato-teal max-lg:text-center lg:mb-6 lg:mt-2">
                     {subtitle}
                 </div>
                 <div className="max-lg:w-screen max-lg:p-12 max-lg:text-center">

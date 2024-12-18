@@ -35,7 +35,7 @@ const Card = ({
         if (!selected && !somethingIsSelected)
             return "h-[15vh] lg:h-40 opacity-100 my-2 lg:my-5";
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-        else return "h-[30vh] lg:h-[30vh] z-10";
+        else return "h-[30vh] lg:h-[40vh] z-10";
     };
 
     const containerBackground = () => {
@@ -83,7 +83,7 @@ const Card = ({
                 </div>
 
                 <div className={`col-span-2 flex flex-col overflow-y-hidden`}>
-                    <div className="mb-1 font-bold text-white lg:mt-3 lg:text-xl">
+                    <div className="mb-1 font-bold text-white lg:text-xl">
                         {isHovered || selected ? (
                             <div>
                                 {title}{" "}
@@ -94,7 +94,7 @@ const Card = ({
                         )}
                     </div>
                     <div
-                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:mt-3 lg:text-base `}
+                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:text-sm `}
                     >
                         {content}
                     </div>
