@@ -11,7 +11,7 @@ const TAGLINE = "Showing the world who can \n drive themselves";
 
 const ModalRight = () => {
     return (
-        <div className="relative hidden overflow-x-hidden bg-white bg-ModalRight xl:block ">
+        <div className="relative hidden overflow-x-hidden bg-wato-black-vanta xl:block ">
             <div className="absolute top-8 h-64 w-4/5 rounded-r-md bg-zinc-900">
                 <Image src={e7} fill alt="e7" className="object-cover" />
             </div>
@@ -25,10 +25,31 @@ const ModalRight = () => {
                 </div>
                 <div className="my-1 text-right text-sm">{TAGLINE}</div>
                 <div className="mt-2 flex">
-                    <IconButton content={"fa-instagram"} blue={true} onClick={() => {}} />
-                    <IconButton content={"fa-twitter"} blue={true} onClick={() => {}} />
-                    <IconButton content={"fa-linkedin"} blue={true} onClick={() => {}} />
-                    <IconButton content={"fa-youtube"} blue={true} onClick={() => {}} />
+                    <IconButton
+                        content="fa-instagram"
+                        onClick={() =>
+                            window.open("https://www.instagram.com/watonomous")
+                        }
+                        empty
+                    />
+                    <IconButton
+                        content="fa-linkedin"
+                        onClick={() =>
+                            window.open(
+                                "https://www.linkedin.com/company/watonomous/"
+                            )
+                        }
+                        empty
+                    />
+                    <IconButton
+                        content="fa-youtube"
+                        onClick={() =>
+                            window.open(
+                                "https://www.youtube.com/@WATonomous/videos"
+                            )
+                        }
+                        empty
+                    />
                 </div>
             </div>
         </div>

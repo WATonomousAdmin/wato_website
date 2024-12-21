@@ -20,7 +20,9 @@ const FormTextArea = ({
     onFormChange,
 }: FormTextAreaProps) => {
     const checkWordLimit = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-        const currentLength = (e.target as HTMLTextAreaElement).value.split(/[\s]+/);
+        const currentLength = (e.target as HTMLTextAreaElement).value.split(
+            /[\s]+/
+        );
         if (currentLength.length > maxWords) {
             const newData = { ...formData };
             newData[id] = (e.target as HTMLTextAreaElement).value
@@ -38,7 +40,7 @@ const FormTextArea = ({
             {required && <span className="text-red-400">*</span>}
             {/* w-64*/}
             <textarea
-                className={`mt-3 w-full bg-wato-white-bone p-1 text-xl`}
+                className={`mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl`}
                 id={id}
                 name={id}
                 value={formData[id] || ""}
