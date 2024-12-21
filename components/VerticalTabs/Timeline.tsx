@@ -3,51 +3,63 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { fadeElement } from "../../lib/utils";
 import { Fade } from "../../types";
 
-const TAB_PLACEHOLDER =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lorem ipsum dolor sit amet, consectetur adipiscing elit";
-
 const TabData = [
     {
-        title: "2017 Event",
+        title: "SAE Autodrive",
         year: 2017,
-        body: `2017 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `WATonomous selected to join SAE Autodrive Challenge to pursue level 4`,
+        children: "/imgs/timeline_01.png",
     },
     {
-        title: "2018 Event",
+        title: "Basic Maneuvering",
         year: 2018,
-        body: `2018 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `Team achieves basic maneuvering and object avoidance in Arizona
+`,
+        children: "/imgs/timeline_02.png",
     },
     {
-        title: "2019 Event",
+        title: "The Race",
         year: 2019,
-        body: `2019 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `WATonomous featured on the Amazing Race Canada. Team successfully masters multi-lane changing
+`,
+        children: "/imgs/timeline_03.png",
     },
     {
-        title: "2020 Event",
+        title: "Complex Navigation",
         year: 2020,
-        body: `2020 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `Team achieves complex urban navigation and moving object avoidance
+`,
+        children: "/imgs/timeline_04.jpg",
     },
     {
-        title: "2021 Event",
+        title: "2nd Place",
         year: 2021,
-        body: `2021 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `WATonomous achieves North America’s 2nd place AV overall in Autodrive Challenge. Team explores new exciting competitions`,
+        children: "/imgs/timeline_05.jpg",
     },
     {
-        title: "2022 Event",
+        title: "Student-Centric",
         year: 2022,
-        body: `2022 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `WATonomous goes student-centric, writing blogs about projects and creating research opportunities for undergrads.`,
+        children: "/imgs/timeline_06.jpg",
     },
     {
-        title: "2023 Event",
+        title: "New Car",
         year: 2023,
-        body: `2023 ${TAB_PLACEHOLDER}`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        body: `New car, new beginnings! Kia Soul EV arrives in our new AV garage. Now to execute on what we planned...`,
+        children: "/imgs/timeline_07.png",
+    },
+    {
+        title: "Perception",
+        year: 2024,
+        body: `Team achieves rudimentary perception and car control. Work continues on the internal software stack.`,
+        children: "/imgs/timeline_08.jpg",
+    },
+    {
+        title: "The Future",
+        year: 2025,
+        body: `Goal: Point and Click Autonomy around a test track.`,
+        children: "/imgs/timeline_09.png",
     },
 ];
 
@@ -118,30 +130,31 @@ const Timeline = () => {
             </div>
             <div className="flex items-center justify-between">
                 <IoIosArrowBack
-                    className="cursor-pointer text-6xl text-white transition-colors hover:text-wato-teal lg:text-8xl"
+                    className="cursor-pointer text-4xl text-white transition-colors hover:text-wato-teal"
                     onClick={goToPreviousYear}
                 />
                 <div
-                    className={`flex w-full flex-col justify-center rounded-md bg-transparent bg-wato-blue px-5 py-2 font-bold text-white lg:px-10 lg:py-5`}
+                    className={`flex h-96 w-96 flex-col rounded-md bg-transparent bg-wato-black px-5 py-2 font-bold text-white lg:px-7 lg:py-3`}
                 >
                     <div
-                        className={`content-${selectedYear} transition-opacity`}
+                        className={`content-${selectedYear} flex h-full flex-col items-center justify-around transition-opacity`}
                     >
-                        <h2 className="text-2xl lg:pb-5 lg:text-4xl">
+                        <h2 className="text-2xl lg:pb-2 lg:text-2xl">
                             {content.title}
                             &nbsp;<span className="text-wato-teal">{"//"}</span>
                         </h2>
-                        <p className="mb-2 font-normal max-lg:text-sm">
+                        <p className="mb-2 text-sm font-normal">
                             {content?.body}
                         </p>
                         <img
                             src={content.children}
                             alt={`Event ${selectedYear}`}
+                            className="h-52 w-80 object-cover"
                         />
                     </div>
                 </div>
                 <IoIosArrowForward
-                    className="hover: cursor-pointer text-6xl text-white transition-colors hover:text-wato-teal lg:text-8xl"
+                    className="hover: cursor-pointer text-4xl text-white transition-colors hover:text-wato-teal"
                     onClick={goToNextYear}
                 />
             </div>

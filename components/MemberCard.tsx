@@ -23,7 +23,7 @@ const MemberCard = ({
             <h2 className="text-xl font-bold text-wato-white-bone">
                 {lastName}
             </h2>
-            <h4 className="text-wato-grey">{position}</h4>
+            <h4 className="text-center text-wato-grey">{position}</h4>
             <p className="hidden">{description}</p>
         </div>
     );

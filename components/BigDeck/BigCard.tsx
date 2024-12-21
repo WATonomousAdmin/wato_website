@@ -95,7 +95,7 @@ const BigCard = ({
                         )}
                     </div>
                     <div
-                        className={`mb-4 font-light text-white content-${idx} transition-all`}
+                        className={`mb-4 font-light text-white content-${idx} text-sm transition-all`}
                     >
                         {content}
                     </div>

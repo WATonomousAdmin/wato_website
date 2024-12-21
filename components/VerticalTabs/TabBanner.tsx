@@ -21,7 +21,7 @@ const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
             <div className="pb-5 text-2xl lg:text-5xl">
                 {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
             </div>
-            <div className="text-sm font-medium lg:text-lg">{body}</div>
+            <div className="lg:text-md text-sm font-medium">{body}</div>
             {!last && (
                 <div className="mb-4 mt-4">
                     <div
