@@ -17,14 +17,185 @@ const IMAGE_PLACEHOLDER = (
     <Image alt="test" src={img01} className="rounded-sm object-cover" />
 );
 
-// dummy data
-const MemberData = Array(20).fill({
-    imageSrc: e7,
-    firstName: "Member",
-    lastName: "One",
-    description: "This is a WATO Member",
-    position: "Position",
-});
+const MemberData = [
+    {
+        imageSrc: e7,
+        firstName: "Eddy",
+        lastName: "Zhou",
+        description:
+            "Eddy is a robotics enthusiast interested in robot embodiment and driven by a vision of cobots. He enjoys leading charges.",
+        position: "Co-Captain",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Lena",
+        lastName: "Ye",
+        description:
+            "Stumbled into Software by accident. Now serving as living proof of why you should join WATO.",
+        position: "BizOps",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Jivan",
+        lastName: "Kesan",
+        description: "",
+        position: "World Modelling",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Dan",
+        lastName: "Huynh",
+        description: "",
+        position: "Perceptions Lead",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Harsharan",
+        lastName: "Rakhra",
+        description: "",
+        position: "Micro Autonomy",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Manjot",
+        lastName: "Dola",
+        description: "",
+        position: "Micro Autonomy",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Andrew",
+        lastName: "Shen",
+        description: "",
+        position: "ASD + World Modelling",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Jessica",
+        lastName: "Yuan",
+        description: "",
+        position: "ASD",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Rodney",
+        lastName: "Dong",
+        description: "",
+        position: "Micro Autonomy Lead",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Neha",
+        lastName: "Kasoju",
+        description: "",
+        position: "Vehicle Platform",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Isaac",
+        lastName: "Yu",
+        description: "",
+        position: "ASD",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Sophie",
+        lastName: "Xie",
+        description: "",
+        position: "World Modelling",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Owen",
+        lastName: "Leather",
+        description: "",
+        position: "Research Member",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Krish",
+        lastName: "Chopra",
+        description: "",
+        position: "Actions",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Rajan",
+        lastName: "Agarwal",
+        description: "",
+        position: "Actions",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Mahir",
+        lastName: "Mahota",
+        description: "",
+        position: "Autonomous Platform Director",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Kai",
+        lastName: "Ma",
+        description: "",
+        position: "Research Member",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Lucas",
+        lastName: "Reljic-Dumont",
+        description: "",
+        position: "Perceptions",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Luc",
+        lastName: "Edes",
+        description: "",
+        position: "Research Member",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Thomason",
+        lastName: "Zhou",
+        description: "",
+        position: "ASD",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Kishore",
+        lastName: "Yogaraj",
+        description: "",
+        position: "Perceptions Lead",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Mark",
+        lastName: "Chiu",
+        description: "",
+        position: "Research Member",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Jadiha",
+        lastName: "Aruleswaran",
+        description: "",
+        position: "BizOps Lead",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Hasan",
+        lastName: "Tahir",
+        description: "",
+        position: "Co-Captain",
+    },
+    {
+        imageSrc: e7,
+        firstName: "Ken",
+        lastName: "Jiang",
+        description: "",
+        position: "BizOps Lead",
+    },
+];
 
 const MEMBER_LIST = <MemberList data={MemberData} />;
 const VERTICAL_CARDS = <VerticalCards />;

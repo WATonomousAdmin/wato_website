@@ -8,58 +8,58 @@ const TabData = [
         title: "SAE Autodrive",
         year: 2017,
         body: `WATonomous selected to join SAE Autodrive Challenge to pursue level 4`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_01.png",
     },
     {
         title: "Basic Maneuvering",
         year: 2018,
         body: `Team achieves basic maneuvering and object avoidance in Arizona
 `,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_02.png",
     },
     {
         title: "The Race",
         year: 2019,
         body: `WATonomous featured on the Amazing Race Canada. Team successfully masters multi-lane changing
 `,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_03.png",
     },
     {
         title: "Complex Navigation",
         year: 2020,
         body: `Team achieves complex urban navigation and moving object avoidance
 `,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_04.jpg",
     },
     {
         title: "2nd Place",
         year: 2021,
         body: `WATonomous achieves North America’s 2nd place AV overall in Autodrive Challenge. Team explores new exciting competitions`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_05.jpg",
     },
     {
         title: "Student-Centric",
         year: 2022,
         body: `WATonomous goes student-centric, writing blogs about projects and creating research opportunities for undergrads.`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_06.jpg",
     },
     {
         title: "New Car",
         year: 2023,
         body: `New car, new beginnings! Kia Soul EV arrives in our new AV garage. Now to execute on what we planned...`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_07.png",
     },
     {
         title: "Perception",
         year: 2024,
         body: `Team achieves rudimentary perception and car control. Work continues on the internal software stack.`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_08.jpg",
     },
     {
         title: "The Future",
         year: 2025,
         body: `Goal: Point and Click Autonomy around a test track.`,
-        children: "/_next/static/media/img1.b7d1895c.jpg",
+        children: "/imgs/timeline_09.png",
     },
 ];
 
@@ -137,7 +137,7 @@ const Timeline = () => {
                     className={`flex h-96 w-96 flex-col rounded-md bg-transparent bg-wato-black px-5 py-2 font-bold text-white lg:px-7 lg:py-3`}
                 >
                     <div
-                        className={`content-${selectedYear} transition-opacity`}
+                        className={`content-${selectedYear} flex h-full flex-col items-center justify-around transition-opacity`}
                     >
                         <h2 className="text-2xl lg:pb-2 lg:text-2xl">
                             {content.title}
@@ -149,6 +149,7 @@ const Timeline = () => {
                         <img
                             src={content.children}
                             alt={`Event ${selectedYear}`}
+                            className="h-52 w-80 object-cover"
                         />
                     </div>
                 </div>
