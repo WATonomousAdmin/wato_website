@@ -91,3 +91,46 @@ body {
     border-radius: 5px;
     background-color: #86e1d1;
 }
+
+:root {
+    --gradient-shadow: linear-gradient(
+        45deg,
+        #0fb3d0,
+        #0f77d1,
+        #0fd1ae,
+        #0fd16c,
+        #54bed1,
+        #0f39d1
+    );
+}
+
+.moving_gradient:before,
+.moving_gradient:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background: var(--gradient-shadow);
+    background-size: 400%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    animation: move_shadow 20s linear infinite;
+    border-radius: 0.5rem;
+}
+
+.moving_gradient:after {
+    filter: blur(20px);
+}
+
+@keyframes move_shadow {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}

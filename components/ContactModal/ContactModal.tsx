@@ -20,7 +20,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                     onClick={closeModal}
                 >
                     <div
-                        className="w-[90vw]grid-cols-1 grid h-screen overflow-y-scroll rounded-md bg-white text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] lg:overflow-hidden xl:grid-cols-2"
+                        className="w-[90vw]grid-cols-1 grid h-screen overflow-y-scroll rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] lg:overflow-hidden xl:grid-cols-2"
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
@@ -33,7 +33,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                         >
                             <IoClose />
                         </div>
-                        <div className="mt-5 flex flex-col self-center bg-white px-14 text-zinc-800 md:px-16">
+                        <div className="mt-5 flex flex-col self-center px-14 text-wato-white-bone md:px-16">
                             <div className="flex text-4xl font-black">
                                 <div>Let's design the future together</div>
                             </div>

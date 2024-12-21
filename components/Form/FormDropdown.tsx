@@ -9,7 +9,14 @@ interface FormDropdownProps {
     onFormChange: ChangeEventHandler;
 }
 
-const FormDropdown = ({ id, title, span, options, formData, onFormChange } : FormDropdownProps) => {
+const FormDropdown = ({
+    id,
+    title,
+    span,
+    options,
+    formData,
+    onFormChange,
+}: FormDropdownProps) => {
     return (
         <div className={`col-span-1 ${span && "lg:col-span-2"}`}>
             <div>
@@ -19,10 +26,10 @@ const FormDropdown = ({ id, title, span, options, formData, onFormChange } : For
                 <span className="text-red-400"> *</span>
             </div>
             <select
-                className="mt-3 w-full bg-wato-white-bone p-1 text-xl"
+                className="mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl"
                 onChange={onFormChange}
                 name={id}
-                value={formData[id] as string || options[0]}
+                value={(formData[id] as string) || options[0]}
                 required
             >
                 {options.map((o) => {
