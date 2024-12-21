@@ -26,7 +26,7 @@ const FormDropdown = ({
                 <span className="text-red-400"> *</span>
             </div>
             <select
-                className="mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl"
+                className="mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl text-wato-black"
                 onChange={onFormChange}
                 name={id}
                 value={(formData[id] as string) || options[0]}

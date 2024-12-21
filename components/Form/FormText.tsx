@@ -25,7 +25,7 @@ const FormText = ({
             {required && <span className="text-red-400">*</span>}
             {/* w-64*/}
             <input
-                className={`mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl`}
+                className={`mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl text-wato-black`}
                 id={id}
                 name={id}
                 value={(formData[id] as string) || ""}
