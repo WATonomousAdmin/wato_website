@@ -45,16 +45,16 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         SPONSOR
                     </NavbarItem>
                     <NavbarIconItem
-                        href={"https://kenjiang.ca"}
+                        href={"https://www.instagram.com/watonomous"}
                         icon={"fa-instagram"}
                     />
                     <NavbarIconItem
-                        href={"https://kenjiang.ca"}
-                        icon={"fa-twitter"}
+                        href={"https://www.linkedin.com/company/watonomous/"}
+                        icon={"fa-linkedin"}
                     />
                     <NavbarIconItem
-                        href={"https://kenjiang.ca"}
-                        icon={"fa-linkedin"}
+                        href={"https://www.youtube.com/@WATonomous/videos"}
+                        icon={"fa-youtube"}
                     />
                     <NavbarActionItem actions={[toggleModal, closeMobile]}>
                         CONNECT

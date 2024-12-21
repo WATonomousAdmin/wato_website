@@ -48,17 +48,29 @@ const Footer = ({ dark }: FooterProps) => {
                     <div className="mr-5 flex flex-col text-sm">
                         <IconButton
                             content="fa-instagram"
-                            onClick={() => window.open("https://kenjiang.ca")}
+                            onClick={() =>
+                                window.open(
+                                    "https://www.instagram.com/watonomous"
+                                )
+                            }
                             empty
                         />
                         <IconButton
                             content="fa-linkedin"
-                            onClick={() => window.open("https://kenjiang.ca")}
+                            onClick={() =>
+                                window.open(
+                                    "https://www.linkedin.com/company/watonomous/"
+                                )
+                            }
                             empty
                         />
                         <IconButton
-                            content="fa-twitter"
-                            onClick={() => window.open("https://kenjiang.ca")}
+                            content="fa-youtube"
+                            onClick={() =>
+                                window.open(
+                                    "https://www.youtube.com/@WATonomous/videos"
+                                )
+                            }
                             empty
                         />
                     </div>

@@ -11,6 +11,7 @@ import img02 from "../public/imgs/jobpostings-02.jpg";
 import img03 from "../public/imgs/jobpostings-03.jpg";
 
 import imgpane01 from "../public/imgs/jobpostings-pane1.jpg";
+import imgpane02 from "../public/imgs/all_logos.png";
 import imgpane03 from "../public/imgs/jobpostings-pane3.jpg";
 
 import Hero from "../components/Hero";
@@ -117,7 +118,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
             <ContentPane
                 title={PANE2_TITLE}
                 subtitle={PANE2_SUBTITLE}
-                img={img02}
+                img={imgpane02}
                 leftOriented={false}
             >
                 {PANE2_CONTENT}
