@@ -37,9 +37,6 @@ import VerticalCards2 from "../components/VerticalCards/VerticalCards2";
 const HERO_TEXT =
     "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in Robotics and Artificial Intelligence.";
 
-const TAB_PLACEHOLDER =
-    "Founded in 2017, WATonomous started from a vision to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. D";
-
 const IMAGE_PLACEHOLDER = (
     <Image alt="test" src={img01} className="rounded-sm object-cover" />
 );
