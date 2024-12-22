@@ -35,7 +35,7 @@ const Card = ({
         if (!selected && !somethingIsSelected)
             return "h-[15vh] lg:h-40 opacity-100 my-2 lg:my-5";
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-        else return "h-[30vh] lg:h-[40vh] z-10";
+        else return "h-[30vh] lg:h-[30vh] z-10";
     };
 
     const containerBackground = () => {
@@ -54,12 +54,13 @@ const Card = ({
 
     return (
         <div
-            className={`w-full ${containerBackground()} items-center rounded-md ${containerHeight()} cursor-pointer overflow-hidden transition-all duration-700 lg:-mr-16`}
+            className={`w-full ${containerBackground()} items-center rounded-md ${containerHeight()} overflow-hidden transition-all duration-700 lg:-mr-16`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={() => {
-                if (!selected) onToggle(idx);
-            }}
+            // onClick={() => {
+            //     if (!selected) onToggle(idx);
+            // }}
+            onClick={() => {}}
         >
             <div className="absolute w-full">
                 {selected && (
@@ -76,14 +77,13 @@ const Card = ({
                 )}
             </div>
             <div className="grid h-full grid-cols-3 p-4">
-                <div
+                {/* <div
                     className={`col-span-1 mr-4 rounded-md bg-wato-white-bone transition-all duration-700`}
                 >
-                    {/* div for now, change to image later */}
-                </div>
+                </div> */}
 
-                <div className={`col-span-2 flex flex-col overflow-y-hidden`}>
-                    <div className="mb-1 font-bold text-white lg:text-xl">
+                <div className={`col-span-3 flex flex-col overflow-y-hidden`}>
+                    <div className="mb-4 font-bold text-white lg:text-xl">
                         {isHovered || selected ? (
                             <div>
                                 {title}{" "}
@@ -94,7 +94,7 @@ const Card = ({
                         )}
                     </div>
                     <div
-                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:text-sm `}
+                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:text-base `}
                     >
                         {content}
                     </div>

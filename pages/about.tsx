@@ -32,6 +32,7 @@ import kishore from "../public/imgs/headshots/1680722752326 - Kishore Yogaraj.jp
 import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
 import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
 import ken from "../public/imgs/headshots/headshot ken jiang.png";
+import VerticalCards2 from "../components/VerticalCards/VerticalCards2";
 
 const HERO_TEXT =
     "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in Robotics and Artificial Intelligence.";
@@ -226,6 +227,7 @@ const MemberData = [
 const MEMBER_LIST = <MemberList data={MemberData} />;
 const VERTICAL_CARDS = <VerticalCards />;
 const TIMELINE = <Timeline />;
+const VERTICAL_CARDS_2 = <VerticalCards2 />;
 
 const TabData = [
     {
@@ -235,15 +237,15 @@ const TabData = [
         last: false,
     },
     {
-        title: "Our Story",
-        body: "Founded in 2017, WATonomous started from a vision to build a self-driving car for the Autodrive Challenge. Following the competition, our team chose an unorthodox path to pursue autonomy on our own terms. Since then, WATonomous has diversified its projects to include all things autonomy, whether it be AVs, RC racing, follower bots, or humanoids.",
-        children: TIMELINE,
+        title: "Multi Project Oriented",
+        body: "WATonomous pursues a variety of initiatives, each with their own incentive structure and flavour of robotics software. Members of WATonomous have the freedom to switch between projects whenever they want.",
+        children: VERTICAL_CARDS_2,
         last: false,
     },
     {
-        title: "Our Vision",
-        body: TAB_PLACEHOLDER,
-        children: IMAGE_PLACEHOLDER,
+        title: "Our Story",
+        body: "Founded in 2017, WATonomous started from a vision to build a self-driving car for the Autodrive Challenge. Following the competition, our team chose an unorthodox path to pursue autonomy on our own terms. Since then, WATonomous has diversified its projects to include all things autonomy, whether it be AVs, RC racing, follower bots, or humanoids.",
+        children: TIMELINE,
         last: false,
     },
     {

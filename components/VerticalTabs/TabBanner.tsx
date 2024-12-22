@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowAltCircleDown, FaArrowAltCircleRight } from "react-icons/fa";
 
 interface TabBannerProps {
@@ -32,6 +33,17 @@ const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
                         <FaArrowAltCircleDown className="ml-3 text-2xl max-lg:hidden" />
                         <FaArrowAltCircleRight className="ml-3 text-2xl lg:hidden" />
                     </div>
+                </div>
+            )}
+            {last && (
+                <div className="mb-4 mt-4">
+                    <Link
+                        href={"/careers"}
+                        className="flex cursor-pointer items-center text-sm font-medium text-wato-teal lg:text-xl"
+                    >
+                        <p>See Careers</p>
+                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
+                    </Link>
                 </div>
             )}
         </div>
