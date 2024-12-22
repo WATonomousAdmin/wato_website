@@ -1,9 +1,15 @@
-import  { google } from "googleapis";
+import { google } from "googleapis";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const auth = new google.auth.GoogleAuth({
-    keyFile: "wato-service-secret.json",
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+}).fromJSON({
+    type: "service_account",
+    project_id: process.env.PROJECT_ID,
+    private_key_id: process.env.PRIVATE_KEY_ID,
+    private_key: process.env.PRIVATE_KEY,
+    client_email: process.env.CLIENT_EMAIL,
+    client_id: process.env.CLIENT_ID,
 });
 
 const sheets = google.sheets("v4");
