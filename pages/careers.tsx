@@ -86,7 +86,9 @@ const DeckData = [
 
 const Careers = ({ allPostingsData }: JobPostingPageProps) => {
     return (
-        <div className={`overflow-hidden scroll-smooth bg-cover`}>
+        <div
+            className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
+        >
             <Hero
                 image={"bg-JobPostingHero"}
                 title={PAGE_TITLE}
