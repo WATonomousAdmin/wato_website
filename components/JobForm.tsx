@@ -2,11 +2,12 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import FormText from "./Form/FormText";
 import FormURL from "./Form/FormURL";
 import FormDropdown from "./Form/FormDropdown";
-import FormRange from "./Form/FormRange";
+//import FormRange from "./Form/FormRange";
 import FormSubmit from "./Form/FormSubmit";
 import FormTextArea from "./Form/FormTextArea";
 import FormStatus from "./Form/FormStatus";
 import { FormStatusCode } from "../types";
+import MultiSelectDropdown from "./Form/FormMultiselect";
 
 const fields = [
     "firstName",
@@ -20,7 +21,7 @@ const fields = [
     "schoolTerm",
     "termType",
     "inPerson",
-    "devotion",
+    "team",
 ];
 
 const titles = [
@@ -35,20 +36,37 @@ const titles = [
     "Last School Term Completed",
     "Term Type in Summer 2023",
     "Will you be in Waterloo Summer in 2023?",
-    "Devotion",
+    "Preferred Team",
 ];
 
-const sliderDescriptions = [
-    "aaaaaaaaaaaaaaaaaa",
-    "bbbbbbbbbbbbbbbbbb",
-    "cccccccccccccccccc",
-    "dddddddddddddddddd",
-    "eeeeeeeeeeeeeeeeee",
-    "ffffffffffffffffff",
-    "gggggggggggggggggg",
-    "hhhhhhhhhhhhhhhhhh",
-    "iiiiiiiiiiiiiiiiii",
-    "jjjjjjjjjjjjjjjjjj",
+// const sliderDescriptions = [
+//     "aaaaaaaaaaaaaaaaaa",
+//     "bbbbbbbbbbbbbbbbbb",
+//     "cccccccccccccccccc",
+//     "dddddddddddddddddd",
+//     "eeeeeeeeeeeeeeeeee",
+//     "ffffffffffffffffff",
+//     "gggggggggggggggggg",
+//     "hhhhhhhhhhhhhhhhhh",
+//     "iiiiiiiiiiiiiiiiii",
+//     "jjjjjjjjjjjjjjjjjj",
+// ];
+
+const teamOptions = [
+    "Autonomous Software",
+    "Developer Experience",
+    "Perception",
+    "Planning and Reasoning",
+    "Control",
+    "AI Research",
+    "CAD Modeling",
+    "Hardware Design and Fabrication",
+    "Hardware Interfacing",
+    "Server Management",
+    "Cybersecurity",
+    "Graphic Design",
+    "Sponsorship and Fundraising",
+    "Marketing and Outreach",
 ];
 
 interface JobFormProps {
@@ -62,11 +80,17 @@ const JobForm = ({ id }: JobFormProps) => {
         termType: "School",
         inPerson: false,
         devotion: 1,
+        team: [],
     };
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
-    const onFormChange = (e : ChangeEvent<HTMLInputElement>) => {
+    const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (!e) {
+            setFormData((data) => ({ ...data }));
+            console.log(formData);
+            return;
+        }
         setFormData((data) => ({
             ...data,
             [e.target.name]:
@@ -76,38 +100,42 @@ const JobForm = ({ id }: JobFormProps) => {
         }));
     };
 
-    const onFormSubmit = async (e : FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        if (formStatus === FormStatusCode.Submitting) return;
-        setFormStatus(FormStatusCode.Submitting);
-        const data = { ...formData };
+    const onFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        try {
+            e.preventDefault();
+            if (formStatus === FormStatusCode.Submitting) return;
+            setFormStatus(FormStatusCode.Submitting);
+            const data = { ...formData };
 
-        const payload = [data["id"]];
-        for (const field of fields) {
-            payload.push((data[field] && "").toString());
-        }
+            const payload = [data["id"]];
+            for (const field of fields) {
+                console.log("attemping to read", field, data[field]);
+                payload.push((data[field] ?? "").toString());
+            }
 
-        const res = await fetch("/api/jobpostings/apply", {
-            method: "POST",
-            body: JSON.stringify({ row: [payload] }),
-        });
-
-        if (res.status == 500) {
-            setFormStatus(FormStatusCode.Error);
-        } else if (res.status == 200) {
-            setFormStatus(FormStatusCode.Success);
-            // @ts-ignore
-            confetti({
-                // eslint-disable-line no-undef
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 },
+            const res = await fetch("/api/jobpostings/apply", {
+                method: "POST",
+                body: JSON.stringify({ row: [payload] }),
             });
+
+            if (res.status == 500) {
+                setFormStatus(FormStatusCode.Error);
+            } else if (res.status == 200) {
+                setFormStatus(FormStatusCode.Success);
+                // @ts-ignore
+                confetti({
+                    // eslint-disable-line no-undef
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                });
+            }
+
+            setFormData({ ...defaultForm });
+        } catch (e) {
+            console.error(e);
+            setFormStatus(FormStatusCode.Error);
         }
-
-        setFormData({ ...defaultForm });
-
-        console.log(res);
     };
 
     return (
@@ -118,7 +146,7 @@ const JobForm = ({ id }: JobFormProps) => {
                     onFormSubmit(e);
                 }}
             >
-                <div className="md:gap-x-16 md:gap-y-8 lg:grid lg:grid-cols-2">
+                <div className="text-wato-white-bone md:gap-x-16 md:gap-y-8 lg:grid lg:grid-cols-2">
                     <FormText
                         id={fields[0]}
                         title={titles[0]}
@@ -192,7 +220,7 @@ const JobForm = ({ id }: JobFormProps) => {
 
                     <FormText
                         id={fields[8]}
-                        title={titles[9]}
+                        title={titles[8]}
                         required={true}
                         formData={formData}
                         span={false}
@@ -215,7 +243,7 @@ const JobForm = ({ id }: JobFormProps) => {
                         onFormChange={onFormChange}
                     />
 
-                    <FormRange
+                    {/* <FormRange
                         id={fields[11]}
                         title={titles[11]}
                         min={1}
@@ -225,9 +253,24 @@ const JobForm = ({ id }: JobFormProps) => {
                         descriptions={sliderDescriptions}
                         formData={formData}
                         onFormChange={onFormChange}
-                    />
+                    /> */}
+                    {/* dirty workaround to get the clickoutside working */}
+                    <div>
+                        <div className="my-2 font-medium">
+                            {titles[11]}
+                            <span className="text-red-400">*</span>
+                        </div>
+                        <MultiSelectDropdown
+                            formFieldName={fields[11]}
+                            formData={formData}
+                            setFormData={setFormData}
+                            onChange={onFormChange}
+                            options={teamOptions}
+                            max={3}
+                        />
+                    </div>
                 </div>
-                <div className="flex flex-row items-center justify-center">
+                <div className="mt-10 flex flex-row items-center justify-center">
                     <FormSubmit />
                     <FormStatus status={formStatus} />
                 </div>

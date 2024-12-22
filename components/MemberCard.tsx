@@ -14,7 +14,7 @@ const MemberCard = ({
                 <Image
                     alt="Image of member"
                     src={imageSrc}
-                    className="aspect-square rounded-full"
+                    className="aspect-square rounded-full object-cover"
                 />
             </div>
             <h2 className="-mb-2 text-xl font-bold text-wato-white-bone">

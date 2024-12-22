@@ -7,6 +7,32 @@ import MemberList from "../components/VerticalTabs/MemberList";
 import VerticalCards from "../components/VerticalCards/VerticalCards";
 import Timeline from "../components/VerticalTabs/Timeline";
 
+import eddy from "../public/imgs/headshots/me - Eddy Zhou.jpeg";
+import lena from "../public/imgs/headshots/pfp2 - Lena Ye.jpg";
+import jivan from "../public/imgs/headshots/headshot - Jivan Kesan.jpeg";
+import dan from "../public/imgs/headshots/IMG_2101 - Dan Huynh.jpeg";
+import harsharan from "../public/imgs/headshots/20241114_192744 - Harsharan Rakhra.jpg";
+import manjot from "../public/imgs/headshots/IMG_3159 - Manjot Dola.jpg";
+import andrew from "../public/imgs/headshots/Andrew Headshot - Andrew Shen.jpg";
+import jessica from "../public/imgs/headshots/IMG_4521 - jessica yuan.jpg";
+import rodney from "../public/imgs/headshots/IMG_0822 - Rodney Dong.jpeg";
+import neha from "../public/imgs/headshots/WhatsApp Image 2024-07-15 at 6.50.47 PM - Neha Kasoju.jpeg";
+import isaac from "../public/imgs/headshots/HeadShot - Isaac Yu.png";
+import sophie from "../public/imgs/headshots/IMG_4188 - Sophie Xie.jpg";
+import owen from "../public/imgs/headshots/IMG_6799 - Owen Leather.jpeg";
+import krish from "../public/imgs/headshots/krish-xlerate-headshot - Krish Chopra.png";
+import rajan from "../public/imgs/headshots/headshot - Rajan Agarwal.png";
+import mahir from "../public/imgs/headshots/20241119_122214 - Mahir Mahota.jpg";
+import kai from "../public/imgs/headshots/pfp - Kai Ma.png";
+import lucas from "../public/imgs/headshots/_MG_0311_Original - lucas reljic-dumont.jpeg";
+// import luc from "../public/imgs/headshots/ee";
+import thomason from "../public/imgs/headshots/headshot_thomason - Thomason Zhou.jpeg";
+import kishore from "../public/imgs/headshots/1680722752326 - Kishore Yogaraj.jpg";
+// import mark from "../public/imgs/headshots/";
+import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
+import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
+import ken from "../public/imgs/headshots/headshot ken jiang.png";
+
 const HERO_TEXT =
     "WATonomous is an agile team of future developers, engineers, and visionaries looking to become leaders in Robotics and Artificial Intelligence.";
 
@@ -19,7 +45,7 @@ const IMAGE_PLACEHOLDER = (
 
 const MemberData = [
     {
-        imageSrc: e7,
+        imageSrc: eddy,
         firstName: "Eddy",
         lastName: "Zhou",
         description:
@@ -27,7 +53,7 @@ const MemberData = [
         position: "Co-Captain",
     },
     {
-        imageSrc: e7,
+        imageSrc: lena,
         firstName: "Lena",
         lastName: "Ye",
         description:
@@ -35,112 +61,112 @@ const MemberData = [
         position: "BizOps",
     },
     {
-        imageSrc: e7,
+        imageSrc: jivan,
         firstName: "Jivan",
         lastName: "Kesan",
         description: "",
         position: "World Modelling",
     },
     {
-        imageSrc: e7,
+        imageSrc: dan,
         firstName: "Dan",
         lastName: "Huynh",
         description: "",
         position: "Perceptions Lead",
     },
     {
-        imageSrc: e7,
+        imageSrc: harsharan,
         firstName: "Harsharan",
         lastName: "Rakhra",
         description: "",
         position: "Micro Autonomy",
     },
     {
-        imageSrc: e7,
+        imageSrc: manjot,
         firstName: "Manjot",
         lastName: "Dola",
         description: "",
         position: "Micro Autonomy",
     },
     {
-        imageSrc: e7,
+        imageSrc: andrew,
         firstName: "Andrew",
         lastName: "Shen",
         description: "",
         position: "ASD + World Modelling",
     },
     {
-        imageSrc: e7,
+        imageSrc: jessica,
         firstName: "Jessica",
         lastName: "Yuan",
         description: "",
         position: "ASD",
     },
     {
-        imageSrc: e7,
+        imageSrc: rodney,
         firstName: "Rodney",
         lastName: "Dong",
         description: "",
         position: "Micro Autonomy Lead",
     },
     {
-        imageSrc: e7,
+        imageSrc: neha,
         firstName: "Neha",
         lastName: "Kasoju",
         description: "",
         position: "Vehicle Platform",
     },
     {
-        imageSrc: e7,
+        imageSrc: isaac,
         firstName: "Isaac",
         lastName: "Yu",
         description: "",
         position: "ASD",
     },
     {
-        imageSrc: e7,
+        imageSrc: sophie,
         firstName: "Sophie",
         lastName: "Xie",
         description: "",
         position: "World Modelling",
     },
     {
-        imageSrc: e7,
+        imageSrc: owen,
         firstName: "Owen",
         lastName: "Leather",
         description: "",
         position: "Research Member",
     },
     {
-        imageSrc: e7,
+        imageSrc: krish,
         firstName: "Krish",
         lastName: "Chopra",
         description: "",
         position: "Actions",
     },
     {
-        imageSrc: e7,
+        imageSrc: rajan,
         firstName: "Rajan",
         lastName: "Agarwal",
         description: "",
         position: "Actions",
     },
     {
-        imageSrc: e7,
+        imageSrc: mahir,
         firstName: "Mahir",
         lastName: "Mahota",
         description: "",
         position: "Autonomous Platform Director",
     },
     {
-        imageSrc: e7,
+        imageSrc: kai,
         firstName: "Kai",
         lastName: "Ma",
         description: "",
         position: "Research Member",
     },
     {
-        imageSrc: e7,
+        imageSrc: lucas,
         firstName: "Lucas",
         lastName: "Reljic-Dumont",
         description: "",
@@ -154,14 +180,14 @@ const MemberData = [
         position: "Research Member",
     },
     {
-        imageSrc: e7,
+        imageSrc: thomason,
         firstName: "Thomason",
         lastName: "Zhou",
         description: "",
         position: "ASD",
     },
     {
-        imageSrc: e7,
+        imageSrc: kishore,
         firstName: "Kishore",
         lastName: "Yogaraj",
         description: "",
@@ -175,21 +201,21 @@ const MemberData = [
         position: "Research Member",
     },
     {
-        imageSrc: e7,
+        imageSrc: jadiha,
         firstName: "Jadiha",
         lastName: "Aruleswaran",
         description: "",
         position: "BizOps Lead",
     },
     {
-        imageSrc: e7,
+        imageSrc: hasan,
         firstName: "Hasan",
         lastName: "Tahir",
         description: "",
         position: "Co-Captain",
     },
     {
-        imageSrc: e7,
+        imageSrc: ken,
         firstName: "Ken",
         lastName: "Jiang",
         description: "",

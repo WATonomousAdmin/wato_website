@@ -7,10 +7,10 @@ interface JobPostingProps {
     postData: JobPostingData;
 }
 
-const JobPosting = ({ postData } : JobPostingProps) => {
+const JobPosting = ({ postData }: JobPostingProps) => {
     return (
-        <div className="scroll-smooth px-10 py-32 lg:px-60">
-            <article className="prose max-w-none lg:prose-xl prose-h1:mb-0 prose-h1:text-4xl prose-h1:font-bold prose-h2:mt-6 prose-h2:font-medium prose-p:w-fit prose-a:no-underline">
+        <div className="scroll-smooth bg-wato-black px-10 py-32 lg:px-96">
+            <article className="prose prose-invert max-w-none prose-h1:mb-0 prose-h1:text-4xl prose-h1:font-bold prose-h2:mt-6 prose-h2:font-medium prose-p:w-fit prose-a:no-underline">
                 <h1>{postData.title}</h1>
                 <h2>{postData.subtitle}</h2>
                 <Button text="Apply" src="#apply" />
@@ -31,7 +31,7 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params } : StaticProps) {
+export async function getStaticProps({ params }: StaticProps) {
     const postData = await getPostData(params.id);
     return {
         props: {

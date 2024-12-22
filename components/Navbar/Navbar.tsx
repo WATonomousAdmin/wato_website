@@ -41,9 +41,9 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                     <NavbarItem href={"/careers"} toggle={closeMobile}>
                         GET INVOLVED
                     </NavbarItem>
-                    <NavbarItem href={"/sponsor"} toggle={closeMobile}>
+                    {/* <NavbarItem href={"/sponsor"} toggle={closeMobile}>
                         SPONSOR
-                    </NavbarItem>
+                    </NavbarItem> */}
                     <NavbarIconItem
                         href={"https://www.instagram.com/watonomous"}
                         icon={"fa-instagram"}

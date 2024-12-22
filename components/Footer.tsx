@@ -37,10 +37,12 @@ const FooterItem = ({ title, href }: FooterItemProps) => {
 };
 
 const Footer = ({ dark }: FooterProps) => {
-    let colors = "bg-white text-wato-grey";
-    if (dark) {
-        colors = "bg-black text-wato-grey";
-    }
+    // let colors = "bg-white text-wato-grey";
+    // if (dark) {
+    //     colors = "bg-black text-wato-grey";
+    // }
+    const colors = "bg-black text-wato-grey";
+    dark = true;
     return (
         <div className={`flex h-64 items-center justify-center ${colors}`}>
             <div className="text-medium flex w-screen items-start justify-between px-4 md:px-16 xl:px-60">
@@ -104,9 +106,9 @@ const Footer = ({ dark }: FooterProps) => {
                             href="/careers#open-roles"
                         />
                     </FooterCategory>
-                    <FooterCategory title="Sponsors" href="/sponsor">
+                    {/* <FooterCategory title="Sponsors" href="/sponsor">
                         <FooterItem title="Apply to Sponsor" href="/sponsor" />
-                    </FooterCategory>
+                    </FooterCategory> */}
                 </div>
             </div>
         </div>
