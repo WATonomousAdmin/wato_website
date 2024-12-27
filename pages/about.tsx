@@ -24,7 +24,7 @@ import rajan from "../public/imgs/headshots/headshot - Rajan Agarwal.png";
 import mahir from "../public/imgs/headshots/20241119_122214 - Mahir Mahota.jpg";
 import kai from "../public/imgs/headshots/pfp - Kai Ma.png";
 import lucas from "../public/imgs/headshots/_MG_0311_Original - lucas reljic-dumont.jpeg";
-import luc from "../public/imgs/headshots/IMG_8487 - Luc Edes.jpg";
+import luc from "../public/imgs/headshots/IMG_8487 - Luc Edes - headshot.jpg";
 import thomason from "../public/imgs/headshots/headshot_thomason - Thomason Zhou.jpeg";
 import kishore from "../public/imgs/headshots/1680722752326 - Kishore Yogaraj.jpg";
 import mark from "../public/imgs/headshots/IMG_7633_-_Mark_Chiu.jpg";
