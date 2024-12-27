@@ -8,9 +8,17 @@ interface HeroProps {
     cta: string;
     link: string;
     image?: string;
+    fixed?: boolean;
 }
 
-const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
+const Hero = ({
+    title,
+    subtitle,
+    cta,
+    link,
+    image,
+    fixed = false,
+}: HeroProps) => {
     const [fadeIn, setFadeIn] = useState(false);
 
     useEffect(() => {
@@ -25,10 +33,10 @@ const Hero = ({ title, subtitle, cta, link, image }: HeroProps) => {
         <div
             className={`justify-left flex h-screen items-end ${
                 image ? `${image} bg-cover` : "bg-black"
-            }`}
+            } w-full overflow-x-hidden`}
         >
             {!image && (
-                <div className="absolute">
+                <div className={`${fixed ? "fixed" : "absolute"} w-full`}>
                     <WatoVideo />
                 </div>
             )}

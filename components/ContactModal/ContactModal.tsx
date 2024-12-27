@@ -16,7 +16,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                         modalActive
                             ? "fixed opacity-100"
                             : "pointer-events-none fixed opacity-0"
-                    } z-50 flex h-screen w-screen max-w-[100%] items-center justify-center overflow-hidden overscroll-none backdrop-blur-sm transition-all duration-300`}
+                    } z-50 flex h-screen w-screen items-center justify-center overflow-hidden overscroll-none backdrop-blur-sm transition-all duration-300`}
                     onClick={closeModal}
                 >
                     <div
@@ -48,7 +48,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                                 >
                                     <div className="px-4 py-2">
                                         <i className="fa-solid fa-envelope text-lg"></i>
-                                        <div>hello@watonomous.com</div>
+                                        <div>hello@watonomous.ca</div>
                                     </div>
                                 </a>
                             </div>

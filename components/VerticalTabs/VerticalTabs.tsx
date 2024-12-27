@@ -23,7 +23,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
 
     const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.2 });
     return (
-        <div className="bg-wato-black-vanta relative lg:px-32 xl:px-96">
+        <div className="relative bg-black bg-opacity-80 lg:px-32 xl:px-96">
             <div className="absolute inset-0 z-0 opacity-80"></div>
             {
                 //  px-4 py-24 md:px-16 lg:px-44 lg:py-6 xl:px-60

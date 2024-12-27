@@ -85,8 +85,8 @@ const Layout = ({ children }: LayoutProps) => {
 
     useEffect(() => {
         contactModalActive
-            ? document.body.classList.add("overflow-hidden")
-            : document.body.classList.remove("overflow-hidden");
+            ? document.documentElement.classList.add("overflow-y-hidden")
+            : document.documentElement.classList.remove("overflow-y-hidden");
     }, [contactModalActive]);
 
     const toggleModal = () => {
@@ -106,7 +106,7 @@ const Layout = ({ children }: LayoutProps) => {
                     referrerPolicy="no-referrer"
                 />
             </Head>
-            <main className={`${styrene.className}`}>
+            <main className={`${styrene.className} w-screen`}>
                 <ContactModal
                     modalActive={contactModalActive}
                     closeModal={() => setContactModalActive(false)}

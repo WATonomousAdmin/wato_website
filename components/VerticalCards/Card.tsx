@@ -33,7 +33,7 @@ const Card = ({
 
     const containerHeight = () => {
         if (!selected && !somethingIsSelected)
-            return "h-[15vh] lg:h-40 opacity-100 my-2 lg:my-5";
+            return "lg:h-40 opacity-100 my-2 lg:my-5";
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
         else return "h-[30vh] lg:h-[30vh] z-10";
     };
