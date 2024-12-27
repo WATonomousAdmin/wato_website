@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface WatoVideoProps {
     transparent?: boolean;
     gutter?: boolean;

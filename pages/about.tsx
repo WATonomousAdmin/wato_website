@@ -1,7 +1,6 @@
 import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
 import img01 from "../public/imgs/img1.jpg";
-import e7 from "../public/imgs/jobpostings-header.jpg";
 import Image from "next/image";
 import MemberList from "../components/VerticalTabs/MemberList";
 import VerticalCards from "../components/VerticalCards/VerticalCards";
