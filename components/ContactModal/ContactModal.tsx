@@ -43,7 +43,7 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                             </div>
                             <div className="my-2 w-fit rounded-md bg-wato-blue text-center text-xs font-medium">
                                 <a
-                                    href="mailto:hello@watonomous.com"
+                                    href="mailto:hello@watonomous.ca"
                                     className="text-white visited:text-white"
                                 >
                                     <div className="px-4 py-2">
