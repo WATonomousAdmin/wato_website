@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { fadeElement } from "../../lib/utils";
 import { Fade } from "../../types";
+import Image from "next/image";
 
 const TabData = [
     {
@@ -113,14 +114,14 @@ const Timeline = () => {
 
     return (
         <div>
-            <div className="mb-2 flex bg-opacity-50 lg:mb-6">
+            <div className="mb-2 flex justify-center bg-opacity-50 lg:mb-6">
                 {TabData.map((item) => (
                     <div
                         key={item.year}
-                        className={`flex cursor-pointer flex-col justify-center hover:border-wato-white-bone hover:text-wato-white-bone ${
+                        className={`flex w-min cursor-pointer flex-col justify-center border-t-4 px-1 hover:border-wato-white-bone hover:text-wato-white-bone max-lg:text-xs lg:px-2 ${
                             selectedYear === item.year
-                                ? "w-full border-t-4 border-wato-teal text-wato-teal"
-                                : "w-full border-t-4 border-gray-500 text-white"
+                                ? "border-wato-teal text-wato-teal"
+                                : "border-gray-500 text-white"
                         }`}
                         onClick={() => goToYear(item.year)}
                     >
@@ -146,10 +147,12 @@ const Timeline = () => {
                         <p className="mb-2 text-sm font-normal">
                             {content?.body}
                         </p>
-                        <img
+                        <Image
                             src={content.children}
                             alt={`Event ${selectedYear}`}
-                            className="h-52 w-80 object-cover"
+                            className="object-cover"
+                            width={320}
+                            height={200}
                         />
                     </div>
                 </div>

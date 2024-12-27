@@ -7,7 +7,7 @@ interface UrlContainerProps {
 
 const UrlContainer = ({ content }: UrlContainerProps) => {
     return (
-        <div className="float-left mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-2 text-black">
+        <div className="float-left my-[0.125rem] mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-2 text-black">
             <div className="">{content}</div>
         </div>
     );
@@ -17,7 +17,6 @@ interface MultiSelectDropdownProps {
     formFieldName: string;
     options: string[];
     onChange(o1: any): void;
-    span?: boolean;
     max?: number;
     formData: Record<string, any>;
     setFormData(data: Record<string, any>): any;
@@ -29,7 +28,6 @@ const MultiSelectDropdown = ({
     onChange,
     formData,
     setFormData,
-    span = true,
     max = 2,
 }: MultiSelectDropdownProps) => {
     const optionsListRef = useRef(null);
@@ -63,14 +61,11 @@ const MultiSelectDropdown = ({
     });
 
     return (
-        <div
-            className={`relative col-span-1 ${span && "lg:col-span-2"}`}
-            ref={ref}
-        >
+        <div className={"relative"} ref={ref}>
             <label>
                 <input type="checkbox" className="peer hidden" ref={peerRef} />
                 <div
-                    className={`flex h-10 w-full cursor-pointer items-center rounded border bg-wato-white-bone px-5 py-2 
+                    className={`min-h-10 flex w-full cursor-pointer flex-wrap items-center rounded border bg-wato-white-bone px-5 py-2 
                 text-black`}
                 >
                     {formData[formFieldName].length ? (

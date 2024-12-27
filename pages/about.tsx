@@ -1,7 +1,6 @@
 import Hero from "../components/Hero";
 import VerticalTabs from "../components/VerticalTabs/VerticalTabs";
 import img01 from "../public/imgs/img1.jpg";
-import e7 from "../public/imgs/jobpostings-header.jpg";
 import Image from "next/image";
 import MemberList from "../components/VerticalTabs/MemberList";
 import VerticalCards from "../components/VerticalCards/VerticalCards";
@@ -25,10 +24,10 @@ import rajan from "../public/imgs/headshots/headshot - Rajan Agarwal.png";
 import mahir from "../public/imgs/headshots/20241119_122214 - Mahir Mahota.jpg";
 import kai from "../public/imgs/headshots/pfp - Kai Ma.png";
 import lucas from "../public/imgs/headshots/_MG_0311_Original - lucas reljic-dumont.jpeg";
-// import luc from "../public/imgs/headshots/ee";
+import luc from "../public/imgs/headshots/IMG_8487 - Luc Edes - headshot.jpg";
 import thomason from "../public/imgs/headshots/headshot_thomason - Thomason Zhou.jpeg";
 import kishore from "../public/imgs/headshots/1680722752326 - Kishore Yogaraj.jpg";
-// import mark from "../public/imgs/headshots/";
+import mark from "../public/imgs/headshots/IMG_7633_-_Mark_Chiu.jpg";
 import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
 import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
 import ken from "../public/imgs/headshots/headshot ken jiang.png";
@@ -171,7 +170,7 @@ const MemberData = [
         position: "Perceptions",
     },
     {
-        imageSrc: e7,
+        imageSrc: luc,
         firstName: "Luc",
         lastName: "Edes",
         description: "",
@@ -192,7 +191,7 @@ const MemberData = [
         position: "Perceptions Lead",
     },
     {
-        imageSrc: e7,
+        imageSrc: mark,
         firstName: "Mark",
         lastName: "Chiu",
         description: "",
@@ -267,6 +266,8 @@ const About = () => {
                 subtitle={HERO_TEXT}
                 cta="Dive In"
                 link="#tabs"
+                fixed
+                // image="bg-VideoPlaceholder"
             />
             <VerticalTabs data={TabData} />
         </div>

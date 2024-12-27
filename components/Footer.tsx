@@ -44,7 +44,9 @@ const Footer = ({ dark }: FooterProps) => {
     const colors = "bg-black text-wato-grey";
     dark = true;
     return (
-        <div className={`flex h-64 items-center justify-center ${colors}`}>
+        <div
+            className={`relative flex h-64 items-center justify-center ${colors}`}
+        >
             <div className="text-medium flex w-screen items-start justify-between px-4 md:px-16 xl:px-60">
                 <div className="flex text-sm text-wato-grey">
                     <div className="mr-5 flex flex-col text-sm">

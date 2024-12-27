@@ -34,9 +34,9 @@ const titles = [
     "Why WATONOMOUS?",
     "Personal Website/Portfolio",
     "Last School Term Completed",
-    "Term Type in Summer 2023",
-    "Will you be in Waterloo Summer in 2023?",
-    "Preferred Team",
+    "Term Type Next Term",
+    "Will You be in Waterloo Next Term?",
+    "Where You'd Like to Contribute",
 ];
 
 // const sliderDescriptions = [
@@ -255,7 +255,7 @@ const JobForm = ({ id }: JobFormProps) => {
                         onFormChange={onFormChange}
                     /> */}
                     {/* dirty workaround to get the clickoutside working */}
-                    <div>
+                    <div className="col-span-2">
                         <div className="my-2 font-medium">
                             {titles[11]}
                             <span className="text-red-400">*</span>
