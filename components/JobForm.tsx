@@ -131,7 +131,7 @@ const JobForm = ({ id }: JobFormProps) => {
                 });
             }
 
-            //setFormData({ ...defaultForm });
+            setFormData({ ...defaultForm });
         } catch (e) {
             console.error(e);
             setFormStatus(FormStatusCode.Error);
