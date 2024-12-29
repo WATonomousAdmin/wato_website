@@ -4,6 +4,9 @@ import NavbarBadge from "./NavbarBadge";
 import NavbarIconItem from "./NavbarIconItem";
 import NavbarItem from "./NavbarItem";
 import NavbarMobileIcon from "./NavbarMobileIcon";
+import Image from "next/image";
+
+import WatoLogo from "../../public/imgs/watonomous.png";
 
 interface NavBarProps {
     toggleModal(): any;
@@ -18,7 +21,9 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
 
     return (
         <div className="align-center pointer-events-none fixed z-40 flex w-full justify-between lg:mx-12 lg:mt-10 lg:w-[calc(100vw-6rem)] xl:mx-32 xl:w-[calc(100vw-16rem)]">
-            <NavbarBadge href={"/"}>WATONOMOUS</NavbarBadge>
+            <NavbarBadge href={"/"}>
+                <Image src={WatoLogo} alt={"WATonomous logo"} width={150} />
+            </NavbarBadge>
             <div className={`flex flex-row`}>
                 <NavbarMobileIcon
                     active={mobileOpen}
@@ -28,7 +33,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                 <ul
                     className={` list-none max-lg:absolute max-lg:left-0 max-lg:z-20 max-lg:flex max-lg:w-full max-lg:flex-col max-lg:pt-16 ${
                         mobileOpen
-                            ? "max-lg:h-[100vh] max-lg:bg-white"
+                            ? "max-lg:h-[100vh] max-lg:bg-wato-black-vanta"
                             : "max-lg:h-0"
                     } pointer-events-auto overflow-hidden transition-all duration-500`}
                 >
