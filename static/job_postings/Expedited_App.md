@@ -39,7 +39,7 @@ At WATonomous, you will be exposed to a plethora of opportunities that promote y
 What you could be doing:
 - **Coding for Robots** (C++, Python, ROS2, Docker, Docker Compose, AI, Concurrency, Interprocess Communication, Hardware Interfacing, Networking, Statistics/Probability, Robot Embodiment)
 - **Building Robots** (Mechanical Design, PCB manufacturing, Hardware Interfacing, 3D Printing, Machining, Power Management, Networking)
-- **Managing our Server Cluster (WATcloud)** (Ansible, Terraform, Docker, Kubernetes, SLURM, Central Memory Management, Port Forwarding, Cybersecurity, Networking, Cluster Management)
+- **Managing our Server Cluster (WATcloud)** (Ansible, Terraform, Docker, Kubernetes, SLURM, Sysadmin, Networking, Security)
 - **Ensuring the success of our Team** (Leadership, Graphic Design, Social Media Marketing, Planning, Website Development, Professional Communication, Sponsorship Outreach, Fundraising)
 
 Members who can work on more than just one are HIGHLY valued.
