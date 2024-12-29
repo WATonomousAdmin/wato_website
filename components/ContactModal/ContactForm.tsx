@@ -4,14 +4,17 @@ import FormDropdown from "../Form/FormDropdown";
 import FormTextArea from "../Form/FormTextArea";
 import FormSubmit from "../Form/FormSubmit";
 import FormFile from "../Form/FormFile";
+import FormStatus from "../Form/FormStatus";
+import { FormStatusCode } from "../../types";
 
 const ContactForm = () => {
     const defaultForm = {
         purpose: "General",
     };
-    const [formData, setFormData] = useState<Record<string,any>>(defaultForm);
+    const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
+    const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
-    const onFormChange = (e : ChangeEvent<HTMLInputElement>) => {
+    const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData((data) => ({
             ...data,
             [e.target.name]:
@@ -22,14 +25,26 @@ const ContactForm = () => {
     };
 
     // we won't submit state formData, need to use multipart to submit the file
-    const onSubmit = async (e : FormEvent) => {
+    const onSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const formData = new FormData(document.querySelector("#contact-form") as HTMLFormElement);
-        const response = await fetch("/api/connect/submit", {
-            method: "POST",
-            body: formData,
-        });
-        console.log(response);
+        setFormStatus(FormStatusCode.Submitting);
+        try {
+            const formData = new FormData(
+                document.querySelector("#contact-form") as HTMLFormElement
+            );
+            const response = await fetch("/api/connect/submit", {
+                method: "POST",
+                body: formData,
+            });
+            console.log(response);
+            if (response.status === 500) {
+                throw new Error("Email Error");
+            }
+            setFormData(defaultForm);
+            setFormStatus(FormStatusCode.Success);
+        } catch (e) {
+            setFormStatus(FormStatusCode.Error);
+        }
     };
 
     return (
@@ -41,14 +56,14 @@ const ContactForm = () => {
         >
             <div className="my-5 md:gap-x-4 md:gap-y-4 lg:grid lg:grid-cols-2">
                 <FormText
-                    id={"firstname"}
+                    id={"firstName"}
                     title={"First Name"}
                     required
                     formData={formData}
                     onFormChange={onFormChange}
                 />
                 <FormText
-                    id={"lastname"}
+                    id={"lastName"}
                     title={"Last Name"}
                     required
                     formData={formData}
@@ -85,7 +100,10 @@ const ContactForm = () => {
                     setFormData={setFormData}
                 />
                 <FormFile id={"upload"} title={"UPLOAD FILE"} />
-                <FormSubmit />
+                <div className="flex items-start justify-end gap-x-5">
+                    <FormStatus status={formStatus} />
+                    <FormSubmit />
+                </div>
             </div>
         </form>
     );
