@@ -13,7 +13,22 @@ interface AccordionItem {
 }
 
 const JobPostingList = ({ data, backgroundImage }: JobPostingListProps) => {
-    const accordionData: AccordionItem[] = [];
+    const accordionData: AccordionItem[] = [
+        {
+            title: "WATcloud",
+            elements: [
+                <Card
+                    key={"Infra"}
+                    title={"WATcloud Engineer"}
+                    subtitle={`Cloud - General Application`}
+                    body={["Waterloo, ON", "Full Time"]}
+                    cta={"Apply"}
+                    buttonLink={`https://cloud.watonomous.ca/get-involved/join`}
+                />,
+            ],
+        },
+    ];
+
     for (const team in data) {
         accordionData.push({
             title: team,
@@ -31,6 +46,7 @@ const JobPostingList = ({ data, backgroundImage }: JobPostingListProps) => {
             }),
         });
     }
+
     return (
         <div
             id={"open-roles"}

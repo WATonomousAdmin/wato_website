@@ -2,65 +2,72 @@ import { useEffect, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { fadeElement } from "../../lib/utils";
 import { Fade } from "../../types";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+import img01 from "../../public/imgs/timeline_01.png";
+import img02 from "../../public/imgs/timeline_02.png";
+import img03 from "../../public/imgs/timeline_03.png";
+import img04 from "../../public/imgs/timeline_04.jpg";
+import img05 from "../../public/imgs/timeline_05.jpg";
+import img06 from "../../public/imgs/timeline_06.jpg";
+import img07 from "../../public/imgs/timeline_07.png";
+import img08 from "../../public/imgs/timeline_08.jpg";
+import img09 from "../../public/imgs/timeline_09.png";
 
 const TabData = [
     {
         title: "SAE Autodrive",
         year: 2017,
-        body: `WATonomous selected to join SAE Autodrive Challenge to pursue level 4`,
-        children: "/imgs/timeline_01.png",
+        body: `WATonomous selected to join SAE Autodrive Challenge to pursue level 4 self driving.`,
+        children: img01,
     },
     {
         title: "Basic Maneuvering",
         year: 2018,
-        body: `Team achieves basic maneuvering and object avoidance in Arizona
-`,
-        children: "/imgs/timeline_02.png",
+        body: `Team achieves basic maneuvering and object avoidance in Arizona.`,
+        children: img02,
     },
     {
         title: "The Race",
         year: 2019,
-        body: `WATonomous featured on the Amazing Race Canada. Team successfully masters multi-lane changing
-`,
-        children: "/imgs/timeline_03.png",
+        body: `WATonomous featured on the Amazing Race Canada. Team successfully masters multi-lane changing.`,
+        children: img03,
     },
     {
         title: "Complex Navigation",
         year: 2020,
-        body: `Team achieves complex urban navigation and moving object avoidance
-`,
-        children: "/imgs/timeline_04.jpg",
+        body: `Team achieves complex urban navigation and moving object avoidance.`,
+        children: img04,
     },
     {
         title: "2nd Place",
         year: 2021,
         body: `WATonomous achieves North America’s 2nd place AV overall in Autodrive Challenge. Team explores new exciting competitions`,
-        children: "/imgs/timeline_05.jpg",
+        children: img05,
     },
     {
         title: "Student-Centric",
         year: 2022,
         body: `WATonomous goes student-centric, writing blogs about projects and creating research opportunities for undergrads.`,
-        children: "/imgs/timeline_06.jpg",
+        children: img06,
     },
     {
         title: "New Car",
         year: 2023,
         body: `New car, new beginnings! Kia Soul EV arrives in our new AV garage. Now to execute on what we planned...`,
-        children: "/imgs/timeline_07.png",
+        children: img07,
     },
     {
         title: "Perception",
         year: 2024,
         body: `Team achieves rudimentary perception and car control. Work continues on the internal software stack.`,
-        children: "/imgs/timeline_08.jpg",
+        children: img08,
     },
     {
         title: "The Future",
         year: 2025,
         body: `Goal: Point and Click Autonomy around a test track.`,
-        children: "/imgs/timeline_09.png",
+        children: img09,
     },
 ];
 
@@ -68,7 +75,7 @@ interface IContent {
     title: string;
     year: number;
     body: string;
-    children: string;
+    children?: StaticImageData;
 }
 
 const Timeline = () => {
@@ -77,7 +84,7 @@ const Timeline = () => {
         title: "",
         year: 0,
         body: "",
-        children: "",
+        children: undefined,
     });
 
     const goToPreviousYear = () => {
@@ -138,22 +145,26 @@ const Timeline = () => {
                     className={`flex h-96 w-96 flex-col rounded-md bg-transparent bg-wato-black px-5 py-2 font-bold text-white lg:px-7 lg:py-3`}
                 >
                     <div
-                        className={`content-${selectedYear} flex h-full flex-col items-center justify-around transition-opacity`}
+                        className={`content-${selectedYear} flex h-full flex-col transition-opacity`}
                     >
                         <h2 className="text-2xl lg:pb-2 lg:text-2xl">
                             {content.title}
                             &nbsp;<span className="text-wato-teal">{"//"}</span>
                         </h2>
-                        <p className="mb-2 text-sm font-normal">
+                        <p className="mb-4 text-sm font-normal">
                             {content?.body}
                         </p>
-                        <Image
-                            src={content.children}
-                            alt={`Event ${selectedYear}`}
-                            className="object-cover"
-                            width={320}
-                            height={200}
-                        />
+                        <div className="relative h-full">
+                            {content.children && (
+                                <Image
+                                    src={content.children}
+                                    alt={`Event ${selectedYear}`}
+                                    className="object-cover"
+                                    fill
+                                    priority
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
                 <IoIosArrowForward

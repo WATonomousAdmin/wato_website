@@ -78,7 +78,7 @@ const JobForm = ({ id }: JobFormProps) => {
         id: id,
         urls: [],
         termType: "School",
-        inPerson: false,
+        inPerson: "Yes",
         devotion: 1,
         team: [],
     };

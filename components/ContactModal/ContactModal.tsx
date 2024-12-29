@@ -16,25 +16,25 @@ const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
                         modalActive
                             ? "fixed opacity-100"
                             : "pointer-events-none fixed opacity-0"
-                    } z-50 flex h-screen w-screen items-center justify-center overflow-hidden overscroll-none backdrop-blur-sm transition-all duration-300`}
+                    } z-50 flex h-screen w-screen items-center justify-center overscroll-none backdrop-blur-sm transition-all duration-300`}
                     onClick={closeModal}
                 >
                     <div
-                        className="w-[90vw]grid-cols-1 grid h-screen overflow-y-scroll rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] lg:overflow-hidden xl:grid-cols-2"
+                        className="grid h-screen w-[90vw] grid-cols-1 overflow-y-auto rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] xl:grid-cols-2"
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
                     >
                         <div
                             className={
-                                "absolute right-5 top-5 cursor-pointer text-lg font-bold text-wato-grey md:hidden"
+                                "absolute right-12 top-5 cursor-pointer text-lg font-bold text-wato-grey md:hidden"
                             }
                             onClick={closeModal}
                         >
                             <IoClose />
                         </div>
-                        <div className="mt-5 flex flex-col self-center px-14 text-wato-white-bone md:px-16">
-                            <div className="flex text-4xl font-black">
+                        <div className="flex flex-col self-center px-14 text-wato-white-bone md:px-16">
+                            <div className="flex pt-2 text-4xl font-black">
                                 <div>Let's design the future together</div>
                             </div>
                             <div className="my-2 text-sm font-medium">
