@@ -4,11 +4,7 @@ interface FormStatusProps {
     status: FormStatusCode;
 }
 
-// -1 Error
-// 0 Idle
-// 1 Submitting
-// 2 Success
-const FormStatus = ({ status } : FormStatusProps) => {
+const FormStatus = ({ status }: FormStatusProps) => {
     switch (status) {
         case FormStatusCode.Error:
             return (
