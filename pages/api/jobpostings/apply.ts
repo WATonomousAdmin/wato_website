@@ -22,7 +22,7 @@ const apply = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(JSON.parse(req.body)["row"]);
     const request = {
         spreadsheetId:
-            JSON.parse(req.body)["row"]["id"] === "Expedited_App"
+            JSON.parse(req.body)["row"][0][0] === "Expedited_App"
                 ? EXPEDITED_ID
                 : ROLLING_ID,
         range: "Sheet1!A1:L1",
