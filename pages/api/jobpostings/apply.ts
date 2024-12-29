@@ -12,13 +12,19 @@ const auth = new google.auth.GoogleAuth({
     client_id: process.env.CLIENT_ID,
 });
 
+const EXPEDITED_ID = "1rfhqVyXvgHpQJYwAN8qGSBlKjLFQCmWraT63AOVx3uA";
+const ROLLING_ID = "102gpaB2rUk3mYGLlRE-1NPPIVa-nv6p8knVCCm76MdA";
+
 const sheets = google.sheets("v4");
 
 // TODO: rate limiting
 const apply = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(JSON.parse(req.body)["row"]);
     const request = {
-        spreadsheetId: "1rfhqVyXvgHpQJYwAN8qGSBlKjLFQCmWraT63AOVx3uA",
+        spreadsheetId:
+            JSON.parse(req.body)["row"]["id"] === "Expedited_App"
+                ? EXPEDITED_ID
+                : ROLLING_ID,
         range: "Sheet1!A1:L1",
         valueInputOption: "USER_ENTERED",
         insertDataOption: "OVERWRITE",

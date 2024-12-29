@@ -78,7 +78,7 @@ const JobForm = ({ id }: JobFormProps) => {
         id: id,
         urls: [],
         termType: "School",
-        inPerson: false,
+        inPerson: "Yes",
         devotion: 1,
         team: [],
     };
@@ -131,7 +131,7 @@ const JobForm = ({ id }: JobFormProps) => {
                 });
             }
 
-            setFormData({ ...defaultForm });
+            //setFormData({ ...defaultForm });
         } catch (e) {
             console.error(e);
             setFormStatus(FormStatusCode.Error);
