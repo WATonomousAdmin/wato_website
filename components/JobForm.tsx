@@ -83,6 +83,7 @@ const JobForm = ({ id }: JobFormProps) => {
         team: [],
     };
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
+    const [error, setError] = useState<string | undefined>(undefined);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
     const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -118,9 +119,13 @@ const JobForm = ({ id }: JobFormProps) => {
                 body: JSON.stringify({ row: [payload] }),
             });
 
-            if (res.status == 500) {
+            if (res.status === 500) {
+                setError(undefined);
                 setFormStatus(FormStatusCode.Error);
-            } else if (res.status == 200) {
+            } else if (res.status === 429) {
+                setError("Please wait before sending another request");
+                setFormStatus(FormStatusCode.Error);
+            } else if (res.status === 200) {
                 setFormStatus(FormStatusCode.Success);
                 // @ts-ignore
                 confetti({
@@ -272,7 +277,7 @@ const JobForm = ({ id }: JobFormProps) => {
                 </div>
                 <div className="mt-10 flex flex-row items-center justify-center">
                     <FormSubmit />
-                    <FormStatus status={formStatus} />
+                    <FormStatus status={formStatus} errorMessage={error} />
                 </div>
             </form>
         </div>

@@ -12,6 +12,7 @@ const ContactForm = () => {
         purpose: "General",
     };
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
+    const [error, setError] = useState<string | undefined>(undefined);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
     const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,12 @@ const ContactForm = () => {
             });
             console.log(response);
             if (response.status === 500) {
+                setError(undefined);
                 throw new Error("Email Error");
+            }
+            if (response.status === 429) {
+                setError("Please wait before sending another request");
+                throw new Error("Rate Limited");
             }
             setFormData(defaultForm);
             setFormStatus(FormStatusCode.Success);
@@ -101,7 +107,7 @@ const ContactForm = () => {
                 />
                 <FormFile id={"upload"} title={"UPLOAD FILE"} />
                 <div className="flex items-start justify-end gap-x-5">
-                    <FormStatus status={formStatus} />
+                    <FormStatus status={formStatus} errorMessage={error} />
                     <FormSubmit />
                 </div>
             </div>
