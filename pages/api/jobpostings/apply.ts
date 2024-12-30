@@ -1,5 +1,6 @@
 import { google } from "googleapis";
 import { NextApiRequest, NextApiResponse } from "next";
+import { checkLimit } from "../../../lib/ratelimiter";
 
 const auth = new google.auth.GoogleAuth({
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
@@ -20,6 +21,14 @@ const sheets = google.sheets("v4");
 // TODO: rate limiting
 const apply = async (req: NextApiRequest, res: NextApiResponse) => {
     console.log(JSON.parse(req.body)["row"]);
+
+    const ip =
+        ((req.headers["x-forwarded-for"] as string) || "").split(" ")[0] ??
+        req.headers["x-real-ip"];
+
+    if (await checkLimit(ip)) {
+        res.status(429).json({ res: "You are being rate limited." });
+    }
 
     const request = {
         spreadsheetId:

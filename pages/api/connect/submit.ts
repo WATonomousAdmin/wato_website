@@ -1,8 +1,17 @@
 import busboy from "busboy";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as postmark from "postmark";
+import { checkLimit } from "../../../lib/ratelimiter";
 
 const submit = async (req: NextApiRequest, res: NextApiResponse) => {
+    const ip =
+        ((req.headers["x-forwarded-for"] as string) || "").split(" ")[0] ??
+        req.headers["x-real-ip"];
+
+    if (await checkLimit(ip)) {
+        res.status(429).json({ res: "You are being rate limited." });
+    }
+
     const mailData: Record<string, any> = {
         firstName: "",
         lastName: "",
@@ -70,29 +79,6 @@ const submit = async (req: NextApiRequest, res: NextApiResponse) => {
         }
     });
     req.pipe(bb);
-    // send mail~
-
-    // const mailAccount = await NodeMailer.createTestAccount();
-    // const transport = NodeMailer.createTransport({
-    //     host: "smtp.ethereal.email",
-    //     port: 587,
-    //     secure: false,
-    //     auth: {
-    //         user: mailAccount.user,
-    //         pass: mailAccount.pass,
-    //     },
-    // });
-    // console.log(mailData);
-    // const info = await transport.sendMail({
-    //     from: "hello@watonomous.com",
-    //     to: "hello@watonomous.com",
-    //     subject: `${mailData.firstName} ${mailData.lastName} - ${mailData.purpose}`,
-    //     text: `FROM: ${mailData.email} \n ${mailData.message}`,
-    //     html: `<p>FROM: ${mailData.email}</p><br/><p>${mailData.message}</p>`,
-    //     attachments: [mailData.upload],
-    // });
-
-    // console.log(info);
 };
 
 export const config = {
