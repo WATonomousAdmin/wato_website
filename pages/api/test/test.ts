@@ -1,8 +1,6 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { NextApiRequest, NextApiResponse } from "next";
-import { headers } from "next/dist/client/components/headers";
-import { userAgent } from "next/server";
 
 const redis = new Redis({
     url: process.env.UPSTASH_REDIS_REST_URL,
@@ -16,6 +14,10 @@ const rateLimit = new Ratelimit({
 
 const test = async (req: NextApiRequest, res: NextApiResponse) => {
     const data = req.headers;
+    const result = await rateLimit.limit("test");
+    if (!result.success) {
+        res.status(400).json({ message: "The request has been rate limited" });
+    }
     res.status(200).json(data);
 };
 
