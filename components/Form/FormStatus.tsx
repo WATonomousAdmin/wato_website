@@ -2,14 +2,15 @@ import { FormStatusCode } from "../../types";
 
 interface FormStatusProps {
     status: FormStatusCode;
+    errorMessage?: string;
 }
 
-const FormStatus = ({ status }: FormStatusProps) => {
+const FormStatus = ({ status, errorMessage }: FormStatusProps) => {
     switch (status) {
         case FormStatusCode.Error:
             return (
                 <div className="ml-3 text-[#EE1C1C]">
-                    Error! Please try again or contact us.
+                    {errorMessage ?? "Error! Please try again or contact us."}
                 </div>
             );
         case FormStatusCode.Submitting:
