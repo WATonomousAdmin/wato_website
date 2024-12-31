@@ -134,9 +134,8 @@ const JobForm = ({ id }: JobFormProps) => {
                     spread: 70,
                     origin: { y: 0.6 },
                 });
+                setFormData({ ...defaultForm });
             }
-
-            setFormData({ ...defaultForm });
         } catch (e) {
             console.error(e);
             setFormStatus(FormStatusCode.Error);

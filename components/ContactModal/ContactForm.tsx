@@ -41,13 +41,13 @@ const ContactForm = () => {
             if (response.status === 500) {
                 setError(undefined);
                 throw new Error("Email Error");
-            }
-            if (response.status === 429) {
+            } else if (response.status === 429) {
                 setError("Please wait before sending another request");
                 throw new Error("Rate Limited");
+            } else {
+                setFormData(defaultForm);
+                setFormStatus(FormStatusCode.Success);
             }
-            setFormData(defaultForm);
-            setFormStatus(FormStatusCode.Success);
         } catch (e) {
             setFormStatus(FormStatusCode.Error);
         }
