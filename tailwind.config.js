@@ -11,8 +11,8 @@ module.exports = {
                 JobPostingHero: "url('/imgs/jobpostings-header-final.png')",
                 ModalRight:
                     "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
-                JobPostingBg:
-                    "linear-gradient(180deg, rgba(0, 2, 23, 0.65) 41.68%, rgba(255, 255, 255, 0.65) 184.93%)",
+                TopGradient:
+                    "linear-gradient(180deg, rgba(0, 0, 0, 0.65) 10%, rgba(0, 0, 0, 0) 40%)",
                 search: "url('/imgs/search.svg')",
                 main: "url('/imgs/bg.jpg')",
                 network: "url('/imgs/network.png')",
