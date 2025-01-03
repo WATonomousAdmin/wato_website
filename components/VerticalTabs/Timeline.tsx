@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { fadeElement } from "../../lib/utils";
-import { Fade } from "../../types";
 import Image, { StaticImageData } from "next/image";
 
 import img01 from "../../public/imgs/timeline_01.png";
@@ -46,7 +44,7 @@ const TabData = [
         children: img05,
     },
     {
-        title: "Student-Centric",
+        title: "Going Student-Centric",
         year: 2022,
         body: `WATonomous goes student-centric, writing blogs about projects and creating research opportunities for undergrads.`,
         children: img06,
@@ -75,103 +73,171 @@ interface IContent {
     title: string;
     year: number;
     body: string;
-    children?: StaticImageData;
+    children: StaticImageData;
+}
+interface YearElementProps {
+    data: IContent;
+    selected: boolean;
+    changeData(data: IContent): void;
 }
 
+const YearElement = ({ data, selected, changeData }: YearElementProps) => {
+    return (
+        <div
+            className={`w-full cursor-pointer select-none border-b-4 text-center max-md:text-sm ${
+                selected
+                    ? "border-wato-teal text-wato-teal"
+                    : "border-wato-white-bone text-wato-white-bone"
+            } hover:brightness-90`}
+            onClick={() => {
+                changeData(data);
+            }}
+        >
+            <span className="max-lg:hidden">{data.year}</span>
+            <span className="lg:hidden">'{data.year.toString().slice(2)}</span>
+        </div>
+    );
+};
+
+interface TimelineContentProps {
+    data: IContent;
+    selected?: boolean;
+}
+const TimelineContent = ({ data, selected = false }: TimelineContentProps) => {
+    return (
+        <div className={`${!selected && "hidden"}`}>
+            <h1 className="mb-2 text-3xl font-bold text-wato-white-bone">
+                {data.title} <span className="text-wato-teal">{"//"}</span>
+            </h1>
+            <p className="mb-2 text-sm text-wato-white-bone">{data.body}</p>
+            <Image
+                priority
+                src={data.children}
+                alt={`Image for ${data.title}`}
+                height={300}
+                width={1000}
+                className="w-[1000px] object-contain object-center sm:h-[300px]"
+            />
+        </div>
+    );
+};
+
+enum Actions {
+    next = "next",
+    previous = "previous",
+    change = "change",
+}
+interface IAction {
+    type: Actions;
+    data: IContent;
+}
+const timelineReducer = (selectedData: IContent, action: IAction) => {
+    const idx = TabData.findIndex((x) => x.year === action.data.year);
+    switch (action.type) {
+        case Actions.next:
+            // selectedData is the current value
+            return idx + 1 >= TabData.length ? selectedData : TabData[idx + 1];
+        case Actions.previous:
+            // selectedData is the current value
+            return idx - 1 < 0 ? selectedData : TabData[idx - 1];
+        case Actions.change:
+            // selectedData is what we want to change to
+            return action.data;
+    }
+};
+
 const Timeline = () => {
-    const [selectedYear, setSelectedYear] = useState(2017);
-    const [content, setContent] = useState<IContent>({
-        title: "",
-        year: 0,
-        body: "",
-        children: undefined,
-    });
-
-    const goToPreviousYear = () => {
-        const index = TabData.findIndex((item) => item.year === selectedYear);
-        if (index > 0) {
-            setSelectedYear(TabData[index - 1].year);
-        } else {
-            setSelectedYear(TabData[TabData.length - 1].year);
-        }
-    };
-
-    const goToNextYear = () => {
-        const index = TabData.findIndex((item) => item.year === selectedYear);
-        if (index < TabData.length - 1) {
-            setSelectedYear(TabData[index + 1].year);
-        } else {
-            setSelectedYear(TabData[0].year);
-        }
-    };
-
-    const goToYear = (year: number) => {
-        setSelectedYear(year);
-    };
+    const [selectedData, dispatch] = useReducer(timelineReducer, TabData[0]);
+    const [fade, setFade] = useState<boolean>(false);
+    const [isFirst, isLast] = useMemo(() => {
+        const idx = TabData.findIndex((x) => x.year === selectedData.year);
+        return [idx <= 0, idx + 1 >= TabData.length];
+    }, [selectedData]);
 
     useEffect(() => {
-        const elements = [document.querySelector(`.content-${selectedYear}`)];
-        const newItem = TabData.find((item) => item.year === selectedYear);
-        fadeElement(Fade.Out, elements);
-        setTimeout(() => {
-            setContent(newItem as IContent);
-            fadeElement(Fade.In, elements);
-        }, 300);
-    }, [selectedYear]);
+        if (fade)
+            setTimeout(() => {
+                setFade(false);
+            }, 300);
+    }, [fade]);
 
+    const handleBack = async (data: IContent) => {
+        setFade(true);
+        setTimeout(() => {
+            dispatch({
+                type: Actions.previous,
+                data: data,
+            });
+        }, 150);
+    };
+    const handleForward = async (data: IContent) => {
+        setFade(true);
+        setTimeout(() => {
+            dispatch({
+                type: Actions.next,
+                data: data,
+            });
+        }, 150);
+    };
+    const handleChange = async (data: IContent) => {
+        setFade(true);
+        setTimeout(() => {
+            dispatch({
+                type: Actions.change,
+                data: data,
+            });
+        }, 150);
+    };
     return (
-        <div>
-            <div className="mb-2 flex justify-center bg-opacity-50 lg:mb-6">
-                {TabData.map((item) => (
-                    <div
-                        key={item.year}
-                        className={`flex w-min cursor-pointer flex-col justify-center border-t-4 px-1 hover:border-wato-white-bone hover:text-wato-white-bone max-lg:text-xs lg:px-2 ${
-                            selectedYear === item.year
-                                ? "border-wato-teal text-wato-teal"
-                                : "border-gray-500 text-white"
-                        }`}
-                        onClick={() => goToYear(item.year)}
-                    >
-                        <div className="flex justify-center">{item.year}</div>
-                    </div>
-                ))}
-            </div>
-            <div className="flex items-center justify-between">
-                <IoIosArrowBack
-                    className="cursor-pointer text-4xl text-white transition-colors hover:text-wato-teal"
-                    onClick={goToPreviousYear}
-                />
-                <div
-                    className={`flex h-96 w-96 flex-col rounded-md bg-transparent bg-wato-black px-5 py-2 font-bold text-white lg:px-7 lg:py-3`}
-                >
-                    <div
-                        className={`content-${selectedYear} flex h-full flex-col transition-opacity`}
-                    >
-                        <h2 className="text-2xl lg:pb-2 lg:text-2xl">
-                            {content.title}
-                            &nbsp;<span className="text-wato-teal">{"//"}</span>
-                        </h2>
-                        <p className="mb-4 text-sm font-normal">
-                            {content?.body}
-                        </p>
-                        <div className="relative h-full">
-                            {content.children && (
-                                <Image
-                                    src={content.children}
-                                    alt={`Event ${selectedYear}`}
-                                    className="object-cover"
-                                    fill
-                                    priority
-                                />
-                            )}
-                        </div>
-                    </div>
+        <div className="flex w-full items-center justify-between">
+            <IoIosArrowBack
+                className={`w-8 lg:w-16 ${
+                    isFirst
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer hover:text-wato-teal"
+                } select-none text-4xl text-white transition-colors`}
+                onClick={() => {
+                    if (isFirst) return;
+                    handleBack(selectedData);
+                }}
+            />
+            <div className="relative flex w-[calc(100%-2rem-2rem)] flex-col lg:w-[calc(100%-4rem-4rem)]">
+                <div className="mb-4 flex">
+                    {TabData.map((x) => (
+                        <YearElement
+                            key={x.year}
+                            data={x}
+                            selected={selectedData.year === x.year}
+                            changeData={handleChange}
+                        />
+                    ))}
                 </div>
-                <IoIosArrowForward
-                    className="hover: cursor-pointer text-4xl text-white transition-colors hover:text-wato-teal"
-                    onClick={goToNextYear}
-                />
+                <div
+                    className={`h-96 overflow-hidden transition-opacity ${
+                        fade ? "opacity-0" : "opacity-100"
+                    }`}
+                >
+                    {/* we preload all images for performance by loading all panes */}
+                    {TabData.map((x) => (
+                        <TimelineContent
+                            key={x.year}
+                            data={x}
+                            selected={selectedData.year === x.year}
+                        />
+                    ))}
+                </div>
             </div>
+            <IoIosArrowForward
+                className={`w-8 lg:w-16 ${
+                    isLast
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer hover:text-wato-teal"
+                } select-none text-4xl text-white transition-colors`}
+                onClick={() => {
+                    if (isLast) return;
+                    handleForward(selectedData);
+                }}
+            />
         </div>
     );
 };
