@@ -116,7 +116,7 @@ const TimelineContent = ({ data, selected = false }: TimelineContentProps) => {
                 alt={`Image for ${data.title}`}
                 height={300}
                 width={1000}
-                className="object-cover"
+                className="w-[1000px] object-contain object-center sm:h-[300px]"
             />
         </div>
     );
