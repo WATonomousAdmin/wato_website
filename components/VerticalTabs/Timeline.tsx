@@ -107,7 +107,7 @@ const TimelineContent = ({ data, selected = false }: TimelineContentProps) => {
     return (
         <div className={`${!selected && "hidden"}`}>
             <h1 className="mb-2 text-3xl font-bold text-wato-white-bone">
-                {data.title} <span className="text-wato-teal">//</span>
+                {data.title} <span className="text-wato-teal">{"//"}</span>
             </h1>
             <p className="mb-2 text-sm text-wato-white-bone">{data.body}</p>
             <Image
@@ -149,9 +149,9 @@ const timelineReducer = (selectedData: IContent, action: IAction) => {
 const Timeline = () => {
     const [selectedData, dispatch] = useReducer(timelineReducer, TabData[0]);
     const [fade, setFade] = useState<boolean>(false);
-    const [isFirst, isLast, idx] = useMemo(() => {
+    const [isFirst, isLast] = useMemo(() => {
         const idx = TabData.findIndex((x) => x.year === selectedData.year);
-        return [idx <= 0, idx + 1 >= TabData.length, idx];
+        return [idx <= 0, idx + 1 >= TabData.length];
     }, [selectedData]);
 
     useEffect(() => {
@@ -205,6 +205,7 @@ const Timeline = () => {
                 <div className="mb-4 flex">
                     {TabData.map((x) => (
                         <YearElement
+                            key={x.year}
                             data={x}
                             selected={selectedData.year === x.year}
                             changeData={handleChange}
@@ -219,6 +220,7 @@ const Timeline = () => {
                     {/* we preload all images for performance by loading all panes */}
                     {TabData.map((x) => (
                         <TimelineContent
+                            key={x.year}
                             data={x}
                             selected={selectedData.year === x.year}
                         />
