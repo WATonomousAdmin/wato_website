@@ -21,14 +21,10 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
     // generate a random key for identifying this carousel
     const carouselKey = useId();
 
-    const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.2 });
+    const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.1 });
     return (
         <div className="relative flex w-screen justify-center bg-black bg-opacity-80">
-            <div className="relative lg:w-[60rem] xl:w-[75rem]">
-                <div className="absolute inset-0 z-0 opacity-80"></div>
-                {
-                    //  px-4 py-24 md:px-16 lg:px-44 lg:py-6 xl:px-60
-                }
+            <div className="relative w-screen lg:w-[60rem] xl:w-[75rem]">
                 <div
                     id="tabs"
                     className={`
@@ -44,7 +40,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                 >
                     {data.map((tab: VerticalTabData, idx: number) => {
                         return (
-                            <div key={idx}>
+                            <div key={idx} className="overflow-none">
                                 <Tab
                                     identifier={carouselKey}
                                     idx={idx}
