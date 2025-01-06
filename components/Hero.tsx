@@ -33,7 +33,7 @@ const Hero = ({
         <div
             className={`justify-left flex h-screen items-end ${
                 image ? `${image} bg-cover` : "bg-black"
-            } w-full overflow-x-hidden overflow-y-hidden`}
+            } w-full overflow-x-hidden`}
         >
             {!image && (
                 <div className={`${fixed ? "fixed" : "absolute"} w-full`}>
@@ -42,7 +42,7 @@ const Hero = ({
             )}
             <div className="pointer-events-none fixed z-10 h-screen w-screen bg-TopGradient" />
             <div
-                className={`absolute inset-0 h-full bg-black transition-all ${
+                className={`absolute inset-0 h-[100lvh] bg-black transition-all ${
                     fadeIn ? "opacity-80 ease-in" : " opacity-0"
                 }`}
             ></div>
