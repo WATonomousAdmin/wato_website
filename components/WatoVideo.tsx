@@ -12,6 +12,7 @@ const WatoVideo = ({ transparent = false, gutter = false }: WatoVideoProps) => {
         >
             <video
                 autoPlay
+                playsInline
                 muted
                 loop
                 className={`absolute inset-0 h-full w-full object-cover`}
