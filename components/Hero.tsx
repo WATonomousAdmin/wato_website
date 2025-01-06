@@ -42,7 +42,7 @@ const Hero = ({
             )}
             <div className="pointer-events-none fixed z-10 h-screen w-screen bg-TopGradient" />
             <div
-                className={`absolute inset-0 bg-black transition-all ${
+                className={`absolute inset-0 h-[100lvh] bg-black transition-all ${
                     fadeIn ? "opacity-80 ease-in" : " opacity-0"
                 }`}
             ></div>
