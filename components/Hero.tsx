@@ -33,7 +33,7 @@ const Hero = ({
         <div
             className={`justify-left flex h-screen items-end ${
                 image ? `${image} bg-cover` : "bg-black"
-            } w-full overflow-x-hidden`}
+            } w-full overflow-x-hidden overflow-y-hidden`}
         >
             {!image && (
                 <div className={`${fixed ? "fixed" : "absolute"} w-full`}>
