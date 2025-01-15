@@ -1,5 +1,5 @@
 import { getBlogs } from "../lib/blogsDAL";
-import HeroBlog from "../components/HeroBlog";
+import HeroBlog from "../components/BlogPostings/HeroBlog";
 import BlogPostings from "../components/BlogPostings/BlogPostings";
 import { useState } from "react";
 import Filter from "../components/Filter";
