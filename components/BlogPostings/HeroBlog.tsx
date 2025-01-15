@@ -1,16 +1,16 @@
-import { BlogPostData } from "../types";
-import BadgeList from "./Badge/BadgeList";
-import Button from "./Button";
+import { BlogPostData } from "../../types";
+import BadgeList from "../Badge/BadgeList";
+import Button from "../Button";
 
 interface HeroBlogProps {
     blog: BlogPostData;
     content: boolean;
 }
 
-const HeroBlog = ({ blog, content } : HeroBlogProps) => {
+const HeroBlog = ({ blog, content }: HeroBlogProps) => {
     return (
         <div
-            style={{ "backgroundImage": `url(${blog.image})` }}
+            style={{ backgroundImage: `url(${blog.image})` }}
             className="h-screen w-screen"
         >
             <div className="flex h-screen w-screen items-end bg-gradient-to-t from-[#000000B0]">
@@ -31,7 +31,10 @@ const HeroBlog = ({ blog, content } : HeroBlogProps) => {
                                 <BadgeList badges={blog.tags} />
                             </div>
                             <div>
-                                <Button text={"Read More"} src={`/blogs/${blog.id}`} />
+                                <Button
+                                    text={"Read More"}
+                                    src={`/blogs/${blog.id}`}
+                                />
                             </div>
                         </>
                     )}

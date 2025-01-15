@@ -1,5 +1,5 @@
 import { getBlogData, getBlogIds } from "../../lib/blogsDAL";
-import HeroBlog from "../../components/HeroBlog";
+import HeroBlog from "../../components/BlogPostings/HeroBlog";
 import Detail from "../../components/Detail";
 import BadgeList from "../../components/Badge/BadgeList";
 import IconButton from "../../components/IconButton";
@@ -9,7 +9,7 @@ interface BlogPageProps {
     blogData: BlogPostData;
 }
 
-export default function BlogPage({ blogData } : BlogPageProps) {
+export default function BlogPage({ blogData }: BlogPageProps) {
     return (
         <div className="overflow-x-hidden scroll-smooth">
             <HeroBlog blog={blogData} content={false} />
@@ -42,7 +42,7 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params } : StaticProps) {
+export async function getStaticProps({ params }: StaticProps) {
     const blogData = await getBlogData(params.id);
     return {
         props: {
