@@ -3,7 +3,6 @@ import HeroBlog from "../components/HeroBlog";
 import BlogPostings from "../components/BlogPostings/BlogPostings";
 import { useState } from "react";
 import Filter from "../components/Filter";
-import Spotlight from "../components/BlogPostings/Spotlight";
 import { BlogPostData } from "../types";
 
 interface BlogDataList {
