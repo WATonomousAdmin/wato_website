@@ -274,6 +274,14 @@ const JobForm = ({ id }: JobFormProps) => {
                         />
                     </div>
                 </div>
+                <div>
+                    <p className="my-4 border-l-4 border-wato-grey px-2 text-sm text-wato-grey">
+                        Please note at this time we do not send out email
+                        confirmations, but rest assured if the submission was
+                        successful we <strong>have</strong> recieved your
+                        application.
+                    </p>
+                </div>
                 <div className="mt-10 flex flex-row items-center justify-center">
                     <FormSubmit />
                     <FormStatus status={formStatus} errorMessage={error} />
