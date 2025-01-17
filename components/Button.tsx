@@ -14,7 +14,7 @@ const Button = ({ text, outline, src, onClick }: ButtonProps) => {
         : "bg-wato-blue text-white";
     const buttonComponent = (
         <div
-            className={`flex w-fit cursor-pointer rounded-md ${colors} px-5 py-2 text-xl font-medium`}
+            className={`flex w-fit cursor-pointer rounded-md ${colors} text-md px-5 py-2 font-medium`}
             onClick={onClick}
         >
             {text}

@@ -1,6 +1,6 @@
 import { BlogPostData } from "../../types";
 import BadgeList from "../Badge/BadgeList";
-import Button from "../Button";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 interface HeroBlogProps {
     blog: BlogPostData;
@@ -13,28 +13,31 @@ const HeroBlog = ({ blog, content }: HeroBlogProps) => {
             style={{ backgroundImage: `url(${blog.image})` }}
             className="h-screen w-screen"
         >
-            <div className="flex h-screen w-screen items-end bg-gradient-to-t from-[#000000B0]">
+            <div className="flex h-screen w-screen items-end bg-[rgba(0,0,0,0.7)]">
                 <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">
-                    <div className="mb-8 whitespace-pre-line text-5xl font-black lg:text-7xl">
+                    <div className="mb-8 whitespace-pre-line text-2xl font-black lg:text-5xl">
                         {blog.title}&nbsp;
-                        <span className="text-wato-blue">{"//"}</span>
+                        <span className="text-wato-teal">{"//"}</span>
                     </div>
                     {content && (
                         <>
-                            <div className="mb-3 text-sm lg:text-lg">
+                            <div className="text-md lg:text-medium mb-3 font-medium">
                                 {blog.authors[0]} • {blog.date}
                             </div>
-                            <div className="text-md mb-3 lg:w-3/4 lg:text-xl">
+                            <div className="text-md lg:text-medium mb-3 font-medium lg:w-3/4">
                                 {blog.description}
                             </div>
                             <div className="mb-3">
                                 <BadgeList badges={blog.tags} />
                             </div>
-                            <div>
-                                <Button
-                                    text={"Read More"}
-                                    src={`/blogs/${blog.id}`}
-                                />
+                            <div className="mt-4 flex w-full">
+                                <a
+                                    className="flex cursor-pointer items-center text-xl font-medium text-wato-teal"
+                                    href={`/blogs/${blog.id}`}
+                                >
+                                    <p>Read More</p>
+                                    <FaArrowAltCircleRight className="ml-3 text-2xl" />
+                                </a>
                             </div>
                         </>
                     )}
