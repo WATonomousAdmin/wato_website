@@ -13,7 +13,7 @@ const HeroBlog = ({ blog, content }: HeroBlogProps) => {
             style={{ backgroundImage: `url(${blog.image})` }}
             className="h-screen w-screen"
         >
-            <div className="flex h-screen w-screen items-end bg-[rgba(0,0,0,0.7)]">
+            <div className="flex h-screen w-screen items-end bg-black bg-opacity-80">
                 <div className="mx-8 my-32 text-white md:mx-16 lg:mx-32">
                     <div className="mb-8 whitespace-pre-line text-2xl font-black lg:text-5xl">
                         {blog.title}&nbsp;
