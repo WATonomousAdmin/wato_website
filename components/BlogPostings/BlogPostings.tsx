@@ -8,8 +8,8 @@ interface BlogPostingsProps {
 
 const BlogPostings = ({ title, postings }: BlogPostingsProps) => {
     return (
-        <div className="pb-24 sm:px-16 lg:px-44 xl:px-60">
-            <div className="text-bold my-12 text-5xl max-lg:text-center">
+        <div className="bg-black py-12 sm:px-16 lg:px-44 xl:px-60">
+            <div className="py-6 text-5xl font-bold text-white max-lg:text-center lg:text-5xl">
                 {title}
             </div>
             <div className="flex flex-wrap justify-center lg:justify-between">
