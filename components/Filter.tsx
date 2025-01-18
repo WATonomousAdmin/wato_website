@@ -8,7 +8,7 @@ interface FilterProps {
 
 const Filter = ({ placeholder, filters, setFilters }: FilterProps) => {
     return (
-        <div className="flex w-screen items-center bg-wato-black-vanta px-5 py-12 sm:px-16 lg:px-60">
+        <div className="flex w-screen items-center bg-black px-5 py-12 sm:px-16 lg:px-60">
             <input
                 className="mr-5 w-full rounded-md border-l-[20px] border-white bg-search bg-left bg-no-repeat bg-origin-padding py-5 pl-14 text-lg outline-none"
                 type="text"
