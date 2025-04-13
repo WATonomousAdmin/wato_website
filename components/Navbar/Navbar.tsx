@@ -47,6 +47,13 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         <NavbarItem href={"/careers"} toggle={closeMobile}>
                             GET INVOLVED
                         </NavbarItem>
+                        <NavbarItem
+                            href={"https://wiki.watonomous.ca/"}
+                            toggle={closeMobile}
+                            newTab
+                        >
+                            WIKI
+                        </NavbarItem>
                         {/* <NavbarItem href={"/sponsor"} toggle={closeMobile}>
                         SPONSOR
                     </NavbarItem> */}
