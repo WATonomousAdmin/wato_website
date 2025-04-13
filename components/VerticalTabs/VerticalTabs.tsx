@@ -29,12 +29,11 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                     id="tabs"
                     className={`
                 no-scrollbar
-                relative z-10 flex
-                snap-x snap-mandatory
+                relative z-10
+                flex-col gap-y-36
                 bg-transparent
-                transition-opacity duration-500
-                max-lg:overflow-x-scroll lg:flex-col
-                lg:gap-y-36
+                transition-opacity
+                duration-500
                 `}
                     ref={tabGroupRef}
                 >
@@ -57,7 +56,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                     })}
                 </div>
                 <div
-                    className={`z-20 flex h-[10vh] items-center justify-center transition-opacity duration-500 lg:fixed lg:-left-24 lg:top-1/2 xl:ml-60`}
+                    className={`fixed left-0 top-0 z-20 ml-12 flex h-full items-center justify-center transition-opacity duration-500`}
                 >
                     <Pager
                         identifier={carouselKey}
