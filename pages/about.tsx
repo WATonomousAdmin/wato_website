@@ -31,6 +31,7 @@ import mark from "../public/imgs/headshots/IMG_7633_-_Mark_Chiu.jpg";
 import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
 import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
 import ken from "../public/imgs/headshots/headshot ken jiang.png";
+import vishal from "../public/imgs/headshots/vishal.jpg";
 import VerticalCards2 from "../components/VerticalCards/VerticalCards2";
 
 const HERO_TEXT =
@@ -50,6 +51,62 @@ const MemberData = [
         position: "Co-Captain",
     },
     {
+        imageSrc: hasan,
+        firstName: "Hasan",
+        lastName: "Tahir",
+        description: "",
+        position: "Co-Captain",
+    },
+    {
+        imageSrc: mahir,
+        firstName: "Mahir",
+        lastName: "Mahota",
+        description: "",
+        position: "Autonomous Platform Director",
+    },
+    {
+        imageSrc: vishal,
+        firstName: "Vishal",
+        lastName: "Jayakumar",
+        description: "",
+        position: "Autonomy Director",
+    },
+    {
+        imageSrc: dan,
+        firstName: "Dan",
+        lastName: "Huynh",
+        description: "",
+        position: "Perceptions Lead",
+    },
+    {
+        imageSrc: kishore,
+        firstName: "Kishore",
+        lastName: "Yogaraj",
+        description: "",
+        position: "Perceptions Lead",
+    },
+    {
+        imageSrc: rodney,
+        firstName: "Rodney",
+        lastName: "Dong",
+        description: "",
+        position: "Micro Autonomy Lead",
+    },
+    {
+        imageSrc: ken,
+        firstName: "Ken",
+        lastName: "Jiang",
+        description: "",
+        position: "BizOps Lead",
+    },
+    {
+        imageSrc: jadiha,
+        firstName: "Jadiha",
+        lastName: "Aruleswaran",
+        description: "",
+        position: "BizOps Lead",
+    },
+    {
         imageSrc: lena,
         firstName: "Lena",
         lastName: "Ye",
@@ -63,13 +120,6 @@ const MemberData = [
         lastName: "Kesan",
         description: "",
         position: "World Modelling",
-    },
-    {
-        imageSrc: dan,
-        firstName: "Dan",
-        lastName: "Huynh",
-        description: "",
-        position: "Perceptions Lead",
     },
     {
         imageSrc: harsharan,
@@ -98,13 +148,6 @@ const MemberData = [
         lastName: "Yuan",
         description: "",
         position: "ASD",
-    },
-    {
-        imageSrc: rodney,
-        firstName: "Rodney",
-        lastName: "Dong",
-        description: "",
-        position: "Micro Autonomy Lead",
     },
     {
         imageSrc: neha,
@@ -149,13 +192,6 @@ const MemberData = [
         position: "Actions",
     },
     {
-        imageSrc: mahir,
-        firstName: "Mahir",
-        lastName: "Mahota",
-        description: "",
-        position: "Autonomous Platform Director",
-    },
-    {
         imageSrc: kai,
         firstName: "Kai",
         lastName: "Ma",
@@ -184,39 +220,11 @@ const MemberData = [
         position: "ASD",
     },
     {
-        imageSrc: kishore,
-        firstName: "Kishore",
-        lastName: "Yogaraj",
-        description: "",
-        position: "Perceptions Lead",
-    },
-    {
         imageSrc: mark,
         firstName: "Mark",
         lastName: "Chiu",
         description: "",
         position: "Research Member",
-    },
-    {
-        imageSrc: jadiha,
-        firstName: "Jadiha",
-        lastName: "Aruleswaran",
-        description: "",
-        position: "BizOps Lead",
-    },
-    {
-        imageSrc: hasan,
-        firstName: "Hasan",
-        lastName: "Tahir",
-        description: "",
-        position: "Co-Captain",
-    },
-    {
-        imageSrc: ken,
-        firstName: "Ken",
-        lastName: "Jiang",
-        description: "",
-        position: "BizOps Lead",
     },
 ];
 
