@@ -14,12 +14,12 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
 
     return (
         <div
-            className={`z-30 flex items-center transition-opacity duration-500 lg:flex-col ${
+            className={`z-30 flex items-center transition-opacity duration-500 max-lg:hidden lg:flex-col ${
                 hidden && "opacity-0"
             }`}
         >
             {[...Array(count)].map((_, i) => {
-                const dotSize = i === current ? "max-xl:w-8 xl:h-8" : "w-8 h-8";
+                const dotSize = i === current ? "h-8" : "w-8 h-8";
 
                 return (
                     <div
