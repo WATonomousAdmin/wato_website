@@ -3,15 +3,15 @@ interface DetailProps {
     children: React.ReactNode | any;
 }
 
-const Detail = ({ title, children } : DetailProps) => {
+const Detail = ({ title, children }: DetailProps) => {
     return (
         <div
-            className={`flex w-screen flex-row items-center bg-wato-white-bone px-5 py-6 sm:px-16 lg:px-60`}
+            className={`flex flex-row bg-wato-black-vanta py-5 pl-12 lg:pl-36`}
         >
-            <div className="w-48 font-bold uppercase text-wato-grey">
+            <div className="w-48 font-bold uppercase text-wato-teal">
                 {title}
             </div>
-            <div className="text-black">{children}</div>
+            <div className="text-wato-grey">{children}</div>
         </div>
     );
 };

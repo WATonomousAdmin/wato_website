@@ -3,18 +3,21 @@ import { MouseEventHandler } from "react";
 
 interface ButtonProps {
     text: string;
+    color?: string;
     outline?: boolean;
     src?: string;
     onClick?: MouseEventHandler;
 }
 
-const Button = ({ text, outline, src, onClick }: ButtonProps) => {
-    const colors = outline
+const Button = ({ text, color, outline, src, onClick }: ButtonProps) => {
+    const colors = color
+        ? color
+        : outline
         ? "bg-transparent border-2 border-white"
         : "bg-wato-blue text-white";
     const buttonComponent = (
         <div
-            className={`flex w-fit cursor-pointer rounded-md ${colors} px-5 py-2 text-xl font-medium`}
+            className={`flex w-fit cursor-pointer rounded-md ${colors} text-md px-5 py-2 font-medium`}
             onClick={onClick}
         >
             {text}

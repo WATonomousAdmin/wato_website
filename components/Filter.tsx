@@ -6,18 +6,23 @@ interface FilterProps {
     setFilters: any;
 }
 
-const Filter = ({ placeholder, filters, setFilters } : FilterProps) => {
+const Filter = ({ placeholder, filters, setFilters }: FilterProps) => {
     return (
-        <div className="flex w-screen items-center bg-wato-blue-gloomy bg-opacity-40 px-5 py-12 sm:px-16 lg:px-60">
+        <div className="flex w-screen items-center bg-black px-10 py-12 sm:px-16 lg:px-60">
             <input
-                className="mr-5 w-full border-l-[20px] border-white bg-search bg-left bg-no-repeat bg-origin-padding py-5 pl-14 outline-none"
+                className="mr-5 w-full rounded-md border-l-[20px] border-white bg-search bg-left bg-no-repeat py-3 pl-10 text-sm outline-none"
                 type="text"
                 id="filter"
                 value={filters}
                 onChange={(e) => setFilters(e.target.value)}
                 placeholder={placeholder}
+                style={{ backgroundSize: "25px" }}
             />
-            <Button text="Clear" onClick={() => setFilters("")} />
+            <Button
+                text="Clear"
+                color="bg-wato-teal text-black"
+                onClick={() => setFilters("")}
+            />
         </div>
     );
 };

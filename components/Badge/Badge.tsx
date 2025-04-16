@@ -4,7 +4,7 @@ interface BadgeProps {
 
 const Badge = ({ content }: BadgeProps) => {
     return (
-        <div className="font-base mr-2 line-clamp-1 text-ellipsis rounded-lg bg-badge px-1 uppercase text-white">
+        <div className="mr-2 line-clamp-1 text-ellipsis rounded-lg bg-badge px-2 py-1 text-xs uppercase text-white">
             {content}
         </div>
     );
