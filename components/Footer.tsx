@@ -109,9 +109,9 @@ const Footer = ({ dark }: FooterProps) => {
                             href="/careers#open-roles"
                         />
                     </FooterCategory>
-                    {/* <FooterCategory title="Sponsors" href="/sponsor">
-                        <FooterItem title="Apply to Sponsor" href="/sponsor" />
-                    </FooterCategory> */}
+                    <FooterCategory title="Sponsors" href="/sponsor">
+                        <FooterItem title="Apply" href="/sponsor#apply" />
+                    </FooterCategory>
                 </div>
             </div>
         </div>
