@@ -9,9 +9,9 @@ interface PostProps {
 
 const Post = ({ data }: PostProps) => {
     return (
-        <div className="relative mb-2 flex w-[90%] flex-col rounded-xl bg-wato-black md:w-[70%] lg:w-[48%] xl:w-[33%]">
+        <div className="relative mb-2 flex w-full flex-col rounded-xl bg-wato-black">
             <Link href={`/blogs/${data.id}`} className="p-8 text-white">
-                <div className="relative mb-5 h-64 w-full">
+                <div className="relative mb-5 h-48 w-full">
                     <Image
                         alt={"post image"}
                         src={data.image}

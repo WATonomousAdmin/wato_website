@@ -29,7 +29,7 @@ const Blogs = ({ allBlogsData }: BlogPageProps) => {
     };
 
     return (
-        <div className="overflow-x-hidden bg-wato-grey-porcelain">
+        <div className="bg-wato-black-vanta">
             <HeroBlog blog={allBlogsData.all[0]} content />
             <BlogPostings title={"Featured"} postings={allBlogsData.featured} />
             <Filter
@@ -38,7 +38,7 @@ const Blogs = ({ allBlogsData }: BlogPageProps) => {
                 setFilters={setFilters}
             />
             <BlogPostings
-                title={"All Articles"}
+                title={"All Blogs"}
                 postings={allBlogsData.all.filter(blogFilter)}
             />
         </div>

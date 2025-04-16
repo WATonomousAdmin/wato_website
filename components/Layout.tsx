@@ -71,7 +71,7 @@ const styrene = localFont({
     ],
 });
 
-const DARK_PAGES = ["/", "/about", "/careers"];
+const DARK_PAGES = ["/", "/about", "/careers", "/blogs"];
 
 interface LayoutProps {
     children: ReactNode;
