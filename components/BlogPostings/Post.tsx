@@ -9,7 +9,7 @@ interface PostProps {
 
 const Post = ({ data }: PostProps) => {
     return (
-        <div className="relative mb-2 flex w-full flex-col rounded-xl bg-wato-black">
+        <div className="relative mb-2 flex w-full flex-col rounded-xl bg-wato-black transition-all duration-300 hover:shadow-NoOffset hover:shadow-wato-teal">
             <Link href={`/blogs/${data.id}`} className="p-8 text-white">
                 <div className="relative mb-5 h-48 w-full">
                     <Image
