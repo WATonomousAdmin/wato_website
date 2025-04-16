@@ -40,22 +40,22 @@ const Hero = ({
                     <WatoVideo />
                 </div>
             )}
-            <div className="pointer-events-none fixed z-10 h-screen w-screen bg-TopGradient" />
+
             <div
                 className={`absolute inset-0 h-[100lvh] bg-black transition-all ${
                     fadeIn ? "opacity-80 ease-in" : " opacity-0"
                 }`}
             ></div>
             <div className={`relative mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
-                <div className="mb-6 whitespace-pre-line text-5xl font-black lg:text-5xl">
+                <div className="mb-3 whitespace-pre-line text-4xl font-black">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>
-                <div className="mb-6 text-sm lg:w-1/2 lg:text-lg">
+                <div className="mb-6 text-sm lg:w-1/2 lg:text-base">
                     {subtitle}
                 </div>
                 <div className={`flex w-full`}>
                     <a
-                        className={`flex cursor-pointer items-center text-xl font-medium text-wato-teal ${
+                        className={`flex cursor-pointer items-center text-base font-medium text-wato-teal ${
                             fadeIn
                                 ? "opacity-100 transition-opacity duration-150 ease-in"
                                 : "opacity-0"

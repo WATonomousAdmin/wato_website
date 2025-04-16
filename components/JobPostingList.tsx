@@ -55,7 +55,7 @@ const JobPostingList = ({ data, backgroundImage }: JobPostingListProps) => {
             } relative p-8 sm:p-16 lg:px-60`}
         >
             <div className="absolute inset-0 bg-[rgb(30,32,33)] opacity-80"></div>
-            <div className="z-10 pb-16 text-center text-5xl font-bold text-white">
+            <div className="z-10 pb-16 text-center text-4xl font-bold text-white">
                 Open Roles
             </div>
             <AccordionContainer data={accordionData} />

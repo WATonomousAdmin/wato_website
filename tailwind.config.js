@@ -12,7 +12,7 @@ module.exports = {
                 ModalRight:
                     "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
                 TopGradient:
-                    "linear-gradient(180deg, rgba(0, 0, 0, 0.65) 10%, rgba(0, 0, 0, 0) 40%)",
+                    "linear-gradient(180deg, rgba(0, 0, 0, 0.65) 5%, rgba(0, 0, 0, 0) 20%)",
                 search: "url('/imgs/search.svg')",
                 main: "url('/imgs/bg.jpg')",
                 network: "url('/imgs/network.png')",

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import IconButton from "./IconButton";
+import logo from "../public/imgs/watonomous.png";
 
 interface FooterCategoryProps {
     title: string;
@@ -20,7 +21,7 @@ interface FooterProps {
 const FooterCategory = ({ title, href, children }: FooterCategoryProps) => {
     return (
         <ul className="ml-10 flex list-none flex-col justify-center max-md:mb-3 lg:ml-20">
-            <li className="text-base font-bold md:mb-2 md:text-lg">
+            <li className="text-base font-bold md:mb-1 md:text-base">
                 <a href={href}>{title}</a>
             </li>
             <div className="max-md:flex">{children}</div>
@@ -30,7 +31,7 @@ const FooterCategory = ({ title, href, children }: FooterCategoryProps) => {
 
 const FooterItem = ({ title, href }: FooterItemProps) => {
     return (
-        <li className="max-md:pr-5">
+        <li className="text-sm max-md:pr-5">
             <a href={href}>{title}</a>
         </li>
     );
@@ -82,14 +83,14 @@ const Footer = ({ dark }: FooterProps) => {
                         <div className="relative mb-10 h-10 md:-ml-2 md:w-[300px]">
                             <Image
                                 alt="watonomous logo"
-                                src="/imgs/watonomous.png"
-                                fill
+                                src={logo}
+                                width={300}
                                 className={`object-cover ${
                                     !dark && "invert"
                                 } max-md:hidden`}
                             />
-                            <h1 className="text-lg font-bold md:hidden">
-                                WATONOMOUS
+                            <h1 className="text-2xl font-bold text-wato-white-bone md:hidden">
+                                WATonomous
                             </h1>
                         </div>
                         <p className="">200 University Avenue</p>

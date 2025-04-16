@@ -20,7 +20,7 @@ const AccordionCategory = ({
         <div key={`${idx}-${title}`} style={{ overflowAnchor: "none" }}>
             <div
                 onClick={() => onToggle(idx)}
-                className={`my-2 flex w-auto cursor-pointer justify-between rounded-md bg-[#00000080] p-5 text-2xl font-medium text-white transition-all sm:text-3xl`}
+                className={`my-2 flex w-auto cursor-pointer justify-between rounded-md bg-[#00000080] p-5 text-2xl font-medium text-white transition-all`}
             >
                 <div>{title}</div>
                 {active ? <IoIosArrowUp /> : <IoIosArrowDown />}
