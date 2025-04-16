@@ -2,7 +2,6 @@ import { getBlogData, getBlogIds } from "../../lib/blogsDAL";
 import HeroBlog from "../../components/BlogPostings/HeroBlog";
 import Detail from "../../components/Detail";
 import BadgeList from "../../components/Badge/BadgeList";
-import IconButton from "../../components/IconButton";
 import { BlogPostData, StaticProps } from "../../types";
 
 interface BlogPageProps {
