@@ -1,9 +1,17 @@
+import Hero from "../components/Hero";
+
 const Sponsor = () => {
     return (
-        <div className="flex h-screen w-screen items-center justify-center bg-main bg-cover">
-            <div className="landing-page-animate rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-5 text-3xl text-white">
-                sponsor page goes here
-            </div>
+        <div>
+            <Hero
+                title="Our Sponsors"
+                subtitle={
+                    "WATonomous would not exist without the generous support from our sponsors. We extend a huge thank you to every organization who helps turn our visions into reality."
+                }
+                cta="Thank You"
+                link="#content"
+                fixed
+            />
         </div>
     );
 };
