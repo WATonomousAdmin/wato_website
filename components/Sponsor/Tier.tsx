@@ -1,7 +1,7 @@
 import SponsorCard, { SponsorCardProps } from "./SponsorCard";
 
 interface TierProps {
-    title: String;
+    title: string;
     sponsors: SponsorCardProps[];
 }
 
@@ -13,7 +13,7 @@ const Tier = ({ title, sponsors }: TierProps) => {
             </h1>
             <section className="flex flex-wrap justify-center">
                 {sponsors.map((x) => {
-                    return <SponsorCard {...x} />;
+                    return <SponsorCard key={x.title} {...x} />;
                 })}
             </section>
         </div>

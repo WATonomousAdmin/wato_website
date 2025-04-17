@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 export interface SponsorCardProps {
-    title: String;
+    title: string;
     image: StaticImageData;
 }
 

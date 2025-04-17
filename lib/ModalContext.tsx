@@ -15,7 +15,6 @@ export const ModalProvider = ({ children }: { children: React.ReactNode }) => {
     const [open, setOpen] = useState(false);
     const [sponsorship, setSponsorship] = useState(false);
 
-    const toggle = () => setOpen((prev) => !prev);
     return (
         <ModalContext.Provider
             value={{ open, sponsorship, setOpen, setSponsorship }}

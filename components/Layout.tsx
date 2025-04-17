@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar/Navbar";
 import ContactModal from "./ContactModal/ContactModal";
 import localFont from "next/font/local";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect } from "react";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
 import { useModal } from "../lib/ModalContext";
