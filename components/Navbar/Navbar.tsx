@@ -7,7 +7,9 @@ import NavbarMobileIcon from "./NavbarMobileIcon";
 import Image from "next/image";
 
 import WatoLogo from "../../public/imgs/watonomous.png";
+import NavbarFolder from "./NavbarFolder";
 
+import { MdOpenInNew } from "react-icons/md";
 interface NavBarProps {
     toggleModal(): any;
     dark?: boolean;
@@ -37,7 +39,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             mobileOpen
                                 ? "max-lg:h-[100vh] max-lg:bg-wato-black-vanta"
                                 : "max-lg:h-0"
-                        } pointer-events-auto overflow-hidden transition-all duration-500`}
+                        } pointer-events-auto transition-all duration-500 max-lg:overflow-hidden`}
                     >
                         <NavbarItem href={"/about"} toggle={closeMobile}>
                             ABOUT
@@ -51,9 +53,29 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         <NavbarItem href={"/sponsor"} toggle={closeMobile}>
                             SPONSORS
                         </NavbarItem>
-                        {/* <NavbarItem href={"/sponsor"} toggle={closeMobile}>
-                        SPONSOR
-                    </NavbarItem> */}
+                        <NavbarFolder
+                            title={
+                                <div className="flex items-center">
+                                    EXTERNAL
+                                    <MdOpenInNew className="ml-1" />
+                                </div>
+                            }
+                        >
+                            <NavbarItem
+                                href={"https://wiki.watonomous.ca/"}
+                                toggle={closeMobile}
+                                newTab
+                            >
+                                WIKI
+                            </NavbarItem>
+                            <NavbarItem
+                                href={"https://cloud.watonomous.ca/"}
+                                toggle={closeMobile}
+                                newTab
+                            >
+                                WATcloud
+                            </NavbarItem>
+                        </NavbarFolder>
                         <NavbarIconItem
                             href={"https://www.instagram.com/watonomous"}
                             icon={"fa-instagram"}
