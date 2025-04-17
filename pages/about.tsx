@@ -260,7 +260,7 @@ const TabData = [
     },
     {
         title: "Into the Fire",
-        body: "Now that you've gotten to know what WATonomous is all about, it’s time to dive deeper. Explore our latest projects, meet the team behind the technology, or see how you can get involved. Step into the heart of our journey and discover what drives us forward.",
+        body: "Now that you've gotten to know what WATonomous is all about, it's time to dive deeper. Explore our latest projects, meet the team behind the technology, or see how you can get involved. Step into the heart of our journey and discover what drives us forward.",
         children: IMAGE_PLACEHOLDER,
         last: true,
     },

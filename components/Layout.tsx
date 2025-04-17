@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { ReactNode, useEffect, useState } from "react";
 import Footer from "./Footer";
 import { useRouter } from "next/router";
+import { useModal } from "../lib/ModalContext";
 
 const styrene = localFont({
     src: [
@@ -78,19 +79,20 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-    const [contactModalActive, setContactModalActive] = useState(false);
+    const modalContext = useModal();
 
     const router = useRouter();
     const dark = DARK_PAGES.includes(router.pathname);
 
     useEffect(() => {
-        contactModalActive
+        modalContext.open
             ? document.documentElement.classList.add("overflow-y-hidden")
             : document.documentElement.classList.remove("overflow-y-hidden");
-    }, [contactModalActive]);
+    }, [modalContext.open]);
 
     const toggleModal = () => {
-        setContactModalActive(!contactModalActive);
+        modalContext.setOpen(!modalContext.open);
+        modalContext.setSponsorship(false);
     };
 
     return (
@@ -108,8 +110,10 @@ const Layout = ({ children }: LayoutProps) => {
             </Head>
             <main className={`${styrene.className} w-screen`}>
                 <ContactModal
-                    modalActive={contactModalActive}
-                    closeModal={() => setContactModalActive(false)}
+                    closeModal={() => {
+                        modalContext.setOpen(false);
+                        modalContext.setSponsorship(false);
+                    }}
                 />
                 <Navbar toggleModal={toggleModal} dark={dark} />
                 {children}

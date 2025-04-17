@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import FormText from "../Form/FormText";
 import FormDropdown from "../Form/FormDropdown";
 import FormTextArea from "../Form/FormTextArea";
@@ -6,14 +6,27 @@ import FormSubmit from "../Form/FormSubmit";
 import FormFile from "../Form/FormFile";
 import FormStatus from "../Form/FormStatus";
 import { FormStatusCode } from "../../types";
+import { useModal } from "../../lib/ModalContext";
 
 const ContactForm = () => {
     const defaultForm = {
         purpose: "General",
     };
+
+    const { sponsorship: isSponsorship } = useModal();
+
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
     const [error, setError] = useState<string | undefined>(undefined);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
+
+    useEffect(() => {
+        if (isSponsorship) {
+            setFormData({
+                ...formData,
+                purpose: "Sponsorship",
+            });
+        }
+    }, [isSponsorship]);
 
     const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFormData((data) => ({
