@@ -17,11 +17,11 @@ const ContactModal = ({ closeModal }: ContactModalProps) => {
                         modalActive
                             ? "fixed opacity-100"
                             : "pointer-events-none fixed opacity-0"
-                    } z-50 flex h-screen w-screen items-center justify-center overscroll-none backdrop-blur-sm transition-all duration-300`}
+                    } z-50 flex h-screen w-screen justify-center overscroll-none backdrop-blur-sm transition-all duration-300 max-md:pt-10 md:items-center`}
                     onClick={closeModal}
                 >
                     <div
-                        className="relative grid h-[70vh] w-[90vw] grid-cols-1 overflow-y-auto rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] xl:grid-cols-2"
+                        className="relative grid h-[90svh] w-[90vw] grid-cols-1 overflow-y-auto rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] xl:grid-cols-2"
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
