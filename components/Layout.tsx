@@ -72,8 +72,6 @@ const styrene = localFont({
     ],
 });
 
-const DARK_PAGES = ["/", "/about", "/careers", "/blogs"];
-
 interface LayoutProps {
     children: ReactNode;
 }
@@ -82,7 +80,7 @@ const Layout = ({ children }: LayoutProps) => {
     const modalContext = useModal();
 
     const router = useRouter();
-    const dark = DARK_PAGES.includes(router.pathname);
+    const dark = true; // all pages are dark now
 
     useEffect(() => {
         modalContext.open
