@@ -260,7 +260,7 @@ const JobForm = ({ id }: JobFormProps) => {
                     /> */}
                     {/* dirty workaround to get the clickoutside working */}
                     <div className="col-span-2">
-                        <div className="my-2 font-medium">
+                        <div className="my-2 text-sm font-medium">
                             {titles[11]}
                             <span className="text-red-400">*</span>
                         </div>

@@ -39,7 +39,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             mobileOpen
                                 ? "max-lg:h-[100vh] max-lg:bg-wato-black-vanta"
                                 : "max-lg:h-0"
-                        } pointer-events-auto transition-all duration-500 max-lg:overflow-hidden`}
+                        } pointer-events-auto flex transition-all duration-500 max-lg:overflow-hidden`}
                     >
                         <NavbarItem href={"/about"} toggle={closeMobile}>
                             ABOUT

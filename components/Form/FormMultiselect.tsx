@@ -7,7 +7,7 @@ interface UrlContainerProps {
 
 const UrlContainer = ({ content }: UrlContainerProps) => {
     return (
-        <div className="float-left my-[0.125rem] mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-2 text-black">
+        <div className="float-left mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-2 text-base text-black">
             <div className="">{content}</div>
         </div>
     );
@@ -73,7 +73,9 @@ const MultiSelectDropdown = ({
                             return <UrlContainer key={x} content={x} />;
                         })
                     ) : (
-                        <span className="-ml-3 text-wato-grey">Maximum 3</span>
+                        <span className="-ml-3 text-base text-wato-grey">
+                            Maximum 3
+                        </span>
                     )}
                 </div>
                 <div className="pointer-events-none absolute max-h-60 w-full overflow-y-scroll border bg-white opacity-0 transition-opacity peer-checked:pointer-events-auto peer-checked:opacity-100">
@@ -82,7 +84,7 @@ const MultiSelectDropdown = ({
                             return (
                                 <li key={option}>
                                     <label
-                                        className={`flex cursor-pointer items-center whitespace-nowrap px-2 py-1 text-black transition-colors hover:bg-blue-100 [&:has(input:checked)]:bg-blue-200`}
+                                        className={`flex cursor-pointer items-center whitespace-nowrap px-2 text-black transition-colors hover:bg-blue-100 [&:has(input:checked)]:bg-blue-200`}
                                     >
                                         <input
                                             type="checkbox"
@@ -91,7 +93,7 @@ const MultiSelectDropdown = ({
                                             checked={formData[
                                                 formFieldName
                                             ].includes(option)}
-                                            className="cursor-pointer"
+                                            className="cursor-pointer text-base"
                                             onChange={handleChange}
                                         />
                                         <span className="ml-1">{option}</span>

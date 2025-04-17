@@ -34,13 +34,13 @@ const FormTextArea = ({
     };
     return (
         <div className={`col-span-1 my-2 lg:col-span-2 lg:my-0`}>
-            <label htmlFor={id} className="font-medium">
+            <label htmlFor={id} className="text-sm font-medium">
                 {title}
             </label>{" "}
             {required && <span className="text-red-400">*</span>}
             {/* w-64*/}
             <textarea
-                className={`mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl text-wato-black`}
+                className={`mt-2 w-full rounded-md bg-wato-white-bone p-1 text-base text-wato-black`}
                 id={id}
                 name={id}
                 value={formData[id] || ""}
