@@ -21,14 +21,14 @@ const ContactModal = ({ closeModal }: ContactModalProps) => {
                     onClick={closeModal}
                 >
                     <div
-                        className="grid  h-[90vh] w-[90vw] grid-cols-1 overflow-y-auto rounded-md bg-wato-black text-zinc-100 shadow-md md:w-[60vw] xl:grid-cols-2"
+                        className="relative grid h-[70vh] w-[90vw] grid-cols-1 overflow-y-auto rounded-md bg-wato-black text-zinc-100 shadow-md md:h-[90vh] md:w-[60vw] xl:grid-cols-2"
                         onClick={(e) => {
                             e.stopPropagation();
                         }}
                     >
                         <div
                             className={
-                                "absolute right-8 top-12 cursor-pointer text-lg font-bold text-wato-grey md:hidden"
+                                "sticky top-2 ml-auto cursor-pointer pr-2 text-lg font-bold text-wato-grey md:hidden"
                             }
                             onClick={closeModal}
                         >
