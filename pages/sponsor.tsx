@@ -149,27 +149,29 @@ const Sponsor = () => {
                         sponsors={PRODUCT_SPONSORS}
                     />
                 </div>
-                <ContentPane
-                    title={"Want to join these organizations?"}
-                    subtitle={""}
-                    img={paneImage}
-                    leftOriented={false}
-                >
-                    <p className="mb-5">
-                        We're always looking to push boundaries and show what a
-                        student design team can achieve. If you or your
-                        organization are interested in supporting our mission,
-                        we'd love to hear from you.
-                    </p>
-                    <div
-                        id="apply"
-                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
-                        onClick={supportAction}
+                <div className="relative bg-black py-24">
+                    <ContentPane
+                        title={"Want to join these organizations?"}
+                        subtitle={""}
+                        img={paneImage}
+                        leftOriented={false}
                     >
-                        <p>Support Us</p>
-                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
-                    </div>
-                </ContentPane>
+                        <p className="mb-5">
+                            We're always looking to push boundaries and show
+                            what a student design team can achieve. If you or
+                            your organization are interested in supporting our
+                            mission, we'd love to hear from you.
+                        </p>
+                        <div
+                            id="apply"
+                            className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
+                            onClick={supportAction}
+                        >
+                            <p>Support Us</p>
+                            <FaArrowAltCircleRight className="ml-3 text-2xl" />
+                        </div>
+                    </ContentPane>
+                </div>
             </div>
         </div>
     );
