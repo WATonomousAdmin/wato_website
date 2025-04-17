@@ -1,13 +1,14 @@
 import ModalRight from "./ModalRight";
 import ContactForm from "./ContactForm";
 import { IoClose } from "react-icons/io5";
+import { useModal } from "../../lib/ModalContext";
 
 interface ContactModalProps {
-    modalActive: boolean;
     closeModal(): any;
 }
 
-const ContactModal = ({ modalActive, closeModal }: ContactModalProps) => {
+const ContactModal = ({ closeModal }: ContactModalProps) => {
+    const { open: modalActive } = useModal();
     return (
         <>
             {

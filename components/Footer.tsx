@@ -46,9 +46,9 @@ const Footer = ({ dark }: FooterProps) => {
     dark = true;
     return (
         <div
-            className={`relative flex h-64 items-center justify-center ${colors}`}
+            className={`relative flex h-64 items-center justify-center ${colors} w-screen`}
         >
-            <div className="text-medium flex w-screen items-start justify-between px-4 md:px-16 xl:px-60">
+            <div className="text-medium flex w-screen items-start justify-between md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
                 <div className="flex text-sm text-wato-grey">
                     <div className="mr-5 flex flex-col text-sm">
                         <IconButton
@@ -109,9 +109,9 @@ const Footer = ({ dark }: FooterProps) => {
                             href="/careers#open-roles"
                         />
                     </FooterCategory>
-                    {/* <FooterCategory title="Sponsors" href="/sponsor">
-                        <FooterItem title="Apply to Sponsor" href="/sponsor" />
-                    </FooterCategory> */}
+                    <FooterCategory title="Sponsors" href="/sponsor">
+                        <FooterItem title="Apply" href="/sponsor#apply" />
+                    </FooterCategory>
                 </div>
             </div>
         </div>
