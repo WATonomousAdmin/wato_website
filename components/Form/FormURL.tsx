@@ -5,7 +5,7 @@ interface UrlContainerProps {
 
 const UrlContainer = ({ content, onRemove }: UrlContainerProps) => {
     return (
-        <div className="float-left mb-1 mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-1 text-black">
+        <div className="float-left mb-1 mr-1 flex w-max items-center rounded-md border-2 border-solid border-blue-300 bg-blue-100 px-1 text-base text-black">
             <div className="">{content}</div>
             <div
                 className="ml-1 cursor-pointer text-zinc-500"
@@ -61,11 +61,11 @@ const FormURL = ({ id, title, formData, setFormData }: FormURLProps) => {
 
     return (
         <div className="col-span-2 flex flex-col">
-            <label htmlFor={id} className="text-xl font-medium">
+            <label htmlFor={id} className="text-sm font-medium">
                 {title}
             </label>
             <div
-                className={`flex w-full rounded-md bg-wato-white-bone p-1 text-xl`}
+                className={`flex w-full rounded-md bg-wato-white-bone p-1 text-base`}
             >
                 <div className={`flex min-h-[2em] w-full flex-wrap text-black`}>
                     {formData.urls.map((url: string, idx: number) => {

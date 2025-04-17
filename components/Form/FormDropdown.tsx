@@ -20,13 +20,13 @@ const FormDropdown = ({
     return (
         <div className={`col-span-1 ${span && "lg:col-span-2"}`}>
             <div>
-                <label htmlFor={id} className="font-medium">
+                <label htmlFor={id} className="text-sm font-medium">
                     {title}
                 </label>
                 <span className="text-red-400"> *</span>
             </div>
             <select
-                className="mt-3 w-full rounded-md bg-wato-white-bone p-1 text-xl text-wato-black"
+                className="mt-2 w-full rounded-md bg-wato-white-bone p-1 text-base text-wato-black"
                 onChange={onFormChange}
                 name={id}
                 value={(formData[id] as string) || options[0]}

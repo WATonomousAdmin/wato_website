@@ -25,7 +25,7 @@ const FormFile = ({ id, title, required }: FormFileProps) => {
     };
 
     return (
-        <div className="flex h-20 flex-col">
+        <div className="flex h-10 flex-col">
             <label className="w-full cursor-pointer p-1 text-base font-bold text-wato-white-bone">
                 <input
                     className="hidden"
@@ -36,8 +36,8 @@ const FormFile = ({ id, title, required }: FormFileProps) => {
                     onChange={onFileUpload}
                     ref={inputRef}
                 />
-                <div>
-                    <i className="fa-solid fa-upload text-lg"></i> {title}{" "}
+                <div className="text-sm">
+                    <i className="fa-solid fa-upload"></i> {title}{" "}
                     {required && <span className="text-red-400"> *</span>}
                 </div>
                 <div className="w-56 overflow-hidden text-xs">{fileName}</div>
