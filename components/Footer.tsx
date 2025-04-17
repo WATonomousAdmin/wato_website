@@ -48,7 +48,7 @@ const Footer = ({ dark }: FooterProps) => {
         <div
             className={`relative flex h-64 items-center justify-center ${colors} w-screen`}
         >
-            <div className="text-medium flex w-screen items-start justify-between max-md:px-12 md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
+            <div className="text-medium flex w-screen items-start justify-between md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
                 <div className="flex text-sm text-wato-grey">
                     <div className="mr-5 flex flex-col text-sm">
                         <IconButton

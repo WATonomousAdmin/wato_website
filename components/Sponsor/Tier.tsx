@@ -7,10 +7,10 @@ interface TierProps {
 
 const Tier = ({ title, sponsors }: TierProps) => {
     return (
-        <div className="mb-32">
-            <h1 className="flex w-screen justify-center text-4xl font-bold text-white">
+        <div className="mb-32 flex flex-col items-center justify-center">
+            <div className="w-min text-4xl font-bold text-white md:w-max">
                 {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
-            </h1>
+            </div>
             <section className="flex flex-wrap justify-center">
                 {sponsors.map((x) => {
                     return <SponsorCard key={x.title} {...x} />;
