@@ -36,7 +36,7 @@ interface MarqueeProps {
 }
 
 const Marquee = ({ titles, fastTitles }: MarqueeProps) => {
-    const onMarqueeItemClick = (idx: number) => {};
+    const onMarqueeItemClick = () => {};
 
     const MarqueeItems = titles.map((title, index) => {
         return (
