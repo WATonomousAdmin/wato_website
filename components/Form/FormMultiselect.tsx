@@ -78,7 +78,7 @@ const MultiSelectDropdown = ({
                         </span>
                     )}
                 </div>
-                <div className="pointer-events-none absolute max-h-60 w-full overflow-y-scroll border bg-white opacity-0 transition-opacity peer-checked:pointer-events-auto peer-checked:opacity-100">
+                <div className="pointer-events-none absolute z-50 max-h-60 w-full overflow-y-scroll rounded-md border bg-white opacity-0 transition-opacity peer-checked:pointer-events-auto peer-checked:opacity-100">
                     <ul ref={optionsListRef}>
                         {options.map((option) => {
                             return (
