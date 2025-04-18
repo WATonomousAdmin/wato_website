@@ -8,6 +8,8 @@ import FormTextArea from "./Form/FormTextArea";
 import FormStatus from "./Form/FormStatus";
 import { FormStatusCode } from "../types";
 import MultiSelectDropdown from "./Form/FormMultiselect";
+import { setPostingSubmitSuccess } from "../lib/sessionStorage";
+import { useRouter } from "next/router";
 
 const fields = [
     "firstName",
@@ -74,6 +76,7 @@ interface JobFormProps {
 }
 
 const JobForm = ({ id }: JobFormProps) => {
+    const router = useRouter();
     const defaultForm = {
         id: id,
         urls: [],
@@ -127,14 +130,9 @@ const JobForm = ({ id }: JobFormProps) => {
                 setFormStatus(FormStatusCode.Error);
             } else if (res.status === 200) {
                 setFormStatus(FormStatusCode.Success);
-                // @ts-ignore
-                confetti({
-                    // eslint-disable-line no-undef
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                });
                 setFormData({ ...defaultForm });
+                setPostingSubmitSuccess();
+                router.push("/success");
             }
         } catch (e) {
             console.error(e);
@@ -143,7 +141,7 @@ const JobForm = ({ id }: JobFormProps) => {
     };
 
     return (
-        <div className="py-5 text-xl" id="apply">
+        <div className="py-5 text-xl">
             <form
                 id="job-form"
                 onSubmit={(e) => {

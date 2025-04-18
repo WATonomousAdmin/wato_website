@@ -7,18 +7,32 @@ interface JobPostingProps {
     postData: JobPostingData;
 }
 
+const FORM_ID = "apply";
+
 const JobPosting = ({ postData }: JobPostingProps) => {
     return (
-        <div className="scroll-smooth bg-wato-black px-10 py-32 lg:px-96">
-            <article className="prose prose-invert max-w-none prose-h1:mb-0 prose-h1:text-4xl prose-h1:font-bold prose-h2:mt-6 prose-h2:font-medium prose-p:w-fit prose-a:no-underline">
-                <h1>{postData.title}</h1>
-                <h2>{postData.subtitle}</h2>
-                <Button text="Apply" src="#apply" />
-                <div
-                    dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-                />
+        <div className="scroll-smooth bg-wato-black px-10">
+            <article className="prose prose-invert flex max-w-none justify-center bg-wato-black pt-40">
+                <div className="flex flex-col">
+                    <h1 className="mb-0">{postData.title}</h1>
+                    <h2>{postData.subtitle}</h2>
+                    <Button text="Jump to Application" src={`#${FORM_ID}`} />
+                    <div
+                        className="md:w-[45rem] lg:w-[50rem] xl:w-[75rem]"
+                        dangerouslySetInnerHTML={{
+                            __html: postData.contentHtml,
+                        }}
+                    />
+                    <div id={FORM_ID} className="h-36" />
+                    <hr />
+                    <h2>Apply for this position:</h2>
+                </div>
             </article>
-            <JobForm id={postData.id}></JobForm>
+            <div className="flex flex-col items-center justify-center">
+                <div className="md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
+                    <JobForm id={postData.id}></JobForm>
+                </div>
+            </div>
         </div>
     );
 };
