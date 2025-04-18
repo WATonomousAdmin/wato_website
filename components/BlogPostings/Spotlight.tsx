@@ -36,9 +36,7 @@ interface MarqueeProps {
 }
 
 const Marquee = ({ titles, fastTitles }: MarqueeProps) => {
-    const onMarqueeItemClick = (idx: number) => {
-        console.log(idx);
-    };
+    const onMarqueeItemClick = () => {};
 
     const MarqueeItems = titles.map((title, index) => {
         return (
@@ -125,8 +123,8 @@ const Spotlight = ({ postings }: SpotlightProps) => {
 
     const transitionSpotlight = async (
         direction: MarqueeDirection,
-        fastFn : any,
-        fn : any
+        fastFn: any,
+        fn: any
     ) => {
         const elements = document.querySelectorAll(`.spotlight`);
         const list = document.querySelector(`.spotlight-list`);

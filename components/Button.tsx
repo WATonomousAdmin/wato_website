@@ -17,7 +17,7 @@ const Button = ({ text, color, outline, src, onClick }: ButtonProps) => {
         : "bg-wato-blue text-white";
     const buttonComponent = (
         <div
-            className={`flex w-fit cursor-pointer rounded-md ${colors} text-md px-5 py-2 font-medium`}
+            className={`flex w-fit cursor-pointer rounded-md ${colors} text-md px-3 py-1 font-medium`}
             onClick={onClick}
         >
             {text}
@@ -26,7 +26,13 @@ const Button = ({ text, color, outline, src, onClick }: ButtonProps) => {
 
     return (
         <div>
-            {src ? <Link href={src}>{buttonComponent}</Link> : buttonComponent}
+            {src ? (
+                <Link href={src} className="inline-block no-underline">
+                    {buttonComponent}
+                </Link>
+            ) : (
+                buttonComponent
+            )}
         </div>
     );
 };

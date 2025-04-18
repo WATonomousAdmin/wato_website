@@ -50,7 +50,6 @@ const ContactForm = () => {
                 method: "POST",
                 body: formData,
             });
-            console.log(response);
             if (response.status === 500) {
                 setError(undefined);
                 throw new Error("Email Error");
