@@ -92,7 +92,6 @@ const JobForm = ({ id }: JobFormProps) => {
     const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e) {
             setFormData((data) => ({ ...data }));
-            console.log(formData);
             return;
         }
         setFormData((data) => ({
@@ -113,7 +112,6 @@ const JobForm = ({ id }: JobFormProps) => {
 
             const payload = [data["id"]];
             for (const field of fields) {
-                console.log("attemping to read", field, data[field]);
                 payload.push((data[field] ?? "").toString());
             }
 

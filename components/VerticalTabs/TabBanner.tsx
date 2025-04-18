@@ -11,7 +11,6 @@ interface TabBannerProps {
 
 const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
     const scrollTo = (idx: number) => {
-        console.log("scrolling");
         document
             .getElementById(`carousel-${identifier}-${idx}`)
             ?.scrollIntoView({ block: "start" });

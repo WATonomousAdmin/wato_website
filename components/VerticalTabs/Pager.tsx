@@ -31,7 +31,6 @@ const Pager = ({ identifier, count, current, hidden }: PagerProps) => {
                         }
                         `}
                         onClick={() => {
-                            console.log(i);
                             scrollTo(i);
                         }}
                     ></div>
