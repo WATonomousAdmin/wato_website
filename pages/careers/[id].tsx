@@ -28,7 +28,7 @@ const JobPosting = ({ postData }: JobPostingProps) => {
                     <h2>Apply for this position:</h2>
                 </div>
             </article>
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center pb-20">
                 <div className="md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
                     <JobForm id={postData.id}></JobForm>
                 </div>
