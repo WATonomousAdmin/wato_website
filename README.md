@@ -6,10 +6,11 @@
     - [Creating a New Job Posting](#creating-a-new-job-posting)
     - [Creating a New Blog Post](#creating-a-new-blog-post)
     - [Images](#images)
+    - [Adding New Members to the Member List](#adding-new-members-to-the-member-list)
 
 ## Abstract
 
-WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via [Vercel](https://wato-website.vercel.app/).
+WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via [Vercel](https://vercel.com/watonomous-projects/wato-website-c9jr).
 
 Inquiries regarding the website or joining WATonomous can be directed to [@kenzoengineer](https://github.com/kenzoengineer).
 
@@ -75,9 +76,9 @@ type: "Full Time"
 ---
 ```
 
-After this header block, add all content you would like the applicant to see when they click on the posting. A description of WATonomous, responsibilities, key qualifications, etc. Someone should make a standard template...
+After this header block, add all content you would like the applicant to see when they click on the posting. A description of WATonomous, responsibilities, key qualifications, etc.
 
-If you aren't fluent in markdown, don't be afraid! It is very easy. There are many great guides [online](https://www.markdownguide.org/basic-syntax/)
+Most common markdown syntax is supported, refer to the [documentation](https://www.markdownguide.org/basic-syntax/).
 
 > Our website may not support every single piece of syntax, however, everything I would expect in a job posting (headers, lists, images) work as intended.
 
@@ -91,11 +92,10 @@ Again, the name of the file will *not* be the title of the post, rather it will 
 
 > e.g. A file named `blog-01.md` will display as `watonomous.ca/blogs/blog-01`
 
-
-- Create a markdown document in `/job_postings`, titled anything
+- Create a markdown document in `/static/blogs`, titled anything
 - Write a metadata section by fencing some text with `---`. Inside write the job title and team. Follow the headers and format exactly or it won't work.
 
-Blog metadata is a little more involved. Take a look at the example if you are confused. The following headers **must be present**:
+Blog metadata is a little more involved. The following headers **must be present**:
 
 - **title:** The name of the blog post
 - **date:** The date the post was created, *please* have it in the format `MMMM DD YYYY`
@@ -142,3 +142,29 @@ Then refer to the file name through its path including `public`. e.g.:
 ```md
 ![The WATonomous Team Group Picture](public/imgs/team.jpg)
 ```
+
+### Adding New Members to the Member List
+
+This is done in the `./pages/about.tsx` file. At the top of the file is a very large array of `MemberCardProps` objects called `MemberData`. Member order in the array will match that of the page.
+
+To add a new member to the list just add a new `MemebrCardProps` object:
+
+```js
+{
+    imageSrc: image_src,
+    firstName: "Cloud",
+    lastName: "Strife",
+    description: "Cloud loves his Chocobo",
+    position: "Party Leader",
+}
+```
+
+> **Please note that we don't actually use the description field right now, feel free to leave it a blank string**
+
+`imageSrc` should point to a statically imported image for best performance. Copy the imports at the top of the page. The format will be similar to this:
+
+```js
+import image_src from "../public/imgs/headshots/cloud_strife.jpg";
+```
+
+To keep things organized, images should be kept in the `headshots` folder.
