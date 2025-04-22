@@ -1,20 +1,16 @@
 ---
-title: "Rolling Admission"
+title: "Expedited Admission"
 team: "All teams"
 subteam: "General Application"
 location: "Waterloo, ON"
 type: "Full Time"
 ---
 
-> **Note:** This is a rolling admission. WATonomous will prioritize applicants for positions that desperately need filling.
+> **Note:** This is a fixed window application where applicants will be given priority over rolling admissions. The purpose of this application is to help streamline WATonomous's onboarding process while limiting inefficiencies with our member infrastructure.
 
-Currently, WATonomous is prioritizing individuals who can help with:
-- Marketing and Outreach
-- Graphic Design
-- CAD design
-- Experience with machining
+During the expedited admissions process, we will give all applicants a fair chance at entering the team. The chances of you joining the team are purely within your control. Outside of this window, WATonomous will consider applicants based on the qualifications below.
 
-If you can prove to us your ability to work proactively and critically, then we will prioritize you no matter what. Some ways of showing it include: consistent GitHub contributions, project portfolios, internal references, word of mouth.
+**This current expedited admissions window will be from April 22nd, 2025 to 11:59pm EST on May 4th, 2025.** If you have missed the deadline, please submit to our rolling admission.
 
 ## Description
 
@@ -51,7 +47,7 @@ These qualifications depend on what you want to do in the team, but below is a n
 
 - Experience in previous robotics competitions such as First Robotics
 - Experience with Object Oriented Programming in C++, Python
-- Knowledge of Interprocess Communication with tools such as ROS2
+- Knowledge of Inter-process Communication with tools such as ROS2
 - Experience with AI frameworks such as PyTorch and TensorFlow
 - Research Experience, such as published papers
 - Experience in PCB design and fabrication
