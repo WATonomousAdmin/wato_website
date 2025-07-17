@@ -57,10 +57,9 @@ const Card = ({
             className={`w-full ${containerBackground()} items-center rounded-md ${containerHeight()} overflow-hidden transition-all duration-700 lg:-mr-16`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            // onClick={() => {
-            //     if (!selected) onToggle(idx);
-            // }}
-            onClick={() => {}}
+            onClick={() => {
+                 if (!selected) onToggle(idx);
+            }}
         >
             <div className="absolute w-full">
                 {selected && (

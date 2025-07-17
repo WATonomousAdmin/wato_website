@@ -1,41 +1,14 @@
-import { getPostings } from "../lib/jobPostingsDAL";
-
-import { JobPostingFrontmatterList } from "../types";
-
-import JobPostingList from "../components/JobPostingList";
 import ContentPane from "../components/ContentPane";
+import Hero from "../components/Hero";
 
-//TODO replace the images with desired images
+//TODO replace the images with desired images. Right now they are the same as the job postings
 import imgpane01 from "../public/imgs/jobpostings-pane1.jpg";
 import imgpane02 from "../public/imgs/all_logos.png";
 import imgpane03 from "../public/imgs/jobpostings-pane3.jpg";
 
-import Hero from "../components/Hero";
-
-interface JobPostingProps {
-    props: {
-        allPostingsData: JobPostingFrontmatterList;
-    };
-}
-
-interface JobPostingPageProps {
-    allPostingsData: JobPostingFrontmatterList;
-}
-
-export const getStaticProps = async (): Promise<JobPostingProps> => {
-    const allPostingsData = getPostings();
-    return {
-        props: {
-            allPostingsData,
-        },
-    };
-};
-
-
 //TODO add proper text/content
 const PAGE_TITLE = "Humanoid Page Title";
-const HERO_TEXT =
-    "Hero text";
+const HERO_TEXT = "Hero text";
 
 const PANE1_TITLE = "Pane 1 Title";
 const PANE1_SUBTITLE = "Pane 1 Subtitle";
@@ -49,49 +22,50 @@ const PANE3_TITLE = "Pane 3 Title";
 const PANE3_SUBTITLE = "Pane 3 Subtitle";
 const PANE3_CONTENT = `Pane 3 Content`;
 
-const Careers = ({ allPostingsData }: JobPostingPageProps) => {
+const Humanoid = () => {
     return (
         <div
             className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
         >
             <Hero
-                image={"bg-JobPostingHero"}
+                image={"bg-HumanoidHero"} //TODO change the image source in tailwind config
                 title={PAGE_TITLE}
                 subtitle={HERO_TEXT}
-                cta={"Open Roles"}
-                link={"#open-roles"}
+                cta={"See More"} //Change text if needed. Can also maybe remove
+                link={"#info"} //I made the inner div below just for this to work which might be overkill
             />
-
-            <ContentPane
-                title={PANE1_TITLE}
-                subtitle={PANE1_SUBTITLE}
-                img={imgpane01}
-                leftOriented={true}
+            <div
+                id={"info"}
             >
-                {PANE1_CONTENT}
-            </ContentPane>
+                <ContentPane
+                    title={PANE1_TITLE}
+                    subtitle={PANE1_SUBTITLE}
+                    img={imgpane01}
+                    leftOriented={true}
+                >
+                    {PANE1_CONTENT}
+                </ContentPane>
 
-            <ContentPane
-                title={PANE2_TITLE}
-                subtitle={PANE2_SUBTITLE}
-                img={imgpane02}
-                leftOriented={false}
-            >
-                {PANE2_CONTENT}
-            </ContentPane>
+                <ContentPane
+                    title={PANE2_TITLE}
+                    subtitle={PANE2_SUBTITLE}
+                    img={imgpane02}
+                    leftOriented={false}
+                >
+                    {PANE2_CONTENT}
+                </ContentPane>
 
-            <ContentPane
-                title={PANE3_TITLE}
-                subtitle={PANE3_SUBTITLE}
-                img={imgpane03}
-                leftOriented={true}
-            >
-                {PANE3_CONTENT}
-            </ContentPane>
-
-            <JobPostingList data={allPostingsData} />
+                <ContentPane
+                    title={PANE3_TITLE}
+                    subtitle={PANE3_SUBTITLE}
+                    img={imgpane03}
+                    leftOriented={true}
+                >
+                    {PANE3_CONTENT}
+                </ContentPane>
+            </div>
         </div>
     );
 };
 
-export default Careers;
+export default Humanoid;

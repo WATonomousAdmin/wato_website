@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Card from "./Card";
 import img01 from "../../public/imgs/img1.jpg";
+import Link from "next/link";
+
 const CardData = [
     {
         title: "Eve Autonomy",
@@ -27,6 +29,7 @@ const CardData = [
         blurb: "A joint initiative building humanoids learning from VR teleoperation.",
         body: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics. We've pulished papers to IEEE conferences such as ICRA, IEEE-IV, IEEE-T-ITS, IEEE-T-CYB, and IEEE-JAS. All WATonomous research papers were written by undergraduates!",
         image: img01,
+        link: "/humanoid",
     },
 ];
 
@@ -39,17 +42,23 @@ const VerticalCards2 = () => {
     };
 
     const items = CardData.map((d, idx) => {
-        return (
+        const card = (
             <Card
-                selectedIdx={selectedIndex}
-                idx={idx}
-                onToggle={onToggle}
-                key={idx}
-                title={d.title}
-                blurb={d.blurb}
-                body={d.body}
+            selectedIdx={selectedIndex}
+            idx={idx}
+            onToggle={onToggle}
+            key={idx}
+            title={d.title}
+            blurb={d.blurb}
+            body={d.body}
             />
         );
+
+        return d.link ? (
+            <Link href={d.link}>
+                {card}
+            </Link>
+        ) : card;
     });
 
     return (
