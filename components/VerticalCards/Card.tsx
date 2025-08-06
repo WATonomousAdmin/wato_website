@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/router';
 import { VerticalCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
 import { IoClose } from "react-icons/io5";
+import Button from "../../components/Button";
+
+const info_button_txt = "Learn More"
 
 interface CardProps extends VerticalCardData {
     selectedIdx: number;
     idx: number;
+    src: string | undefined;
     onToggle(idx: number): any;
 }
 
@@ -16,7 +21,13 @@ const Card = ({
     title,
     blurb,
     body,
+    src,
 }: CardProps) => {
+    //A little messy, not sure if writing out the html here is a good idea organization wise. Not sure if there is a better way to just
+    //integrate in the main html; I did this so there is more control over what is shown when displaying the blurb vs body, i.e, the body
+    //has a button (link to the corresponding site) but the blurb does not
+    const router = useRouter();
+
     const [isHovered, setHovered] = useState(false);
     const [content, setContent] = useState(blurb);
 
@@ -46,22 +57,25 @@ const Card = ({
     useEffect(() => {
         const elements = [document.querySelector(`.content-${idx}`)];
         fadeElement(Fade.Out, elements);
+        //Moved this here so there is no lag with the updated details being displayed; not sure if taking this out of the timeout is a problem
+        setContent(selected ? body : blurb);
+
         setTimeout(() => {
             fadeElement(Fade.In, elements);
-            setContent(selected ? body : blurb);
         }, 1000);
     }, [selected]);
 
     return (
         <div
-            className={`w-full ${containerBackground()} items-center rounded-md ${containerHeight()} overflow-hidden transition-all duration-700 lg:-mr-16`}
+            //Note, I changed this to relative because positioning of the "Learn More" button was not working and needed the button container div to have a relative parent
+            className={`relative w-full ${containerBackground()} items-center rounded-md ${containerHeight()} transition-all duration-700 lg:-mr-16`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={() => {
                  if (!selected) onToggle(idx);
             }}
         >
-            <div className="absolute w-full">
+            <div className="absolute w-full h-full">
                 {selected && (
                     <button
                         onClick={() => {
@@ -74,6 +88,36 @@ const Card = ({
                         <IoClose />
                     </button>
                 )}
+
+                {selected && src && (
+                    <button
+                        onClick={() => {
+                            onToggle(-1);
+                            setHovered(false);
+                            router.push(src)
+                        }}
+                        className="absolute right-2 bottom-0 translate-y-10 text-xl text-white font-bold"
+                    >
+                        {info_button_txt}
+                    </button>
+
+                    // Alternate Button component approach, works fine but for now I chose the above approach for consistency w/ IO close button
+
+                    // <div className="absolute right-2 bottom-0 translate-y-10 text-xl">
+                    //     <Button
+                    //         text={info_button_txt}
+                    //         color="text-white"
+                    //         outline
+                    //         src={src}
+                    //         onClick={() => {
+                    //             onToggle(-1);
+                    //             setHovered(false);  
+                    //         }}
+                    //     >
+                    //     </Button>
+                    // </div>
+                )}
+                
             </div>
             <div className="grid h-full grid-cols-3 p-4">
                 {/* <div

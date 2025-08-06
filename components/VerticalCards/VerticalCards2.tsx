@@ -29,7 +29,7 @@ const CardData = [
         blurb: "A joint initiative building humanoids learning from VR teleoperation.",
         body: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics. We've pulished papers to IEEE conferences such as ICRA, IEEE-IV, IEEE-T-ITS, IEEE-T-CYB, and IEEE-JAS. All WATonomous research papers were written by undergraduates!",
         image: img01,
-        link: "/humanoid",
+        src: "/humanoid",
     },
 ];
 
@@ -42,7 +42,7 @@ const VerticalCards2 = () => {
     };
 
     const items = CardData.map((d, idx) => {
-        const card = (
+        return (
             <Card
             selectedIdx={selectedIndex}
             idx={idx}
@@ -51,14 +51,9 @@ const VerticalCards2 = () => {
             title={d.title}
             blurb={d.blurb}
             body={d.body}
+            src={d.src}
             />
-        );
-
-        return d.link ? (
-            <Link href={d.link}>
-                {card}
-            </Link>
-        ) : card;
+        )
     });
 
     return (

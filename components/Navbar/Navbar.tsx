@@ -44,6 +44,20 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         <NavbarItem href={"/about"} toggle={closeMobile}>
                             ABOUT
                         </NavbarItem>
+                        <NavbarFolder
+                            title={
+                                <div className="flex items-center">
+                                    PROJECTS
+                                </div>
+                            }
+                        >
+                            <NavbarItem
+                                href={"/humanoid"}
+                                toggle={closeMobile}
+                            >
+                                HUMANOID
+                            </NavbarItem>
+                        </NavbarFolder>
                         {/* <NavbarItem href={"/blogs"} toggle={closeMobile}>
                         BLOG
                     </NavbarItem> */}
