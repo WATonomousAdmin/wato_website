@@ -23,9 +23,6 @@ const Card = ({
     body,
     src,
 }: CardProps) => {
-    //A little messy, not sure if writing out the html here is a good idea organization wise. Not sure if there is a better way to just
-    //integrate in the main html; I did this so there is more control over what is shown when displaying the blurb vs body, i.e, the body
-    //has a button (link to the corresponding site) but the blurb does not
     const router = useRouter();
 
     const [isHovered, setHovered] = useState(false);

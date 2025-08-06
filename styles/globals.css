@@ -57,6 +57,15 @@ body {
     animation: gradient 5s ease infinite;
 }
 
+.video-anchor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(/imgs/video_thumb.png) center / cover;
+  opacity: 0;              
+  pointer-events: none; 
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;

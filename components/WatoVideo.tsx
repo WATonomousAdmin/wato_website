@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface WatoVideoProps {
     transparent?: boolean;
     gutter?: boolean;
@@ -16,8 +18,9 @@ const WatoVideo = ({ transparent = false, gutter = false }: WatoVideoProps) => {
                 muted
                 loop
                 className={`absolute inset-0 h-full w-full object-cover`}
-            >
+            >   
                 <source src="/imgs/wato-animation.mp4" />
+                
             </video>
         </div>
     );
