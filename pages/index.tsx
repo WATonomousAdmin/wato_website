@@ -9,7 +9,7 @@ export default function Home() {
                 <WatoVideo />
             </Link>
             {/* //Links are internal to the highlight component */}
-            <ProjectHighlights />
+            <ProjectHighlights/>
             <div className="fixed z-0 h-screen w-screen bg-TopGradient pointer-events-none" />
         </div>
     );
