@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const stroke_width = 6
+const stroke_width = 6.1
 
 const ProjectHighlights = () => {
     return (
