@@ -7,7 +7,7 @@ const WatoVideo = ({ transparent = false, gutter = false }: WatoVideoProps) => {
         <div
             className={`${
                 transparent ? "opacity-30" : ""
-            } relative h-screen w-screen bg-VideoPlaceholder bg-cover bg-center`}
+            } relative h-screen w-screen bg-VideoPlaceholder bg-cover bg-bottom`}
             style={{ scrollbarGutter: gutter ? "stable" : "unset" }}
         >
             <video
@@ -15,9 +15,10 @@ const WatoVideo = ({ transparent = false, gutter = false }: WatoVideoProps) => {
                 playsInline
                 muted
                 loop
-                className={`absolute inset-0 h-full w-full object-cover`}
-            >
+                className={`absolute inset-0 h-full w-full object-cover object-bottom`}
+            >   
                 <source src="/imgs/wato-animation.mp4" />
+                
             </video>
         </div>
     );

@@ -9,6 +9,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 JobPostingHero: "url('/imgs/jobpostings-header-final.png')",
+                HumanoidHero: "url('/imgs/jobpostings-header-final.png')", //TODO replace with humanoid image
                 ModalRight:
                     "linear-gradient(168.88deg, #1F5D96 -1.63%, rgba(31, 93, 150, 0.885417) 23.91%, rgba(31, 93, 150, 0) 146.98%)",
                 TopGradient:
@@ -48,3 +49,4 @@ module.exports = {
     },
     plugins: [require("@tailwindcss/typography")],
 };
+
