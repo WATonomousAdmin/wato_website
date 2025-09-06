@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { VerticalCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
 import { IoClose } from "react-icons/io5";
-import Button from "../../components/Button";
 
 const info_button_txt = "Learn More"
 
