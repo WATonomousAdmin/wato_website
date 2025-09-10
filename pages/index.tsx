@@ -8,8 +8,10 @@ export default function Home() {
             <Link href="/about" className="fixed">
                 <WatoVideo />
             </Link>
-            {/* //Links are internal to the highlight component */}
-            <ProjectHighlights/>
+            {/* //Links are internal to the highlight component; div blocks the links on mobile */}
+            <div className="[@media(hover:none)_and_(pointer:coarse){&}]:hidden">
+                <ProjectHighlights/>
+            </div>
             <div className="fixed z-0 h-screen w-screen bg-TopGradient pointer-events-none" />
         </div>
     );
