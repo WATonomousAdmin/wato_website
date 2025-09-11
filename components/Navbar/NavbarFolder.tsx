@@ -9,10 +9,7 @@ interface NavbarFolderProps {
 const NavbarFolder = ({ title, children }: NavbarFolderProps) => {
     const [expanded, setExpanded] = useState(false);
     return (
-        <div className="group relative inline-block"
-            onPointerEnter={e => { if (e.pointerType === 'mouse') setExpanded(true); }}
-            onPointerLeave={e => { if (e.pointerType === 'mouse') setExpanded(false); }}
-        >
+        <div className="group relative inline-block">
             <NavbarCommonContainer
                 onClick={() => {
                     setExpanded(!expanded);
@@ -25,7 +22,7 @@ const NavbarFolder = ({ title, children }: NavbarFolderProps) => {
             </NavbarCommonContainer>
             <div
                 //className={`absolute flex h-32 flex-col overflow-hidden bg-red-300 transition-all`}
-                className={`pointer-events-none', 'flex flex-col transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100 max-lg:ml-6 lg:absolute lg:max-h-0 lg:opacity-0`}
+                className={`pointer-events-none flex flex-col transition-all duration-300 [@media(hover:none)_and_(pointer:coarse){&}]:pointer-events-auto group-hover:pointer-events-auto group-hover:opacity-100 max-lg:ml-6 lg:absolute lg:max-h-0 lg:opacity-0`}
             >
                 <ul className="flex flex-col">{children}</ul>
             </div>
