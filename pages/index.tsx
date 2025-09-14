@@ -1,15 +1,18 @@
 import Link from "next/link";
 import WatoVideo from "../components/WatoVideo";
+import ProjectHighlights from "../components/ProjectHighlights";
 
 export default function Home() {
     return (
-        <Link href={"/about"}>
-            <div className="z-0 h-screen cursor-pointer overflow-hidden bg-VideoPlaceholder bg-cover">
-                <div className="fixed z-0">
-                    <WatoVideo />
-                </div>
-                <div className="fixed z-10 h-screen w-screen bg-TopGradient" />
+        <div className="z-0 w-screen h-screen cursor-pointer overflow-hidden bg-VideoPlaceholder bg-cover">
+            <Link href="/about" className="fixed">
+                <WatoVideo />
+            </Link>
+            {/* //Links are internal to the highlight component; div blocks the links on mobile */}
+            <div className="[@media(hover:none)_and_(pointer:coarse){&}]:hidden">
+                <ProjectHighlights/>
             </div>
-        </Link>
+            <div className="fixed z-0 h-screen w-screen bg-TopGradient pointer-events-none" />
+        </div>
     );
 }

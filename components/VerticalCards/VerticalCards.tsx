@@ -40,6 +40,7 @@ const VerticalCards = () => {
                 title={d.title}
                 blurb={d.blurb}
                 body={d.body}
+                src={undefined}
             />
         );
     });
