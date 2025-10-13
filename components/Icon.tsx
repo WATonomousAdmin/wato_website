@@ -4,7 +4,7 @@ interface IconProps {
 
 const Icon = ({ content }: IconProps) => {
     return (
-        <i className={`fa-solid fa-brands ${content} text-lg font-normal`} />
+        <i className={`fa-solid fa-brands ${content} inline-flex items-center -translate-y-[1px] translate-x-[0.5px] text-lg font-normal`} />
     );
 };
 
