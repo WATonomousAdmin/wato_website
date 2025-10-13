@@ -1,24 +1,28 @@
 import { useState } from "react";
 import Card from "./Card";
 import img01 from "../../public/imgs/img1.jpg";
+import { Award, GraduationCap, ScrollText } from "lucide-react";
 const CardData = [
     {
         title: "800+ Alumni , 3 YC Founders",
         blurb: "Members of WATonomous have gone off to pursue careers at top tech companies like Nvidia, Tesla, Google, Apple, and more!.",
         body: "Members of WATonomous have gone off to pursue careers at top tech companies like Nvidia, Tesla, Google, Apple, and more! Others have gone off to build their own startups in robotics and other fields. With some joining prestigious accelerators like Y Combinator.",
         image: img01,
+        icon: Award,
     },
     {
         title: "90% Undergraduates",
         blurb: "WATonomous is a completely student-led team with strong support from the University of Waterloo.",
         body: "WATonomous is a completely student-led team with strong support from the University of Waterloo. We accept applicants from all years, prioritizing your ability to learn over your current technical prowess. WATonomous is dedicated to promoting equity, diversity, and inclusivity, gladly providing access to resources for those who need it.",
         image: img01,
+        icon: GraduationCap,
     },
     {
         title: "10+ Research Papers",
         blurb: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics.",
         body: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics. We've pulished papers to IEEE conferences such as ICRA, IEEE-IV, IEEE-T-ITS, IEEE-T-CYB, and IEEE-JAS. All WATonomous research papers were written by undergraduates!",
         image: img01,
+        icon: ScrollText,
     },
 ];
 
@@ -41,6 +45,7 @@ const VerticalCards = () => {
                 blurb={d.blurb}
                 body={d.body}
                 src={undefined}
+                icon={d.icon}
             />
         );
     });
