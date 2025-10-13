@@ -1,5 +1,16 @@
 # The amazing WATonomous website for amazing people
 
+- [The amazing WATonomous website for amazing people](#the-amazing-watonomous-website-for-amazing-people)
+  - [How-Tos](#how-tos)
+    - [Creating a Job Posting](#creating-a-job-posting)
+    - [Creating a Blog Post](#creating-a-blog-post)
+    - [Using Images in Markdown](#using-images-in-markdown)
+    - [Adding New Members to the Member List](#adding-new-members-to-the-member-list)
+  - [For developers](#for-developers)
+    - [Setup](#setup)
+    - [Architecture](#architecture)
+    - [Environment Variables](#environment-variables)
+
 WATonomous is proving that students can change the world of autonomous vehicles. If you are not a developer and would just like to add content to the site, feel free to skip the "For Developers" sections.
 
 ## How-Tos
@@ -133,7 +144,7 @@ npm run dev
 
 ### Architecture
 
-![](public/readme/architecture.png)
+![System Architecture](public/readme/architecture.png)
 
 We use the **GCS** Sheets API to make updates to our job posting sheets.
 
@@ -143,7 +154,7 @@ Our anti-abuse system uses Upstash's managed redis.
 
 ### Environment Variables
 
-We inject environment variables during our build step on Vercel: https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables.
+We inject environment variables during our build step on Vercel: [https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables](https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables).
 
 Access them in code using `process.env` just like a normal environment variable.
 
