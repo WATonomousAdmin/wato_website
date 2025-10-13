@@ -156,6 +156,8 @@ Our anti-abuse system uses Upstash's managed redis.
 
 We inject environment variables during our build step on Vercel: [https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables](https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables).
 
+> When testing code that requires environment variables to be set (sending job apps, sending emails), please ask an admin with access to the watonomous admin account to give them to you. Note that environment variables are easily exported from vercel using [the cli tool](https://vercel.com/docs/cli/env). Next.js will **automatically** expose variables in `env.*` files (e.g. env.local)
+
 Access them in code using `process.env` just like a normal environment variable.
 
 **UPSTASH_REDIS_REST_TOKEN**: Find this in the upstash console for the redis instance
