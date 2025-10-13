@@ -11,7 +11,7 @@ interface CardProps {
 const Card = ({ title, subtitle, body, cta, buttonLink } : CardProps) => {
     return (
         <div
-            className={`flex min-w-full flex-col rounded-md bg-wato-grey-clear p-5 text-lg text-black lg:w-[30vw] lg:min-w-[calc(50%-0.5555em)] overflow-y-hidden`}
+            className={`flex min-w-full flex-col rounded-md bg-wato-grey-clear p-5 text-lg text-black lg:min-w-0 lg:w-[calc(50%-0.625rem)] overflow-y-hidden`}
         >
             <div className="font-normal text-white">{subtitle.toUpperCase()}</div>
             <div className="py-8 text-4xl font-bold">{title}</div>

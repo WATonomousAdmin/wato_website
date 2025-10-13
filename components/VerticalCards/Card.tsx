@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { VerticalCardData, Fade } from "../../types";
 import { fadeElement } from "../../lib/utils";
 import { IoClose } from "react-icons/io5";
+import { LucideIcon } from "lucide-react";
 
 const info_button_txt = "Learn More"
 
@@ -10,6 +11,8 @@ interface CardProps extends VerticalCardData {
     selectedIdx: number;
     idx: number;
     src: string | undefined;
+    icon?: LucideIcon;
+    cardHeight?: string;
     onToggle(idx: number): any;
 }
 
@@ -18,14 +21,15 @@ const Card = ({
     idx,
     onToggle,
     title,
-    blurb,
     body,
     src,
+    icon: Icon,
+    cardHeight = "lg:h-32",
 }: CardProps) => {
     const router = useRouter();
 
     const [isHovered, setHovered] = useState(false);
-    const [content, setContent] = useState(blurb);
+    const [content, setContent] = useState("");
 
     const selected = selectedIdx == idx;
     const somethingIsSelected = selectedIdx !== -1;
@@ -40,7 +44,7 @@ const Card = ({
 
     const containerHeight = () => {
         if (!selected && !somethingIsSelected)
-            return "lg:h-32 opacity-100 my-2 lg:my-5";
+            return `${cardHeight} opacity-100 my-2 lg:my-5`;
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
         else return "h-[30vh] lg:h-[30vh] z-10";
     };
@@ -54,7 +58,7 @@ const Card = ({
         const elements = [document.querySelector(`.content-${idx}`)];
         fadeElement(Fade.Out, elements);
         //Moved this here so there is no lag with the updated details being displayed; not sure if taking this out of the timeout is a problem
-        setContent(selected ? body : blurb);
+        setContent(selected ? body : "");
 
         setTimeout(() => {
             fadeElement(Fade.In, elements);
@@ -77,9 +81,9 @@ const Card = ({
                         onClick={() => {
                             onToggle(-1);
                             setHovered(false);
-                            setContent(selected ? body : blurb);
+                            setContent("");
                         }}
-                        className="absolute right-2 top-1 text-xl text-white"
+                        className="absolute right-4 top-3 text-xl text-white"
                     >
                         <IoClose />
                     </button>
@@ -121,22 +125,27 @@ const Card = ({
                 >
                 </div> */}
 
-                <div className={`col-span-3 flex flex-col overflow-y-hidden`}>
-                    <div className="mb-4 font-bold text-white lg:text-lg">
-                        {isHovered || selected ? (
-                            <div>
-                                {title}{" "}
-                                <span className="text-wato-teal">{"//"}</span>
-                            </div>
-                        ) : (
-                            title
-                        )}
+                <div className={`col-span-3 flex flex-col justify-center overflow-y-hidden pl-6`}>
+                    <div className="flex items-center gap-4 text-3xl font-bold text-white lg:text-4xl">
+                        {Icon && <Icon className="flex-shrink-0" size={40} />}
+                        <div>
+                            {isHovered || selected ? (
+                                <div>
+                                    {title}{" "}
+                                    <span className="text-wato-teal">{"//"}</span>
+                                </div>
+                            ) : (
+                                title
+                            )}
+                        </div>
                     </div>
-                    <div
-                        className={`content-${idx} mr-3 rounded-md text-sm text-wato-white-bone transition-opacity `}
-                    >
-                        {content}
-                    </div>
+                    {selected && (
+                        <div
+                            className={`content-${idx} mt-4 mr-3 rounded-md text-lg text-wato-white-bone transition-opacity lg:text-xl`}
+                        >
+                            {content}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

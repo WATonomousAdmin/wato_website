@@ -5,7 +5,6 @@ interface ContentPaneProps {
     title: string;
     subtitle: string;
     children: React.ReactNode | any;
-    backgroundImage?: string;
 }
 
 const ContentPane = ({
@@ -14,23 +13,16 @@ const ContentPane = ({
     title,
     subtitle,
     children,
-    backgroundImage,
 }: ContentPaneProps) => {
     return (
         <div
-            className={`relative flex flex-col ${
-                leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
-            } ${
-                backgroundImage ?? "bg-wato-black-vanta"
-            } py-8 max-lg:items-center`}
+            className={`relative flex flex-col items-center bg-black bg-opacity-80 py-32`}
         >
-            <div className="absolute inset-0 bg-cover bg-center" />
-            <div className="absolute inset-0 bg-black opacity-80"></div>
-
+            <div className={`relative z-10 flex w-full max-w-[95rem] flex-col gap-x-16 px-8 md:px-16 lg:w-[85vw] lg:px-0 ${
+                leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
+            } max-lg:items-center`}>
             <div
-                className={`${
-                    !leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
-                } relative z-10 flex flex-col justify-center text-white max-lg:items-center sm:px-16 lg:w-[51%]`}
+                className={`flex flex-col justify-center text-white max-lg:items-center lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
@@ -38,17 +30,16 @@ const ContentPane = ({
                 <div className="text-lg italic text-wato-teal max-lg:text-center lg:mb-6 lg:mt-2">
                     {subtitle}
                 </div>
-                <div className="max-lg:w-screen max-lg:px-12 max-lg:py-6 max-lg:text-sm">
+                <div className="max-lg:py-8 max-lg:text-sm">
                     {children}
                 </div>
             </div>
 
             <div
-                className={`flex w-4/5 justify-center self-center lg:w-[45%] ${
-                    leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
-                } relative z-10`}
+                className={`flex w-4/5 justify-center self-center lg:w-[45%]`}
             >
                 <Image alt={"image"} src={img} className="rounded-md"></Image>
+            </div>
             </div>
         </div>
     );

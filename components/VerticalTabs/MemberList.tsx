@@ -19,7 +19,7 @@ const MemberList = ({ data }: MemberListProps) => {
                 <h1 className="px-4 pt-2 text-white lg:text-xl">Alumni</h1>
             </div>
             {/* <div className="flex space-x-4"> */}
-            <div className="memberlist grid max-h-[60vh] grid-cols-2 gap-3 overflow-y-scroll px-2 md:grid-cols-4 lg:grid-cols-3">
+            <div className="memberlist grid max-h-[45vh] grid-cols-2 gap-3 overflow-y-scroll px-2 md:grid-cols-4 lg:grid-cols-3">
                 {/* <MemberCard imageSrc={e7} firstName="WATO" lastName="Member" description="This is a WATO member" position="Overlord" /> */}
                 {data.map((member: MemberCardProps, id: number) => {
                     return (
@@ -35,7 +35,7 @@ const MemberList = ({ data }: MemberListProps) => {
                 })}
             </div>
             <div>
-                <h4 className="p-1 text-white">...and many more</h4>
+                <h4 className="p-1 text-white">...and many more!</h4>
             </div>
         </div>
     );

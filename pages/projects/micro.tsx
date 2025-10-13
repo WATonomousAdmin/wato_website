@@ -1,5 +1,6 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
+import CTASection from "../../components/CTASection";
 
 import imgpane01 from "../../public/imgs/projects/micro/car.jpg";
 import imgpane02 from "../../public/imgs/projects/micro/foxglove.jpg";
@@ -21,49 +22,51 @@ const PANE3_SUBTITLE = "From Campus to International Competitions";
 const PANE3_CONTENT = `F1Tenth gives you what full-scale vehicles can't—rapid iteration, aggressive testing, and the freedom to fail fast and learn faster. Deploy your algorithms in minutes, not months. Test ideas that would be too risky or expensive on real cars. Compete at premier international conferences like IROS and ICRA, meeting top researchers and teams from around the world. The skills you build—real-time perception, motion planning, control under constraints—are exactly what companies like Waymo, Aurora, and Tesla need. Whether you're heading to grad school or industry, F1Tenth puts you on the starting grid for a career in autonomous systems.`;
 
 const Humanoid = () => {
-    return (
-        <div
-            className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
-        >
-            <Hero
-                video="/imgs/projects/micro/demo.mp4"
-                title={PAGE_TITLE}
-                subtitle={HERO_TEXT}
-                cta={"See More"} //Change text if needed. Can also maybe remove
-                link={"#info"} //I made the inner div below just for this to work which might be overkill
-            />
-            <div
-                id={"info"}
-            >
-                <ContentPane
-                    title={PANE1_TITLE}
-                    subtitle={PANE1_SUBTITLE}
-                    img={imgpane01}
-                    leftOriented={true}
-                >
-                    {PANE1_CONTENT}
-                </ContentPane>
+  return (
+    <>
+      <Hero
+        video="/imgs/projects/micro/demo.mp4"
+        title={PAGE_TITLE}
+        subtitle={HERO_TEXT}
+        cta={"See More"}
+        link={"#info"}
+        fixed
+      />
+      <ContentPane
+        title={PANE1_TITLE}
+        subtitle={PANE1_SUBTITLE}
+        img={imgpane01}
+        leftOriented={true}
+      >
+        {PANE1_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE2_TITLE}
-                    subtitle={PANE2_SUBTITLE}
-                    img={imgpane02}
-                    leftOriented={false}
-                >
-                    {PANE2_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE2_TITLE}
+        subtitle={PANE2_SUBTITLE}
+        img={imgpane02}
+        leftOriented={false}
+      >
+        {PANE2_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE3_TITLE}
-                    subtitle={PANE3_SUBTITLE}
-                    img={imgpane03}
-                    leftOriented={true}
-                >
-                    {PANE3_CONTENT}
-                </ContentPane>
-            </div>
-        </div>
-    );
+      <ContentPane
+        title={PANE3_TITLE}
+        subtitle={PANE3_SUBTITLE}
+        img={imgpane03}
+        leftOriented={true}
+      >
+        {PANE3_CONTENT}
+      </ContentPane>
+
+      <CTASection
+        title="Interested in joining?"
+        description="Race with us at international competitions"
+        ctaText="Apply Here"
+        ctaLink="/careers"
+      />
+    </>
+  );
 };
 
 export default Humanoid;

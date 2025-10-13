@@ -11,7 +11,7 @@ const NavbarIconItem = ({ href, icon }: NavbarIconItemProps) => {
     return (
         <Link href={href} target="_blank">
             <NavbarCommonContainer classes="lg:px-2 lg:py-[2px]">
-                <span className="pr-1 text-wato-teal lg:hidden">{"// "}</span>
+                <span className="text-wato-teal lg:hidden mr-2">{"//"}</span>
                 <Icon content={icon} />
             </NavbarCommonContainer>
         </Link>

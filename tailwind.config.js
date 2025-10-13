@@ -26,6 +26,7 @@ module.exports = {
             colors: {
                 "wato-blue": {
                     DEFAULT: "#1F5D96",
+                    hover: "#4A7EB3",
                     gloomy: "#BCCEE0",
                     water: "#D3E3F3",
                 },
@@ -37,7 +38,7 @@ module.exports = {
                 },
                 "wato-grey": {
                     DEFAULT: "#A6A6A6",
-                    clear: "#E6E2DFB5",
+                    clear: "#E6E2DF8C",
                     porcelain: "#EBEDEF",
                 },
                 "wato-black": {

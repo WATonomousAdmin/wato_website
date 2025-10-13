@@ -16,14 +16,15 @@ const ExtendedContentPane = ({
     children,
 }: ExtendedContentPaneProps) => {
     return (
+        <div className="flex justify-center">
         <div
-            className={`flex flex-col ${
+            className={`flex w-full max-w-[100rem] flex-col px-8 md:px-16 lg:w-[90vw] lg:px-0 ${
                 leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
-            } mt-5 justify-between max-lg:items-center`}
+            } mt-8 justify-between max-lg:items-center`}
         >
             <div
                 className={`${
-                    !leftOriented ? "lg:pr-44 xl:pr-60" : "lg:pl-44 xl:pl-60"
+                    !leftOriented ? "lg:pr-16" : "lg:pl-16"
                 } flex flex-col justify-center text-black max-lg:items-center lg:w-[51%]`}
             >
                 <div className="text-4xl font-black max-lg:text-center sm:text-5xl">
@@ -32,13 +33,13 @@ const ExtendedContentPane = ({
                 <div className="text-2xl max-lg:text-center lg:mb-6">
                     {subtitle}
                 </div>
-                <div className="max-lg:w-screen max-lg:p-12 max-lg:text-center">
+                <div className="max-lg:p-8 max-lg:text-center">
                     {children}
                 </div>
             </div>
-            <div className="lg:-translate-y-20">
+            <div className="lg:w-[45%] lg:-translate-y-20">
                 <div
-                    className={`relative flex max-h-[700px] max-w-[500px] justify-center self-center max-lg:hidden lg:right-[11rem] lg:h-[50vh] lg:w-[30vw] xl:right-[15rem]`}
+                    className={`relative flex max-h-[700px] max-w-[500px] justify-center self-center max-lg:hidden lg:h-[50vh] lg:w-full`}
                 >
                     <Image
                         alt={"image"}
@@ -48,6 +49,7 @@ const ExtendedContentPane = ({
                     ></Image>
                 </div>
             </div>
+        </div>
         </div>
     );
 };

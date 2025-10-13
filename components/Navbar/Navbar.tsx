@@ -10,6 +10,7 @@ import WatoLogo from "../../public/imgs/watonomous.png";
 import NavbarFolder from "./NavbarFolder";
 
 import { MdOpenInNew } from "react-icons/md";
+import { Car, Zap, Orbit, Bot, BookOpen, CloudLightning } from "lucide-react";
 interface NavBarProps {
     toggleModal(): any;
     dark?: boolean;
@@ -45,35 +46,43 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             ABOUT
                         </NavbarItem>
                         <NavbarFolder
-                            title={
-                                <div className="flex items-center">
-                                    PROJECTS
-                                </div>
-                            }
+                            title="PROJECTS"
                         >
                             <NavbarItem
                                 href={"/projects/eve"}
                                 toggle={closeMobile}
                             >
-                                EVE
+                                <div className="flex items-center gap-1">
+                                    <Car size={16} />
+                                    <span className="lg:hidden">PROJECTS - </span>EVE
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/micro"}
                                 toggle={closeMobile}
                             >
-                                MICRO
+                                <div className="flex items-center gap-1">
+                                    <Zap size={16} />
+                                    <span className="lg:hidden">PROJECTS - </span>MICRO
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/rover"}
                                 toggle={closeMobile}
                             >
-                                ROVER
+                                <div className="flex items-center gap-1">
+                                    <Orbit size={16} />
+                                    <span className="lg:hidden">PROJECTS - </span>ROVER
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/humanoid"}
                                 toggle={closeMobile}
                             >
-                                HUMANOID
+                                <div className="flex items-center gap-1">
+                                    <Bot size={16} />
+                                    <span className="lg:hidden">PROJECTS - </span>HUMANOID
+                                </div>
                             </NavbarItem>
                         </NavbarFolder>
                         {/* <NavbarItem href={"/blogs"} toggle={closeMobile}>
@@ -89,7 +98,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             title={
                                 <div className="flex items-center">
                                     EXTERNAL
-                                    <MdOpenInNew className="ml-1" />
+                                    <MdOpenInNew className="ml-1 translate-y-[-1px]" />
                                 </div>
                             }
                         >
@@ -98,14 +107,20 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 toggle={closeMobile}
                                 newTab
                             >
-                                WIKI
+                                <div className="flex items-center gap-1">
+                                    <BookOpen size={16} />
+                                    <span className="lg:hidden">EXTERNAL - </span>WIKI
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"https://cloud.watonomous.ca/"}
                                 toggle={closeMobile}
                                 newTab
                             >
-                                WATcloud
+                                <div className="flex items-center gap-1">
+                                    <CloudLightning size={16} />
+                                    <span className="lg:hidden">EXTERNAL - </span>WATcloud
+                                </div>
                             </NavbarItem>
                         </NavbarFolder>
                         <NavbarIconItem

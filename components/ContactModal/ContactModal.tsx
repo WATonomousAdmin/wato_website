@@ -28,7 +28,7 @@ const ContactModal = ({ closeModal }: ContactModalProps) => {
                     >
                         <div
                             className={
-                                "sticky top-2 ml-auto cursor-pointer pr-2 text-lg font-bold text-wato-grey md:hidden"
+                                "sticky top-4 ml-auto cursor-pointer pr-4 text-lg font-bold text-wato-grey md:hidden"
                             }
                             onClick={closeModal}
                         >

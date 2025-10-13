@@ -39,17 +39,18 @@ const Hero = ({
 
     return (
         <div
-            className={`justify-left flex h-screen items-end ${
-                video || image
-                    ? image
-                        ? isImageObject
-                            ? "bg-cover"
-                            : `${image} bg-cover`
-                        : "bg-black"
-                    : "bg-black"
-            } w-full overflow-x-hidden`}
-            style={isImageObject ? backgroundStyle : {}}
+            className={`justify-left flex h-screen items-end w-full overflow-x-hidden ${
+                !video && !image ? "bg-black" : ""
+            }`}
         >
+            {image && (
+                <div
+                    className={`${fixed ? "fixed" : "absolute"} inset-0 ${
+                        isImageObject ? "bg-cover" : `${image} bg-cover`
+                    } bg-center`}
+                    style={isImageObject ? backgroundStyle : {}}
+                />
+            )}
             {video && (
                 <div className={`${fixed ? "fixed" : "absolute"} inset-0`}>
                     <video
@@ -57,7 +58,7 @@ const Hero = ({
                         playsInline
                         muted
                         loop
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
                     >
                         <source src={video} type="video/mp4" />
                     </video>
@@ -79,7 +80,7 @@ const Hero = ({
                     fadeIn ? "opacity-70 ease-in" : "opacity-0"
                 }`}
             ></div>
-            <div className={`relative mx-8 my-32 text-white md:mx-16 lg:mx-32`}>
+            <div className={`relative mx-auto my-32 w-full max-w-[100rem] px-8 text-white md:px-16 lg:w-[90vw] lg:px-0`}>
                 <div className="mb-3 whitespace-pre-line text-4xl font-black">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>

@@ -18,7 +18,7 @@ const NavbarItem = ({
     return (
         <Link href={href} onClick={toggle} target={newTab ? "_blank" : ""}>
             <NavbarCommonContainer>
-                <span className="text-wato-teal lg:hidden">{"// "}</span>
+                <span className="text-wato-teal lg:hidden mr-2">{"//"}</span>
                 {children}
             </NavbarCommonContainer>
         </Link>

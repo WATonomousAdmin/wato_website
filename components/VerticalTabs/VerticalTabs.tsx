@@ -24,13 +24,13 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
     const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.1 });
     return (
         <div className="relative flex w-screen justify-center bg-black bg-opacity-80">
-            <div className="relative w-screen lg:w-[60rem] xl:w-[75rem]">
+            <div className="relative w-full max-w-[95rem] px-8 md:px-16 lg:w-[85vw] lg:px-0">
                 <div
                     id="tabs"
                     className={`
                 no-scrollbar
                 relative z-10
-                flex-col gap-y-36
+                flex-col gap-y-32
                 bg-transparent
                 transition-opacity
                 duration-500
@@ -56,7 +56,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
                     })}
                 </div>
                 <div
-                    className={`fixed left-0 top-0 z-20 ml-12 flex h-full items-center justify-center transition-opacity duration-500`}
+                    className={`fixed left-0 top-0 z-20 ml-8 flex h-full items-center justify-center transition-opacity duration-500`}
                 >
                     <Pager
                         identifier={carouselKey}
