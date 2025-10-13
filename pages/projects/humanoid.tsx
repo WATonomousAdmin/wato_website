@@ -1,7 +1,6 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
-import Link from "next/link";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import CTASection from "../../components/CTASection";
 
 import imgpane01 from "../../public/imgs/projects/humanoid/finger.jpg";
 import imgpane02 from "../../public/imgs/projects/humanoid/humans.jpg";
@@ -21,69 +20,52 @@ const PANE2_CONTENT = `Unlike most humanoid platforms that rely on commercial co
 const PANE3_TITLE = "Complete System Autonomy";
 const PANE3_SUBTITLE = "From Hardware to Intelligence";
 const PANE3_CONTENT = `We maintain full control of the robot’s design, mechanical, electrical, and software, enabling a uniquely integrated approach to autonomy. This vertical integration means every subsystem, from the actuator torque curves to the high-level motion planner, works cohesively. Such control allows us to optimize communication between sensors, processors, and controllers for real-time performance, create custom embedded systems and motor drivers tailored to our walking and manipulation needs, and develop perception and control algorithms that exploit the robot’s exact physical model. The result is a platform that evolves as a unified system, an ideal testbed for research in locomotion, manipulation, and embodied intelligence.`;
-
 const Humanoid = () => {
-    return (
-        <div
-            className={`flex flex-col gap-y-32 overflow-hidden scroll-smooth bg-black bg-cover`}
-        >
-            <Hero
-                // image={imgpane00} //TODO change the image source in tailwind config
-                title={PAGE_TITLE}
-                subtitle={HERO_TEXT}
-                cta={"See More"}
-                link={"#info"}
-                fixed
-            />
-            <div
-                id={"info"}
-                className="flex flex-col"
-            >
-                <ContentPane
-                    title={PANE1_TITLE}
-                    subtitle={PANE1_SUBTITLE}
-                    img={imgpane01}
-                    leftOriented={true}
-                >
-                    {PANE1_CONTENT}
-                </ContentPane>
+  return (
+    <>
+      <Hero
+        // image={imgpane00} //TODO change the image source in tailwind config
+        title={PAGE_TITLE}
+        subtitle={HERO_TEXT}
+        cta={"See More"}
+        link={"#info"}
+        fixed
+      />
+      <ContentPane
+        title={PANE1_TITLE}
+        subtitle={PANE1_SUBTITLE}
+        img={imgpane01}
+        leftOriented={true}
+      >
+        {PANE1_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE2_TITLE}
-                    subtitle={PANE2_SUBTITLE}
-                    img={imgpane02}
-                    leftOriented={false}
-                >
-                    {PANE2_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE2_TITLE}
+        subtitle={PANE2_SUBTITLE}
+        img={imgpane02}
+        leftOriented={false}
+      >
+        {PANE2_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE3_TITLE}
-                    subtitle={PANE3_SUBTITLE}
-                    img={imgpane03}
-                    leftOriented={true}
-                >
-                    {PANE3_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE3_TITLE}
+        subtitle={PANE3_SUBTITLE}
+        img={imgpane03}
+        leftOriented={true}
+      >
+        {PANE3_CONTENT}
+      </ContentPane>
 
-                <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 py-32 text-center text-white">
-                    <h2 className="mb-4 text-4xl font-bold">
-                        Interested in joining?
-                    </h2>
-                    <p className="mb-8 text-lg">
-                        Help build the future of humanoid robotics
-                    </p>
-                    <Link
-                        href="/careers"
-                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
-                    >
-                        <p>Apply Here</p>
-                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
-                    </Link>
-                </div>
-            </div>
-        </div>
-    );
+      <CTASection
+        title="Interested in joining?"
+        description="Help build the future of humanoid robotics"
+        ctaText="Apply Here"
+        ctaLink="/careers"
+      />
+    </>
+  );
 };
 
 export default Humanoid;

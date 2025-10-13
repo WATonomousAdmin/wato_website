@@ -86,58 +86,56 @@ const DeckData = [
 ];
 
 const Careers = ({ allPostingsData }: JobPostingPageProps) => {
-    return (
-        <div
-            className={`flex flex-col overflow-hidden scroll-smooth bg-black bg-cover`}
-        >
-            <Hero
-                image={heroimg}
-                title={PAGE_TITLE}
-                subtitle={HERO_TEXT}
-                cta={"Open Roles"}
-                link={"#open-roles"}
-                fixed
-            />
-            <ContentPane
-                title={TOPPANE_TITLE}
-                subtitle={PUNCHLINE}
-                img={imgtop}
-                leftOriented={true}
-            >
-                {EXTENDED_CONTENT}
-            </ContentPane>
-            <BigDeck
-                title={DECK_TITLE}
-                subtitle={DECK_SUBTITLE}
-                data={DeckData}
-            />
-            <ContentPane
-                title={PANE1_TITLE}
-                subtitle={PANE1_SUBTITLE}
-                img={imgpane01}
-                leftOriented={true}
-            >
-                {PANE1_CONTENT}
-            </ContentPane>
-            <ContentPane
-                title={PANE2_TITLE}
-                subtitle={PANE2_SUBTITLE}
-                img={imgpane02}
-                leftOriented={false}
-            >
-                {PANE2_CONTENT}
-            </ContentPane>
-            <ContentPane
-                title={PANE3_TITLE}
-                subtitle={PANE3_SUBTITLE}
-                img={imgpane03}
-                leftOriented={true}
-            >
-                {PANE3_CONTENT}
-            </ContentPane>
-            <JobPostingList data={allPostingsData} />
-        </div>
-    );
+  return (
+    <>
+      <Hero
+        image={heroimg}
+        title={PAGE_TITLE}
+        subtitle={HERO_TEXT}
+        cta={"Open Roles"}
+        link={"#open-roles"}
+        fixed
+      />
+      <ContentPane
+        title={TOPPANE_TITLE}
+        subtitle={PUNCHLINE}
+        img={imgtop}
+        leftOriented={true}
+      >
+        {EXTENDED_CONTENT}
+      </ContentPane>
+      <BigDeck
+        title={DECK_TITLE}
+        subtitle={DECK_SUBTITLE}
+        data={DeckData}
+      />
+      <ContentPane
+        title={PANE1_TITLE}
+        subtitle={PANE1_SUBTITLE}
+        img={imgpane01}
+        leftOriented={true}
+      >
+        {PANE1_CONTENT}
+      </ContentPane>
+      <ContentPane
+        title={PANE2_TITLE}
+        subtitle={PANE2_SUBTITLE}
+        img={imgpane02}
+        leftOriented={false}
+      >
+        {PANE2_CONTENT}
+      </ContentPane>
+      <ContentPane
+        title={PANE3_TITLE}
+        subtitle={PANE3_SUBTITLE}
+        img={imgpane03}
+        leftOriented={true}
+      >
+        {PANE3_CONTENT}
+      </ContentPane>
+      <JobPostingList data={allPostingsData} />
+    </>
+  );
 };
 
 export default Careers;

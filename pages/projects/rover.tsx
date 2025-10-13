@@ -1,7 +1,6 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
-import Link from "next/link";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import CTASection from "../../components/CTASection";
 
 //TODO replace the images with desired images. Right now they are the same as the job postings
 import imgpane01 from "../../public/imgs/projects/rover/uwrt.jpg";
@@ -24,67 +23,51 @@ const PANE3_SUBTITLE = "How do we advance the research in Mars Exploration?";
 const PANE3_CONTENT = `Our work pushes the boundaries of autonomous navigation by developing systems that can handle unpredictable, real-world environments. The solutions we design for perception, mapping, and decision-making not only enable our rover to succeed in the URC but also contribute to technologies that advance planetary exploration, disaster response, and autonomous robotics in challenging conditions here on Earth.`;
 
 const Humanoid = () => {
-    return (
-        <div
-            className={`flex flex-col gap-y-32 overflow-hidden scroll-smooth bg-black bg-cover`}
-        >
-            <Hero
-                // image={imgpane00} //TODO change the image source in tailwind config
-                title={PAGE_TITLE}
-                subtitle={HERO_TEXT}
-                cta={"See More"}
-                link={"#info"}
-                fixed
-            />
-            <div
-                id={"info"}
-                className="flex flex-col"
-            >
-                <ContentPane
-                    title={PANE1_TITLE}
-                    subtitle={PANE1_SUBTITLE}
-                    img={imgpane01}
-                    leftOriented={true}
-                >
-                    {PANE1_CONTENT}
-                </ContentPane>
+  return (
+    <>
+      <Hero
+        // image={imgpane00} //TODO change the image source in tailwind config
+        title={PAGE_TITLE}
+        subtitle={HERO_TEXT}
+        cta={"See More"}
+        link={"#info"}
+        fixed
+      />
+      <ContentPane
+        title={PANE1_TITLE}
+        subtitle={PANE1_SUBTITLE}
+        img={imgpane01}
+        leftOriented={true}
+      >
+        {PANE1_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE2_TITLE}
-                    subtitle={PANE2_SUBTITLE}
-                    img={imgpane02}
-                    leftOriented={false}
-                >
-                    {PANE2_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE2_TITLE}
+        subtitle={PANE2_SUBTITLE}
+        img={imgpane02}
+        leftOriented={false}
+      >
+        {PANE2_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE3_TITLE}
-                    subtitle={PANE3_SUBTITLE}
-                    img={imgpane03}
-                    leftOriented={true}
-                >
-                    {PANE3_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE3_TITLE}
+        subtitle={PANE3_SUBTITLE}
+        img={imgpane03}
+        leftOriented={true}
+      >
+        {PANE3_CONTENT}
+      </ContentPane>
 
-                <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 py-32 text-center text-white">
-                    <h2 className="mb-4 text-4xl font-bold">
-                        Interested in joining?
-                    </h2>
-                    <p className="mb-8 text-lg">
-                        Join the next generation of Mars explorers
-                    </p>
-                    <Link
-                        href="/careers"
-                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
-                    >
-                        <p>Apply Here</p>
-                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
-                    </Link>
-                </div>
-            </div>
-        </div>
-    );
+      <CTASection
+        title="Interested in joining?"
+        description="Join the next generation of Mars explorers"
+        ctaText="Apply Here"
+        ctaLink="/careers"
+      />
+    </>
+  );
 };
 
 export default Humanoid;

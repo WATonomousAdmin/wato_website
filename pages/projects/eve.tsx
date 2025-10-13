@@ -1,7 +1,6 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
-import Link from "next/link";
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import CTASection from "../../components/CTASection";
 
 //TODO replace the images with desired images. Right now they are the same as the job postings
 import imgpane00 from "../../public/imgs/projects/eve/eve-hero.jpg";
@@ -26,67 +25,51 @@ const PANE3_SUBTITLE = "The Future of Urban Transportation";
 const PANE3_CONTENT = `Working on EVE addresses key industries in autonomous transportation, logistics, and smart city infrastructure. Students develop skills directly applicable to ride-sharing companies, delivery services, and tech giants building tomorrow's transportation networks. The algorithms you build will power autonomous taxi fleets, guide delivery robots, and enable fully autonomous public transit. EVE provides hands-on experience with technologies that companies like Waymo, Aurora, and Nuro are deploying to transform urban mobility.`;
 
 const Humanoid = () => {
-    return (
-        <div
-            className={`flex flex-col gap-y-32 overflow-hidden scroll-smooth bg-black bg-cover`}
-        >
-            <Hero
-                image={imgpane00}
-                title={PAGE_TITLE}
-                subtitle={HERO_TEXT}
-                cta={"See More"}
-                link={"#info"}
-                fixed
-            />
-            <div
-                id={"info"}
-                className="flex flex-col"
-            >
-                <ContentPane
-                    title={PANE1_TITLE}
-                    subtitle={PANE1_SUBTITLE}
-                    img={imgpane01}
-                    leftOriented={true}
-                >
-                    {PANE1_CONTENT}
-                </ContentPane>
+  return (
+    <>
+      <Hero
+        image={imgpane00}
+        title={PAGE_TITLE}
+        subtitle={HERO_TEXT}
+        cta={"See More"}
+        link={"#info"}
+        fixed
+      />
+      <ContentPane
+        title={PANE1_TITLE}
+        subtitle={PANE1_SUBTITLE}
+        img={imgpane01}
+        leftOriented={true}
+      >
+        {PANE1_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE2_TITLE}
-                    subtitle={PANE2_SUBTITLE}
-                    img={imgpane02}
-                    leftOriented={false}
-                >
-                    {PANE2_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE2_TITLE}
+        subtitle={PANE2_SUBTITLE}
+        img={imgpane02}
+        leftOriented={false}
+      >
+        {PANE2_CONTENT}
+      </ContentPane>
 
-                <ContentPane
-                    title={PANE3_TITLE}
-                    subtitle={PANE3_SUBTITLE}
-                    img={imgpane03}
-                    leftOriented={true}
-                >
-                    {PANE3_CONTENT}
-                </ContentPane>
+      <ContentPane
+        title={PANE3_TITLE}
+        subtitle={PANE3_SUBTITLE}
+        img={imgpane03}
+        leftOriented={true}
+      >
+        {PANE3_CONTENT}
+      </ContentPane>
 
-                <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 py-32 text-center text-white">
-                    <h2 className="mb-4 text-4xl font-bold">
-                        Interested in joining?
-                    </h2>
-                    <p className="mb-8 text-lg">
-                        Be part of the future of autonomous vehicles
-                    </p>
-                    <Link
-                        href="/careers"
-                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
-                    >
-                        <p>Apply Here</p>
-                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
-                    </Link>
-                </div>
-            </div>
-        </div>
-    );
+      <CTASection
+        title="Interested in joining?"
+        description="Be part of the future of autonomous vehicles"
+        ctaText="Apply Here"
+        ctaLink="/careers"
+      />
+    </>
+  );
 };
 
 export default Humanoid;
