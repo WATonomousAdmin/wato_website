@@ -9,7 +9,7 @@ const submit = async (req: NextApiRequest, res: NextApiResponse) => {
         req.headers["x-real-ip"];
 
     if (await checkLimit(ip)) {
-        res.status(429).json({ res: "You are being rate limited." });
+        return res.status(429).json({ res: "You are being rate limited." });
     }
 
     const mailData: Record<string, any> = {
@@ -20,6 +20,7 @@ const submit = async (req: NextApiRequest, res: NextApiResponse) => {
         message: "",
         upload: {},
     };
+    let captcha_key = "";
     const bb = busboy({ headers: req.headers });
 
     bb.on("file", (name, file, info) => {
@@ -47,11 +48,35 @@ const submit = async (req: NextApiRequest, res: NextApiResponse) => {
     });
     bb.on("field", (name, val) => {
         console.log(`Field [${name}]: value: %j`, val);
-        mailData[name] = val;
+
+        if (name === "captcha") {
+            captcha_key = val;
+        } else {
+            mailData[name] = val;
+        }
     });
     bb.on("close", async () => {
         console.log("Done parsing form!");
         try {
+            const verifyRes = await fetch(
+                "https://www.google.com/recaptcha/api/siteverify",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                    body: `secret=${process.env.CAPTCHA_SECRET}&response=${captcha_key}`,
+                }
+            );
+
+            const verifyData = await verifyRes.json();
+
+            if (!verifyData.success) {
+                return res.status(403).json({
+                    res: "Failed captcha verification",
+                });
+            }
+
             const client = new postmark.ServerClient(
                 process.env.EMAIL_SERVER ?? ""
             );

@@ -169,3 +169,5 @@ Access them in code using `process.env` just like a normal environment variable.
 **PRIVATE_KEY**: Service account private key. This was generated when the key was created. Mint a new one in the service accounts page to change.
 **PRIVATE_KEY_ID**: Private Key ID of the service account
 **PROJECT_ID**: ID of the WATO project
+**CAPTCHA_SECRET**: Secret for reCAPTCHA. Generated when he key was created, mint a new one to reset.
+**NEXT_PUBLIC_CAPTCHA_SITE_KEY**: Key for the reCAPTCHA secret. See in the cloud console for project `watowebsite` of the `service@watonomous.ca` account

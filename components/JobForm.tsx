@@ -290,10 +290,12 @@ const JobForm = ({ id }: JobFormProps) => {
                         application.
                     </p>
                 </div>
-                <ReCAPTCHA
-                    sitekey={process.env.CAPTCHA_SITE_KEY!}
-                    onChange={(value) => setCaptchaValue(value)}
-                />
+                {process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY && (
+                    <ReCAPTCHA
+                        sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+                        onChange={(value) => setCaptchaValue(value)}
+                    />
+                )}
                 <div className="mt-10 flex flex-row items-center justify-center">
                     <FormSubmit />
                     <FormStatus status={formStatus} errorMessage={error} />
