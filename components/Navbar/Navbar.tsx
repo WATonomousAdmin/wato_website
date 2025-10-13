@@ -52,25 +52,25 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             }
                         >
                             <NavbarItem
-                                href={"/underconstruction"}
+                                href={"/projects/eve"}
                                 toggle={closeMobile}
                             >
                                 EVE
                             </NavbarItem>
                             <NavbarItem
-                                href={"/underconstruction"}
+                                href={"/projects/micro"}
                                 toggle={closeMobile}
                             >
                                 MICRO
                             </NavbarItem>
                             <NavbarItem
-                                href={"/underconstruction"}
+                                href={"/projects/rover"}
                                 toggle={closeMobile}
                             >
                                 ROVER
                             </NavbarItem>
                             <NavbarItem
-                                href={"/humanoid"}
+                                href={"/projects/humanoid"}
                                 toggle={closeMobile}
                             >
                                 HUMANOID

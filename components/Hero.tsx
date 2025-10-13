@@ -1,13 +1,15 @@
 import { FaArrowAltCircleDown } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import WatoVideo from "./WatoVideo";
+import { StaticImageData } from "next/image";
 
 interface HeroProps {
     title: string;
     subtitle: string;
     cta: string;
     link: string;
-    image?: string;
+    image?: string | StaticImageData;
+    video?: string;
     fixed?: boolean;
 }
 
@@ -17,6 +19,7 @@ const Hero = ({
     cta,
     link,
     image,
+    video,
     fixed = false,
 }: HeroProps) => {
     const [fadeIn, setFadeIn] = useState(false);
@@ -24,18 +27,43 @@ const Hero = ({
     useEffect(() => {
         const delay = setTimeout(() => {
             setFadeIn(true);
-        }, 500);
+        }, 50);
 
         return () => clearTimeout(delay);
     }, []);
 
+    const isImageObject = typeof image === "object";
+    const backgroundStyle = isImageObject
+        ? { backgroundImage: `url(${image.src})` }
+        : {};
+
     return (
         <div
             className={`justify-left flex h-screen items-end ${
-                image ? `${image} bg-cover` : "bg-black"
+                video || image
+                    ? image
+                        ? isImageObject
+                            ? "bg-cover"
+                            : `${image} bg-cover`
+                        : "bg-black"
+                    : "bg-black"
             } w-full overflow-x-hidden`}
+            style={isImageObject ? backgroundStyle : {}}
         >
-            {!image && (
+            {video && (
+                <div className={`${fixed ? "fixed" : "absolute"} inset-0`}>
+                    <video
+                        autoPlay
+                        playsInline
+                        muted
+                        loop
+                        className="absolute inset-0 h-full w-full object-cover"
+                    >
+                        <source src={video} type="video/mp4" />
+                    </video>
+                </div>
+            )}
+            {!image && !video && (
                 <div className={`${fixed ? "fixed" : "absolute"} w-full`}>
                     <WatoVideo />
                 </div>
@@ -43,7 +71,12 @@ const Hero = ({
 
             <div
                 className={`absolute inset-0 h-[100lvh] bg-black transition-all ${
-                    fadeIn ? "opacity-80 ease-in" : " opacity-0"
+                    fadeIn ? "opacity-30 ease-in" : " opacity-0"
+                }`}
+            ></div>
+            <div
+                className={`absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black to-transparent transition-all ${
+                    fadeIn ? "opacity-70 ease-in" : "opacity-0"
                 }`}
             ></div>
             <div className={`relative mx-8 my-32 text-white md:mx-16 lg:mx-32`}>

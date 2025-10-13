@@ -14,6 +14,7 @@ import imgpane01 from "../public/imgs/jobpostings-pane1.jpg";
 import imgpane02 from "../public/imgs/all_logos.png";
 import imgpane03 from "../public/imgs/jobpostings-pane3.jpg";
 
+import heroimg from "../public/imgs/jobpostings-hero.jpg"
 import Hero from "../components/Hero";
 import BigDeck from "../components/BigDeck/BigDeck";
 
@@ -90,7 +91,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
             className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
         >
             <Hero
-                image={"bg-JobPostingHero"}
+                image={heroimg}
                 title={PAGE_TITLE}
                 subtitle={HERO_TEXT}
                 cta={"Open Roles"}
