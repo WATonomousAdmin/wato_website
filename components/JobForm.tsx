@@ -11,6 +11,8 @@ import MultiSelectDropdown from "./Form/FormMultiselect";
 import { setPostingSubmitSuccess } from "../lib/sessionStorage";
 import { useRouter } from "next/router";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 const fields = [
     "firstName",
     "lastName",
@@ -89,6 +91,8 @@ const JobForm = ({ id }: JobFormProps) => {
     const [error, setError] = useState<string | undefined>(undefined);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
 
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
     const onFormChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e) {
             setFormData((data) => ({ ...data }));
@@ -106,6 +110,11 @@ const JobForm = ({ id }: JobFormProps) => {
     const onFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
         try {
             e.preventDefault();
+            if (!captchaValue) {
+                setError("Please verify you are not a robot.");
+                setFormStatus(FormStatusCode.Error);
+                return;
+            }
             if (formStatus === FormStatusCode.Submitting) return;
             setFormStatus(FormStatusCode.Submitting);
             const data = { ...formData };
@@ -117,11 +126,14 @@ const JobForm = ({ id }: JobFormProps) => {
 
             const res = await fetch("/api/jobpostings/apply", {
                 method: "POST",
-                body: JSON.stringify({ row: [payload] }),
+                body: JSON.stringify({ row: [payload], captcha: captchaValue }),
             });
 
             if (res.status === 500) {
                 setError(undefined);
+                setFormStatus(FormStatusCode.Error);
+            } else if (res.status === 403) {
+                setError("Failed captcha verification. Please try again");
                 setFormStatus(FormStatusCode.Error);
             } else if (res.status === 429) {
                 setError("Please wait before sending another request");
@@ -278,6 +290,10 @@ const JobForm = ({ id }: JobFormProps) => {
                         application.
                     </p>
                 </div>
+                <ReCAPTCHA
+                    sitekey={process.env.CAPTCHA_SITE_KEY!}
+                    onChange={(value) => setCaptchaValue(value)}
+                />
                 <div className="mt-10 flex flex-row items-center justify-center">
                     <FormSubmit />
                     <FormStatus status={formStatus} errorMessage={error} />
