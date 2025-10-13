@@ -161,15 +161,27 @@ We inject environment variables during our build step on Vercel: [https://vercel
 Access them in code using `process.env` just like a normal environment variable.
 
 **UPSTASH_REDIS_REST_TOKEN**: Find this in the upstash console for the redis instance
+
 **UPSTASH_REDIS_REST_URL**: Find this in the upstash console for the redis instance
+
 **EMAIL_SERVER**: The token we use for our mail server
+
 **ROLLING_ID**: The google sheet id for our rolling applications
+
 **EXPEDITED_ID**: The google sheet id for our expedited applications
+
 > The following keys can be found in the google cloud console in the WATO project
+
 **CLIENT_ID**: OAuth 2 Client ID for our service account
+
 **CLIENT_EMAIL**: Service account email
+
 **PRIVATE_KEY**: Service account private key. This was generated when the key was created. Mint a new one in the service accounts page to change.
+
 **PRIVATE_KEY_ID**: Private Key ID of the service account
+
 **PROJECT_ID**: ID of the WATO project
+
 **CAPTCHA_SECRET**: Secret for reCAPTCHA. Generated when he key was created, mint a new one to reset.
+
 **NEXT_PUBLIC_CAPTCHA_SITE_KEY**: Key for the reCAPTCHA secret. See in the cloud console for project `watowebsite` of the `service@watonomous.ca` account
