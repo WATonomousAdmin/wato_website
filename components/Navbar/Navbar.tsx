@@ -46,11 +46,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             ABOUT
                         </NavbarItem>
                         <NavbarFolder
-                            title={
-                                <div className="flex items-center">
-                                    PROJECTS
-                                </div>
-                            }
+                            title="PROJECTS"
                         >
                             <NavbarItem
                                 href={"/projects/eve"}
@@ -58,7 +54,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <Car size={16} />
-                                    EVE
+                                    <span className="lg:hidden">PROJECTS - </span>EVE
                                 </div>
                             </NavbarItem>
                             <NavbarItem
@@ -67,7 +63,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <Zap size={16} />
-                                    MICRO
+                                    <span className="lg:hidden">PROJECTS - </span>MICRO
                                 </div>
                             </NavbarItem>
                             <NavbarItem
@@ -76,7 +72,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <Orbit size={16} />
-                                    ROVER
+                                    <span className="lg:hidden">PROJECTS - </span>ROVER
                                 </div>
                             </NavbarItem>
                             <NavbarItem
@@ -85,7 +81,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <Bot size={16} />
-                                    HUMANOID
+                                    <span className="lg:hidden">PROJECTS - </span>HUMANOID
                                 </div>
                             </NavbarItem>
                         </NavbarFolder>
@@ -102,7 +98,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             title={
                                 <div className="flex items-center">
                                     EXTERNAL
-                                    <MdOpenInNew className="ml-1" />
+                                    <MdOpenInNew className="ml-1 translate-y-[-1px]" />
                                 </div>
                             }
                         >
@@ -113,7 +109,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <BookOpen size={16} />
-                                    WIKI
+                                    <span className="lg:hidden">EXTERNAL - </span>WIKI
                                 </div>
                             </NavbarItem>
                             <NavbarItem
@@ -123,7 +119,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             >
                                 <div className="flex items-center gap-1">
                                     <CloudLightning size={16} />
-                                    WATcloud
+                                    <span className="lg:hidden">EXTERNAL - </span>WATcloud
                                 </div>
                             </NavbarItem>
                         </NavbarFolder>

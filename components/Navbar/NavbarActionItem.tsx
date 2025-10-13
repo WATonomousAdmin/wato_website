@@ -13,7 +13,7 @@ const NavbarActionItem = ({ actions, children }: NavbarActionItemProps) => {
                 actions.forEach((action) => action());
             }}
         >
-            <span className="text-wato-teal lg:hidden">{"// "}</span>
+            <span className="text-wato-teal lg:hidden mr-2">{"//"}</span>
             {children}
         </NavbarCommonContainer>
     );
