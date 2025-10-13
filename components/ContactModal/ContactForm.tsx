@@ -8,6 +8,8 @@ import FormStatus from "../Form/FormStatus";
 import { FormStatusCode } from "../../types";
 import { useModal } from "../../lib/ModalContext";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 const ContactForm = () => {
     const defaultForm = {
         purpose: "General",
@@ -18,6 +20,8 @@ const ContactForm = () => {
     const [formData, setFormData] = useState<Record<string, any>>(defaultForm);
     const [error, setError] = useState<string | undefined>(undefined);
     const [formStatus, setFormStatus] = useState(FormStatusCode.Idle);
+
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
     useEffect(() => {
         if (isSponsorship) {
@@ -46,6 +50,15 @@ const ContactForm = () => {
             const formData = new FormData(
                 document.querySelector("#contact-form") as HTMLFormElement
             );
+
+            if (!captchaValue) {
+                setError("Please verify you are not a robot.");
+                setFormStatus(FormStatusCode.Error);
+                return;
+            }
+
+            formData.append("captcha", captchaValue);
+
             const response = await fetch("/api/connect/submit", {
                 method: "POST",
                 body: formData,
@@ -53,6 +66,9 @@ const ContactForm = () => {
             if (response.status === 500) {
                 setError(undefined);
                 throw new Error("Email Error");
+            } else if (response.status === 403) {
+                setError("Captcha verification failed, please try again");
+                throw new Error("Captcha failed");
             } else if (response.status === 429) {
                 setError("Please wait before sending another request");
                 throw new Error("Rate Limited");
@@ -118,6 +134,14 @@ const ContactForm = () => {
                     setFormData={setFormData}
                 />
                 <FormFile id={"upload"} title={"UPLOAD FILE"} />
+                <div className="relative z-20">
+                    {process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY && (
+                        <ReCAPTCHA
+                            sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+                            onChange={(value) => setCaptchaValue(value)}
+                        />
+                    )}
+                </div>
                 <div className="flex items-start justify-end gap-x-5">
                     <FormStatus status={formStatus} errorMessage={error} />
                     <FormSubmit />

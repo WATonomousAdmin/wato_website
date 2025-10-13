@@ -27,7 +27,7 @@ const apply = async (req: NextApiRequest, res: NextApiResponse) => {
         const body = JSON.parse(req.body);
 
         if (await checkLimit(ip)) {
-            res.status(429).json({ res: "You are being rate limited." });
+            return res.status(429).json({ res: "You are being rate limited." });
         }
 
         const verifyRes = await fetch(
