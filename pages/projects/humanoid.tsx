@@ -1,7 +1,6 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
 
-import imgpane00 from "../../public/imgs/projects/humanoid/humans.jpg";
 import imgpane01 from "../../public/imgs/projects/humanoid/finger.jpg";
 import imgpane02 from "../../public/imgs/projects/humanoid/humans.jpg";
 import imgpane03 from "../../public/imgs/projects/humanoid/hand_banana.jpg";

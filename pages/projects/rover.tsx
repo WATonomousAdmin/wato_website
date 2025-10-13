@@ -2,7 +2,6 @@ import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
 
 //TODO replace the images with desired images. Right now they are the same as the job postings
-import imgpane00 from "../../public/imgs/projects/rover/uwrt.jpg";
 import imgpane01 from "../../public/imgs/projects/rover/uwrt.jpg";
 import imgpane02 from "../../public/imgs/projects/rover/mars.jpg";
 import imgpane03 from "../../public/imgs/projects/rover/rover.jpg";
