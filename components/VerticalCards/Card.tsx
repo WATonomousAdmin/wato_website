@@ -84,7 +84,7 @@ const Card = ({
                             setHovered(false);
                             setContent("");
                         }}
-                        className="absolute right-2 top-1 text-xl text-white"
+                        className="absolute right-4 top-3 text-xl text-white"
                     >
                         <IoClose />
                     </button>

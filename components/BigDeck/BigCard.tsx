@@ -79,7 +79,7 @@ const BigCard = ({
                     />
                 </div>
                 <div
-                    className={`absolute rounded-sm bg-neutral-900 ${contentTransform()} overflow-hidden transition-all duration-700 `}
+                    className={`absolute rounded-sm bg-neutral-800 ${contentTransform()} overflow-hidden transition-all duration-700 `}
                 >
                     <div className="flex justify-between">
                         <div className="text-xl font-medium text-white lg:mb-5 lg:text-4xl">
@@ -88,7 +88,7 @@ const BigCard = ({
                         {selected && (
                             <div
                                 onClick={() => onToggle(-1)}
-                                className="cursor-pointer text-wato-grey"
+                                className="cursor-pointer text-wato-grey pr-2 pt-1"
                             >
                                 <IoClose />
                             </div>

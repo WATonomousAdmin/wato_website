@@ -9,8 +9,8 @@ import img04 from "../../public/imgs/timeline_04.jpg";
 import img05 from "../../public/imgs/timeline_05.jpg";
 import img06 from "../../public/imgs/timeline_06.jpg";
 import img07 from "../../public/imgs/timeline_07.png";
-import img08 from "../../public/imgs/timeline_08.jpg";
-import img09 from "../../public/imgs/timeline_09.png";
+import img08 from "../../public/imgs/timeline_08.png";
+import img09 from "../../public/imgs/timeline_09.jpg";
 
 const TabData = [
     {
@@ -56,15 +56,15 @@ const TabData = [
         children: img07,
     },
     {
-        title: "Perception",
+        title: "Expanding our Horizons",
         year: 2024,
-        body: `Team achieves rudimentary perception and car control. Work continues on the internal software stack.`,
+        body: `Due to popular demand and abundance of software talent, WATonomous expands its mission statement to encompass all autonomy applications!`,
         children: img08,
     },
     {
-        title: "The Future",
+        title: "More Platforms!",
         year: 2025,
-        body: `Goal: Point and Click Autonomy around a test track.`,
+        body: `WATonomous builds out platforms for AV research and development, autonomous racing, rover expeditions, and humanoid robotics.`,
         children: img09,
     },
 ];

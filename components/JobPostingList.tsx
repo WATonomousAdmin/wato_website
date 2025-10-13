@@ -49,7 +49,7 @@ const JobPostingList = ({ data }: JobPostingListProps) => {
     return (
         <div
             id={"open-roles"}
-            className={`flex flex-col relative items-center bg-black bg-opacity-80 py-32`}
+            className={`flex flex-col relative items-center bg-neutral-800 py-32`}
         >
             <div className="mx-auto w-full max-w-[95rem] px-8 md:px-16 lg:w-[85vw] lg:px-0">
             <div className="pb-16 text-center text-4xl font-bold text-white">

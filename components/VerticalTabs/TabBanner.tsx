@@ -40,7 +40,7 @@ const TabBanner = ({ title, body, identifier, last, idx }: TabBannerProps) => {
                         href={"/careers"}
                         className="flex cursor-pointer items-center text-sm font-medium text-wato-teal lg:text-xl"
                     >
-                        <p>See Careers</p>
+                        <p>Apply Now</p>
                         <FaArrowAltCircleRight className="ml-3 text-2xl" />
                     </Link>
                 </div>
