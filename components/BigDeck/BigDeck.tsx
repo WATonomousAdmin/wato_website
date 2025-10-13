@@ -35,7 +35,7 @@ const BigDeck = ({ title, subtitle, data }: BigDeckProps) => {
         <div
             className={`relative flex flex-col items-center bg-black bg-opacity-80 py-48`}
         >
-            <div className="relative z-10 mx-auto w-full max-w-[100rem] px-8 md:px-16 lg:w-[90vw] lg:px-0">
+            <div className="relative z-10 mx-auto w-full max-w-[95rem] px-8 md:px-16 lg:w-[85vw] lg:px-0">
             <div className="mb-2 text-center text-4xl font-bold text-white lg:text-5xl">
                 {title}
             </div>
