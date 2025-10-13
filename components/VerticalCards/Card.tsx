@@ -21,7 +21,6 @@ const Card = ({
     idx,
     onToggle,
     title,
-    blurb,
     body,
     src,
     icon: Icon,
