@@ -1,54 +1,12 @@
-# WATO amazing website by amazing people
-- [WATO amazing website by amazing people](#wato-amazing-website-by-amazing-people)
-  - [Abstract](#abstract)
-  - [For Developers](#for-developers)
-  - [For Everyone Else](#for-everyone-else)
-    - [Creating a New Job Posting](#creating-a-new-job-posting)
-    - [Creating a New Blog Post](#creating-a-new-blog-post)
-    - [Images](#images)
-    - [Adding New Members to the Member List](#adding-new-members-to-the-member-list)
+# The amazing WATonomous website for amazing people
 
-## Abstract
+WATonomous is proving that students can change the world of autonomous vehicles. If you are not a developer and would just like to add content to the site, feel free to skip the "For Developers" sections.
 
-WATonomous' new website initiative. Built with Next.js, Typescript and Tailwind. Deployed via [Vercel](https://vercel.com/watonomous-projects/wato-website-c9jr).
+## How-Tos
 
-Inquiries regarding the website or joining WATonomous can be directed to [@kenzoengineer](https://github.com/kenzoengineer).
+### Creating a Job Posting
 
-## For Developers
-
-Clone the repo as you would normally. Run
-
-```
-npm i
-```
-
-in the root directory to install all required dependencies. Then run
-
-```
-npm run dev
-```
-
-to start a development server on `http://localhost:3000/`.
-
-`npm run build` will build the repo as if it was being deployed.
-
-`npm run lint` will run the linter.
-
-`npm run pretty` will run the formatter on **all source files (!)** (personally I wouldn't run this, who cares about formatting anyways :clown:)
-
-## For Everyone Else
-
-### Creating a New Job Posting
-
-Creating a new job posting is as simple as creating a markdown (`.md`) file.
-
-If you know how to use Github, feel free to open a pull request and tag a developer. If you don't know how to use Github, or would prefer to do this with the guidance of a developer, let one of us know in the discord and we would be happy to help.
-
-A markdown file is simply a plain text file, with special characters to format text. Creating a markdown file can be done by renaming a standard `.txt` file.
-
-Place the markdown document in `/static/job_postings`. The name of the file will *not* be the title of the posting, rather it will be what is displayed in the URL.
-
-> e.g. A file named `posting-01.md` will display as `watonomous.ca/careers/posting-01`
+Job postings are simply markdown files in the `/static/job_postings` folder. Add a markdown file there and it'll automatically appear when the website is rebuilt.
 
 The start of the file must include a metadata header. This will be a list fenced by three hyphens `---`.
 
@@ -80,20 +38,9 @@ After this header block, add all content you would like the applicant to see whe
 
 Most common markdown syntax is supported, refer to the [documentation](https://www.markdownguide.org/basic-syntax/).
 
-> Our website may not support every single piece of syntax, however, everything I would expect in a job posting (headers, lists, images) work as intended.
+### Creating a Blog Post
 
-### Creating a New Blog Post
-
-Blog posts also use markdown. For brevity I will not reiterate creating a markdown file or what the format of a header should be like. Refer to the above section [Creating a New Job Posting](#creating-a-new-job-posting) if you ever get lost.
-
-Posts will be placed in `/static/blogs`. Again, feel free to open a pull request to do this, otherwise contact a developer on discord.
-
-Again, the name of the file will *not* be the title of the post, rather it will be what is displayed in the URL.
-
-> e.g. A file named `blog-01.md` will display as `watonomous.ca/blogs/blog-01`
-
-- Create a markdown document in `/static/blogs`, titled anything
-- Write a metadata section by fencing some text with `---`. Inside write the job title and team. Follow the headers and format exactly or it won't work.
+Similar to a Job Posting, create a blog post by putting markdown in the `/static/blogs` folder.
 
 Blog metadata is a little more involved. The following headers **must be present**:
 
@@ -119,7 +66,7 @@ spotlight: true
 ---
 ```
 
-### Images
+### Using Images in Markdown
 
 If you ever need to place an image inside a markdown file, you follow this syntax:
 
@@ -168,3 +115,46 @@ import image_src from "../public/imgs/headshots/cloud_strife.jpg";
 ```
 
 To keep things organized, images should be kept in the `headshots` folder.
+
+## For developers
+
+### Setup
+
+This is a Next.js application written in Typescript, deployed with Vercel.
+
+Set up the repo as you would any other node application:
+
+```sh
+npm i
+npm run dev
+```
+
+`npm run build`, `npm run lint`, and `npm run pretty` are self explanatory.
+
+### Architecture
+
+![](public/readme/architecture.png)
+
+We use the **GCS** Sheets API to make updates to our job posting sheets.
+
+We use **Postmark** to send emails via the "Connect" modal.
+
+Our anti-abuse system uses Upstash's managed redis.
+
+### Environment Variables
+
+We inject environment variables during our build step on Vercel: https://vercel.com/watonomous-projects/wato-website-c9jr/settings/environment-variables.
+
+Access them in code using `process.env` just like a normal environment variable.
+
+**UPSTASH_REDIS_REST_TOKEN**: Find this in the upstash console for the redis instance
+**UPSTASH_REDIS_REST_URL**: Find this in the upstash console for the redis instance
+**EMAIL_SERVER**: The token we use for our mail server
+**ROLLING_ID**: The google sheet id for our rolling applications
+**EXPEDITED_ID**: The google sheet id for our expedited applications
+> The following keys can be found in the google cloud console in the WATO project
+**CLIENT_ID**: OAuth 2 Client ID for our service account
+**CLIENT_EMAIL**: Service account email
+**PRIVATE_KEY**: Service account private key. This was generated when the key was created. Mint a new one in the service accounts page to change.
+**PRIVATE_KEY_ID**: Private Key ID of the service account
+**PROJECT_ID**: ID of the WATO project
