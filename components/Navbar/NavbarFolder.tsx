@@ -21,10 +21,11 @@ const NavbarFolder = ({ title, children }: NavbarFolderProps) => {
                 </span>
             </NavbarCommonContainer>
             <div
-                //className={`absolute flex h-32 flex-col overflow-hidden bg-red-300 transition-all`}
-                className={`pointer-events-none flex flex-col transition-all duration-300 [@media(hover:none)_and_(pointer:coarse){&}]:pointer-events-auto group-hover:pointer-events-auto group-hover:opacity-100 max-lg:ml-6 lg:absolute lg:max-h-0 lg:opacity-0`}
+                className={`pointer-events-none origin-top-left scale-95 flex flex-col opacity-0 transition-all duration-200 [@media(hover:none)_and_(pointer:coarse){&}]:pointer-events-auto group-hover:pointer-events-auto group-hover:scale-100 group-hover:opacity-100 max-lg:ml-6 max-lg:mt-2 max-lg:scale-100 max-lg:opacity-100 lg:absolute lg:-mt-1 lg:left-1 lg:pt-2`}
             >
-                <ul className="flex flex-col">{children}</ul>
+                <ul className="flex flex-col rounded-md bg-wato-grey-clear px-1 py-2 shadow-lg [&>*>li]:my-0.5">
+                    {children}
+                </ul>
             </div>
         </div>
     );

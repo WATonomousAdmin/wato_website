@@ -37,7 +37,7 @@ module.exports = {
                 },
                 "wato-grey": {
                     DEFAULT: "#A6A6A6",
-                    clear: "#E6E2DFB5",
+                    clear: "#E6E2DF8C",
                     porcelain: "#EBEDEF",
                 },
                 "wato-black": {

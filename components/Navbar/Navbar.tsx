@@ -10,6 +10,7 @@ import WatoLogo from "../../public/imgs/watonomous.png";
 import NavbarFolder from "./NavbarFolder";
 
 import { MdOpenInNew } from "react-icons/md";
+import { Car, Zap, Orbit, Bot, BookOpen, CloudLightning } from "lucide-react";
 interface NavBarProps {
     toggleModal(): any;
     dark?: boolean;
@@ -55,25 +56,37 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 href={"/projects/eve"}
                                 toggle={closeMobile}
                             >
-                                EVE
+                                <div className="flex items-center gap-1">
+                                    <Car size={16} />
+                                    EVE
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/micro"}
                                 toggle={closeMobile}
                             >
-                                MICRO
+                                <div className="flex items-center gap-1">
+                                    <Zap size={16} />
+                                    MICRO
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/rover"}
                                 toggle={closeMobile}
                             >
-                                ROVER
+                                <div className="flex items-center gap-1">
+                                    <Orbit size={16} />
+                                    ROVER
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"/projects/humanoid"}
                                 toggle={closeMobile}
                             >
-                                HUMANOID
+                                <div className="flex items-center gap-1">
+                                    <Bot size={16} />
+                                    HUMANOID
+                                </div>
                             </NavbarItem>
                         </NavbarFolder>
                         {/* <NavbarItem href={"/blogs"} toggle={closeMobile}>
@@ -98,14 +111,20 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 toggle={closeMobile}
                                 newTab
                             >
-                                WIKI
+                                <div className="flex items-center gap-1">
+                                    <BookOpen size={16} />
+                                    WIKI
+                                </div>
                             </NavbarItem>
                             <NavbarItem
                                 href={"https://cloud.watonomous.ca/"}
                                 toggle={closeMobile}
                                 newTab
                             >
-                                WATcloud
+                                <div className="flex items-center gap-1">
+                                    <CloudLightning size={16} />
+                                    WATcloud
+                                </div>
                             </NavbarItem>
                         </NavbarFolder>
                         <NavbarIconItem
