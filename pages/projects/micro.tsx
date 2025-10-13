@@ -1,5 +1,7 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
+import Link from "next/link";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 import imgpane01 from "../../public/imgs/projects/micro/car.jpg";
 import imgpane02 from "../../public/imgs/projects/micro/foxglove.jpg";
@@ -23,17 +25,19 @@ const PANE3_CONTENT = `F1Tenth gives you what full-scale vehicles can't—rapid 
 const Humanoid = () => {
     return (
         <div
-            className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
+            className={`flex flex-col overflow-hidden scroll-smooth bg-black bg-cover`}
         >
             <Hero
                 video="/imgs/projects/micro/demo.mp4"
                 title={PAGE_TITLE}
                 subtitle={HERO_TEXT}
-                cta={"See More"} //Change text if needed. Can also maybe remove
-                link={"#info"} //I made the inner div below just for this to work which might be overkill
+                cta={"See More"}
+                link={"#info"}
+                fixed
             />
             <div
                 id={"info"}
+                className="flex flex-col"
             >
                 <ContentPane
                     title={PANE1_TITLE}
@@ -61,6 +65,22 @@ const Humanoid = () => {
                 >
                     {PANE3_CONTENT}
                 </ContentPane>
+
+                <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 py-32 text-center text-white">
+                    <h2 className="mb-4 text-4xl font-bold">
+                        Interested in joining?
+                    </h2>
+                    <p className="mb-8 text-lg">
+                        Race with us at international competitions
+                    </p>
+                    <Link
+                        href="/careers"
+                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
+                    >
+                        <p>Apply Here</p>
+                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
+                    </Link>
+                </div>
             </div>
         </div>
     );

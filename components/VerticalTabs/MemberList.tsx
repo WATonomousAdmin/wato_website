@@ -35,7 +35,7 @@ const MemberList = ({ data }: MemberListProps) => {
                 })}
             </div>
             <div>
-                <h4 className="p-1 text-white">...and many more</h4>
+                <h4 className="p-1 text-white">...and many more!</h4>
             </div>
         </div>
     );

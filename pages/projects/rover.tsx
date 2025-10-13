@@ -1,5 +1,7 @@
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
+import Link from "next/link";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 //TODO replace the images with desired images. Right now they are the same as the job postings
 import imgpane01 from "../../public/imgs/projects/rover/uwrt.jpg";
@@ -24,17 +26,19 @@ const PANE3_CONTENT = `Our work pushes the boundaries of autonomous navigation b
 const Humanoid = () => {
     return (
         <div
-            className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
+            className={`flex flex-col gap-y-32 overflow-hidden scroll-smooth bg-black bg-cover`}
         >
             <Hero
                 // image={imgpane00} //TODO change the image source in tailwind config
                 title={PAGE_TITLE}
                 subtitle={HERO_TEXT}
-                cta={"See More"} //Change text if needed. Can also maybe remove
-                link={"#info"} //I made the inner div below just for this to work which might be overkill
+                cta={"See More"}
+                link={"#info"}
+                fixed
             />
             <div
                 id={"info"}
+                className="flex flex-col"
             >
                 <ContentPane
                     title={PANE1_TITLE}
@@ -62,6 +66,22 @@ const Humanoid = () => {
                 >
                     {PANE3_CONTENT}
                 </ContentPane>
+
+                <div className="flex flex-col items-center justify-center bg-black bg-opacity-80 py-32 text-center text-white">
+                    <h2 className="mb-4 text-4xl font-bold">
+                        Interested in joining?
+                    </h2>
+                    <p className="mb-8 text-lg">
+                        Join the next generation of Mars explorers
+                    </p>
+                    <Link
+                        href="/careers"
+                        className="flex cursor-pointer items-center text-base font-medium text-wato-teal"
+                    >
+                        <p>Apply Here</p>
+                        <FaArrowAltCircleRight className="ml-3 text-2xl" />
+                    </Link>
+                </div>
             </div>
         </div>
     );

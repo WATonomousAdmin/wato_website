@@ -141,6 +141,7 @@ const Sponsor = () => {
                     id="content"
                     className={`relative flex flex-col items-center bg-[#000000CC] pt-32`}
                 >
+                    <div className="w-full max-w-[100rem] px-8 md:px-16 lg:w-[90vw] lg:px-0">
                     <Tier title="GOLD SPONSORS" sponsors={GOLD_SPONSORS} />
                     <Tier title="SILVER SPONSORS" sponsors={SILVER_SPONSORS} />
                     <Tier title="BRONZE SPONSORS" sponsors={BRONZE_SPONSORS} />
@@ -148,8 +149,9 @@ const Sponsor = () => {
                         title="PRODUCT SPONSORS"
                         sponsors={PRODUCT_SPONSORS}
                     />
+                    </div>
                 </div>
-                <div className="relative bg-black py-24">
+                <div className="relative bg-black py-32">
                     <ContentPane
                         title={"Want to join these organizations?"}
                         subtitle={""}

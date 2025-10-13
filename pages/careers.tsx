@@ -88,7 +88,7 @@ const DeckData = [
 const Careers = ({ allPostingsData }: JobPostingPageProps) => {
     return (
         <div
-            className={`flex flex-col gap-y-48 overflow-hidden scroll-smooth bg-black bg-cover`}
+            className={`flex flex-col overflow-hidden scroll-smooth bg-black bg-cover`}
         >
             <Hero
                 image={heroimg}
@@ -96,6 +96,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
                 subtitle={HERO_TEXT}
                 cta={"Open Roles"}
                 link={"#open-roles"}
+                fixed
             />
             <ContentPane
                 title={TOPPANE_TITLE}

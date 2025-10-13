@@ -5,14 +5,13 @@ import Card from "./Card";
 
 interface JobPostingListProps {
     data: JobPostingFrontmatterList;
-    backgroundImage?: string;
 }
 interface AccordionItem {
     title: string;
     elements: React.JSX.Element[];
 }
 
-const JobPostingList = ({ data, backgroundImage }: JobPostingListProps) => {
+const JobPostingList = ({ data }: JobPostingListProps) => {
     const accordionData: AccordionItem[] = [
         {
             title: "WATcloud",
@@ -50,15 +49,14 @@ const JobPostingList = ({ data, backgroundImage }: JobPostingListProps) => {
     return (
         <div
             id={"open-roles"}
-            className={`flex flex-col ${
-                backgroundImage ?? "bg-wato-black-vanta"
-            } relative p-8 sm:p-16 lg:px-60`}
+            className={`flex flex-col relative items-center bg-black bg-opacity-80 py-32`}
         >
-            <div className="absolute inset-0 bg-[rgb(30,32,33)] opacity-80"></div>
-            <div className="z-10 pb-16 text-center text-4xl font-bold text-white">
+            <div className="mx-auto w-full max-w-[100rem] px-8 md:px-16 lg:w-[90vw] lg:px-0">
+            <div className="pb-16 text-center text-4xl font-bold text-white">
                 Open Roles
             </div>
             <AccordionContainer data={accordionData} />
+            </div>
         </div>
     );
 };

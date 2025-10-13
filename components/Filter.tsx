@@ -8,7 +8,8 @@ interface FilterProps {
 
 const Filter = ({ placeholder, filters, setFilters }: FilterProps) => {
     return (
-        <div className="flex w-screen items-center bg-black px-10 py-12 sm:px-16 lg:px-60">
+        <div className="flex w-screen items-center justify-center bg-black py-16">
+            <div className="flex w-full max-w-[100rem] items-center px-8 md:px-16 lg:w-[90vw] lg:px-0">
             <input
                 className="mr-5 w-full rounded-md border-l-[20px] border-white bg-search bg-left bg-no-repeat py-3 pl-10 text-sm outline-none"
                 type="text"
@@ -23,6 +24,7 @@ const Filter = ({ placeholder, filters, setFilters }: FilterProps) => {
                 color="bg-wato-teal text-black"
                 onClick={() => setFilters("")}
             />
+            </div>
         </div>
     );
 };
