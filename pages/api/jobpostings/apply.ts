@@ -18,33 +18,50 @@ const ROLLING_ID = process.env.ROLLING_ID;
 
 const sheets = google.sheets("v4");
 
-// TODO: rate limiting
 const apply = async (req: NextApiRequest, res: NextApiResponse) => {
-    console.log(JSON.parse(req.body)["row"]);
-
-    const ip =
-        ((req.headers["x-forwarded-for"] as string) || "").split(" ")[0] ??
-        req.headers["x-real-ip"];
-
-    if (await checkLimit(ip)) {
-        res.status(429).json({ res: "You are being rate limited." });
-    }
-
-    const request = {
-        spreadsheetId:
-            JSON.parse(req.body)["row"][0][0] === "Expedited_App"
-                ? EXPEDITED_ID
-                : ROLLING_ID,
-        range: "Sheet1!A1:L1",
-        valueInputOption: "USER_ENTERED",
-        insertDataOption: "OVERWRITE",
-        resource: {
-            values: JSON.parse(req.body)["row"],
-        },
-        auth: auth,
-    };
-
     try {
+        const ip =
+            ((req.headers["x-forwarded-for"] as string) || "").split(" ")[0] ??
+            req.headers["x-real-ip"];
+
+        const body = JSON.parse(req.body);
+
+        if (await checkLimit(ip)) {
+            res.status(429).json({ res: "You are being rate limited." });
+        }
+
+        const verifyRes = await fetch(
+            "https://www.google.com/recaptcha/api/siteverify",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: `secret=${process.env.CAPTCHA_SECRET}&response=${body["captcha"]}`,
+            }
+        );
+
+        const verifyData = await verifyRes.json();
+
+        if (!verifyData.success) {
+            return res.status(403).json({
+                res: "Failed captcha verification",
+            });
+        }
+
+        const request = {
+            spreadsheetId:
+                body["row"][0][0] === "Expedited_App"
+                    ? EXPEDITED_ID
+                    : ROLLING_ID,
+            range: "Sheet1!A1:L1",
+            valueInputOption: "USER_ENTERED",
+            insertDataOption: "OVERWRITE",
+            resource: {
+                values: body["row"],
+            },
+            auth: auth,
+        };
         const response = (await sheets.spreadsheets.values.append(request))
             .data;
         await new Promise((resolve) => setTimeout(resolve, 2000));
