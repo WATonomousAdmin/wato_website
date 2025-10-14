@@ -153,7 +153,7 @@ const Sponsor = () => {
                 </div>
                 <div className="relative bg-black py-32">
                     <ContentPane
-                        title={"Want to join these organizations?"}
+                        title={"Interested in Sponsoring?"}
                         subtitle={""}
                         img={paneImage}
                         leftOriented={false}

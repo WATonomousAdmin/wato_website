@@ -20,8 +20,8 @@ interface FooterProps {
 
 const FooterCategory = ({ title, href, children }: FooterCategoryProps) => {
     return (
-        <ul className="ml-10 flex list-none flex-col justify-center max-md:mb-3 lg:ml-20">
-            <li className="text-base font-bold md:mb-1 md:text-base">
+        <ul className="ml-4 flex list-none flex-col justify-center max-md:mb-3 md:ml-10 lg:ml-20">
+            <li className="text-xs font-bold md:mb-1 md:text-base">
                 <a href={href}>{title}</a>
             </li>
             <div className="max-md:flex">{children}</div>
@@ -31,7 +31,7 @@ const FooterCategory = ({ title, href, children }: FooterCategoryProps) => {
 
 const FooterItem = ({ title, href }: FooterItemProps) => {
     return (
-        <li className="text-sm max-md:pr-5">
+        <li className="text-xs max-md:pr-5 md:text-sm">
             <a href={href}>{title}</a>
         </li>
     );
@@ -46,11 +46,11 @@ const Footer = ({ dark }: FooterProps) => {
     dark = true;
     return (
         <div
-            className={`relative flex h-64 items-center justify-center ${colors} w-screen`}
+            className={`relative flex h-52 md:h-64 items-center justify-center ${colors} w-screen`}
         >
             <div className="text-medium flex w-screen items-start justify-between md:w-[45rem] lg:w-[50rem] xl:w-[75rem]">
                 <div className="flex text-sm text-wato-grey">
-                    <div className="mr-5 flex flex-col text-sm">
+                    <div className="mr-2 md:mr-5 flex flex-col text-sm">
                         <IconButton
                             content="fa-instagram"
                             onClick={() =>
@@ -80,7 +80,7 @@ const Footer = ({ dark }: FooterProps) => {
                         />
                     </div>
                     <div>
-                        <div className="relative mb-10 h-10 md:-ml-2 md:w-[300px]">
+                        <div className="relative mb-4 h-10 md:mb-10 md:-ml-2 md:w-[300px]">
                             <Image
                                 alt="watonomous logo"
                                 src={logo}
@@ -89,12 +89,12 @@ const Footer = ({ dark }: FooterProps) => {
                                     !dark && "invert"
                                 } max-md:hidden`}
                             />
-                            <h1 className="text-2xl font-bold text-wato-white-bone md:hidden">
+                            <h1 className="text-lg font-bold text-wato-white-bone md:hidden">
                                 WATonomous
                             </h1>
                         </div>
-                        <p className="">200 University Avenue</p>
-                        <p className="">University of Waterloo, ON</p>
+                        <p className="text-xs md:text-sm">200 University Avenue</p>
+                        <p className="text-xs md:text-sm">University of Waterloo, ON</p>
                         <p className="mt-1 text-xs">
                             &copy; {new Date().getFullYear()} by WATonomous
                         </p>
@@ -110,7 +110,7 @@ const Footer = ({ dark }: FooterProps) => {
                         />
                     </FooterCategory>
                     <FooterCategory title="Sponsors" href="/sponsor">
-                        <FooterItem title="Apply" href="/sponsor#apply" />
+                        <FooterItem title="Become a Sponsor" href="/sponsor#apply" />
                     </FooterCategory>
                 </div>
             </div>

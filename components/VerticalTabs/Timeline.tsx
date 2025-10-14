@@ -106,7 +106,7 @@ interface TimelineContentProps {
 const TimelineContent = ({ data, selected = false }: TimelineContentProps) => {
     return (
         <div className={`${!selected && "hidden"}`}>
-            <h1 className="mb-2 text-3xl font-bold text-wato-white-bone">
+            <h1 className="mb-2 text-xl font-bold text-wato-white-bone lg:text-3xl">
                 {data.title} <span className="text-wato-teal">{"//"}</span>
             </h1>
             <p className="mb-2 text-sm text-wato-white-bone">{data.body}</p>

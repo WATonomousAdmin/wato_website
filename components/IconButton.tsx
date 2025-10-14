@@ -16,10 +16,10 @@ const IconButton = ({ content, onClick, blue, empty } : IconButtonProps) => {
     }
     return (
         <div
-            className={`ml-2 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md ${color} bg-opacity-50 p-2`}
+            className={`ml-2 flex h-8 w-8 md:h-12 md:w-12 cursor-pointer items-center justify-center rounded-md ${color} bg-opacity-50 p-2`}
             onClick={onClick}
         >
-            <i className={`fa-brands ${content} text-3xl`} />
+            <i className={`fa-brands ${content} text-xl md:text-3xl`} />
         </div>
     );
 };
