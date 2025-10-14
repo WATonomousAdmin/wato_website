@@ -23,7 +23,7 @@ const VerticalTabs = ({ data }: VerticalTabsProps) => {
 
     const [tabGroupRef, tabGroupVisible] = useInView({ threshold: 0.1 });
     return (
-        <div className="relative flex w-screen justify-center bg-black bg-opacity-80">
+        <div className="relative flex w-screen justify-center bg-black bg-opacity-90 lg:bg-opacity-80">
             <div className="relative w-full max-w-[95rem] px-8 md:px-16 lg:w-[85vw] lg:px-0">
                 <div
                     id="tabs"

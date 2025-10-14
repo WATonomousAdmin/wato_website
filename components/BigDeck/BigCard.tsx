@@ -29,10 +29,10 @@ const BigCard = ({
 
     const containerWidth = () => {
         if (!selected && !somethingIsSelected)
-            return "w-[90vw] lg:w-[24rem] opacity-100 m-5 delay-500";
+            return "w-[calc(100vw-4rem)] lg:w-[24rem] opacity-100 m-5 delay-500";
         else if (!selected && somethingIsSelected)
-            return "w-[90vw] opacity-100 m-5 lg:w-0 lg:z-0 lg:opacity-0";
-        else return "w-[90vw] xl:w-[40vw] z-10 m-5";
+            return "w-[calc(100vw-4rem)] opacity-100 m-5 lg:w-0 lg:z-0 lg:opacity-0";
+        else return "w-[calc(100vw-4rem)] xl:w-[40vw] z-10 m-5";
     };
 
     const containerTransform = () => {
@@ -43,11 +43,11 @@ const BigCard = ({
 
     const contentTransform = () => {
         if (!selected && !somethingIsSelected)
-            return "w-[85vw] lg:w-96 p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:translate-x-0";
+            return "w-[calc(100vw-8rem)] translate-x-3 lg:w-96 p-5 h-52 -translate-y-24 lg:translate-x-0";
         else if (!selected && somethingIsSelected)
-            return "w-[85vw] p-5 h-52 -translate-y-24 translate-x-[2.5vw] lg:w-0 lg:h-0 lg:translate-y-0 lg:translate-x-0";
+            return "w-[calc(100vw-8rem)] translate-x-3 p-5 h-52 -translate-y-24 lg:w-0 lg:h-0 lg:translate-y-0 lg:translate-x-0";
         else
-            return "w-[90vw] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] lg:delay-500";
+            return "w-[calc(100vw-6rem)] xl:w-96 p-5 h-[30rem] -translate-y-[30rem] xl:translate-x-[40vw] lg:delay-500";
     };
 
     useEffect(() => {

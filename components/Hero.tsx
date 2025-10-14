@@ -39,20 +39,21 @@ const Hero = ({
 
     return (
         <div
-            className={`justify-left flex h-screen items-end w-full overflow-x-hidden ${
+            className={`relative flex items-end w-full overflow-x-hidden ${
                 !video && !image ? "bg-black" : ""
             }`}
+            style={{ minHeight: '100vh' }}
         >
             {image && (
                 <div
                     className={`${fixed ? "fixed" : "absolute"} inset-0 ${
                         isImageObject ? "bg-cover" : `${image} bg-cover`
                     } bg-center`}
-                    style={isImageObject ? backgroundStyle : {}}
+                    style={isImageObject ? { ...backgroundStyle, height: '100vh' } : { height: '100vh' }}
                 />
             )}
             {video && (
-                <div className={`${fixed ? "fixed" : "absolute"} inset-0`}>
+                <div className={`${fixed ? "fixed" : "absolute"} inset-0`} style={{ height: '100vh' }}>
                     <video
                         autoPlay
                         playsInline
@@ -65,19 +66,20 @@ const Hero = ({
                 </div>
             )}
             {!image && !video && (
-                <div className={`${fixed ? "fixed" : "absolute"} w-full`}>
+                <div className={`${fixed ? "fixed" : "absolute"} w-full`} style={{ height: '100vh' }}>
                     <WatoVideo />
                 </div>
             )}
 
             <div
-                className={`absolute inset-0 h-[100lvh] bg-black transition-all ${
-                    fadeIn ? "opacity-30 ease-in" : " opacity-0"
+                className={`absolute inset-0 bg-black transition-all ${
+                    fadeIn ? "opacity-30 ease-in" : "opacity-0"
                 }`}
+                style={{ height: '100vh' }}
             ></div>
             <div
                 className={`absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black to-transparent transition-all ${
-                    fadeIn ? "opacity-70 ease-in" : "opacity-0"
+                    fadeIn ? "opacity-[0.85] lg:opacity-70 ease-in" : "opacity-0"
                 }`}
             ></div>
             <div className={`relative mx-auto my-32 w-full max-w-[100rem] px-8 text-white md:px-16 lg:w-[90vw] lg:px-0`}>

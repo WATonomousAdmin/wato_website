@@ -44,7 +44,7 @@ const Tab = ({
                 body={body}
             />
             <div
-                className={`relative flex items-center justify-center lg:w-1/2`}
+                className={`relative flex items-center justify-center lg:w-1/2 ${last ? "max-lg:pb-16" : ""}`}
             >
                 {children}
             </div>

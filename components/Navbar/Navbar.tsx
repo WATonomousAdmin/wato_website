@@ -25,7 +25,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
     return (
         <div className="flex w-screen justify-center">
             <div className="pointer-events-none fixed z-30 h-screen w-screen bg-TopGradient" />
-            <div className="align-center pointer-events-none fixed z-40 flex w-screen justify-between max-lg:px-8 lg:mt-10 lg:w-[90vw] xl:max-w-[100rem]">
+            <div className="align-center pointer-events-none fixed z-40 flex w-screen justify-between max-lg:px-2 lg:mt-10 lg:w-[90vw] xl:max-w-[100rem]">
                 <NavbarBadge href={"/"}>
                     <Image src={WatoLogo} alt={"WATonomous logo"} width={150} />
                 </NavbarBadge>

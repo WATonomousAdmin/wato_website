@@ -10,7 +10,7 @@ interface CTASectionProps {
 
 const CTASection = ({ title, description, ctaText, ctaLink }: CTASectionProps) => {
     return (
-        <div className="relative flex flex-col items-center bg-black bg-opacity-80 py-32">
+        <div className="relative flex flex-col items-center bg-black bg-opacity-90 lg:bg-opacity-80 py-32">
             <div className="relative z-10 flex w-full max-w-[95rem] flex-col items-center justify-center px-8 text-center text-white md:px-16 lg:w-[85vw] lg:px-0">
                 <h2 className="mb-4 text-4xl font-bold">
                     {title}
