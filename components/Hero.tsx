@@ -79,7 +79,7 @@ const Hero = ({
             ></div>
             <div
                 className={`absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black to-transparent transition-all ${
-                    fadeIn ? "opacity-[0.85] ease-in" : "opacity-0"
+                    fadeIn ? "opacity-[0.85] lg:opacity-70 ease-in" : "opacity-0"
                 }`}
             ></div>
             <div className={`relative mx-auto my-32 w-full max-w-[100rem] px-8 text-white md:px-16 lg:w-[90vw] lg:px-0`}>
