@@ -46,7 +46,7 @@ const Card = ({
         if (!selected && !somethingIsSelected)
             return `${cardHeight} opacity-100 my-2 lg:my-5`;
         else if (!selected && somethingIsSelected) return "h-0 z-0 opacity-0";
-        else return "h-[30vh] lg:h-[30vh] z-10";
+        else return "h-[25vh] lg:h-[30vh] z-10";
     };
 
     const containerBackground = () => {
@@ -119,15 +119,15 @@ const Card = ({
                 )}
                 
             </div>
-            <div className="grid h-full grid-cols-3 p-4">
+            <div className="grid h-full grid-cols-3 p-3 lg:p-4">
                 {/* <div
                     className={`col-span-1 mr-4 rounded-md bg-wato-white-bone transition-all duration-700`}
                 >
                 </div> */}
 
-                <div className={`col-span-3 flex flex-col justify-center overflow-y-hidden pl-6`}>
-                    <div className="flex items-center gap-4 text-3xl font-bold text-white lg:text-4xl">
-                        {Icon && <Icon className="flex-shrink-0" size={40} />}
+                <div className={`col-span-3 flex flex-col justify-center overflow-y-hidden pl-3 lg:pl-6`}>
+                    <div className="flex items-center gap-3 text-xl font-bold text-white lg:gap-4 lg:text-4xl">
+                        {Icon && <Icon className="flex-shrink-0 w-7 h-7 lg:w-10 lg:h-10" />}
                         <div>
                             {isHovered || selected ? (
                                 <div>
@@ -141,7 +141,7 @@ const Card = ({
                     </div>
                     {selected && (
                         <div
-                            className={`content-${idx} mt-4 mr-3 rounded-md text-lg text-wato-white-bone transition-opacity lg:text-xl`}
+                            className={`content-${idx} mt-4 mr-3 rounded-md text-sm text-wato-white-bone transition-opacity lg:text-xl`}
                         >
                             {content}
                         </div>

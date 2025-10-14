@@ -16,7 +16,7 @@ const ContentPane = ({
 }: ContentPaneProps) => {
     return (
         <div
-            className={`relative flex flex-col items-center bg-black bg-opacity-80 py-32`}
+            className={`relative flex flex-col items-center bg-black bg-opacity-90 lg:bg-opacity-80 py-32`}
         >
             <div className={`relative z-10 flex w-full max-w-[95rem] flex-col gap-x-16 px-8 md:px-16 lg:w-[85vw] lg:px-0 ${
                 leftOriented ? "lg:flex-row" : "lg:flex-row-reverse"
