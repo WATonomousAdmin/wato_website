@@ -24,10 +24,10 @@ const ContentPane = ({
             <div
                 className={`flex flex-col justify-center text-white max-lg:items-center lg:w-[51%]`}
             >
-                <div className="text-4xl font-black max-lg:text-center">
+                <div className="text-3xl font-black max-lg:text-center lg:text-4xl">
                     {title}&nbsp;<span className="text-wato-teal">{"//"}</span>
                 </div>
-                <div className="text-lg italic text-wato-teal max-lg:text-center lg:mb-6 lg:mt-2">
+                <div className="text-base italic text-wato-teal max-lg:text-center lg:text-lg lg:mb-6 lg:mt-2">
                     {subtitle}
                 </div>
                 <div className="max-lg:py-8 max-lg:text-sm">
