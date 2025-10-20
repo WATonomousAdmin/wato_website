@@ -22,7 +22,7 @@ const PANE3_TITLE = "Our Impact";
 const PANE3_SUBTITLE = "How do we advance the research in Mars Exploration?";
 const PANE3_CONTENT = `Our work pushes the boundaries of autonomous navigation by developing systems that can handle unpredictable, real-world environments. The solutions we design for perception, mapping, and decision-making not only enable our rover to succeed in the URC but also contribute to technologies that advance planetary exploration, disaster response, and autonomous robotics in challenging conditions here on Earth.`;
 
-const Humanoid = () => {
+const Rover = () => {
   return (
     <>
       <Hero
@@ -33,14 +33,16 @@ const Humanoid = () => {
         link={"#info"}
         fixed
       />
-      <ContentPane
-        title={PANE1_TITLE}
-        subtitle={PANE1_SUBTITLE}
-        img={imgpane01}
-        leftOriented={true}
-      >
-        {PANE1_CONTENT}
-      </ContentPane>
+      <div id="info">
+        <ContentPane
+          title={PANE1_TITLE}
+          subtitle={PANE1_SUBTITLE}
+          img={imgpane01}
+          leftOriented={true}
+        >
+          {PANE1_CONTENT}
+        </ContentPane>
+      </div>
 
       <ContentPane
         title={PANE2_TITLE}
@@ -70,4 +72,4 @@ const Humanoid = () => {
   );
 };
 
-export default Humanoid;
+export default Rover;

@@ -31,14 +31,16 @@ const Humanoid = () => {
         link={"#info"}
         fixed
       />
-      <ContentPane
-        title={PANE1_TITLE}
-        subtitle={PANE1_SUBTITLE}
-        img={imgpane01}
-        leftOriented={true}
-      >
-        {PANE1_CONTENT}
-      </ContentPane>
+      <div id="info">
+        <ContentPane
+          title={PANE1_TITLE}
+          subtitle={PANE1_SUBTITLE}
+          img={imgpane01}
+          leftOriented={true}
+        >
+          {PANE1_CONTENT}
+        </ContentPane>
+      </div>
 
       <ContentPane
         title={PANE2_TITLE}

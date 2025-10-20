@@ -24,7 +24,7 @@ const PANE3_TITLE = "Shaping Tomorrow's Roads";
 const PANE3_SUBTITLE = "The Future of Urban Transportation";
 const PANE3_CONTENT = `Working on EVE addresses key industries in autonomous transportation, logistics, and smart city infrastructure. Students develop skills directly applicable to ride-sharing companies, delivery services, and tech giants building tomorrow's transportation networks. The algorithms you build will power autonomous taxi fleets, guide delivery robots, and enable fully autonomous public transit. EVE provides hands-on experience with technologies that companies like Waymo, Aurora, and Nuro are deploying to transform urban mobility.`;
 
-const Humanoid = () => {
+const Eve = () => {
   return (
     <>
       <Hero
@@ -35,14 +35,16 @@ const Humanoid = () => {
         link={"#info"}
         fixed
       />
-      <ContentPane
-        title={PANE1_TITLE}
-        subtitle={PANE1_SUBTITLE}
-        img={imgpane01}
-        leftOriented={true}
-      >
-        {PANE1_CONTENT}
-      </ContentPane>
+      <div id="info">
+        <ContentPane
+          title={PANE1_TITLE}
+          subtitle={PANE1_SUBTITLE}
+          img={imgpane01}
+          leftOriented={true}
+        >
+          {PANE1_CONTENT}
+        </ContentPane>
+      </div>
 
       <ContentPane
         title={PANE2_TITLE}
@@ -72,4 +74,4 @@ const Humanoid = () => {
   );
 };
 
-export default Humanoid;
+export default Eve;

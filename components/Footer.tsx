@@ -78,6 +78,15 @@ const Footer = ({ dark }: FooterProps) => {
                             }
                             empty
                         />
+                        <IconButton
+                            content="fa-github"
+                            onClick={() =>
+                                window.open(
+                                    "https://github.com/WATonomous"
+                                )
+                            }
+                            empty
+                        />
                     </div>
                     <div>
                         <div className="relative mb-4 h-10 md:mb-10 md:-ml-2 md:w-[300px]">

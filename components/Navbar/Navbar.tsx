@@ -9,8 +9,7 @@ import Image from "next/image";
 import WatoLogo from "../../public/imgs/watonomous.png";
 import NavbarFolder from "./NavbarFolder";
 
-import { MdOpenInNew } from "react-icons/md";
-import { Car, Zap, Orbit, Bot, BookOpen, CloudLightning } from "lucide-react";
+import { Car, Zap, Orbit, Bot, BookOpen, CloudLightning, ChevronDown } from "lucide-react";
 interface NavBarProps {
     toggleModal(): any;
     dark?: boolean;
@@ -46,7 +45,12 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             ABOUT
                         </NavbarItem>
                         <NavbarFolder
-                            title="PROJECTS"
+                            title={
+                                <div className="flex items-center">
+                                    PROJECTS
+                                    <ChevronDown className="ml-1 -mr-1.5 max-lg:hidden transition-transform duration-200 group-hover:rotate-180" size={14} />
+                                </div>
+                            }
                         >
                             <NavbarItem
                                 href={"/projects/eve"}
@@ -98,7 +102,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                             title={
                                 <div className="flex items-center">
                                     EXTERNAL
-                                    <MdOpenInNew className="ml-1 translate-y-[-1px]" />
+                                    <ChevronDown className="ml-1 -mr-1.5 max-lg:hidden transition-transform duration-200 group-hover:rotate-180" size={14} />
                                 </div>
                             }
                         >
@@ -136,6 +140,10 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         <NavbarIconItem
                             href={"https://www.youtube.com/@WATonomous/videos"}
                             icon={"fa-youtube"}
+                        />
+                        <NavbarIconItem
+                            href={"https://github.com/WATonomous"}
+                            icon={"fa-github"}
                         />
                         <NavbarActionItem actions={[toggleModal, closeMobile]}>
                             CONNECT

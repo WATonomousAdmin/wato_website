@@ -7,7 +7,7 @@ import imgpane02 from "../../public/imgs/projects/micro/foxglove.jpg";
 import imgpane03 from "../../public/imgs/projects/micro/race_line.jpg";
 
 const PAGE_TITLE = "Micro Autonomy";
-const HERO_TEXT = "1:10 Scale Autonomous Racing competetiion RC cars that uses a LiDAR and Camera to navigate a defined track. It's developed as an educational and research platform across the world. ";
+const HERO_TEXT = "Build and race 1:10 scale autonomous vehicles in head-to-head competition. Master real-time perception, planning, and control as you compete at international conferences and develop skills that power the future of autonomous systems.";
 
 const PANE1_TITLE = "Race at the Speed of Innovation";
 const PANE1_SUBTITLE = "Build Complete Autonomous Systems";
@@ -21,7 +21,7 @@ const PANE3_TITLE = "Race Globally, Build Your Future";
 const PANE3_SUBTITLE = "From Campus to International Competitions";
 const PANE3_CONTENT = `F1Tenth gives you what full-scale vehicles can't—rapid iteration, aggressive testing, and the freedom to fail fast and learn faster. Deploy your algorithms in minutes, not months. Test ideas that would be too risky or expensive on real cars. Compete at premier international conferences like IROS and ICRA, meeting top researchers and teams from around the world. The skills you build—real-time perception, motion planning, control under constraints—are exactly what companies like Waymo, Aurora, and Tesla need. Whether you're heading to grad school or industry, F1Tenth puts you on the starting grid for a career in autonomous systems.`;
 
-const Humanoid = () => {
+const Micro = () => {
   return (
     <>
       <Hero
@@ -32,14 +32,16 @@ const Humanoid = () => {
         link={"#info"}
         fixed
       />
-      <ContentPane
-        title={PANE1_TITLE}
-        subtitle={PANE1_SUBTITLE}
-        img={imgpane01}
-        leftOriented={true}
-      >
-        {PANE1_CONTENT}
-      </ContentPane>
+      <div id="info">
+        <ContentPane
+          title={PANE1_TITLE}
+          subtitle={PANE1_SUBTITLE}
+          img={imgpane01}
+          leftOriented={true}
+        >
+          {PANE1_CONTENT}
+        </ContentPane>
+      </div>
 
       <ContentPane
         title={PANE2_TITLE}
@@ -69,4 +71,4 @@ const Humanoid = () => {
   );
 };
 
-export default Humanoid;
+export default Micro;
