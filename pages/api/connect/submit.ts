@@ -85,7 +85,7 @@ const submit = async (req: NextApiRequest, res: NextApiResponse) => {
                 string,
                 any
             > = {
-                From: "k47jiang@watonomous.ca",
+                From: "service@watonomous.ca",
                 To: "hello@watonomous.ca",
                 Subject: `${mailData.firstName} ${mailData.lastName} - ${mailData.purpose}`,
                 TextBody: `FROM: ${mailData.email} \n ${mailData.message}`,
