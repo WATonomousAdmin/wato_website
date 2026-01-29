@@ -5,6 +5,7 @@ interface ContentPaneProps {
     title: string;
     subtitle: string;
     children: React.ReactNode | any;
+    imgClassName?: string;
 }
 
 const ContentPane = ({
@@ -13,6 +14,7 @@ const ContentPane = ({
     title,
     subtitle,
     children,
+    imgClassName = "",
 }: ContentPaneProps) => {
     return (
         <div
@@ -38,7 +40,11 @@ const ContentPane = ({
             <div
                 className={`flex w-4/5 justify-center self-center lg:w-[45%]`}
             >
-                <Image alt={"image"} src={img} className="rounded-md"></Image>
+                <Image
+                    alt="image"
+                    src={img}
+                    className={`rounded-md ${imgClassName ?? ""}`}
+                />
             </div>
             </div>
         </div>

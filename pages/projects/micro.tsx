@@ -4,7 +4,7 @@ import CTASection from "../../components/CTASection";
 
 import imgpane01 from "../../public/imgs/projects/micro/car.jpg";
 import imgpane02 from "../../public/imgs/projects/micro/foxglove.jpg";
-import imgpane03 from "../../public/imgs/projects/micro/race_line.jpg";
+import imgpane03 from "../../public/imgs/projects/micro/race_line.png";
 
 const PAGE_TITLE = "Micro Autonomy";
 const HERO_TEXT = "Build and race 1:10 scale autonomous vehicles in head-to-head competition. Master real-time perception, planning, and control as you compete at international conferences and develop skills that power the future of autonomous systems.";
