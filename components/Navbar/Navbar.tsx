@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import NavbarActionItem from "./NavbarActionItem";
 import NavbarBadge from "./NavbarBadge";
 import NavbarIconItem from "./NavbarIconItem";
@@ -18,8 +18,20 @@ interface NavBarProps {
 const Navbar = ({ toggleModal, dark }: NavBarProps) => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
-    const toggleMobile = () => setMobileOpen(!mobileOpen);
-    const closeMobile = () => setMobileOpen(false);
+    const listRef = useRef<HTMLUListElement>(null);
+    const closeMobile = () => {
+        setMobileOpen(false);
+        setTimeout(() => {
+            if (listRef.current) listRef.current.scrollTop = 0;    
+        }, 130);   
+    }
+    const toggleMobile = () => {
+        if(mobileOpen) {
+            closeMobile();
+        } else {
+            setMobileOpen(true);
+        }
+    };
 
     return (
         <div className="flex w-screen justify-center">
@@ -40,6 +52,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 ? "max-lg:h-[100vh] max-lg:bg-wato-black-vanta"
                                 : "max-lg:h-0"
                         } pointer-events-auto flex transition-all duration-500 max-lg:overflow-y-auto`}
+                        ref={listRef}
                     >
                         <NavbarItem href={"/about"} toggle={closeMobile}>
                             ABOUT
