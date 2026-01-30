@@ -23,7 +23,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
         setMobileOpen(false);
         setTimeout(() => {
             if (listRef.current) listRef.current.scrollTop = 0;    
-        }, 130);   
+        }, 80);   
     }
     const toggleMobile = () => {
         if(mobileOpen) {
@@ -37,6 +37,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
         <div className="flex w-screen justify-center">
             <div className="pointer-events-none fixed z-30 h-screen w-screen bg-TopGradient" />
             <div className="align-center pointer-events-none fixed z-40 flex w-screen justify-between max-lg:px-2 lg:mt-10 lg:w-[90vw] xl:max-w-[100rem]">
+            <div className={`pointer-events-none absolute left-0 top-0 z-30 h-16 w-full bg-wato-black-vanta transition-opacity duration-500 lg:hidden ${mobileOpen ? "opacity-100" : "opacity-0"}`} />
                 <NavbarBadge href={"/"}>
                     <Image src={WatoLogo} alt={"WATonomous logo"} width={150} />
                 </NavbarBadge>
