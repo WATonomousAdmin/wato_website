@@ -34,7 +34,7 @@ const ContactModal = ({ closeModal }: ContactModalProps) => {
                         >
                             <IoClose />
                         </div>
-                        <div className="flex flex-col self-center px-14 text-wato-white-bone md:px-16">
+                        <div className="flex flex-col self-center py-6 px-12 text-wato-white-bone">
                             <div className="flex pt-2 text-3xl font-black">
                                 <div>Let's design the future together</div>
                             </div>
