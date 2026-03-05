@@ -9,23 +9,23 @@ const MemberCard = ({
     position,
 }: MemberCardProps) => {
     return (
-        <div className="flex h-52 flex-col items-center justify-center rounded bg-[#1A1A1A] bg-opacity-90 lg:bg-opacity-80 py-1 lg:h-72 lg:py-2">
-            <div className="relative flex w-3/4 justify-center px-2 pb-2 lg:px-3 lg:pb-3">
+        <div className="flex min-h-[12.5rem] flex-col items-center overflow-hidden rounded-xl border border-wato-grey/20 bg-wato-black-vanta/85 px-3 py-3 text-center lg:min-h-[14.5rem] lg:px-4 lg:py-4">
+            <div className="relative mb-2.5 flex w-full justify-center lg:mb-3">
                 <Image
                     alt="Image of member"
                     src={imageSrc}
-                    className="aspect-square rounded-full object-cover"
-                    width={100}
-                    height={100}
+                    className="aspect-square rounded-full border-2 border-wato-teal/70 object-cover"
+                    width={108}
+                    height={108}
                 />
             </div>
-            <h2 className="-mb-1 text-sm font-bold text-wato-white-bone lg:-mb-2 lg:text-xl">
-                {firstName}
+            <h2 className="min-h-[3rem] text-lg font-bold leading-snug text-wato-white-bone lg:min-h-[3.4rem] lg:text-xl">
+                <span className="block whitespace-nowrap">{firstName}</span>
+                <span className="block whitespace-nowrap">{lastName}</span>
             </h2>
-            <h2 className="text-sm font-bold text-wato-white-bone lg:text-xl">
-                {lastName}
-            </h2>
-            <h4 className="text-center text-xs text-wato-grey lg:text-base">{position}</h4>
+            <h4 className="mt-1.5 max-w-[11rem] [display:-webkit-box] overflow-hidden break-words text-center text-xs font-medium leading-tight text-wato-grey [-webkit-box-orient:vertical] [-webkit-line-clamp:3] lg:max-w-[11.75rem] lg:text-sm">
+                {position}
+            </h4>
             <p className="hidden">{description}</p>
         </div>
     );

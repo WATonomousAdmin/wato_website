@@ -30,7 +30,7 @@ import kishore from "../public/imgs/headshots/1680722752326 - Kishore Yogaraj.jp
 import mark from "../public/imgs/headshots/IMG_7633_-_Mark_Chiu.jpg";
 import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
 import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
-import ken from "../public/imgs/headshots/headshot ken jiang.png";
+import jeffrey from "../public/imgs/headshots/jeffrey.jpg";
 import vishal from "../public/imgs/headshots/vishal.jpg";
 import VerticalCards2 from "../components/VerticalCards/VerticalCards2";
 
@@ -93,9 +93,9 @@ const MemberData = [
         position: "Micro Autonomy Lead",
     },
     {
-        imageSrc: ken,
-        firstName: "Ken",
-        lastName: "Jiang",
+        imageSrc: jeffrey,
+        firstName: "Jeffrey",
+        lastName: "Li",
         description: "",
         position: "BizOps Lead",
     },

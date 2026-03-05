@@ -105,7 +105,7 @@ Then refer to the file name through its path including `public`. e.g.:
 
 This is done in the `./pages/about.tsx` file. At the top of the file is a very large array of `MemberCardProps` objects called `MemberData`. Member order in the array will match that of the page.
 
-To add a new member to the list just add a new `MemebrCardProps` object:
+To add a new member to the list just add a new `MemberCardProps` object:
 
 ```js
 {
