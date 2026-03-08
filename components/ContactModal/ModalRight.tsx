@@ -1,4 +1,3 @@
-import Image from "next/image";
 import IconButton from "../IconButton";
 
 const BRAND = "WATONOMOUS";
