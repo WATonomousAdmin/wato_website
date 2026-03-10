@@ -121,6 +121,7 @@ const Careers = ({ allPostingsData }: JobPostingPageProps) => {
         title={PANE2_TITLE}
         subtitle={PANE2_SUBTITLE}
         img={imgpane02}
+        imgClassName="drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
         leftOriented={false}
       >
         {PANE2_CONTENT}

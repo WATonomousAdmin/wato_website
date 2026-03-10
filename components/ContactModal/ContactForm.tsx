@@ -133,18 +133,21 @@ const ContactForm = () => {
                     onFormChange={onFormChange}
                     setFormData={setFormData}
                 />
-                <FormFile id={"upload"} title={"UPLOAD FILE"} />
-                <div className="relative z-20">
-                    {process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY && (
+
+                <div className="lg:col-span-2 flex flex-col gap-y-4">
+                    <FormFile id={"upload"} title={"UPLOAD FILE"} />
+                    <div>
+                        {process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY && (
                         <ReCAPTCHA
                             sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
                             onChange={(value) => setCaptchaValue(value)}
                         />
-                    )}
-                </div>
-                <div className="flex items-start justify-end gap-x-5">
-                    <FormStatus status={formStatus} errorMessage={error} />
-                    <FormSubmit />
+                        )}
+                    </div>
+                    <div className="flex items-start justify-start">
+                        <FormStatus status={formStatus} errorMessage={error} />
+                        <FormSubmit />
+                    </div>
                 </div>
             </div>
         </form>
