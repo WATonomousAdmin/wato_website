@@ -5,17 +5,22 @@ import NavbarCommonContainer from "./NavbarCommonContainer";
 interface NavbarIconItemProps {
     href: string;
     icon: string;
+    label?: string;
 }
 
-const NavbarIconItem = ({ href, icon }: NavbarIconItemProps) => {
+const NavbarIconItem = ({ href, icon, label }: NavbarIconItemProps) => {
     return (
         <Link href={href} target="_blank">
             <NavbarCommonContainer classes="lg:px-2 lg:py-[2px]">
                 <span className="text-wato-teal lg:hidden mr-2">{"//"}</span>
                 <Icon content={icon} />
+                {label && (
+                    <span className="lg:hidden ml-2 uppercase">{label}</span>
+                )}
             </NavbarCommonContainer>
         </Link>
     );
 };
+
 
 export default NavbarIconItem;

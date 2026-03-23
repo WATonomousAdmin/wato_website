@@ -144,20 +144,24 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                         <NavbarIconItem
                             href={"https://www.instagram.com/watonomous"}
                             icon={"fa-instagram"}
+                            label="Instagram"
                         />
                         <NavbarIconItem
                             href={
                                 "https://www.linkedin.com/company/watonomous/"
                             }
                             icon={"fa-linkedin"}
+                            label="LinkedIn"
                         />
                         <NavbarIconItem
                             href={"https://www.youtube.com/@WATonomous/videos"}
                             icon={"fa-youtube"}
+                            label="YouTube"
                         />
                         <NavbarIconItem
                             href={"https://github.com/WATonomous"}
                             icon={"fa-github"}
+                            label="GitHub"
                         />
                         <NavbarActionItem actions={[toggleModal, closeMobile]}>
                             CONNECT
