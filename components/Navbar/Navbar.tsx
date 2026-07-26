@@ -140,6 +140,16 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                     <span className="lg:hidden">EXTERNAL - </span>WATcloud
                                 </div>
                             </NavbarItem>
+                            <NavbarItem
+                                href={"https://watonomous.github.io/humanoid-docs/index.html"}
+                                toggle={closeMobile}
+                                newTab
+                            >
+                                <div className="flex items-center gap-1">
+                                    <BookOpen size={16} />
+                                    <span className="lg:hidden">EXTERNAL - </span>Humanoid Docs
+                                </div>
+                            </NavbarItem>
                         </NavbarFolder>
                         <NavbarIconItem
                             href={"https://www.instagram.com/watonomous"}
