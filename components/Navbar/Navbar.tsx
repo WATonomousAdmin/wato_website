@@ -146,7 +146,7 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 newTab
                             >
                                 <div className="flex items-center gap-1">
-                                    <BookOpen size={16} />
+                                    <Bot size={20} />
                                     <span className="lg:hidden">EXTERNAL - </span>Humanoid Docs
                                 </div>
                             </NavbarItem>
