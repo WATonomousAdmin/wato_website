@@ -32,6 +32,10 @@ import jadiha from "../public/imgs/headshots/Headshot - Jadiha Aruleswaran.jpg";
 import hasan from "../public/imgs/headshots/face - Hasan Tahir.png";
 import ken from "../public/imgs/headshots/headshot ken jiang.png";
 import vishal from "../public/imgs/headshots/vishal.jpg";
+import wilson from "../public/imgs/headshots/Wilson_Cheng - Wilson Cheng.jpeg";
+import neil from "../public/imgs/headshots/Neil_Ma - Neil Ma.jpeg";
+import muhammad from "../public/imgs/headshots/Muhammad_Farooqi - Muhammad Farooqi.jpeg";
+import allen from "../public/imgs/headshots/Allen_Abraham - Allen Abraham.jpeg";
 import VerticalCards2 from "../components/VerticalCards/VerticalCards2";
 
 const HERO_TEXT =
@@ -70,6 +74,34 @@ const MemberData = [
         lastName: "Jayakumar",
         description: "",
         position: "Autonomy Director",
+    },
+    {
+        imageSrc: wilson,
+        firstName: "Wilson",
+        lastName: "Cheng",
+        description: "",
+        position: "Humanoid Director",
+    },
+    {
+        imageSrc: neil,
+        firstName: "Neil",
+        lastName: "Ma",
+        description: "",
+        position: "Humanoid Mechanical Lead",
+    },
+    {
+        imageSrc: muhammad,
+        firstName: "Muhammad",
+        lastName: "Farooqi",
+        description: "",
+        position: "Humanoid Software Lead",
+    },
+    {
+        imageSrc: allen,
+        firstName: "Allen",
+        lastName: "Abraham",
+        description: "",
+        position: "Humanoid Perception Lead",
     },
     {
         imageSrc: dan,
