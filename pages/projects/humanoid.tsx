@@ -14,6 +14,11 @@ import imgpane08 from "../../public/imgs/projects/humanoid/leg_cad_4.png";
 
 const PAGE_TITLE = "Humanoid Autonomy";
 const HERO_TEXT = "A fully custom bipedal humanoid platform, built in-house from actuators to autonomy stack, bringing human-like mobility and dexterity to real-world environments.";
+const DOCS_LINK = "https://watonomous.github.io/humanoid-docs/index.html";
+
+const PROGRESS_TITLE = "Progress in Motion";
+const PROGRESS_SUBTITLE = "Build Highlights, Straight from the Lab";
+const PROGRESS_CONTENT = `A look at the platform coming together: hardware bring-up, actuator testing, and the humanoid taking shape one iteration at a time.`;
 
 const PANE1_TITLE = "Human-Like Robotics";
 const PANE1_SUBTITLE = "From Design to Behaviour";
@@ -47,9 +52,30 @@ const Humanoid = () => {
         subtitle={HERO_TEXT}
         cta={"See More"}
         link={"#info"}
+        secondaryCta={"Visit Our Documentation ↗"}
+        secondaryLink={DOCS_LINK}
         fixed
       />
       <div id="info">
+        <div className="relative flex flex-col items-center bg-black bg-opacity-90 py-32 lg:bg-opacity-80">
+          <div className="relative z-10 flex w-full max-w-[95rem] flex-col items-center px-8 text-center text-white md:px-16 lg:w-[85vw] lg:px-0">
+            <div className="text-3xl font-black lg:text-4xl">
+              {PROGRESS_TITLE}&nbsp;<span className="text-wato-teal">{"//"}</span>
+            </div>
+            <div className="mb-6 mt-2 text-base italic text-wato-teal lg:text-lg">
+              {PROGRESS_SUBTITLE}
+            </div>
+            <p className="mb-8 max-w-3xl text-sm lg:text-base">{PROGRESS_CONTENT}</p>
+            <video
+              controls
+              playsInline
+              className="w-full max-w-4xl rounded-md"
+            >
+              <source src="/imgs/projects/humanoid/humanoid_progress.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
         <ContentPane
           title={PANE1_TITLE}
           subtitle={PANE1_SUBTITLE}

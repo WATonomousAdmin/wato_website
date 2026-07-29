@@ -76,6 +76,15 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 </div>
                             </NavbarItem>
                             <NavbarItem
+                                href={"/projects/humanoid"}
+                                toggle={closeMobile}
+                            >
+                                <div className="flex items-center gap-1">
+                                    <Bot size={16} />
+                                    <span className="lg:hidden">PROJECTS - </span>HUMANOID
+                                </div>
+                            </NavbarItem>
+                            <NavbarItem
                                 href={"/projects/micro"}
                                 toggle={closeMobile}
                             >
@@ -91,15 +100,6 @@ const Navbar = ({ toggleModal, dark }: NavBarProps) => {
                                 <div className="flex items-center gap-1">
                                     <Orbit size={16} />
                                     <span className="lg:hidden">PROJECTS - </span>ROVER
-                                </div>
-                            </NavbarItem>
-                            <NavbarItem
-                                href={"/projects/humanoid"}
-                                toggle={closeMobile}
-                            >
-                                <div className="flex items-center gap-1">
-                                    <Bot size={16} />
-                                    <span className="lg:hidden">PROJECTS - </span>HUMANOID
                                 </div>
                             </NavbarItem>
                         </NavbarFolder>
