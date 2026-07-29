@@ -11,6 +11,8 @@ interface HeroProps {
     image?: string | StaticImageData;
     video?: string;
     fixed?: boolean;
+    secondaryCta?: string;
+    secondaryLink?: string;
 }
 
 const Hero = ({
@@ -21,6 +23,8 @@ const Hero = ({
     image,
     video,
     fixed = false,
+    secondaryCta,
+    secondaryLink,
 }: HeroProps) => {
     const [fadeIn, setFadeIn] = useState(false);
 
@@ -89,7 +93,7 @@ const Hero = ({
                 <div className="mb-6 text-sm lg:w-1/2 lg:text-base">
                     {subtitle}
                 </div>
-                <div className={`flex w-full`}>
+                <div className={`flex w-full flex-wrap items-center gap-x-8 gap-y-3`}>
                     <a
                         className={`flex cursor-pointer items-center text-base font-medium text-wato-teal ${
                             fadeIn
@@ -101,6 +105,20 @@ const Hero = ({
                         <p>{cta}</p>
                         <FaArrowAltCircleDown className="ml-3 text-2xl" />
                     </a>
+                    {secondaryCta && secondaryLink && (
+                        <a
+                            className={`flex cursor-pointer items-center text-base font-medium text-white underline decoration-wato-teal decoration-2 underline-offset-4 ${
+                                fadeIn
+                                    ? "opacity-100 transition-opacity duration-150 ease-in"
+                                    : "opacity-0"
+                            }`}
+                            href={secondaryLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <p>{secondaryCta}</p>
+                        </a>
+                    )}
                 </div>
             </div>
         </div>

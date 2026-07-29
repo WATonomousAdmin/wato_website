@@ -15,6 +15,14 @@ const CardData = [
         icon: Car,
     },
     {
+        title: "Humanoid Autonomy",
+        blurb: "A joint initiative building humanoids learning from VR teleoperation.",
+        body: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics. We've pulished papers to IEEE conferences such as ICRA, IEEE-IV, IEEE-T-ITS, IEEE-T-CYB, and IEEE-JAS. All WATonomous research papers were written by undergraduates!",
+        image: img01,
+        src: "/projects/humanoid",
+        icon: Bot,
+    },
+    {
         title: "Micro Autonomy",
         blurb: "Our competition-driven initiative pursuing F1Tenth and other edge-computing platforms. ",
         body: "WATonomous is a completely student-led team with strong support from the University of Waterloo. We accept applicants from all years, prioritizing your ability to learn over your current technical prowess. WATonomous is dedicated to promoting equity, diversity, and inclusivity, gladly providing access to resources for those who need it.",
@@ -29,14 +37,6 @@ const CardData = [
         image: img01,
         src: "/projects/rover",
         icon: Orbit,
-    },
-    {
-        title: "Humanoid Autonomy",
-        blurb: "A joint initiative building humanoids learning from VR teleoperation.",
-        body: "WATonomous has a rich history of outputting cutting-edge research in AI and Robotics. We've pulished papers to IEEE conferences such as ICRA, IEEE-IV, IEEE-T-ITS, IEEE-T-CYB, and IEEE-JAS. All WATonomous research papers were written by undergraduates!",
-        image: img01,
-        src: "/projects/humanoid",
-        icon: Bot,
     },
 ];
 
