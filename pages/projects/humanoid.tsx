@@ -51,7 +51,7 @@ const Humanoid = () => {
         <title>UWaterloo's First Humanoid Robot - Pioneer | WATonomous</title>
         <meta
           name="description"
-          content="Pioneer is UWaterloo's first humanoid robot, built by WATonomous: a fully custom bipedal platform with a 22 DOF hand, VR teleoperation, and in-house designed legs."
+          content="Pioneer is UWaterloo's first humanoid robot, built by WATonomous - 22 DOF hand, bimanual arm, and 12 DOF legs."
         />
       </Head>
       <Hero
