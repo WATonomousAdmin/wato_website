@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
@@ -46,6 +47,13 @@ const PANE6_CONTENT = `Each 6 DOF leg is modeled, analyzed, and refined entirely
 const Humanoid = () => {
   return (
     <>
+      <Head>
+        <title>UWaterloo's First Humanoid Robot - Pioneer | WATonomous</title>
+        <meta
+          name="description"
+          content="Pioneer is UWaterloo's first humanoid robot, built by WATonomous: a fully custom bipedal platform with a 22 DOF hand, VR teleoperation, and in-house designed legs."
+        />
+      </Head>
       <Hero
         // image={imgpane00} //TODO change the image source in tailwind config
         title={PAGE_TITLE}
