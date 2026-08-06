@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Image from "next/image";
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
@@ -44,6 +45,13 @@ const RL_VIDEO_CONTENT = `Our Isaac Lab policy learns to reorient a cube toward 
 const Humanoid = () => {
   return (
     <>
+      <Head>
+        <title>UWaterloo's First Humanoid Robot - Pioneer | WATonomous</title>
+        <meta
+          name="description"
+          content="Pioneer is UWaterloo's first humanoid robot, built by WATonomous - 22 DOF hand, bimanual arm, and 12 DOF legs."
+        />
+      </Head>
       <Hero
         // image={imgpane00} //TODO change the image source in tailwind config
         title={PAGE_TITLE}
