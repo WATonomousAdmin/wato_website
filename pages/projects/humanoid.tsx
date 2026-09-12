@@ -3,6 +3,10 @@ import Image from "next/image";
 import ContentPane from "../../components/ContentPane";
 import Hero from "../../components/Hero";
 import CTASection from "../../components/CTASection";
+import MemberCard, { MemberCardProps } from "../../components/MemberCard";
+
+import wilson from "../../public/imgs/headshots/Wilson_Cheng - Wilson Cheng.jpeg";
+import allen from "../../public/imgs/headshots/Allen_Abraham - Allen Abraham.jpeg";
 
 import imgpane01 from "../../public/imgs/projects/humanoid/dual_arm_hero.png";
 import imgpane02 from "../../public/imgs/projects/humanoid/leg_cad.png";
@@ -42,6 +46,25 @@ const PANE4_CONTENT = `We collect human demonstrations using a Quest headset ove
 const RL_VIDEO_TITLE = "In-Hand Manipulation, Learned with RL";
 const RL_VIDEO_SUBTITLE = "PPO Policy, Cube Reorientation Task";
 const RL_VIDEO_CONTENT = `Our Isaac Lab policy learns to reorient a cube toward commanded goal poses using only the 16 actuated joints of the hand, no external fixturing or resets between attempts.`;
+
+const TEAM_TITLE = "F26 Term Members";
+const TEAM_MEMBERS: MemberCardProps[] = [
+  {
+    imageSrc: wilson,
+    firstName: "Wilson",
+    lastName: "Cheng",
+    description: "",
+    position: "Humanoid Director",
+  },
+  {
+    imageSrc: allen,
+    firstName: "Allen",
+    lastName: "Abraham",
+    description: "",
+    position: "Humanoid Perception Lead",
+  },
+];
+
 const Humanoid = () => {
   return (
     <>
@@ -153,6 +176,26 @@ const Humanoid = () => {
           <video autoPlay playsInline muted loop className="w-full max-w-4xl rounded-md">
             <source src="/imgs/projects/humanoid/inhand_rl.mp4" type="video/mp4" />
           </video>
+        </div>
+      </div>
+
+      <div className="relative flex flex-col items-center bg-black bg-opacity-90 py-32 lg:bg-opacity-80">
+        <div className="relative z-10 flex w-full max-w-[95rem] flex-col items-center px-8 text-center text-white md:px-16 lg:w-[85vw] lg:px-0">
+          <div className="mb-8 text-3xl font-black lg:text-4xl">
+            {TEAM_TITLE}&nbsp;<span className="text-wato-teal">{"//"}</span>
+          </div>
+          <div className="grid w-full max-w-md grid-cols-2 gap-4">
+            {TEAM_MEMBERS.map((member, id) => (
+              <MemberCard
+                key={id}
+                imageSrc={member.imageSrc}
+                firstName={member.firstName}
+                lastName={member.lastName}
+                description={member.description}
+                position={member.position}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
